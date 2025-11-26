@@ -5,6 +5,8 @@ import * as bootstrap from "bootstrap";
 import "./assets/scss/app.scss";
 import { getCandyProductInfo, getAllCandyInfo } from "./services/candyAPI";
 import { UI } from "./ui";
+import { theCartView } from "./accordian";
+import { theCheckoutForm } from "./accordian";
 import { renderModal } from "./modal";
 
 let candyproduct = await getCandyProductInfo();

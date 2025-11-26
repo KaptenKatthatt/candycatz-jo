@@ -1,6 +1,7 @@
 export const offCan = document.querySelector<HTMLDivElement>("#offCan")!;
 
 
+export const renderOffCan = function{
 
 offCan.innerHTML = `
 <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
@@ -27,3 +28,4 @@ offCan.innerHTML = `
 </div>
 </div>
 `;
+}

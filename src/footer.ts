@@ -1,0 +1,47 @@
+
+
+
+    <footer class="footer">
+      <div class="scallop"></div>
+      <div class="after-scallop">
+
+        <div class="contact-info">
+            <h6>Reach out to us:</h6>
+                <ul class="address-list">
+                    <li> CandyCats HQ</li>
+                    <li>123 Sweet St</li>
+                    <li> Candy City, CC 12345</li>
+                    <li> Email:<a href="candycats@sweets.com">info@candycats.com </a></li>
+                    <li> Phone: <a href="123-456-7890">123-456-7890</a></li>
+                </ul>
+        </div>
+       
+        
+
+        <div class="footer-icons">
+          <i class="bi bi-facebook"></i>
+          <i class="bi bi-instagram"></i>
+          <i class="bi bi-yelp"></i>
+        </div>
+
+
+
+        <hr>
+        <div class="footer-text">
+          <p>
+            &copy; 2025 CandyCats - "🍬 Pop and chew - all dreams come true! 🍭"
+          </p>
+          <p>Created by Jonas, Sophia & Klara</p>
+        </div>
+      </div>
+    </footer>
+
+    <div id="app"></div>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
+</footer>
+
+
+
+   

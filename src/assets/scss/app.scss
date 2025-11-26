@@ -29,6 +29,24 @@ body {
 
 /* FOOTER */
 
+.contact-info{
+    margin-bottom: 2rem;
+    color: white;
+    display: inline-block;
+    margin-top: 2rem;
+    vertical-align: top;
+    text-align: left;
+}
+
+.address-list{
+    list-style: none;
+}
+
+.address-list a{
+     text-decoration: none;
+     padding: 0;
+     margin: 0;
+}
 .footer-text {
     color: white;
     font-size: 0.7rem; 
@@ -36,41 +54,41 @@ body {
     margin: 0;
 }
 
+
 .footer-icons{
     color: $btn-candy-pink;
-    text-align: center;
+    text-align: left;
 }
 
 .footer-icons i {
     display: inline-block;
     margin: 0 8px;
-    font-size: 1.2rem;
+    font-size: 2rem;
 }
 
 .scallop {
   position:relative;
   background: $bg;
-  padding:50px;
 }
 
 .scallop::after { 
   position:absolute;
   bottom: -50px;
-  left: 0px;
   width: 100%;
   content:" ";
   background: 
   radial-gradient(circle at 50% 0%, #FFFCEF 25%, #C4DCD1 26%, #C4DCD1 40%);
   background-color: #C4DCD1;
   background-size:50px 100px;
-  height:50px;
+  height:100px;
   background-repeat: repeat-x;
+ 
 }
 .after-scallop{
   background: #C4DCD1;
   padding:50px;
   margin-bottom:50px;
-  text-align: center;
+  text-align: left;
 }
 
 

@@ -7,6 +7,7 @@ import { getCandyProductInfo, getAllCandyInfo } from "./services/candyAPI";
 import { UI } from "./ui";
 import { theCartView } from "./accordian";
 import { theCheckoutForm } from "./accordian";
+import { renderModal } from "./modal";
 
 let candyproduct = await getCandyProductInfo();
 console.log("Candyproduct", candyproduct);
@@ -15,6 +16,22 @@ console.log(candyproduct.data.images.thumbnail);
 UI.exampleTitleEl.innerText = candyproduct.data.name;
 UI.exampleCardTextEl.innerHTML = candyproduct.data.description;
 UI.exampleThumbnailEl.src = `https://www.bortakvall.se${candyproduct.data.images.thumbnail}`;
+
+// const myModal = document.getElementById("myModal");
+
+UI.exampleThumbnailEl.addEventListener("click", async () => {
+  await renderModal(6545);
+  const exampleModal = document.getElementById("exampleModal");
+  const modal = new bootstrap.Modal(exampleModal);
+  console.log("Click");
+  modal.show();
+});
+
+// const myInput = document.getElementById("myInput");
+
+// myModal.addEventListener("shown.bs.modal", () => {
+//   myInput.focus();
+// });
 
 //----ADD TO CARTtest
 let candyId: number = candyproduct.data.id;

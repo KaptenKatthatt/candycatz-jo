@@ -1,32 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>🍭Candy Catz</title>
 
-    <!-- FONT IMPORT FROM GOOGLE  -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
-      rel="stylesheet"
-    />
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>🍭Candy Catz</title>
+
+  <!-- FONT IMPORT FROM GOOGLE  -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+    rel="stylesheet" />
 
   <!-- FONT IMPORT FROM BOOTSTRAP  -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
 
+  <!-- ICON IMPORT FROM BOOTSTRAP  -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" />
 </head>
-    <!-- ICON IMPORT FROM BOOTSTRAP  -->
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css"
-    />
-  </head>
 
 <body>
   <header>
+    <!-- Navbar -->
     <nav class="navbar navbar-expand-lg bg-body-tertiary sticky-top">
       <div class="container-fluid">
         <a class="navbar-brand" href="#">
@@ -60,6 +57,7 @@
         </div>
       </div>
     </nav>
+    <!-- Carousel for header -->
     <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
       <div class="carousel-inner">
         <div class="carousel-item active">
@@ -83,13 +81,9 @@
         <span class="visually-hidden">Next</span>
       </button>
     </div>
+
+    <img src="/src/assets/img/candyCatzLogo.png" width="300px" class="d-inline-block align-top" alt="CandyCatz logo">
   </header>
-
-  <img src="/src/assets/img/candyCatzLogo.png" width="300px" class="d-inline-block align-top" alt="CandyCatz logo">
-  </header>
-
-
-
 
   <!-- Modal -->
   <div class="modalContainer"></div>
@@ -97,57 +91,24 @@
   <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
     Launch demo modal
   </button>
-
-  <div id="app"></div>
-  <body>
-    <div id="app"></div>
-
-  <div class="card" style="width: 18rem;">
-    <img src="..." class="exampleThumbnail card-img-top" alt="...">
-    <div class="card-body">
-      <h5 class="exampleTitle card-title">Card title</h5>
-      <p class="exampleCardText card-text">Some quick example text.</p>
-      <a href="#" class="btn btn-primary">Go somewhere</a>
-    </div>
-  </div>
-
-    <div class="card" style="width: 18rem">
-      <img src="..." class="exampleThumbnail card-img-top" alt="..." />
-      <div class="card-body">
-        <h5 class="exampleTitle card-title">Card title</h5>
-        <p class="exampleCardText card-text">
-          Some quick example text to build on the card title and make up the
-          bulk of the card’s content.
-        </p>
-        <a href="#" class="btn btn-primary">Go somewhere</a>
-      </div>
-    </div>
-
-    <script type="module" src="/src/main.ts"></script>
-
-
-
   <!-- FOOTER SECTION  -->
-  
-
-
-</body>
-
-<footer class="footer">
+  <footer class="footer">
     <div class="scallop"></div>
     <div class="after-scallop">
-        <div class="footer-text">
-         <p>&copy; 2025 CandyCats - "🍬 Pop and chew - all dreams come true! 🍭"</p>
-          <p>Created by Jonas, Sophia & Klara</p>
-          </div>
-             <div class="footer-icons">
-          <i class="bi bi-facebook"></i>
-          <i class="bi bi-instagram"></i>
-          <i class="bi bi-yelp"></i>
-        </div>
-        </div>
-   </footer>
+      <div class="footer-text">
+        <p>&copy; 2025 CandyCats - "🍬 Pop and chew - all dreams come true! 🍭"</p>
+        <p>Created by Jonas, Sophia & Klara</p>
+      </div>
+      <div class="footer-icons">
+        <i class="bi bi-facebook"></i>
+        <i class="bi bi-instagram"></i>
+        <i class="bi bi-yelp"></i>
+      </div>
+    </div>
+  </footer>
 
- 
-  </body>
+  <div id="app"></div>
+  <script type="module" src="/src/main.ts"></script>
+</body>
+
 </html>

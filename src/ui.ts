@@ -7,3 +7,8 @@ export const UI = {
     ".exampleThumbnail"
   ) as HTMLImageElement,
 };
+
+export const cartCheckout = {
+  cartView: document.querySelector("#cartView") as HTMLDivElement,
+  checkoutForm: document.querySelector("#checkoutForm") as HTMLDivElement,
+};

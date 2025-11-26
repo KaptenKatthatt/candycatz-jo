@@ -15,14 +15,14 @@ UI.exampleTitleEl.innerText = candyproduct.data.name;
 UI.exampleCardTextEl.innerHTML = candyproduct.data.description;
 UI.exampleThumbnailEl.src = `https://www.bortakvall.se${candyproduct.data.images.thumbnail}`;
 
-const myModal = document.getElementById("myModal");
+// const myModal = document.getElementById("myModal");
 
-UI.exampleThumbnailEl.addEventListener("click", () => {
+UI.exampleThumbnailEl.addEventListener("click", async () => {
+  await renderModal(6545);
   const exampleModal = document.getElementById("exampleModal");
   const modal = new bootstrap.Modal(exampleModal);
   console.log("Click");
   modal.show();
-  renderModal(6545);
 });
 
 // const myInput = document.getElementById("myInput");

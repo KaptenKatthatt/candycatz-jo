@@ -1,10 +1,27 @@
 const base = "https://www.bortakvall.se/api/v2";
-const products = "/products";
+const products = "/products/";
 
-const getProductId = async function (productId: number) {
-  const res = await fetch(`${base}${products}${productId}`);
-
+const fetchProductId = async function (productId: number) {
+  const res = await fetch(base + products + productId);
   const data = await res.json();
-
   return data;
 };
+
+export const getCandyProductInfo = async function () {
+  const result = await fetchProductId(6545);
+  return await result;
+};
+console.log("Get one candyproduct", await getCandyProductInfo());
+
+const fetchAllProducts = async function () {
+  const res = await fetch(base + products);
+  const data = await res.json();
+  return data;
+};
+
+export const getAllCandyInfo = async function () {
+  const result = await fetchAllProducts();
+  return result;
+};
+
+console.log("Get all the candy", await getAllCandyInfo());

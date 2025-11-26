@@ -1,0 +1,17 @@
+// 🎀 CandyColors 🍬
+$bg: #FFFCEF;
+$card-body: #FFFDF5;
+$btn-candy-pink: #f472b6;
+$btn-candy-purple: #c084fc;
+$accent: #F38CB9;
+$accent-light: #ffa1ec;
+$text: #0d0d0d;
+$nav-color: #FFFCEF;
+$shadow: 0 4px 20px rgba(0,0,0,0.5);
+$primary: $accent;
+
+@import "bootstrap/scss/bootstrap.scss";
+
+body {
+    background-color: $bg;
+}

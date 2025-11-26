@@ -1,4 +1,4 @@
-export interface candyData {
+export interface CandyData {
   status: "string";
   data: {
     id: number;
@@ -13,7 +13,7 @@ export interface candyData {
   };
 }
 
-export interface candyDataID {
+export interface CandyDataID {
   status: "string";
   data: [
     {

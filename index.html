@@ -13,79 +13,92 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
     rel="stylesheet">
-  
-      <!-- FONT IMPORT FROM BOOTSTRAP  -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+
+  <!-- FONT IMPORT FROM BOOTSTRAP  -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
 
 </head>
+
 <body>
   <header>
     <nav class="navbar navbar-expand-lg bg-body-tertiary sticky-top">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="#">  
-      <img src="/src/assets/img/candyCatzLogo.png" 
-            width="300px" 
-            class="d-inline-block align-top" 
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">
+          <img src="/src/assets/img/candyCatzLogo.png" width="300px" class="d-inline-block align-top"
             alt="CandyCatz logo">
-    </a>
-    <!--VARUKORG-->
-          <a class="nav-link position-relative" href="#"> 
-            <i class="bi bi-cart-plus"></i> 
-            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-primary">
-              1
-            </span>
-            </a>
-  
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav">
-        <li class="nav-item">
-          <a class="nav-link" href="#">Top Treats</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Sweet Savings</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Candy Hotline</a>
-        </li>
-      </ul>
+        </a>
+        <!--VARUKORG-->
+        <a class="nav-link position-relative" href="#">
+          <i class="bi bi-cart-plus"></i>
+          <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-primary">
+            1
+          </span>
+        </a>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+          aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" href="#">Top Treats</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Sweet Savings</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Candy Hotline</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img src="/src/assets/img/candy-1280.jpg" class="d-block w-100" alt="Picture of yummy candy">
+        </div>
+        <div class="carousel-item">
+          <img src="/src/assets/img/jelly-beans-1280.jpg" class="d-block w-100" alt="Picture with sour sweet treats">
+        </div>
+        <div class="carousel-item">
+          <img src="/src/assets/img/marshmallow-1280.jpg" class="d-block w-100" alt="Picture of soft mashmallow">
+        </div>
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying"
+        data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying"
+        data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
     </div>
-  </div>
-</nav>
-<div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
-  <div class="carousel-inner">
-    <div class="carousel-item active">
-      <img src="/src/assets/img/candy-1280.jpg" class="d-block w-100" alt="Picture of yummy candy">
-    </div>
-    <div class="carousel-item">
-      <img src="/src/assets/img/jelly-beans-1280.jpg" class="d-block w-100" alt="Picture with sour sweet treats">
-    </div>
-    <div class="carousel-item">
-      <img src="/src/assets/img/marshmallow-1280.jpg" class="d-block w-100" alt="Picture of soft mashmallow">
-    </div>
-  </div>
-  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Previous</span>
+  </header>
+
+  <img src="/src/assets/img/candyCatzLogo.png" width="300px" class="d-inline-block align-top" alt="CandyCatz logo">
+  </header>
+
+
+
+
+  <!-- Modal -->
+  <div class="modalContainer"></div>
+  <!-- Button trigger modal -->
+  <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+    Launch demo modal
   </button>
-  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Next</span>
-  </button>
-</div>
-</header> 
-  
+
   <div id="app"></div>
 
   <div class="card" style="width: 18rem;">
     <img src="..." class="exampleThumbnail card-img-top" alt="...">
     <div class="card-body">
       <h5 class="exampleTitle card-title">Card title</h5>
-      <p class="exampleCardText card-text">Some quick example text to build on the card title and make up the bulk of
-        the card’s
-        content.</p>
+      <p class="exampleCardText card-text">Some quick example text.</p>
       <a href="#" class="btn btn-primary">Go somewhere</a>
     </div>
   </div>
@@ -95,26 +108,26 @@
 
 
 
- <!-- FOOTER SECTION  -->
+  <!-- FOOTER SECTION  -->
 
-<footer>
-<div> 
-
+  <footer>
     <div>
-    <p>&copy; 2025 CandyCats - "🍬 Pop and chew - all dreams come true! 🍭" </p>
-    <p>Created by Jonas, Sophia & Klara</p>
-    </div>
 
-    <div>
+      <div>
+        <p>&copy; 2025 CandyCats - "🍬 Pop and chew - all dreams come true! 🍭" </p>
+        <p>Created by Jonas, Sophia & Klara</p>
+      </div>
+
+      <div>
         <i class="bi bi-facebook"></i>
         <i class="bi bi-instagram"></i>
         <i class="bi bi-yelp"></i>
 
+      </div>
+
+
     </div>
-
-
-</div>
-</footer>
+  </footer>
 
 </body>
 

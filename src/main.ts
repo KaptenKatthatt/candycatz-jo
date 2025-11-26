@@ -10,7 +10,6 @@ import { renderModal } from "./modal";
 import { theCartView, theCheckoutForm } from "./accordian";
 import { renderFooter } from "./footer";
 
-
 //EXAMPLE CARD//////
 let candyproduct = await getCandyProductInfo(6545);
 console.log("Candyproduct", candyproduct);
@@ -27,6 +26,7 @@ UI.exampleThumbnailEl.addEventListener("click", async () => {
   const exampleModal = document.getElementById("exampleModal");
   const modal = new bootstrap.Modal(exampleModal!);
   modal.show();
+  2;
 });
 
 // const myInput = document.getElementById("myInput");

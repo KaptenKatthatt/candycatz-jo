@@ -6,6 +6,8 @@ import "./assets/scss/app.scss";
 import { getCandyProductInfo, getAllCandyInfo } from "./services/candyAPI";
 import { UI } from "./ui";
 import { renderModal } from "./modal";
+import { theCartView } from "./accordian";
+import { theCheckoutForm } from "./accordian";
 
 let candyproduct = await getCandyProductInfo();
 console.log("Candyproduct", candyproduct);

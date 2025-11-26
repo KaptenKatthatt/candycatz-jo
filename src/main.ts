@@ -8,6 +8,7 @@ import { UI } from "./ui";
 import { renderModal } from "./modal";
 import { theCartView, theCheckoutForm } from "./accordian";
 
+
 let candyproduct = await getCandyProductInfo();
 console.log("Candyproduct", candyproduct);
 

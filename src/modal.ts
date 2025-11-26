@@ -5,8 +5,12 @@ import { getCandyProductInfo } from "./services/candyAPI";
 // UI.modalParagraphEl.innerHTML =
 // UI.modalThumbnailEL.src = `https://www.bortakvall.se${candyproduct.data.images.thumbnail}`;
 
+/**
+ * Renders a modal with the clicked candyId
+ * @param productId
+ */
 export const renderModal = async function (productId: number) {
-  let candyproduct = await getCandyProductInfo();
+  let candyproduct = await getCandyProductInfo(productId);
   let modalTitle = candyproduct.data.name;
   let modalParagraph = candyproduct.data.description;
   let modalThumbnailURL = `https://www.bortakvall.se${candyproduct.data.images.thumbnail}`;

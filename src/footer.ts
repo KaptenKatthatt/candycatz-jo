@@ -1,4 +1,5 @@
-
+export const renderFooter = function() {
+document.querySelector("footer")!.innerHTML = `
 
 
     <footer class="footer">
@@ -8,10 +9,10 @@
         <div class="contact-info">
             <h6>Reach out to us:</h6>
                 <ul class="address-list">
-                    <li> CandyCats HQ</li>
+                    <li> CandyCatz HQ</li>
                     <li>123 Sweet St</li>
                     <li> Candy City, CC 12345</li>
-                    <li> Email:<a href="candycats@sweets.com">info@candycats.com </a></li>
+                    <li> Email:<a href="candycatz@sweets.com">info@candycatz.com </a></li>
                     <li> Phone: <a href="123-456-7890">123-456-7890</a></li>
                 </ul>
         </div>
@@ -29,7 +30,7 @@
         <hr>
         <div class="footer-text">
           <p>
-            &copy; 2025 CandyCats - "🍬 Pop and chew - all dreams come true! 🍭"
+            &copy; 2025 CandyCatz - "🍬 Pop and chew - all dreams come true! 🍭"
           </p>
           <p>Created by Jonas, Sophia & Klara</p>
         </div>
@@ -41,7 +42,7 @@
   </body>
 </html>
 </footer>
-
-
+`
+}
 
    

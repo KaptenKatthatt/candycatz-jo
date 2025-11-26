@@ -1,27 +1,31 @@
 //Bootstrap CSS
 import "bootstrap/dist/css/bootstrap.css";
+//Bootstrap JS
 import * as bootstrap from "bootstrap";
 
 import "./assets/scss/app.scss";
 import { getCandyProductInfo, getAllCandyInfo } from "./services/candyAPI";
 import { UI } from "./ui";
 import { renderModal } from "./modal";
+import { theCartView, theCheckoutForm } from "./accordian";
+import { renderFooter } from "./footer";
 
-let candyproduct = await getCandyProductInfo();
+
+//EXAMPLE CARD//////
+let candyproduct = await getCandyProductInfo(6545);
 console.log("Candyproduct", candyproduct);
 
 console.log(candyproduct.data.images.thumbnail);
 UI.exampleTitleEl.innerText = candyproduct.data.name;
 UI.exampleCardTextEl.innerHTML = candyproduct.data.description;
 UI.exampleThumbnailEl.src = `https://www.bortakvall.se${candyproduct.data.images.thumbnail}`;
-
+///////////
 // const myModal = document.getElementById("myModal");
 
 UI.exampleThumbnailEl.addEventListener("click", async () => {
-  await renderModal(6545);
+  await renderModal(candyproduct.data.id); //Change 6545 to clickedCandyId
   const exampleModal = document.getElementById("exampleModal");
-  const modal = new bootstrap.Modal(exampleModal);
-  console.log("Click");
+  const modal = new bootstrap.Modal(exampleModal!);
   modal.show();
 });
 
@@ -55,3 +59,7 @@ function addToCart(candyId: number) {
   console.log("Candycart", candyCart);
 }
 addToCart(candyId);
+
+
+//Footer
+renderFooter();

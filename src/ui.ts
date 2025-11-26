@@ -18,3 +18,8 @@ export const UI = {
     ".modalParagraph"
   ) as HTMLParagraphElement,
 };
+
+export const cartCheckout = {
+  cartView: document.querySelector("#cartView") as HTMLDivElement,
+  checkoutForm: document.querySelector("#checkoutForm") as HTMLDivElement,
+};

@@ -1,21 +1,27 @@
 import { getAllCandyInfo } from "../services/candyAPI";
 import type { CandyData } from "../services/candyApiTypes";
-export const renderCards = async function () {
+
+export const renderAllCards = async function () {
   //Get all products from API
 
-  const allCandyCardsContainer = document.querySelector(
-    ".allCandyCardsContainer"
+  const allCardsContainerEl = document.querySelector(
+    ".allCardsContainer"
   ) as HTMLDivElement;
 
-  const allCandyCards: CandyData[] = await getAllCandyInfo();
+  // const allCandyCards: CandyData[] = await getAllCandyInfo();
 
-  allCandyCardsContainer.innerHTML = allCandyCards
+  const response = await getAllCandyInfo();
+  const allCandyCards: CandyData[] = response.data;
+
+  //TODO Add if check if response.status === "success"
+
+  allCardsContainerEl.innerHTML = allCandyCards
     .map((product) => {
-      let thumbnailURL = `https://www.bortakvall.se${product.data.images.thumbnail}`;
-      let candyTitle = product.data.name;
-      let candyPrice = product.data.price;
-      let candyStockQty = product.data.stock_quantity;
-      let candyStockStatus = product.data.stock_status;
+      let thumbnailURL = `https://www.bortakvall.se${product.images.thumbnail}`;
+      let candyTitle = product.name;
+      let candyPrice = product.price;
+      let candyStockQty = product.stock_quantity;
+      let candyStockStatus = product.stock_status;
       // let candyOnSale = product.data.on_sale;
 
       return `<div class="card" style="width: 18rem;">

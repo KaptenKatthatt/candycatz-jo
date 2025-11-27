@@ -11,9 +11,9 @@ import { renderFooter } from "./components/footer";
 import { renderNavbar } from "./components/navbar";
 import { renderCarousel } from "./components/carousel";
 import { addToCart } from "./components/addToCart";
+import { renderAllCards } from "./components/renderAllCards";
 
 //EXAMPLE CARD//////
-//Example card
 const exampleTitleEl = document.querySelector(
   ".exampleTitle"
 ) as HTMLHeadElement;
@@ -47,6 +47,9 @@ addToCart();
 
 renderCartView();
 renderCheckoutForm();
+
+//RenderAllCards
+renderAllCards();
 
 //Carousel hero
 renderCarousel();

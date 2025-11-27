@@ -9,7 +9,7 @@ $text: #0d0d0d;
 $nav-color: #FFFCEF;
 $shadow: 0 4px 20px rgba(0,0,0,0.5);
 $primary: $accent;
-$footer: #F1C0E8; 
+$footer: #C4DCD1; 
 
 @import "bootstrap/scss/bootstrap.scss";
 
@@ -17,6 +17,16 @@ body {
     background-color: $bg;
     padding-top: 105px;
 }
+
+/*  OFFCAN - YOUR CANDY CART  */
+
+.offcanvas{ 
+  background-color: $accent;
+  
+}
+
+
+
 
 /* FOOTER */
 

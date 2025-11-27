@@ -9,6 +9,7 @@ import { UI } from "./ui";
 import { renderModal } from "./modal";
 import { theCartView, theCheckoutForm } from "./accordian";
 import { renderFooter } from "./footer";
+import { renderNavbar } from "./navbar";
 
 //EXAMPLE CARD//////
 let candyproduct = await getCandyProductInfo(6545);
@@ -60,6 +61,7 @@ function addToCart(candyId: number) {
 }
 addToCart(candyId);
 
-
+//Navbar
+renderNavbar();
 //Footer
 renderFooter();

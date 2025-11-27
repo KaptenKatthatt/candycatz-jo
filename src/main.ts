@@ -2,7 +2,7 @@
 import "bootstrap/dist/css/bootstrap.css";
 //Bootstrap JS
 import * as bootstrap from "bootstrap";
-
+import { offCan } from "./offcan";
 import "./assets/scss/app.scss";
 import { getCandyProductInfo, getAllCandyInfo } from "./services/candyAPI";
 import { UI } from "./ui";

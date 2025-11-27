@@ -15,7 +15,23 @@ export const renderModal = async function (productId: number) {
   let modalParagraph = candyproduct.data.description;
   let modalThumbnailURL = `https://www.bortakvall.se${candyproduct.data.images.thumbnail}`;
 
-  UI.modalContainerEl.innerHTML = `
+  //Modal product info
+  const modalContainerEl = document.querySelector(
+    ".modalContainer"
+  ) as HTMLDivElement;
+
+  const modalTitleEl = document.querySelector(
+    ".modalTitle"
+  ) as HTMLHeadingElement;
+
+  const modalThumbnailEL = document.querySelector(
+    ".modalThumbnail"
+  ) as HTMLImageElement;
+  const modalParagraphEl = document.querySelector(
+    ".modalParagraph"
+  ) as HTMLParagraphElement;
+
+  modalContainerEl.innerHTML = `
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">

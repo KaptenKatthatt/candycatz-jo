@@ -1,6 +1,8 @@
-import { cartCheckout } from "./ui";
+const cartView = document.querySelector("#cartView") as HTMLDivElement;
+const checkoutForm = document.querySelector("#checkoutForm") as HTMLDivElement;
 
-export const theCartView = cartCheckout.cartView.innerHTML = `<div class="accordion" id="accordionPanelsStayOpenExample">
+export const renderCartView = function () {
+  cartView.innerHTML = `<div class="accordion" id="accordionPanelsStayOpenExample">
   <div class="accordion-item">
     <h2 class="accordion-header" id="panelsStayOpen-headingOne">
       <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
@@ -14,8 +16,10 @@ export const theCartView = cartCheckout.cartView.innerHTML = `<div class="accord
     </div>
   </div>
 `;
+};
 
-export const theCheckoutForm = cartCheckout.checkoutForm.innerHTML = `
+export const renderCheckoutForm = function () {
+  checkoutForm.innerHTML = `
 <div class="accordion" id="accordionPanelsStayOpenExample">  
 <div class="accordion-item">
     <h2 class="accordion-header" id="panelsStayOpen-headingTwo">
@@ -58,3 +62,4 @@ export const theCheckoutForm = cartCheckout.checkoutForm.innerHTML = `
     </div>
   </div>
 `;
+};

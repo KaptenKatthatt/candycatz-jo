@@ -4,12 +4,14 @@ import "bootstrap/dist/css/bootstrap.css";
 import * as bootstrap from "bootstrap";
 import { offCan } from "./offcan";
 import "./assets/scss/app.scss";
-import { getCandyProductInfo, getAllCandyInfo } from "./services/candyAPI";
+import { getCandyProductInfo } from "./services/candyAPI";
 import { UI } from "./ui";
 import { renderModal } from "./modal";
-import { theCartView, theCheckoutForm } from "./accordian";
+import { renderCartView, renderCheckoutForm } from "./accordian";
 import { renderFooter } from "./footer";
 import { renderNavbar } from "./navbar";
+import { renderCarousel } from "./carousel";
+import { addToCart } from "./addToCart";
 
 //EXAMPLE CARD//////
 let candyproduct = await getCandyProductInfo(6545);
@@ -19,8 +21,6 @@ console.log(candyproduct.data.images.thumbnail);
 UI.exampleTitleEl.innerText = candyproduct.data.name;
 UI.exampleCardTextEl.innerHTML = candyproduct.data.description;
 UI.exampleThumbnailEl.src = `https://www.bortakvall.se${candyproduct.data.images.thumbnail}`;
-///////////
-// const myModal = document.getElementById("myModal");
 
 UI.exampleThumbnailEl.addEventListener("click", async () => {
   await renderModal(candyproduct.data.id); //Change 6545 to clickedCandyId
@@ -30,37 +30,16 @@ UI.exampleThumbnailEl.addEventListener("click", async () => {
   2;
 });
 
-// const myInput = document.getElementById("myInput");
+///////////
 
-// myModal.addEventListener("shown.bs.modal", () => {
-//   myInput.focus();
-// });
+//Add to cart test
+addToCart();
 
-//----ADD TO CARTtest
-let candyId: number = candyproduct.data.id;
-console.log(candyId);
-interface cartItem {
-  id: number;
-  amount: number;
-}
-let candyCart: cartItem[] = [];
+renderCartView();
+renderCheckoutForm();
 
-function addToCart(candyId: number) {
-  //finns produkten i redan? så ska deta addas på i amount i arrayen
-  const candyIsThere = candyCart.find((item) => item.id === candyId);
-  if (candyIsThere) {
-    candyIsThere.amount++;
-    //annars lägg till en ny object
-  } else {
-    candyCart.push({
-      id: candyId,
-      amount: 1,
-    });
-  }
-  console.log("Candycart", candyCart);
-}
-addToCart(candyId);
-
+//Carousel hero
+renderCarousel();
 //Navbar
 renderNavbar();
 //Footer

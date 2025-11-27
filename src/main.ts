@@ -2,7 +2,7 @@
 import "bootstrap/dist/css/bootstrap.css";
 //Bootstrap JS
 import * as bootstrap from "bootstrap";
-import { offCan } from "./offcan";
+import { renderOffCan } from "./offcan";
 import "./assets/scss/app.scss";
 import { getCandyProductInfo } from "./services/candyAPI";
 import { UI } from "./ui";
@@ -42,5 +42,8 @@ renderCheckoutForm();
 renderCarousel();
 //Navbar
 renderNavbar();
+//OffCanvas cart
+renderOffCan();
+
 //Footer
 renderFooter();

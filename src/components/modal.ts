@@ -1,5 +1,4 @@
-import { UI } from "./ui";
-import { getCandyProductInfo } from "./services/candyAPI";
+import { getCandyProductInfo } from "../services/candyAPI";
 
 // UI.modalTitleEl.innerText = candyproduct.data.name;
 // UI.modalParagraphEl.innerHTML =
@@ -20,16 +19,16 @@ export const renderModal = async function (productId: number) {
     ".modalContainer"
   ) as HTMLDivElement;
 
-  const modalTitleEl = document.querySelector(
-    ".modalTitle"
-  ) as HTMLHeadingElement;
+  // const modalTitleEl = document.querySelector(
+  //   ".modalTitle"
+  // ) as HTMLHeadingElement;
 
-  const modalThumbnailEL = document.querySelector(
-    ".modalThumbnail"
-  ) as HTMLImageElement;
-  const modalParagraphEl = document.querySelector(
-    ".modalParagraph"
-  ) as HTMLParagraphElement;
+  // const modalThumbnailEL = document.querySelector(
+  //   ".modalThumbnail"
+  // ) as HTMLImageElement;
+  // const modalParagraphEl = document.querySelector(
+  //   ".modalParagraph"
+  // ) as HTMLParagraphElement;
 
   modalContainerEl.innerHTML = `
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">

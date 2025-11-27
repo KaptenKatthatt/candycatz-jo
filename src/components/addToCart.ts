@@ -1,4 +1,4 @@
-import { getCandyProductInfo } from "./services/candyAPI";
+import { getCandyProductInfo } from "../services/candyAPI";
 
 export const addToCart = async function () {
   let candyproduct = await getCandyProductInfo(6545);

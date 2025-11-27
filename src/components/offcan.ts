@@ -1,4 +1,4 @@
-export const offCan = document.querySelector<HTMLDivElement>("#offCan")!;
+const offCan = document.querySelector<HTMLDivElement>("#offCan")!;
 
 export const renderOffCan = function () {
   offCan.innerHTML = `

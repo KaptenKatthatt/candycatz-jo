@@ -2,27 +2,37 @@
 import "bootstrap/dist/css/bootstrap.css";
 //Bootstrap JS
 import * as bootstrap from "bootstrap";
-import { renderOffCan } from "./offcan";
+import { renderOffCan } from "./components/offcan";
 import "./assets/scss/app.scss";
 import { getCandyProductInfo } from "./services/candyAPI";
-import { UI } from "./ui";
-import { renderModal } from "./modal";
-import { renderCartView, renderCheckoutForm } from "./accordian";
-import { renderFooter } from "./footer";
-import { renderNavbar } from "./navbar";
-import { renderCarousel } from "./carousel";
-import { addToCart } from "./addToCart";
+import { renderModal } from "./components/modal";
+import { renderCartView, renderCheckoutForm } from "./components/accordian";
+import { renderFooter } from "./components/footer";
+import { renderNavbar } from "./components/navbar";
+import { renderCarousel } from "./components/carousel";
+import { addToCart } from "./components/addToCart";
 
 //EXAMPLE CARD//////
+//Example card
+const exampleTitleEl = document.querySelector(
+  ".exampleTitle"
+) as HTMLHeadElement;
+const exampleCardTextEl = document.querySelector(
+  ".exampleCardText"
+) as HTMLParagraphElement;
+const exampleThumbnailEl = document.querySelector(
+  ".exampleThumbnail"
+) as HTMLImageElement;
+
 let candyproduct = await getCandyProductInfo(6545);
 console.log("Candyproduct", candyproduct);
 
 console.log(candyproduct.data.images.thumbnail);
-UI.exampleTitleEl.innerText = candyproduct.data.name;
-UI.exampleCardTextEl.innerHTML = candyproduct.data.description;
-UI.exampleThumbnailEl.src = `https://www.bortakvall.se${candyproduct.data.images.thumbnail}`;
+exampleTitleEl.innerText = candyproduct.data.name;
+exampleCardTextEl.innerHTML = candyproduct.data.description;
+exampleThumbnailEl.src = `https://www.bortakvall.se${candyproduct.data.images.thumbnail}`;
 
-UI.exampleThumbnailEl.addEventListener("click", async () => {
+exampleThumbnailEl.addEventListener("click", async () => {
   await renderModal(candyproduct.data.id); //Change 6545 to clickedCandyId
   const exampleModal = document.getElementById("exampleModal");
   const modal = new bootstrap.Modal(exampleModal!);

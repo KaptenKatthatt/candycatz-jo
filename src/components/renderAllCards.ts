@@ -1,5 +1,5 @@
-import { getAllCandyInfo } from "./services/candyAPI";
-import type { CandyData } from "./services/candyApiTypes";
+import { getAllCandyInfo } from "../services/candyAPI";
+import type { CandyData } from "../services/candyApiTypes";
 export const renderCards = async function () {
   //Get all products from API
 

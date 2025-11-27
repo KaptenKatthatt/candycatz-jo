@@ -12,8 +12,8 @@ export const renderOffCan = function () {
 
 
 
-<div class="candyCart-btn-container">
-<div class="qty-controls"> 
+<div class="candyCart-qty-container">
+
 
   <button class = "minusBtn" data-action="minus" type = "button">-</button>
 
@@ -21,9 +21,10 @@ export const renderOffCan = function () {
 
   <button class = "plusBtn" data-action= "plus" type = "button">+</button>
 
+</div>
 
-</div>
-</div>
+<hr>
+
 
 `;
 

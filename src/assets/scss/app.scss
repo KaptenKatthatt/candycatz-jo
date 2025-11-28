@@ -11,6 +11,7 @@ $shadow: 0 4px 20px rgba(0,0,0,0.5);
 $primary: $accent;
 $footer: #C4DCD1; 
 $offcanvas: #BDE0FE; 
+$title-text: #ea5d93;
 
 
 @import "bootstrap/scss/bootstrap.scss";
@@ -22,6 +23,19 @@ body {
 
 /*  OFFCAN - YOUR CANDY CART  */
 
+@font-face {
+  font-family: "Super Chiby";
+  src: url(/src/assets/fonts/super_chiby/Super\ Chiby.ttf);
+
+}
+
+h5{
+  font-family: "Super Chiby";
+  font-size: 2.3rem;
+  color:$title-text;
+  
+}
+
 .offcanvas{ 
   background-color: $offcanvas;
 }
@@ -29,7 +43,7 @@ body {
 .candyCart-qty-container{
   white-space: nowrap;
   position: absolute;
-  top: 30%;
+  top: 40%;
   left: 70%;
   transform: translateX(-50%);
 }

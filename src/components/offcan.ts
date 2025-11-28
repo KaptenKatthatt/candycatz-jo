@@ -10,10 +10,16 @@ export const renderOffCan = function () {
     Cart details here
   </div>
 
+  <div class="offcanvas-body">
+   Total Cost
+  </div>
+
 
 
 <div class="candyCart-qty-container">
 
+<div class=" candyCart-qty-container">
+<div class="qty-controls"> 
 
   <button class = "minusBtn" data-action="minus" type = "button">-</button>
 

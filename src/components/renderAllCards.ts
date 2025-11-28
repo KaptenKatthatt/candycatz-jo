@@ -22,9 +22,10 @@ export const renderAllCards = async function () {
       let candyPrice = product.price;
       let candyStockQty = product.stock_quantity;
       let candyStockStatus = product.stock_status;
+      let candyDataId = product.id;
       // let candyOnSale = product.data.on_sale;
 
-      return `<div class="card" style="width: 18rem;">
+      return `<div class="card" data-product-id="${candyDataId}" style="width: 18rem;">
   <img src="${thumbnailURL}" class="card-img-top" alt="Image of ${candyTitle}">
   <div class="card-body">
     <h5 class="card-title">${candyTitle}</h5>
@@ -32,7 +33,8 @@ export const renderAllCards = async function () {
       candyStockStatus === "instock" ? candyStockQty : "Out of stock"
     }</p>
     <p class="card-text">${candyPrice}</p>
-    <a href="#" class="btn btn-primary">Go somewhere</a>
+    <a href="#" class="btn btn-primary">Read more</a>
+    <a href="#" class="btn btn-secondary">+ Add</a>
   </div>
 </div>
   `;

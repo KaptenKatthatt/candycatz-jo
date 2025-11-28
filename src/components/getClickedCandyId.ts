@@ -1,4 +1,4 @@
-import { renderModal } from "./components/modal";
+import { renderModal } from "./modal";
 
 const allCardsContainerEl = document.querySelector<HTMLDivElement>(".allCardsContainer")!;
 

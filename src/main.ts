@@ -12,7 +12,7 @@ import { renderNavbar } from "./components/navbar";
 import { renderCarousel } from "./components/carousel";
 import { addToCart } from "./components/addToCart";
 import { renderAllCards } from "./components/renderAllCards";
-import { getClickedCandyId } from "./getClickedCandyId";
+import { getClickedCandyId } from "./components/getClickedCandyId";
 
 //EXAMPLE CARD//////
 const exampleTitleEl = document.querySelector(

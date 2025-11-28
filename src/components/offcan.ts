@@ -1,5 +1,4 @@
 export const offCan = document.querySelector<HTMLDivElement>("#offCan")!;
-
 export const renderOffCan = function () {
   offCan.innerHTML = `
 <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
@@ -11,9 +10,15 @@ export const renderOffCan = function () {
     Cart details here
   </div>
 
+  <div class="offcanvas-body">
+   Total Cost
+  </div>
 
 
-<div class="candyCart-btn-container">
+
+<div class="candyCart-qty-container">
+
+<div class=" candyCart-qty-container">
 <div class="qty-controls"> 
 
   <button class = "minusBtn" data-action="minus" type = "button">-</button>
@@ -22,8 +27,24 @@ export const renderOffCan = function () {
 
   <button class = "plusBtn" data-action= "plus" type = "button">+</button>
 
+</div>
 
-</div>
-</div>
+<hr>
+
+
 `;
-};
+
+
+}
+
+
+
+/*
+const qtyControls = document.querySelectorAll<HTMLDivElement>('.qty-controls')!;
+
+qtyContainers.forEach(container => {
+  const minusBtn = container.querySelector<HTMLButtonElement>(".minusBtn")!;
+  const plusBtn = container.querySelector<HTMLButtonElement>(".plusBtn")!;
+  const input = container.querySelector<HTMLInputElement>(".product.qty")!;
+});
+*/

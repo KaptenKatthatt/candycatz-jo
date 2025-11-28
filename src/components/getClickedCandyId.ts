@@ -37,5 +37,5 @@ export function getClickedCandyId() {
 //candyCardsContainer
 //btn-primary
 //allCandyCardContainer
-
 // btn.parentelement.dataset.id
+// FUNKAR??

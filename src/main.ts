@@ -25,22 +25,6 @@ const exampleThumbnailEl = document.querySelector(
   ".exampleThumbnail"
 ) as HTMLImageElement;
 
-let candyproduct = await getCandyProductInfo(6545);
-console.log("Candyproduct", candyproduct);
-
-console.log(candyproduct.data.images.thumbnail);
-exampleTitleEl.innerText = candyproduct.data.name;
-exampleCardTextEl.innerHTML = candyproduct.data.description;
-exampleThumbnailEl.src = `https://www.bortakvall.se${candyproduct.data.images.thumbnail}`;
-
-exampleThumbnailEl.addEventListener("click", async () => {
-  await renderModal(candyproduct.data.id); //Change 6545 to clickedCandyId
-  const exampleModal = document.getElementById("exampleModal");
-  const modal = new bootstrap.Modal(exampleModal!);
-  modal.show();
-  2;
-});
-
 ///////////
 
 //Add to cart test

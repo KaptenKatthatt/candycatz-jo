@@ -25,8 +25,8 @@ export function getClickedCandyId() {
         console.log("NOTHING TO FIND WTH");
         return;
     }
-            console.log("fungerar det", candyId);
             await renderModal(candyId);
+            console.log("fungerar det", candyId);
             // await, väntar på api svaret från Jonas rendelModal async funktion
             //renderProductId();
             

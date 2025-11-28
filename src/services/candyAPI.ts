@@ -8,7 +8,7 @@ const fetchProductId = async function (productId: number) {
 };
 
 export const getCandyProductInfo = async function (productId: number) {
-  const result = await fetchProductId(6545);
+  const result = await fetchProductId(productId);
   return await result;
 };
 console.log("Get one candyproduct", await getCandyProductInfo(6545));

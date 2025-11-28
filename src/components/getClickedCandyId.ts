@@ -1,4 +1,4 @@
-import { renderModal } from "./components/modal";
+import { renderModal } from "./modal";
 
 const allCardsContainerEl = document.querySelector<HTMLDivElement>(".allCardsContainer")!;
 
@@ -37,5 +37,5 @@ export function getClickedCandyId() {
 //candyCardsContainer
 //btn-primary
 //allCandyCardContainer
-
 // btn.parentelement.dataset.id
+// FUNKAR??

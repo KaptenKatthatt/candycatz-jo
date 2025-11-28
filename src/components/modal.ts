@@ -1,4 +1,5 @@
 import { getCandyProductInfo } from "../services/candyAPI";
+import { Modal } from "bootstrap";
 
 // UI.modalTitleEl.innerText = candyproduct.data.name;
 // UI.modalParagraphEl.innerHTML =
@@ -9,10 +10,10 @@ import { getCandyProductInfo } from "../services/candyAPI";
  * @param productId
  */
 export const renderModal = async function (productId: number) {
-  let candyproduct = await getCandyProductInfo(productId);
-  let modalTitle = candyproduct.data.name;
-  let modalParagraph = candyproduct.data.description;
-  let modalThumbnailURL = `https://www.bortakvall.se${candyproduct.data.images.thumbnail}`;
+  let candyProduct = await getCandyProductInfo(productId);
+  let candyTitle = candyProduct.data.name;
+  let candyParagraph = candyProduct.data.description;
+  let modalThumbnailURL = `https://www.bortakvall.se${candyProduct.data.images.thumbnail}`;
 
   //Modal product info
   const modalContainerEl = document.querySelector(
@@ -31,16 +32,16 @@ export const renderModal = async function (productId: number) {
   // ) as HTMLParagraphElement;
 
   modalContainerEl.innerHTML = `
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="candyModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title modalTitle fs-5"">${modalTitle}</h5>
+          <h5 class="modal-title modalTitle fs-5"">${candyTitle}</h5>
           <button type=" button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-          <img src="${modalThumbnailURL}" class="modalThumbnail card-img-top" alt="${modalTitle}">
-          <p class="modalParagraph card-text">${modalParagraph}</p>
+          <img src="${modalThumbnailURL}" class="modalThumbnail card-img-top" alt="${candyTitle}">
+          <p class="modalParagraph card-text">${candyParagraph}</p>
 
         </div>
         <div class="modal-footer">
@@ -51,4 +52,7 @@ export const renderModal = async function (productId: number) {
     </div>
   </div>
   `;
+  const candyModal = document.getElementById("candyModal");
+  const modal = new Modal(candyModal!);
+  modal.show();
 };

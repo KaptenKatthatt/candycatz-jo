@@ -26,7 +26,7 @@ export const renderAllCards = async function () {
       // let candyOnSale = product.data.on_sale;
 
       return `<div class="card" data-product-id="${candyDataId}" style="width: 18rem;">
-  <img src="${thumbnailURL}" class="card-img-top" alt="Image of ${candyTitle}">
+  <img src="${thumbnailURL}" class="card-img-top cursor-pointer" alt="Image of ${candyTitle}">
   <div class="card-body">
     <h5 class="card-title">${candyTitle}</h5>
     <p class="card-text">In stock:${
@@ -40,6 +40,7 @@ export const renderAllCards = async function () {
   `;
     })
     .join("");
-
   //Map all products to cards
 };
+
+

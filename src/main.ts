@@ -12,6 +12,7 @@ import { renderNavbar } from "./components/navbar";
 import { renderCarousel } from "./components/carousel";
 import { addToCart } from "./components/addToCart";
 import { renderAllCards } from "./components/renderAllCards";
+import { getClickedCandyId } from "./getClickedCandyId";
 
 //EXAMPLE CARD//////
 const exampleTitleEl = document.querySelector(
@@ -50,6 +51,9 @@ renderCheckoutForm();
 
 //RenderAllCards
 renderAllCards();
+
+//getCandyClickedId, startar efter alla kort laddas ut
+getClickedCandyId();
 
 //Carousel hero
 renderCarousel();

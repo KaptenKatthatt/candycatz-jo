@@ -141,3 +141,22 @@ h5{
   margin-bottom:50px;
   text-align: left;
 }
+
+.infoContainer{
+  position: relative;
+  bottom: 10px;
+}
+.infoContainer h5{
+  height: 70px;
+}
+.stockStatus{
+  height: 40px;
+}
+.priceTag{
+  // margin-bottom: 90px;
+}
+
+.allCardsContainer{
+  max-height: 990px;
+  overflow: hidden;
+}

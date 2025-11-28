@@ -25,22 +25,24 @@ export const renderAllCards = async function () {
       let candyDataId = product.id;
       // let candyOnSale = product.data.on_sale;
 
-      return `<div class="card" data-product-id="${candyDataId}" style="width: 18rem;">
-  <img src="${thumbnailURL}" class="card-img-top cursor-pointer" alt="Image of ${candyTitle}">
-  <div class="card-body">
-    <h5 class="card-title">${candyTitle}</h5>
-    <p class="card-text">In stock:${
-      candyStockStatus === "instock" ? candyStockQty : "Out of stock"
-    }</p>
-    <p class="card-text">${candyPrice}</p>
-    <a href="#" class="btn btn-primary">Read more</a>
-    <a href="#" class="btn btn-secondary">+ Add</a>
-  </div>
-</div>
-  `;
+      //Map all products to cards
+      return `<div class="card rounded-4 p-1" data-product-id="${candyDataId}" style="width: 10rem;">
+      <img src="${thumbnailURL}" class="card-img-top cursor-pointer rounded-4" alt="Image of ${candyTitle}">
+      <div class="card-body">
+      <div class="infoContainer">
+        <h5 class="card-title fs-5">${candyTitle}</h5>
+        <p class="card-text stockStatus">In stock: ${
+          candyStockStatus === "instock"
+            ? `<span class="fw-bold">${candyStockQty}</span>`
+            : `<span class="fst-italic pb-1"><br>Out of stock</span>`
+        }</p>
+        <p class="card-text priceTag">Price: <span class="fw-bold">${candyPrice}</span></p>
+        <button class="btn btn-primary my-2">Read more</button>
+        <button class="btn btn-success"><i class="bi bi-basket"></i></button>
+        </div>
+      </div>
+        </div>
+      `;
     })
     .join("");
-  //Map all products to cards
 };
-
-

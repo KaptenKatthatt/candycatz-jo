@@ -9,7 +9,14 @@ import { getCandyProductInfo } from "./services/candyAPI";
  * @param productId
  */
 export const renderModal = async function (productId: number) {
-  let candyproduct = await getCandyProductInfo(productId);
+  let candyproduct;
+  try {
+    candyproduct = await getCandyProductInfo(productId);
+  } catch {
+    console.error("Failed to load candproduct");
+    return;
+  }
+
   let modalTitle = candyproduct.data.name;
   let modalParagraph = candyproduct.data.description;
   let modalThumbnailURL = `https://www.bortakvall.se${candyproduct.data.images.thumbnail}`;
@@ -20,7 +27,7 @@ export const renderModal = async function (productId: number) {
       <div class="modal-content">
         <div class="modal-header">
           <h5 class="modal-title modalTitle fs-5"">${modalTitle}</h5>
-          <button type=" button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
           <img src="${modalThumbnailURL}" class="modalThumbnail card-img-top" alt="${modalTitle}">

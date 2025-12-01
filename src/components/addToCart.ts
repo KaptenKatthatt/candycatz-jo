@@ -6,7 +6,7 @@ const allCardsContainerEl =
 
 let clickedCandyId = 0;
 const kindOfCandyInCartArr: CandyData[] = [];
-const cartArray: cartroduct[] = [];
+let cartArray: CartProduct[] = [];
 
 class CartProduct {
   id: number;
@@ -34,6 +34,46 @@ class CartProduct {
   }
 }
 
+const increaseAmountOfProductInCart = function (candyId: number) {
+  const candyFound = cartArray.find(
+    (product: CartProduct) => product.id === candyId
+  );
+  candyFound!.amount++;
+  candyFound!.updateTotalCost();
+  console.log("CartArray after amount++", cartArray);
+};
+
+const decreaseAmountOfProductInCart = function (candyId: number) {
+  const candyFound = cartArray.find(
+    (product: CartProduct) => product.id === candyId
+  );
+  if (candyFound && candyFound.amount === 1) {
+    deleteProductFromCart(candyId);
+  } else if (candyFound) {
+    candyFound.amount--;
+  }
+  candyFound!.updateTotalCost();
+  console.log("CartArray after amount++", cartArray);
+};
+
+const deleteProductFromCart = function (candyId: number) {
+  const candyFound = cartArray.find(
+    (product: CartProduct) => product.id === candyId
+  );
+  //Find index of candyFound
+  // Slice out index of candyFound
+  cartArray = cartArray.filter((product) => product.id !== candyFound!.id);
+};
+
+const getTotalAmountOfProductsInCart = function () {
+  return cartArray.length;
+};
+
+export const getClickedCandyId = function () {
+  return clickedCandyId;
+};
+
+//Adds clicked candy to cart, if exists, increase amount instead.
 allCardsContainerEl?.addEventListener("click", (e) => {
   const target = e.target as HTMLElement;
   if (target.classList.contains("bi-basket")) {
@@ -61,14 +101,18 @@ export const addToCart = async function (clickedCandyId: number) {
 
     cartArray.push(candyProduct);
     console.log("CartArray", cartArray);
-  } else {
+  } else if (foundSameCandyInCart) {
     const candyFound = cartArray.find(
       (product: CartProduct) => product.id === clickedCandyId
     );
-    candyFound.amount++;
-    candyFound.updateTotalCost();
+    candyFound!.amount++;
+    candyFound!.updateTotalCost();
     console.log("CartArray after amount++", cartArray);
   }
 
   console.log("kindOfCandyInCartArr", kindOfCandyInCartArr);
+  console.log(
+    "Total amount of prods in cart",
+    getTotalAmountOfProductsInCart()
+  );
 };

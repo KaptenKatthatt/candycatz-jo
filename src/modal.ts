@@ -1,4 +1,3 @@
-import { UI } from "./ui";
 import { getCandyProductInfo } from "./services/candyAPI";
 
 // UI.modalTitleEl.innerText = candyproduct.data.name;
@@ -15,7 +14,7 @@ export const renderModal = async function (productId: number) {
   let modalParagraph = candyproduct.data.description;
   let modalThumbnailURL = `https://www.bortakvall.se${candyproduct.data.images.thumbnail}`;
 
-  UI.modalContainerEl.innerHTML = `
+  document.querySelector<HTMLDivElement>(".modalContainer")!.innerHTML = `
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">

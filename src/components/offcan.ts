@@ -74,8 +74,9 @@ export const renderOffCan = function () {
 
  <!-- Continue Shopping Button -->
             <div class="text-start mt-4 mb-4">
-                <a href="#" class="btn btn-outline-primary">
+                <button type="button" class="btn btn-outline-primary" data-bs-dismiss="offcanvas"  aria-label="Close">
                     <i class="bi bi-arrow-left me-2"></i>Continue Shopping</a>
+                    </button>
             </div>
 
 

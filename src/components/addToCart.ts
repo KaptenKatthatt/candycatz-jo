@@ -6,6 +6,8 @@ export const addToCart = async function () {
   //----ADD TO CARTtest
   let candyId: number = candyproduct.data.id;
 
+  // Kalle ankas verkstad
+
   console.log(candyId);
   interface cartItem {
     id: number;

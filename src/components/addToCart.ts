@@ -16,7 +16,7 @@ allCardsContainerEl?.addEventListener("click", (e) => {
 });
 
 export const addToCart = async function (productId: number) {
-  let fetchedCandyObject = await getCandyProductInfo(clickedCandyId);
+  let fetchedCandyObject = await getCandyProductInfo(productId);
   console.log("Fetched candyObject", await fetchedCandyObject);
   cartArray.push(fetchedCandyObject);
   console.log(cartArray);

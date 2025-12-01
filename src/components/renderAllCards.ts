@@ -17,26 +17,24 @@ export const renderAllCards = async function () {
   allCandyCards.map((candy) => {
     const candyStock = candy.stock_quantity;
     const candyStockStatus = candy.stock_status;
-  
 
-      // let candyOnSale = product.data.on_sale;
+    // let candyOnSale = product.data.on_sale;
 
-      if (candyStock < 3 && candyStockStatus === "instock" ){
-      const sliceOutCandy = allCandyCards.slice(0,13)
-      console.log("is it sliced?", sliceOutCandy)
-      
+    if (candyStock < 3 && candyStockStatus === "instock") {
+      const sliceOutCandy = allCandyCards.slice(0, 13);
+      // console.log("is it sliced?", sliceOutCandy)
 
       allCardsContainerEl.innerHTML += sliceOutCandy
-    .map((product) => {
-      let thumbnailURL = `https://www.bortakvall.se${product.images.thumbnail}`;
-      let candyTitle = product.name;
-      let candyPrice = product.price;
-      let candyStockQty = product.stock_quantity;
-      let candyStockStatus = product.stock_status;
-      let candyDataId = product.id;
+        .map((product) => {
+          let thumbnailURL = `https://www.bortakvall.se${product.images.thumbnail}`;
+          let candyTitle = product.name;
+          let candyPrice = product.price;
+          let candyStockQty = product.stock_quantity;
+          let candyStockStatus = product.stock_status;
+          let candyDataId = product.id;
 
-      //Map all products to cards
-      return `<div class="card rounded-4 p-1" data-product-id="${candyDataId}" style="width: 10rem;">
+          //Map all products to cards
+          return `<div class="card rounded-4 p-1" data-product-id="${candyDataId}" style="width: 10rem;">
       <img src="${thumbnailURL}" class="card-img-top cursor-pointer rounded-4" alt="Image of ${candyTitle}">
       <div class="card-body">
       <div class="infoContainer">
@@ -53,8 +51,8 @@ export const renderAllCards = async function () {
       </div>
         </div>
       `;
-    })
-    .join("");
-
-
-  }})};
+        })
+        .join("");
+    }
+  });
+};

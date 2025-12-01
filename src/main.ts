@@ -10,25 +10,8 @@ import { renderCartView, renderCheckoutForm } from "./components/accordian";
 import { renderFooter } from "./components/footer";
 import { renderNavbar } from "./components/navbar";
 import { renderCarousel } from "./components/carousel";
-import { addToCart } from "./components/addToCart";
 import { renderAllCards } from "./components/renderAllCards";
 import { getClickedCandyId } from "./components/getClickedCandyId";
-
-//EXAMPLE CARD//////
-const exampleTitleEl = document.querySelector(
-  ".exampleTitle"
-) as HTMLHeadElement;
-const exampleCardTextEl = document.querySelector(
-  ".exampleCardText"
-) as HTMLParagraphElement;
-const exampleThumbnailEl = document.querySelector(
-  ".exampleThumbnail"
-) as HTMLImageElement;
-
-///////////
-
-//Add to cart test
-addToCart();
 
 renderCartView();
 renderCheckoutForm();

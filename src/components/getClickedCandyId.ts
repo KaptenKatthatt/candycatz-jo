@@ -7,11 +7,11 @@ export function getClickedCandyId() {
     allCardsContainerEl.addEventListener("click", async (e: MouseEvent) => {
         console.log("did it click?");
         const target = e.target as HTMLElement;
-        const clicksnbtn = target.closest<HTMLElement>(".card-img-top, .btn-primary");
+        const clicksnbtn = target.closest<HTMLElement>(".card-img-top, .card-title, .btn-primary");
         // både click på bild och på btn - ändra klasserna till mer relevanta??
 
     if (!clicksnbtn) {
-        console.log("NOT A BUTTON WTH AYE");
+        console.log("NOT A CORR CLICK WTH AYE");
         return; 
     }
 

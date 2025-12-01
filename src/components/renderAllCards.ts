@@ -37,8 +37,8 @@ export const renderAllCards = async function () {
             : `<span class="fst-italic pb-1"><br>Out of stock</span>`
         }</p>
         <p class="card-text priceTag">Price: <span class="fw-bold">${candyPrice}</span></p>
-        <button class="btn btn-primary my-2">Read more</button>
-        <button class="btn btn-success"><i class="bi bi-basket"></i></button>
+        <button class="btn btn-primary my-2"><i class="bi bi-info-circle"></i></button>
+        <button class="btn btn-success">+<i class="bi bi-basket ps-2"></i></button>
         </div>
       </div>
         </div>

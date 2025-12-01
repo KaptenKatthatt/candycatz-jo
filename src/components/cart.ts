@@ -77,18 +77,25 @@ export const deleteProductFromCart = function (candyId: number) {
   const candyFound = cartArray.find(
     (product: CartProduct) => product.id === candyId
   );
-  //Find index of candyFound
-  // Slice out index of candyFound
   cartArray = cartArray.filter((product) => product.id !== candyFound!.id);
 };
-
+//Gets nbr of kinds of candy at the moment, not total amount of candy.
 export const getTotalAmountOfProductsInCart = function () {
+  // TODO: Get amount of all items in cart
   return cartArray.length;
 };
 
-export const getClickedCandyId = function () {
-  return clickedCandyId;
+const renderCart = function () {
+  //Populate cart with cards of items. Used for add/delete increase/decrease.
+  //
 };
+const renderItemCardInCart = function (candyId) {
+  // Render a card with added item
+};
+
+// export const getClickedCandyId = function () {
+//   return clickedCandyId;
+// };
 
 //Adds clicked candy to cart, if exists, increase amount instead.
 allCardsContainerEl?.addEventListener("click", (e) => {

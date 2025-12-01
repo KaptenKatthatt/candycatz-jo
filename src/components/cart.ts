@@ -10,8 +10,11 @@ const cartAmountEl =
   document.querySelector<HTMLParagraphElement>(".cartAmount");
 const cartContentsEl =
   document.querySelector<HTMLParagraphElement>(".cartContents");
+<<<<<<< HEAD
 const cartTotalPriceEl =
   document.querySelector<HTMLParagraphElement>(".totalPrice");
+=======
+>>>>>>> 23ac9b6 (Added testbuttons for +, -  and delete to index.html.)
 
 let clickedCandyId = 0;
 const kindOfCandyInCartArr: CandyData[] = [];
@@ -22,29 +25,57 @@ class CartProduct {
   name: string;
   amount: number;
   price: number;
+<<<<<<< HEAD
 
   get totalCost() {
     return this.amount * this.price;
   }
 
   constructor(id: number, name: string, amount: number, price: number) {
+=======
+  totalCost: number;
+
+  updateTotalCost() {
+    this.totalCost = this.amount * this.price;
+  }
+
+  constructor(
+    id: number,
+    name: string,
+    amount: number,
+    price: number,
+    totalCost?: number
+  ) {
+>>>>>>> 23ac9b6 (Added testbuttons for +, -  and delete to index.html.)
     this.id = id;
     this.name = name;
     this.amount = amount;
     this.price = price;
+<<<<<<< HEAD
+=======
+    this.totalCost = 0;
+>>>>>>> 23ac9b6 (Added testbuttons for +, -  and delete to index.html.)
   }
 }
 
 export const increaseAmountOfProductInCart = function (candyId: number) {
   const candyFound = cartArray.find(
+<<<<<<< HEAD
     (product: CartProduct) => product.id === clickedCandyId
   );
   candyFound!.amount++;
+=======
+    (product: CartProduct) => product.id === candyId
+  );
+  candyFound!.amount++;
+  candyFound!.updateTotalCost();
+>>>>>>> 23ac9b6 (Added testbuttons for +, -  and delete to index.html.)
   console.log("CartArray after amount++", cartArray);
   if (cartAmountEl) {
     cartAmountEl.innerText = `Nbr of products in cart ${String(
       getTotalAmountOfProductsInCart()
     )}`;
+<<<<<<< HEAD
 
     cartTotalPriceEl!.innerText = `Total cost: ${String(
       getTotalCostOfProductsInCart()
@@ -53,10 +84,14 @@ export const increaseAmountOfProductInCart = function (candyId: number) {
   cartContentsEl!.innerText = `Nbr of ${candyFound!.name} ${String(
     candyFound!.amount
   )}`;
+=======
+  }
+>>>>>>> 23ac9b6 (Added testbuttons for +, -  and delete to index.html.)
 };
 
 export const decreaseAmountOfProductInCart = function (candyId: number) {
   const candyFound = cartArray.find(
+<<<<<<< HEAD
     (product: CartProduct) => product.id === clickedCandyId
   );
   if (candyFound && candyFound.amount === 1) {
@@ -77,12 +112,29 @@ export const decreaseAmountOfProductInCart = function (candyId: number) {
   cartContentsEl!.innerText = `Nbr of ${candyFound!.name} ${String(
     candyFound!.amount
   )}`;
+=======
+    (product: CartProduct) => product.id === candyId
+  );
+  if (candyFound && candyFound.amount === 1) {
+    deleteProductFromCart(candyId);
+  } else if (candyFound) {
+    candyFound.amount--;
+  }
+  candyFound!.updateTotalCost();
+  console.log("CartArray after amount--", cartArray);
+  if (cartAmountEl) {
+    cartAmountEl.innerText = `Nbr of products in cart ${String(
+      getTotalAmountOfProductsInCart()
+    )}`;
+  }
+>>>>>>> 23ac9b6 (Added testbuttons for +, -  and delete to index.html.)
 };
 
 export const deleteProductFromCart = function (candyId: number) {
   const candyFound = cartArray.find(
     (product: CartProduct) => product.id === candyId
   );
+<<<<<<< HEAD
   cartArray = cartArray.filter((product) => product.id !== candyFound!.id);
 };
 //Gets nbr of kinds of candy at the moment, not total amount of candy.
@@ -104,6 +156,20 @@ const renderItemCardInCart = function (candyId) {
 // export const getClickedCandyId = function () {
 //   return clickedCandyId;
 // };
+=======
+  //Find index of candyFound
+  // Slice out index of candyFound
+  cartArray = cartArray.filter((product) => product.id !== candyFound!.id);
+};
+
+export const getTotalAmountOfProductsInCart = function () {
+  return cartArray.length;
+};
+
+export const getClickedCandyId = function () {
+  return clickedCandyId;
+};
+>>>>>>> 23ac9b6 (Added testbuttons for +, -  and delete to index.html.)
 
 //Adds clicked candy to cart, if exists, increase amount instead.
 allCardsContainerEl?.addEventListener("click", (e) => {
@@ -128,7 +194,11 @@ deleteBtnEl?.addEventListener("click", () => {
 
 export const addToCart = async function (clickedCandyId: number) {
   let fetchedCandyObject = await getCandyProductInfo(clickedCandyId);
+<<<<<<< HEAD
   // console.log("Fetched candyObject", fetchedCandyObject);
+=======
+  console.log("Fetched candyObject", fetchedCandyObject);
+>>>>>>> 23ac9b6 (Added testbuttons for +, -  and delete to index.html.)
   let foundSameCandyInCart = kindOfCandyInCartArr.some(
     (product) => product.data.id === clickedCandyId
   );
@@ -142,12 +212,17 @@ export const addToCart = async function (clickedCandyId: number) {
     );
 
     cartArray.push(candyProduct);
+<<<<<<< HEAD
     console.log("CartArray Contents", cartArray);
+=======
+    console.log("CartArray", cartArray);
+>>>>>>> 23ac9b6 (Added testbuttons for +, -  and delete to index.html.)
   } else if (foundSameCandyInCart) {
     const candyFound = cartArray.find(
       (product: CartProduct) => product.id === clickedCandyId
     );
     candyFound!.amount++;
+<<<<<<< HEAD
     cartContentsEl!.innerText = `Nbr of ${candyFound!.name} ${String(
       candyFound!.amount
     )}`;
@@ -160,11 +235,19 @@ export const addToCart = async function (clickedCandyId: number) {
   }
 
   // console.log("kindOfCandyInCartArr", kindOfCandyInCartArr);
+=======
+    candyFound!.updateTotalCost();
+    console.log("CartArray after amount++", cartArray);
+  }
+
+  console.log("kindOfCandyInCartArr", kindOfCandyInCartArr);
+>>>>>>> 23ac9b6 (Added testbuttons for +, -  and delete to index.html.)
   console.log(
     "Total amount of prods in cart",
     getTotalAmountOfProductsInCart()
   );
   if (cartAmountEl) {
+<<<<<<< HEAD
     cartAmountEl.innerText = `Nbr of  products in cart ${String(
       getTotalAmountOfProductsInCart()
     )}`;
@@ -172,4 +255,10 @@ export const addToCart = async function (clickedCandyId: number) {
   cartTotalPriceEl!.innerText = `Total cost: ${String(
     getTotalCostOfProductsInCart()
   )}`;
+=======
+    cartAmountEl.innerText = `Nbr of products in cart ${String(
+      getTotalAmountOfProductsInCart()
+    )}`;
+  }
+>>>>>>> 23ac9b6 (Added testbuttons for +, -  and delete to index.html.)
 };

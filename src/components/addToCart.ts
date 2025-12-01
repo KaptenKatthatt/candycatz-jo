@@ -4,7 +4,7 @@ import { type CandyDataID } from "../services/candyApiTypes";
 const allCardsContainerEl =
   document.querySelector<HTMLDivElement>(".allCardsContainer");
 
-let clickedCandyId: number;
+let clickedCandyId = 0;
 const cartArray: CandyDataID[] = [];
 
 allCardsContainerEl?.addEventListener("click", (e) => {
@@ -16,14 +16,11 @@ allCardsContainerEl?.addEventListener("click", (e) => {
 });
 
 export const addToCart = async function (productId: number) {
-  //TODO
-  // When user clicks on addToCartBtn:
-  // Get clickedCandyId
-  //Get candy object from API
-  // Add candy object to cartArray
-
   let fetchedCandyObject = await getCandyProductInfo(clickedCandyId);
   console.log("Fetched candyObject", await fetchedCandyObject);
   cartArray.push(fetchedCandyObject);
   console.log(cartArray);
+
+  //TODO
+  // If object exist in carArray, increase amount of item, don't add another object.
 };

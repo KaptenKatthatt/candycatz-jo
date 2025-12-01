@@ -29,12 +29,26 @@ body {
 
 }
 
+h2 {
+  font-family: "Super Chiby";
+  font-size: 3rem;
+}
 
 h5{
   font-family: "Super Chiby";
   font-size: 2.3rem;
   color:$title-text;
   
+}
+
+.carousel {
+  width: 100vw;
+  margin-left: -12px;
+}
+
+.cardtrans:hover {
+  box-shadow: 6px 6px 6px rgb(167, 167, 167);
+  transform: scale(1.02);
 }
 
 .offcanvas{ 
@@ -84,6 +98,7 @@ h5{
 /* FOOTER */
 
 .contact-info{
+    padding-top: 50px;
     margin-bottom: 2rem;
     color: white;
     display: inline-block;
@@ -126,7 +141,6 @@ h5{
 
 .scallop::after { 
   position:absolute;
-  bottom: -50px;
   width: 100%;
   content:" ";
   background: 
@@ -140,7 +154,6 @@ h5{
 .after-scallop{
   background: #C4DCD1;
   padding:50px;
-  margin-bottom:50px;
   text-align: left;
 }
 
@@ -159,6 +172,5 @@ h5{
 }
 
 .allCardsContainer{
-  max-height: 990px;
   overflow: hidden;
 }

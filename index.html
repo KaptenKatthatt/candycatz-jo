@@ -31,15 +31,24 @@
     <!--offCan slide out cart-->
     <div id="offCan"></div>
 
-    <section class="container" id="topTreats"><h2>Top Treats</h2>
-      <div class="allCardsContainer d-flex flex-wrap gap-2 mt-3 container text-center"></section>
-        </div>
+    <div class="container-fluid card allCardsContainer mt-1 mb-3" id="topTreats">
+      <div class="row mainBox">
+        <section>
+          <h2 class="card-header">Top Treats</h2>
+            <div class="topTreatsCardsContainer d-flex flex-wrap gap-3 mt-3 text-center justify-content-center mb-3"></div>
+        </section>
+        <section>
+          <h2 class="card-header" id="sweetSavings">Sweet Savings</h2>
+            <div class="sweetSavingsCardsContainer d-flex flex-wrap gap-3 mt-3 text-center justify-content-center mb-3"></div>
+        </section>
+      </div>
+    </div>
 
     <!-- Modal placeholder -->
     <div class="modalContainer"></div>
 
     <!--CART CHECKOUT FORM in Accordion-->
-    <section id="#cartCheckoutContainer" class="card card-body mt-2 mb-5">
+    <section id="#cartCheckoutContainer" class="card card-body mt-2 mb-5 d-none">
       <div id="cartView">
       </div>
       <div id="checkoutForm">

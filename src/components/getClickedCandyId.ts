@@ -5,7 +5,7 @@ const allCardsContainerEl =
 
 export function getClickedCandyId() {
   allCardsContainerEl.addEventListener("click", async (e: MouseEvent) => {
-    console.log("did it click?");
+    // console.log("did it click?");
     const target = e.target as HTMLElement;
     const clicksnbtn = target.closest<HTMLElement>(
       ".card-img-top, .card-title, .btn-primary"

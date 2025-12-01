@@ -20,57 +20,54 @@ class CartProduct {
   name: string;
   amount: number;
   price: number;
-  totalCost: number;
 
-  updateTotalCost() {
-    this.totalCost = this.amount * this.price;
+  get totalCost() {
+    return this.amount * this.price;
   }
 
-  constructor(
-    id: number,
-    name: string,
-    amount: number,
-    price: number,
-    totalCost?: number
-  ) {
+  constructor(id: number, name: string, amount: number, price: number) {
     this.id = id;
     this.name = name;
     this.amount = amount;
     this.price = price;
-    this.totalCost = 0;
   }
 }
 
 export const increaseAmountOfProductInCart = function (candyId: number) {
   const candyFound = cartArray.find(
-    (product: CartProduct) => product.id === candyId
+    (product: CartProduct) => product.id === clickedCandyId
   );
   candyFound!.amount++;
-  candyFound!.updateTotalCost();
   console.log("CartArray after amount++", cartArray);
   if (cartAmountEl) {
-    cartAmountEl.innerText = `Nbr of products in cart ${String(
+    cartAmountEl.innerText = `Nbr of unique products in cart ${String(
       getTotalAmountOfProductsInCart()
     )}`;
   }
+  cartContentsEl.innerText = `Nbr of ${candyFound.name} ${String(
+    candyFound!.amount
+  )}`;
 };
 
 export const decreaseAmountOfProductInCart = function (candyId: number) {
   const candyFound = cartArray.find(
-    (product: CartProduct) => product.id === candyId
+    (product: CartProduct) => product.id === clickedCandyId
   );
   if (candyFound && candyFound.amount === 1) {
-    deleteProductFromCart(candyId);
+    deleteProductFromCart(clickedCandyId);
   } else if (candyFound) {
     candyFound.amount--;
   }
-  candyFound!.updateTotalCost();
+  // candyFound!.updateTotalCost();
   console.log("CartArray after amount--", cartArray);
   if (cartAmountEl) {
-    cartAmountEl.innerText = `Nbr of products in cart ${String(
+    cartAmountEl.innerText = `Nbr of unique products in cart ${String(
       getTotalAmountOfProductsInCart()
     )}`;
   }
+  cartContentsEl.innerText = `Nbr of ${candyFound.name} ${String(
+    candyFound!.amount
+  )}`;
 };
 
 export const deleteProductFromCart = function (candyId: number) {
@@ -140,7 +137,14 @@ export const addToCart = async function (clickedCandyId: number) {
       (product: CartProduct) => product.id === clickedCandyId
     );
     candyFound!.amount++;
-    candyFound!.updateTotalCost();
+    cartContentsEl.innerText = `Nbr of ${candyFound.name} ${String(
+      candyFound!.amount
+    )}`;
+    cartContentsEl.innerText = `Nbr of ${candyFound.name} ${String(
+      candyFound!.amount
+    )}`;
+
+    // candyFound!.updateTotalCost();
     console.log("CartArray after amount++", cartArray);
   }
 
@@ -150,7 +154,7 @@ export const addToCart = async function (clickedCandyId: number) {
     getTotalAmountOfProductsInCart()
   );
   if (cartAmountEl) {
-    cartAmountEl.innerText = `Nbr of products in cart ${String(
+    cartAmountEl.innerText = `Nbr of unique products in cart ${String(
       getTotalAmountOfProductsInCart()
     )}`;
   }

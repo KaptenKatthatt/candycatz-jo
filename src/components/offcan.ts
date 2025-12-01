@@ -11,69 +11,41 @@ export const renderOffCan = function () {
 
 <div class="container py-5">
     <div class="row">
-        <div class="col-lg-8">
+       <div class="col-12 mt-3">
 
             <!-- Cart Items -->
-            <div class="card mb-4">
+            <div class="card mb-2">
                 <div class="card-body">
-                    <div class="row cart-item mb-3">
-                        <div class="col-md-3">
+                    <div class="row align-items-center mb-2 cart-item">
+                        <div class="col-md-2">
                             <img src="https://via.placeholder.com/100" alt="Product 1" class="img-fluid rounded">
                         </div>
 
-                        <div class="col-md-5">
-                            <p> Product 1 Name </p>
-                        </div>
-                   
-                        <div class="col-md-2 qty-controls">
-                        <button class = "minusBtn" data-action="minus" type = "button">-</button>
-                        <input class = "product-qty" type="number" name= "product-qty" min="0" max="10" value="1"> 
-                        <button class = "plusBtn" data-action= "plus" type = "button">+</button>
-                        </div>
+                       
+                    <!-- Qty Controls -->
+                      <div class="col-12 col-md-12 d-flex justify-content-end align-items-center mt-3 mb-2 qty-controls">
+                      <button class="minusBtn me-2"  type="button">-</button>
+                      <input class="product-qty text-center" type="number" name="product-qty" min="0" max="10" value="1">
+                      <button class="plusBtn" type="button">+</button>
+                      <button class="btn btn-sm btn-outline-danger"><i class="bi bi-trash"></i></button>
+                      </div>
 
-                        <div class="col-md-2 text-end">
-                            <p class="fw-bold">XX kr</p>
-                            <button class="btn btn-sm btn-outline-danger">
-                            <i class="bi bi-trash"></i>
-                                </button>
-                        </div>
+                       <div class=" col-12 col-md-4  mb-2 mb-md-0">
+                       <p class="fw-bold mt-1"> Namn: XX</p>
+                      <p class="fw-bold mb-0"> Pris: XX kr</p>
+                     </div>
+
                     </div>
 
                     <hr>
-<!-- Cart 2 -->
-                    <div class="row align-items-center cart-item">
-                        <div class="col-md-3">
-                            <img src="https://via.placeholder.com/100" alt="Product 2" class="img-fluid rounded">
-                        </div>
-                        <div class="col-md-5">
-                    <p> Product 2 Name </p>
-                        </div>
-
-                        
-                         <div class="col-md-2 qty-controls">
-                        <button class = "minusBtn" data-action="minus" type = "button">-</button>
-                        <input class = "product-qty" type="number" name= "product-qty" min="0" max="10" value="1"> 
-                        <button class = "plusBtn" data-action= "plus" type = "button">+</button>
-                        </div>
-
-                        <div class="col-md-2 text-end">
-                            <p class="fw-bold">XX kr</p>
-                            <button class="btn btn-sm btn-outline-danger">
-                            <i class="bi bi-trash"></i>
-                              </button>
-                        </div>
-                    </div>
 
                 </div>
             </div>
-            <!-- Continue Shopping Button -->
-            <div class="text-start mb-4">
-                <a href="#" class="btn btn-outline-primary">
-                    <i class="bi bi-arrow-left me-2"></i>Continue Shopping</a>
-            </div>
         </div>
-        <div class="col-lg-4">
-            <!-- Cart Summary -->
+
+<!-- Cart Summary -->
+        <div class="col-12 mt-3">
+            
             <div class="card cart-summary">
                 <div class="card-body">
                     <h5 class="card-title mb-4 ">Order Summary</h5>
@@ -81,12 +53,13 @@ export const renderOffCan = function () {
                         <span>Subtotal</span>
                         <span>XX kr</span>
                     </div>
-                    <div class="d-flex justify-content-between mb-3">
+                    <div class="d-flex justify-content-between mb-4">
                         <span>Shipping</span>
-                        <span>XX kr</span>
+                        <span>19kr</span>
                     </div>
-                   
+  
                     <hr>
+
                     <div class="d-flex justify-content-between mb-4">
                         <strong>Total</strong>
                         <strong>XX kr</strong>
@@ -99,20 +72,12 @@ export const renderOffCan = function () {
     </div>
 </div>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+ <!-- Continue Shopping Button -->
+            <div class="text-start mt-4 mb-4">
+                <button type="button" class="btn btn-outline-primary" data-bs-dismiss="offcanvas"  aria-label="Close">
+                    <i class="bi bi-arrow-left me-2"></i>Continue Shopping</a>
+                    </button>
+            </div>
 
 
 
@@ -123,13 +88,3 @@ export const renderOffCan = function () {
 
 `;
 };
-
-/*
-const qtyControls = document.querySelectorAll<HTMLDivElement>('.qty-controls')!;
-
-qtyContainers.forEach(container => {
-  const minusBtn = container.querySelector<HTMLButtonElement>(".minusBtn")!;
-  const plusBtn = container.querySelector<HTMLButtonElement>(".plusBtn")!;
-  const input = container.querySelector<HTMLInputElement>(".product.qty")!;
-});
-*/

@@ -3,6 +3,13 @@ import { type CandyData } from "../services/candyApiTypes";
 
 const allCardsContainerEl =
   document.querySelector<HTMLDivElement>(".allCardsContainer");
+const increaseBtnEl = document.querySelector<HTMLButtonElement>(".increaseBtn");
+const decreaseBtnEl = document.querySelector<HTMLButtonElement>(".decreaseBtn");
+const deleteBtnEl = document.querySelector<HTMLButtonElement>(".deleteBtn");
+const cartAmountEl =
+  document.querySelector<HTMLParagraphElement>(".cartAmount");
+const cartContentsEl =
+  document.querySelector<HTMLParagraphElement>(".cartContents");
 
 let clickedCandyId = 0;
 const kindOfCandyInCartArr: CandyData[] = [];
@@ -34,16 +41,21 @@ class CartProduct {
   }
 }
 
-const increaseAmountOfProductInCart = function (candyId: number) {
+export const increaseAmountOfProductInCart = function (candyId: number) {
   const candyFound = cartArray.find(
     (product: CartProduct) => product.id === candyId
   );
   candyFound!.amount++;
   candyFound!.updateTotalCost();
   console.log("CartArray after amount++", cartArray);
+  if (cartAmountEl) {
+    cartAmountEl.innerText = `Nbr of products in cart ${String(
+      getTotalAmountOfProductsInCart()
+    )}`;
+  }
 };
 
-const decreaseAmountOfProductInCart = function (candyId: number) {
+export const decreaseAmountOfProductInCart = function (candyId: number) {
   const candyFound = cartArray.find(
     (product: CartProduct) => product.id === candyId
   );
@@ -53,10 +65,15 @@ const decreaseAmountOfProductInCart = function (candyId: number) {
     candyFound.amount--;
   }
   candyFound!.updateTotalCost();
-  console.log("CartArray after amount++", cartArray);
+  console.log("CartArray after amount--", cartArray);
+  if (cartAmountEl) {
+    cartAmountEl.innerText = `Nbr of products in cart ${String(
+      getTotalAmountOfProductsInCart()
+    )}`;
+  }
 };
 
-const deleteProductFromCart = function (candyId: number) {
+export const deleteProductFromCart = function (candyId: number) {
   const candyFound = cartArray.find(
     (product: CartProduct) => product.id === candyId
   );
@@ -65,7 +82,7 @@ const deleteProductFromCart = function (candyId: number) {
   cartArray = cartArray.filter((product) => product.id !== candyFound!.id);
 };
 
-const getTotalAmountOfProductsInCart = function () {
+export const getTotalAmountOfProductsInCart = function () {
   return cartArray.length;
 };
 
@@ -82,6 +99,16 @@ allCardsContainerEl?.addEventListener("click", (e) => {
     // console.log("Clicked candyId", clickedCandyId);
     addToCart(clickedCandyId);
   }
+});
+
+increaseBtnEl?.addEventListener("click", () => {
+  increaseAmountOfProductInCart(6600);
+});
+decreaseBtnEl?.addEventListener("click", () => {
+  decreaseAmountOfProductInCart(6600);
+});
+deleteBtnEl?.addEventListener("click", () => {
+  deleteProductFromCart(6600);
 });
 
 export const addToCart = async function (clickedCandyId: number) {
@@ -115,4 +142,9 @@ export const addToCart = async function (clickedCandyId: number) {
     "Total amount of prods in cart",
     getTotalAmountOfProductsInCart()
   );
+  if (cartAmountEl) {
+    cartAmountEl.innerText = `Nbr of products in cart ${String(
+      getTotalAmountOfProductsInCart()
+    )}`;
+  }
 };

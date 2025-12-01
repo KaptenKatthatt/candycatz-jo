@@ -1,27 +1,26 @@
 import { getCandyProductInfo } from "../services/candyAPI";
+import { type CandyDataID } from "../services/candyApiTypes";
 
-export const addToCart = async function () {
-  let candyproduct = await getCandyProductInfo(6545);
+const allCardsContainerEl =
+  document.querySelector<HTMLDivElement>(".allCardsContainer");
 
-  //----ADD TO CARTtest
-  let candyId: number = candyproduct.data.id;
+let clickedCandyId = 0;
+const cartArray: CandyDataID[] = [];
 
-  console.log(candyId);
-  interface cartItem {
-    id: number;
-    amount: number;
-  }
-  let candyCart: cartItem[] = [];
-  //finns produkten i redan? så ska deta addas på i amount i arrayen
-  const candyIsThere = candyCart.find((item) => item.id === candyId);
-  if (candyIsThere) {
-    candyIsThere.amount++;
-    //annars lägg till en ny object
-  } else {
-    candyCart.push({
-      id: candyId,
-      amount: 1,
-    });
-  }
-  console.log("Candycart", candyCart);
+allCardsContainerEl?.addEventListener("click", (e) => {
+  const target = e.target as HTMLElement;
+  const candyCard = target.closest<HTMLDivElement>(".card");
+  clickedCandyId = Number(candyCard?.dataset.productId);
+  console.log("Clicked candyId", clickedCandyId);
+  addToCart(clickedCandyId);
+});
+
+export const addToCart = async function (productId: number) {
+  let fetchedCandyObject = await getCandyProductInfo(clickedCandyId);
+  console.log("Fetched candyObject", await fetchedCandyObject);
+  cartArray.push(fetchedCandyObject);
+  console.log(cartArray);
+
+  //TODO
+  // If object exist in carArray, increase amount of item, don't add another object.
 };

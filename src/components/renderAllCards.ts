@@ -1,6 +1,8 @@
 import { getAllCandyInfo } from "../services/candyAPI";
 import type { CandyData } from "../services/candyApiTypes";
 
+let candyShowNr: number = 12;
+
 // funktion för att återanvända kort strukturen flera gånger på olika kategorier
 function cardStructure(product: CandyData): string {
   let thumbnailURL = `https://www.bortakvall.se${product.images.thumbnail}`;
@@ -91,3 +93,4 @@ const moreToMunchCardsContainerEl = document.querySelector(
     .map((product) => cardStructure(product))
     .join("");
 };
+

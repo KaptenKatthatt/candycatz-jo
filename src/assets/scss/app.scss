@@ -28,6 +28,11 @@ html, body{
   overflow: auto;
 }
 
+html, body{
+  height: auto;
+  overflow: auto;
+}
+
 /*  OFFCAN - YOUR CANDY CART  */
 
 @font-face {
@@ -35,6 +40,7 @@ html, body{
   src: url(/src/assets/fonts/super_chiby/Super\ Chiby.ttf);
 
 }
+
 
 h2 {
   font-family: "Super Chiby";

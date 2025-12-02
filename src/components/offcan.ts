@@ -69,8 +69,6 @@ export const renderOffCan = function () {
                     <button class="checkOutBtn btn btn-primary w-100 data-bs-dismiss="offcanvas"  aria-label="Close">Proceed to Checkout</button>
                 </div>
             </div>
-        
-         
     </div>
 </div>
 
@@ -84,33 +82,35 @@ export const renderOffCan = function () {
 
 `;
 
-  // EventListner for Proceed to Checkout
 
-  const cartCheckoutContainer = document.querySelector<HTMLDivElement>("#cartCheckoutContainer")!;
-  const checkOutBtn =
-    document.querySelector<HTMLButtonElement>(".checkOutBtn")!;
 
-  checkOutBtn.addEventListener("click", () => {
-    console.log("clicka Proceed to checkout");
 
-    // close offcan
-    const offCanvas = document.querySelector<HTMLDivElement>(".offcanvas")!;
-    offCanvas.classList.remove("show");
+// EventListner for Proceed to Checkout
 
-     // remove backdrop shadow
-    const backdrop = document.querySelector(".offcanvas-backdrop")!;
-    if (backdrop) backdrop.remove();
+const cartCheckoutContainer = document.querySelector<HTMLDivElement>("#cartCheckoutContainer")!;
+const checkOutBtn = document.querySelector<HTMLButtonElement>(".checkOutBtn")!;
 
-    // hide homepage
-    const allCardsContainerEl =
-      document.querySelector<HTMLDivElement>(".allCardsContainer")!;
-    allCardsContainerEl.classList.add("d-none");
+checkOutBtn.addEventListener("click", () => {
+  console.log("clicka Proceed to checkout");
 
-    // show accordion
-    cartCheckoutContainer.classList.remove("d-none");
+  // close offcan
+  const offCanvas = document.querySelector<HTMLDivElement>(".offcanvas")!;
+  offCanvas.classList.remove("show");
 
-    
-  });
+   // remove backdrop shadow
+  const backdrop = document.querySelector(".offcanvas-backdrop")!;
+  if (backdrop) backdrop.remove();
+
+  // hide homepage
+  const allCardsContainerEl =
+    document.querySelector<HTMLDivElement>(".allCardsContainer")!;
+  allCardsContainerEl.classList.add("d-none");
+
+  // show accordion
+  cartCheckoutContainer.classList.remove("d-none");
+
+
+
+});
+
 };
-
-//cartCheckoutContainer

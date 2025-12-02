@@ -119,7 +119,7 @@ const renderItemCardInCart = function () {
     .map((product) => {
       let thumbnailURL = `https://www.bortakvall.se${product.thumbnail}`;
 
-      return `<div class="card cardtrans container-fluid d-flex flex-row rounded-4 p-1" data-product-id="${product.id}" >
+      return `<div class="card container-fluid d-flex flex-row rounded-4 p-1" data-product-id="${product.id}" >
 
           <img src="${thumbnailURL}" width="50" class="img-fluid rounded-4 me-2" alt="Image of ${product.name}">
           <h5 class="card-title click fs-5 me-2">${product.name}</h5>

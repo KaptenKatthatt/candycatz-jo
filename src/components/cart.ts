@@ -11,7 +11,7 @@ const cartAmountEl =
 const cartContentEl =
   document.querySelector<HTMLParagraphElement>(".cartContents");
 const cartTotalPriceEl =
-  document.querySelector<HTMLGParagraphElement>(".totalPrice");
+  document.querySelector<HTMLParagraphElement>(".totalPrice");
 
 let clickedCandyId = 0;
 const kindOfCandyInCartArr: CandyResponse[] = [];
@@ -96,7 +96,9 @@ export const deleteProductFromCart = function (candyId: number) {
   const candyFound = cartArray.find(
     (product: CartProduct) => product.id === candyId
   );
+  candyFound!.amount = 0;
   cartArray = cartArray.filter((product) => product.id !== candyFound!.id);
+  renderItemCardInCart();
 };
 //Gets nbr of kinds of candy at the moment, not total amount of candy.
 export const getTotalAmountOfProductsInCart = function () {

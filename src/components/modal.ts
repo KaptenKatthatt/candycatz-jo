@@ -33,7 +33,7 @@ export const renderModal = async function (productId: number) {
 
   modalContainerEl.innerHTML = `
 <div class="modal fade" id="candyModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
+    <div class="modal-dialog modal-sm">
       <div class="modal-content">
         <div class="modal-header">
           <h5 class="modal-title modalTitle fs-5">${candyTitle}</h5>
@@ -46,7 +46,6 @@ export const renderModal = async function (productId: number) {
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Save changes</button>
         </div>
       </div>
     </div>

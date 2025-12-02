@@ -20,7 +20,7 @@ function cardStructure(product: CandyData): string {
         ${product.stock_status === "instock"
             ? `<p class="card-text stockStatus">I lager:
             <span class="fw-bold">${product.stock_quantity}</span>`
-            : `<p class="card-text stockStatus"><i>Ej i lager</i>`
+            : `<p class="card-text stockStatus"><em>Ej i lager</em>`
         }</p>
         <p class="card-text priceTag">Pris/skopa: <span class="fw-bold">${
           product.price
@@ -97,14 +97,26 @@ const moreToMunchCardsContainerEl = document.querySelector(
     .join("");
     
     //lägg till en knapp "show more"
-
-    // fortsätt lägga ut godis
     moreSweetsButton();
+    // fortsätt lägga ut godis
+    loadMoreSweets();
     
 };
 
+function loadMoreSweets() {
+
+}
+
 function moreSweetsButton() {
   const moreSweetsBtnEl = document.querySelector(
-    ".moreToMunchBtn"
-  ) as HTMLDivElement;
+    ".moreToMunchBtn") as HTMLDivElement;
+
+    moreSweetsBtnEl.addEventListener("click", () => {
+      candyShowNr += 12;
+      console.log("lagt till 12", candyShowNr)
+
+      if (candyShowNr >= moreToMunchCandys.length) {
+        moreSweetsBtnEl.classList.add("d-none");
+      }
+    })
 }

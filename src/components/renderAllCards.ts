@@ -1,6 +1,7 @@
 import { getAllCandyInfo } from "../services/candyAPI";
 import type { CandyData } from "../services/candyApiTypes";
 
+let moreToMunchCandys: CandyData[];
 let candyShowNr: number = 12;
 
 // funktion för att återanvända kort strukturen flera gånger på olika kategorier
@@ -17,11 +18,11 @@ function cardStructure(product: CandyData): string {
       <div class="infoContainer">
         <h5 class="card-title click fs-5">${product.name}</h5>
         ${product.stock_status === "instock"
-            ? `<p class="card-text stockStatus">In stock:
-            <span class="fw-bold">${product.price}</span>`
-            : `<p class="card-text stockStatus"><i>Out of stock</i>`
+            ? `<p class="card-text stockStatus">I lager:
+            <span class="fw-bold">${product.stock_quantity}</span>`
+            : `<p class="card-text stockStatus"><i>Ej i lager</i>`
         }</p>
-        <p class="card-text priceTag">Scoop price: <span class="fw-bold">${
+        <p class="card-text priceTag">Pris/skopa: <span class="fw-bold">${
           product.price
         }:-</span></p>
         <button class="btn btn-primary my-2"><i class="bi bi-info-circle"></i></button>
@@ -77,13 +78,15 @@ export const renderAllCards = async function () {
   sweetSavingsCardsContainterEl.innerHTML += sliceOutSavings
   .map(product => cardStructure(product)).join("");
 
-// skapa variabel som innehåller de som redan har visats?
+// skapa variabel array som innehåller de som redan har visats
 const usedIds = [...sliceOutTopTreats.map(candy => candy.id),
   ...sliceOutSavings.map(candy => candy.id)
 ];
 console.log("använda id:", usedIds, "längden borde vara 24:", usedIds.length)
-const moreToMunchCandys = allCandyCards.filter(candy => !usedIds.includes(candy.id));
-console.log("Sista godiset att rendera ut:", moreToMunchCandys);
+moreToMunchCandys = allCandyCards
+      .filter(candy => !usedIds.includes(candy.id))
+      .slice(0,candyShowNr);
+console.log("övriga 12 stycken godisar att rendera ut:", moreToMunchCandys);
   
 // Ut med resten av godagodiiiis
 const moreToMunchCardsContainerEl = document.querySelector(
@@ -92,5 +95,16 @@ const moreToMunchCardsContainerEl = document.querySelector(
   moreToMunchCardsContainerEl.innerHTML += moreToMunchCandys
     .map((product) => cardStructure(product))
     .join("");
+    
+    //lägg till en knapp "show more"
+
+    // fortsätt lägga ut godis
+    moreSweetsButton();
+    
 };
 
+function moreSweetsButton() {
+  const moreSweetsBtnEl = document.querySelector(
+    ".moreToMunchBtn"
+  ) as HTMLDivElement;
+}

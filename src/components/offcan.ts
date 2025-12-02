@@ -1,4 +1,4 @@
-import { renderCartView, renderCheckoutForm } from "./accordian";
+
 
 export const offCan = document.querySelector<HTMLDivElement>("#offCan")!;
 export const renderOffCan = function () {
@@ -86,31 +86,31 @@ export const renderOffCan = function () {
 
   // EventListner for Proceed to Checkout
 
-  const accordion = document.querySelector<HTMLDivElement>(".accordion")!;
+  const cartCheckoutContainer = document.querySelector<HTMLDivElement>("#cartCheckoutContainer")!;
   const checkOutBtn =
     document.querySelector<HTMLButtonElement>(".checkOutBtn")!;
 
   checkOutBtn.addEventListener("click", () => {
     console.log("click");
 
-    // hide offcan
+    // close offcan
     const offCanvas = document.querySelector<HTMLDivElement>(".offcanvas")!;
-    offCanvas.classList.add("d-none");
+    offCanvas.classList.remove("show");
+
+     // remove backdrop shadow
+    const backdrop = document.querySelector(".offcanvas-backdrop")!;
+    if (backdrop) backdrop.remove();
 
     // hide homepage
     const allCardsContainerEl =
       document.querySelector<HTMLDivElement>(".allCardsContainer")!;
     allCardsContainerEl.classList.add("d-none");
 
-   
-
     // show accordion
-    accordion.classList.remove("d-none");
+    cartCheckoutContainer.classList.remove("d-none");
 
-     // remove backdrop shadow
-    const backdrop = document.querySelector(".offcanvas-backdrop")!;
-    if (backdrop) backdrop.remove();
+    
   });
 };
 
-//cartCheckoutContaine
+//cartCheckoutContainer

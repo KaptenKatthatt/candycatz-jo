@@ -91,7 +91,7 @@ export const renderOffCan = function () {
     document.querySelector<HTMLButtonElement>(".checkOutBtn")!;
 
   checkOutBtn.addEventListener("click", () => {
-    console.log("click");
+    console.log("clicka Proceed to checkout");
 
     // close offcan
     const offCanvas = document.querySelector<HTMLDivElement>(".offcanvas")!;

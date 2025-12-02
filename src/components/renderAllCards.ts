@@ -75,6 +75,6 @@ const sweetSavingsCardsContainterEl = document.querySelector(
 const usedIds = [...sliceOutTopTreats.map(candy => candy.id),
   ...sliceOutSavings.map(candy => candy.id)
 ];
-console.log("använda id:", usedIds)
+console.log("använda id:", usedIds, "längden borde vara 24:", usedIds.length)
 }
 

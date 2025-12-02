@@ -97,7 +97,14 @@ h5 {
   font-size: 1.2rem;
 }
 
-
+.card-text{
+  text-align: left;
+  font-size: smaller;
+  padding: 0px;
+}
+.stockStatus{
+  margin-bottom: -1rem;
+}
 
 /* FOOTER */
 
@@ -170,11 +177,4 @@ h5 {
 }
 .stockStatus{
   height: 40px;
-}
-.priceTag{
-  // margin-bottom: 90px;
-}
-
-.allCardsContainer{
-  overflow: hidden;
 }

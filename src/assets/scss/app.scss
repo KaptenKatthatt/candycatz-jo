@@ -28,6 +28,11 @@ html, body{
   overflow: auto;
 }
 
+html, body{
+  height: auto;
+  overflow: auto;
+}
+
 /*  OFFCAN - YOUR CANDY CART  */
 
 @font-face {
@@ -35,6 +40,7 @@ html, body{
   src: url(/src/assets/fonts/super_chiby/Super\ Chiby.ttf);
 
 }
+
 
 h2 {
   font-family: "Super Chiby";
@@ -69,14 +75,6 @@ h5 {
   background-color: $offcanvas;
   overflow-y: auto;
   max-height: 100vh;
-}
-
-.candyCart-qty-container{
-  white-space: nowrap;
-  position: absolute;
-  top: 40%;
-  left: 70%;
-  transform: translateX(-50%);
 }
 
 .minusBtn,

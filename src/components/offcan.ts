@@ -1,3 +1,5 @@
+import { renderCartView, renderCheckoutForm } from "./accordian";
+
 export const offCan = document.querySelector<HTMLDivElement>("#offCan")!;
 export const renderOffCan = function () {
   offCan.innerHTML = `
@@ -64,7 +66,7 @@ export const renderOffCan = function () {
                         <strong>Total</strong>
                         <strong>XX kr</strong>
                     </div>
-                    <button class="btn btn-primary w-100">Proceed to Checkout</button>
+                    <button class="checkOutBtn btn btn-primary w-100 data-bs-dismiss="offcanvas"  aria-label="Close">Proceed to Checkout</button>
                 </div>
             </div>
         
@@ -80,11 +82,35 @@ export const renderOffCan = function () {
             </div>
 
 
-
-
-
-
-
-
 `;
+
+  // EventListner for Proceed to Checkout
+
+  const accordion = document.querySelector<HTMLDivElement>(".accordion")!;
+  const checkOutBtn =
+    document.querySelector<HTMLButtonElement>(".checkOutBtn")!;
+
+  checkOutBtn.addEventListener("click", () => {
+    console.log("click");
+
+    // hide offcan
+    const offCanvas = document.querySelector<HTMLDivElement>(".offcanvas")!;
+    offCanvas.classList.add("d-none");
+
+    // hide homepage
+    const allCardsContainerEl =
+      document.querySelector<HTMLDivElement>(".allCardsContainer")!;
+    allCardsContainerEl.classList.add("d-none");
+
+   
+
+    // show accordion
+    accordion.classList.remove("d-none");
+
+     // remove backdrop shadow
+    const backdrop = document.querySelector(".offcanvas-backdrop")!;
+    if (backdrop) backdrop.remove();
+  });
 };
+
+//cartCheckoutContaine

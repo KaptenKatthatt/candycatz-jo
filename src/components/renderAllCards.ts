@@ -7,23 +7,26 @@ function cardStructure(product: CandyData): string {
 
   return `<div class="card cardtrans rounded-4 p-1" data-product-id="${
     product.id
-  }" style="width: 10rem;">
+  }" style="width: 11rem;">
       <img src="${thumbnailURL}" class="card-img-top click rounded-4" alt="Image of ${
     product.name
   }">
       <div class="card-body">
       <div class="infoContainer">
         <h5 class="card-title click fs-5">${product.name}</h5>
-        <p class="card-text stockStatus">In stock: ${
-          product.stock_status === "instock"
-            ? `<span class="fw-bold">${product.price}</span>`
-            : `<span class="fst-italic pb-1"><br>Out of stock</span>`
+        ${product.stock_status === "instock"
+            ? `<p class="card-text stockStatus">In stock:
+            <span class="fw-bold">${product.price}</span>`
+            : `<p class="card-text stockStatus"><i>Out of stock</i>`
         }</p>
         <p class="card-text priceTag">Scoop price: <span class="fw-bold">${
           product.price
         }:-</span></p>
         <button class="btn btn-primary my-2"><i class="bi bi-info-circle"></i></button>
-        <button class="btn btn-success">+<i class="bi bi-basket ps-2"></i></button>
+        <button class="btn btn-success" 
+        ${product.stock_status !== "instock" 
+          ? "disabled" 
+          : ""}>+<i class="bi bi-basket ps-2"></i></button>
         </div>
       </div>
         </div>
@@ -77,4 +80,14 @@ const usedIds = [...sliceOutTopTreats.map(candy => candy.id),
   ...sliceOutSavings.map(candy => candy.id)
 ];
 console.log("använda id:", usedIds, "längden borde vara 24:", usedIds.length)
+const moreToMunchCandys = allCandyCards.filter(candy => !usedIds.includes(candy.id));
+console.log("Sista godiset att rendera ut:", moreToMunchCandys);
+  
+// Ut med resten av godagodiiiis
+const moreToMunchCardsContainerEl = document.querySelector(
+    ".moreToMunchCardsContainer"
+  ) as HTMLDivElement;
+  moreToMunchCardsContainerEl.innerHTML += moreToMunchCandys
+    .map((product) => cardStructure(product))
+    .join("");
 };

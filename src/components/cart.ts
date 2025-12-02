@@ -10,6 +10,8 @@ const cartAmountEl =
   document.querySelector<HTMLParagraphElement>(".cartAmount");
 const cartContentsEl =
   document.querySelector<HTMLParagraphElement>(".cartContents");
+const cartTotalPriceEl =
+  document.querySelector<HTMLParagraphElement>(".totalPrice");
 
 let clickedCandyId = 0;
 const kindOfCandyInCartArr: CandyData[] = [];
@@ -40,11 +42,15 @@ export const increaseAmountOfProductInCart = function (candyId: number) {
   candyFound!.amount++;
   console.log("CartArray after amount++", cartArray);
   if (cartAmountEl) {
-    cartAmountEl.innerText = `Nbr of unique products in cart ${String(
+    cartAmountEl.innerText = `Nbr of products in cart ${String(
       getTotalAmountOfProductsInCart()
     )}`;
+
+    cartTotalPriceEl!.innerText = `Total cost: ${String(
+      getTotalCostOfProductsInCart()
+    )}`;
   }
-  cartContentsEl.innerText = `Nbr of ${candyFound.name} ${String(
+  cartContentsEl!.innerText = `Nbr of ${candyFound!.name} ${String(
     candyFound!.amount
   )}`;
 };
@@ -61,11 +67,14 @@ export const decreaseAmountOfProductInCart = function (candyId: number) {
   // candyFound!.updateTotalCost();
   console.log("CartArray after amount--", cartArray);
   if (cartAmountEl) {
-    cartAmountEl.innerText = `Nbr of unique products in cart ${String(
+    cartAmountEl.innerText = `Nbr of  products in cart ${String(
       getTotalAmountOfProductsInCart()
     )}`;
+    cartTotalPriceEl!.innerText = `Total cost: ${String(
+      getTotalCostOfProductsInCart()
+    )}`;
   }
-  cartContentsEl.innerText = `Nbr of ${candyFound.name} ${String(
+  cartContentsEl!.innerText = `Nbr of ${candyFound!.name} ${String(
     candyFound!.amount
   )}`;
 };
@@ -78,8 +87,10 @@ export const deleteProductFromCart = function (candyId: number) {
 };
 //Gets nbr of kinds of candy at the moment, not total amount of candy.
 export const getTotalAmountOfProductsInCart = function () {
-  // TODO: Get amount of all items in cart
-  return cartArray.length;
+  return cartArray.reduce((acc, curr) => acc + curr.amount, 0);
+};
+export const getTotalCostOfProductsInCart = function () {
+  return cartArray.reduce((acc, curr) => acc + curr.totalCost, 0);
 };
 
 const renderCart = function () {
@@ -117,7 +128,7 @@ deleteBtnEl?.addEventListener("click", () => {
 
 export const addToCart = async function (clickedCandyId: number) {
   let fetchedCandyObject = await getCandyProductInfo(clickedCandyId);
-  console.log("Fetched candyObject", fetchedCandyObject);
+  // console.log("Fetched candyObject", fetchedCandyObject);
   let foundSameCandyInCart = kindOfCandyInCartArr.some(
     (product) => product.data.id === clickedCandyId
   );
@@ -131,16 +142,16 @@ export const addToCart = async function (clickedCandyId: number) {
     );
 
     cartArray.push(candyProduct);
-    console.log("CartArray", cartArray);
+    console.log("CartArray Contents", cartArray);
   } else if (foundSameCandyInCart) {
     const candyFound = cartArray.find(
       (product: CartProduct) => product.id === clickedCandyId
     );
     candyFound!.amount++;
-    cartContentsEl.innerText = `Nbr of ${candyFound.name} ${String(
+    cartContentsEl!.innerText = `Nbr of ${candyFound!.name} ${String(
       candyFound!.amount
     )}`;
-    cartContentsEl.innerText = `Nbr of ${candyFound.name} ${String(
+    cartContentsEl!.innerText = `Nbr of ${candyFound!.name} ${String(
       candyFound!.amount
     )}`;
 
@@ -148,14 +159,17 @@ export const addToCart = async function (clickedCandyId: number) {
     console.log("CartArray after amount++", cartArray);
   }
 
-  console.log("kindOfCandyInCartArr", kindOfCandyInCartArr);
+  // console.log("kindOfCandyInCartArr", kindOfCandyInCartArr);
   console.log(
     "Total amount of prods in cart",
     getTotalAmountOfProductsInCart()
   );
   if (cartAmountEl) {
-    cartAmountEl.innerText = `Nbr of unique products in cart ${String(
+    cartAmountEl.innerText = `Nbr of  products in cart ${String(
       getTotalAmountOfProductsInCart()
     )}`;
   }
+  cartTotalPriceEl!.innerText = `Total cost: ${String(
+    getTotalCostOfProductsInCart()
+  )}`;
 };

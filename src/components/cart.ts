@@ -8,7 +8,7 @@ const decreaseBtnEl = document.querySelector<HTMLButtonElement>(".decreaseBtn");
 const deleteBtnEl = document.querySelector<HTMLButtonElement>(".deleteBtn");
 const cartAmountEl =
   document.querySelector<HTMLParagraphElement>(".cartAmount");
-const cartContentEl =
+const cartContentsEl =
   document.querySelector<HTMLParagraphElement>(".cartContents");
 const cartTotalPriceEl =
   document.querySelector<HTMLParagraphElement>(".totalPrice");
@@ -45,7 +45,7 @@ class CartProduct {
 
 //Spreada CandyResponse till en ny array och lägg på egenskapen amount på den.
 
-export const increaseAmountOfProductInCart = function (candyId: number) {
+export const increaseAmountOfProductInCart = function (clickedCandyId: number) {
   const candyFound = cartArray.find(
     (product: CartProduct) => product.id === clickedCandyId
   );
@@ -60,13 +60,13 @@ export const increaseAmountOfProductInCart = function (candyId: number) {
       getTotalCostOfProductsInCart()
     )}`;
   }
-  // cartContentEl!.innerText = `Nbr of ${candyFound!.name} ${String(
+  // cartContentsEl!.innerText = `Nbr of ${candyFound!.name} ${String(
   //   candyFound!.amount
   // )}`;
   renderItemCardInCart();
 };
 
-export const decreaseAmountOfProductInCart = function (candyId: number) {
+export const decreaseAmountOfProductInCart = function (clickedCandyId: number) {
   const candyFound = cartArray.find(
     (product: CartProduct) => product.id === clickedCandyId
   );
@@ -87,17 +87,20 @@ export const decreaseAmountOfProductInCart = function (candyId: number) {
   }
   renderItemCardInCart();
 
-  // cartContentEl!.innerText = `Nbr of ${candyFound!.name} ${String(
+  // cartContentsEl!.innerText = `Nbr of ${candyFound!.name} ${String(
   //   candyFound!.amount
   // )}`;
 };
 
-export const deleteProductFromCart = function (candyId: number) {
+export const deleteProductFromCart = function (clickedCandyId: number) {
+  console.log("Running deleteproduct");
   const candyFound = cartArray.find(
-    (product: CartProduct) => product.id === candyId
+    (product: CartProduct) => product.id === clickedCandyId
   );
-  candyFound!.amount = 0;
-  cartArray = cartArray.filter((product) => product.id !== candyFound!.id);
+  if (candyFound) {
+    candyFound.amount = 0;
+    cartArray = cartArray.filter((product) => product.id !== candyFound.id);
+  }
   renderItemCardInCart();
 };
 //Gets nbr of kinds of candy at the moment, not total amount of candy.
@@ -108,14 +111,14 @@ export const getTotalCostOfProductsInCart = function () {
   return cartArray.reduce((acc, curr) => acc + curr.totalCost, 0);
 };
 
-const renderCart = function () {
-  //Populate cart with cards of items. Used for add/delete increase/decrease.
-};
+// const renderCart = function () {
+//   //Populate cart with cards of items. Used for add/delete increase/decrease.
+// };
 
 // candyId: CandyData
 const renderItemCardInCart = function () {
   // Render a card with added item
-  cartContentEl!.innerHTML = cartArray
+  cartContentsEl!.innerHTML = cartArray
     .map((product) => {
       let thumbnailURL = `https://www.bortakvall.se${product.thumbnail}`;
 
@@ -141,18 +144,18 @@ const renderItemCardInCart = function () {
 
 //Adds clicked candy to cart, if exists, increase amount instead.
 
-allCardsContainerEl?.addEventListener("click", (e) => {
+allCardsContainerEl?.addEventListener("click", async (e) => {
   const target = e.target as HTMLElement;
   if (target.classList.contains("bi-basket")) {
     const candyCard = target.closest<HTMLDivElement>(".card");
     clickedCandyId = Number(candyCard?.dataset.productId);
     // console.log("Clicked candyId", clickedCandyId);
-    addToCart(clickedCandyId);
-    renderItemCardInCart();
+    await addToCart(clickedCandyId);
+    // renderItemCardInCart();
   }
 });
 
-cartContentEl?.addEventListener("click", (e) => {
+cartContentsEl?.addEventListener("click", (e) => {
   const target = e.target as HTMLElement;
   const candyCard = target.closest<HTMLDivElement>(".card");
   clickedCandyId = Number(candyCard?.dataset.productId);
@@ -196,20 +199,16 @@ export const addToCart = async function (clickedCandyId: number) {
 
     cartArray.push(candyProduct);
     console.log("CartArray Contents", cartArray);
-    renderItemCardInCart();
+    // renderItemCardInCart();
   } else if (foundSameCandyInCart) {
     const candyFound = cartArray.find(
       (product: CartProduct) => product.id === clickedCandyId
     );
     candyFound!.amount++;
-    renderItemCardInCart();
-    // cartContentEl!.innerText = `Nbr of ${candyFound!.name} ${String(
-    //   candyFound!.amount
-    // )}`;
 
-    // candyFound!.updateTotalCost();
     console.log("CartArray after amount++", cartArray);
   }
+  renderItemCardInCart();
 
   // console.log("kindOfCandyInCartArr", kindOfCandyInCartArr);
   console.log(

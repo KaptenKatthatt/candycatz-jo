@@ -54,6 +54,20 @@ h5 {
   
 }
 
+.candyAmount {
+  font-size: 3rem;
+  position: fixed;
+  z-index: 100;
+.candyAmountRendered {
+  font-size: 1rem;
+  position: absolute;
+  margin-top: 10px;
+  margin-left: -25px;
+
+}
+}
+
+
 .outOfStock {
   color: grey;
 }

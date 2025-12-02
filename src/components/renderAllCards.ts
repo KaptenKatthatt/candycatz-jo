@@ -3,6 +3,8 @@ import type { CandyData } from "../services/candyApiTypes";
 
 let showMoreCandy: CandyData[];
 let candyShowNr: number = 12;
+let usedIds: number[];
+let showRestCandy: CandyData[];
 
 // funktion för att återanvända kort strukturen flera gånger på olika kategorier
 function cardStructure(product: CandyData): string {
@@ -79,7 +81,7 @@ export const renderAllCards = async function () {
   .map(product => cardStructure(product)).join("");
 
 // skapa variabel array som innehåller de som redan har visats
-const usedIds = [...sliceOutTopTreats.map(candy => candy.id),
+usedIds = [...sliceOutTopTreats.map(candy => candy.id),
   ...sliceOutSavings.map(candy => candy.id)
 ];
 console.log("använda id:", usedIds, "längden borde vara 24:", usedIds.length)
@@ -88,7 +90,7 @@ showMoreCandy = allCandyCards
 const moreToMunchCardsContainerEl = document.querySelector(
     ".moreToMunchCardsContainer"
   ) as HTMLDivElement;
-    let showRestCandy = showMoreCandy
+    showRestCandy = showMoreCandy
       .slice(0,candyShowNr);
   moreToMunchCardsContainerEl.innerHTML += showRestCandy
     .map((product) => cardStructure(product))
@@ -101,18 +103,22 @@ const moreToMunchCardsContainerEl = document.querySelector(
     moreSweetsButton();
     // fortsätt lägga ut godis
     // plussa på 12 att lägga ut "ovanpå" de previous 12, 24 + osv
-    
+    showNumberOfCandys();
 };
 
 function loadMoreSweets() {
   const moreToMunchCardsContainerEl = document.querySelector(
     ".moreToMunchCardsContainer"
   ) as HTMLDivElement;
-    let showRestCandy = showMoreCandy
+    showRestCandy = showMoreCandy
       .slice(0,candyShowNr);
   moreToMunchCardsContainerEl.innerHTML = showRestCandy
     .map((product) => cardStructure(product))
     .join("");
+    
+    showNumberOfCandys();
+    // lägg till ifall resterande är mindre än 12 så ska X läggas till
+    // för att antalet ska bli rätt i slutändan! 
 
 
 }
@@ -135,3 +141,8 @@ function moreSweetsButton() {
       }
     })
 }
+
+function showNumberOfCandys(){
+const candyAmountRendered = document.querySelector<HTMLDivElement>(".candyAmountRendered")!;
+const allTheCandy = usedIds.length + candyShowNr;
+candyAmountRendered.innerHTML = `${allTheCandy}`;}

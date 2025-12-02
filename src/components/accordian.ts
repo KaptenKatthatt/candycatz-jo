@@ -33,33 +33,33 @@ export const renderCheckoutForm = function () {
 
 <form>
  <div class="form-group col-md-6">
-    <label for="inputName">Name</label>
-    <input type="text" class="form-control" id="inputName" required placeholder="Enter your name">
+    <label for="inputName">Namn</label>
+    <input type="text" class="form-control" id="inputName" required placeholder= "För- och efternamn">
   </div>
   <div class="form-row">
     <div class="form-group col-md-6">
       <label for="inputEmail4">Email</label>
-      <input type="email" class="form-control" id="inputEmail4" required placeholder="Email">
+      <input type="email" class="form-control" id="inputEmail4" required placeholder="Emailadress">
   </div>
   <div class="form-group col-md-6">
-    <label for="inputNumber">Phone Number<span class="text-muted">(optional)</span></label>
-    <input type="number" class="form-control" id="inputNumber" placeholder="Your phonenumber">
+    <label for="inputNumber">Telefonnummer<span class="text-muted">(optional)</span></label>
+    <input type="number" class="form-control" id="inputNumber" placeholder="telefonnummer">
   </div>
   <div class="form-group col-md-6">
-    <label for="inputAddress">Address</label>
-    <input type="text" class="form-control" id="inputAddress" required placeholder="1234 Main St">
+    <label for="inputAddress">Adress</label>
+    <input type="text" class="form-control" id="inputAddress" required placeholder="Gatuadress">
   </div>
   <div class="form-row">
     <div class="form-group col-md-6">
-      <label for="inputCity">City</label>
+      <label for="inputCity">Ort</label>
       <input type="text" class="form-control" required id="inputCity">
     </div>
     <div class="form-group col-md-2">
-      <label for="inputZip">Zip</label>
+      <label for="inputZip">Postnummer</label>
       <input type="text" class="form-control" required id="inputZip">
     </div>
   </div>
-  <button type="submit" class="btn btn-primary mt-2">Submit order</button>
+  <button type="submit" class="btn btn-primary mt-2">Slutför köp</button>
 </form>     
  </div>
     </div>

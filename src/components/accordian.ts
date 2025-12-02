@@ -12,6 +12,7 @@ export const renderCartView = function () {
     <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-headingOne">
       <div class="accordion-body">
         <strong>This is the first item's accordion body.</strong> It is shown by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+         It is shown by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
       </div>
     </div>
   </div>
@@ -29,6 +30,7 @@ export const renderCheckoutForm = function () {
     </h2>
     <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingTwo">
       <div class="accordion-body">
+
 <form>
  <div class="form-group col-md-6">
     <label for="inputName">Name</label>
@@ -40,7 +42,7 @@ export const renderCheckoutForm = function () {
       <input type="email" class="form-control" id="inputEmail4" required placeholder="Email">
   </div>
   <div class="form-group col-md-6">
-    <label for="inputNumber">Phonenumber<span class="text-muted">(optional)</span></label>
+    <label for="inputNumber">Phone Number<span class="text-muted">(optional)</span></label>
     <input type="number" class="form-control" id="inputNumber" placeholder="Your phonenumber">
   </div>
   <div class="form-group col-md-6">
@@ -58,8 +60,10 @@ export const renderCheckoutForm = function () {
     </div>
   </div>
   <button type="submit" class="btn btn-primary mt-2">Submit order</button>
-</form>      </div>
+</form>     
+ </div>
     </div>
   </div>
+ 
 `;
 };

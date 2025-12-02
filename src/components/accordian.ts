@@ -39,7 +39,7 @@ export const renderCheckoutForm = function () {
   <div class="form-row">
     <div class="form-group col-md-6">
       <label for="inputEmail4">Email</label>
-      <input type="email" class="form-control" id="inputEmail4" required placeholder="Emailadress">
+      <input type="email" class="form-control" id="inputEmail" required placeholder="Mailadress">
   </div>
   <div class="form-group col-md-6">
     <label for="inputNumber">Telefonnummer<span class="text-muted">(optional)</span></label>
@@ -67,3 +67,6 @@ export const renderCheckoutForm = function () {
  
 `;
 };
+
+
+

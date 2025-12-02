@@ -14,6 +14,7 @@ export const renderModal = async function (productId: number) {
   let candyTitle = candyProduct.data.name;
   let candyParagraph = candyProduct.data.description;
   let modalThumbnailURL = `https://www.bortakvall.se${candyProduct.data.images.thumbnail}`;
+  let candyPrice = candyProduct.data.price;
 
   //Modal product info
   const modalContainerEl = document.querySelector(
@@ -33,20 +34,19 @@ export const renderModal = async function (productId: number) {
 
   modalContainerEl.innerHTML = `
 <div class="modal fade" id="candyModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
+    <div class="modal-dialog modal-sm">
       <div class="modal-content">
         <div class="modal-header">
           <h5 class="modal-title modalTitle fs-5">${candyTitle}</h5>
-          <button type=" button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          <button type=" button" class="btn-close" data-bs-dismiss="modal" aria-label="Stäng"></button>
         </div>
         <div class="modal-body">
           <img src="${modalThumbnailURL}" class="modalThumbnail card-img-top" alt="${candyTitle}">
           <p class="modalParagraph card-text">${candyParagraph}</p>
-
+          <p class="modal-price">Pris:<strong> ${candyPrice}:- </strong></p>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Save changes</button>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Stäng</button>
         </div>
       </div>
     </div>

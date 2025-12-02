@@ -19,6 +19,13 @@ $title-text: #ea5d93;
 body {
     background-color: $bg;
     padding-top: 105px;
+    
+}
+
+
+html, body{
+  height: auto;
+  overflow: auto;
 }
 
 /*  OFFCAN - YOUR CANDY CART  */
@@ -105,6 +112,11 @@ h5 {
 .stockStatus{
   margin-bottom: -1rem;
 }
+
+/* Accordion */
+
+
+
 
 /* FOOTER */
 

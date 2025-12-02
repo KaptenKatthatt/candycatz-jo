@@ -2,7 +2,7 @@ export const navbarEl = document.querySelector("nav") as HTMLElement;
 
 export const renderNavbar = function () {
   navbarEl.innerHTML = `<div class="container-fluid">
-          <a class="navbar-brand" href="#">
+          <a class="navbar-brand" href="/index.html">
             <img
               src="/src/assets/img/candyCatzLogo.png"
               width="300px"

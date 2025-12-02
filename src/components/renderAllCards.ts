@@ -1,29 +1,35 @@
 import { getAllCandyInfo } from "../services/candyAPI";
 import type { CandyData } from "../services/candyApiTypes";
 
+let moreToMunchCandys: CandyData[];
+let candyShowNr: number = 12;
+
 // funktion för att återanvända kort strukturen flera gånger på olika kategorier
 function cardStructure(product: CandyData): string {
   let thumbnailURL = `https://www.bortakvall.se${product.images.thumbnail}`;
 
   return `<div class="card cardtrans rounded-4 p-1" data-product-id="${
     product.id
-  }" style="width: 10rem;">
+  }" style="width: 11rem;">
       <img src="${thumbnailURL}" class="card-img-top click rounded-4" alt="Image of ${
     product.name
   }">
       <div class="card-body">
       <div class="infoContainer">
         <h5 class="card-title click fs-5">${product.name}</h5>
-        <p class="card-text stockStatus">In stock: ${
-          product.stock_status === "instock"
-            ? `<span class="fw-bold">${product.price}</span>`
-            : `<span class="fst-italic pb-1"><br>Out of stock</span>`
+        ${product.stock_status === "instock"
+            ? `<p class="card-text stockStatus">I lager:
+            <span class="fw-bold">${product.stock_quantity}</span>`
+            : `<p class="card-text stockStatus"><em>Ej i lager</em>`
         }</p>
-        <p class="card-text priceTag">Scoop price: <span class="fw-bold">${
+        <p class="card-text priceTag">Pris/skopa: <span class="fw-bold">${
           product.price
         }:-</span></p>
         <button class="btn btn-primary my-2"><i class="bi bi-info-circle"></i></button>
-        <button class="btn btn-success">+<i class="bi bi-basket ps-2"></i></button>
+        <button class="btn btn-success" 
+        ${product.stock_status !== "instock" 
+          ? "disabled" 
+          : ""}>+<i class="bi bi-basket ps-2"></i></button>
         </div>
       </div>
         </div>
@@ -72,9 +78,45 @@ export const renderAllCards = async function () {
   sweetSavingsCardsContainterEl.innerHTML += sliceOutSavings
   .map(product => cardStructure(product)).join("");
 
-// skapa variabel som innehåller de som redan har visats?
+// skapa variabel array som innehåller de som redan har visats
 const usedIds = [...sliceOutTopTreats.map(candy => candy.id),
   ...sliceOutSavings.map(candy => candy.id)
 ];
 console.log("använda id:", usedIds, "längden borde vara 24:", usedIds.length)
+moreToMunchCandys = allCandyCards
+      .filter(candy => !usedIds.includes(candy.id))
+      .slice(0,candyShowNr);
+console.log("övriga 12 stycken godisar att rendera ut:", moreToMunchCandys);
+  
+// Ut med resten av godagodiiiis
+const moreToMunchCardsContainerEl = document.querySelector(
+    ".moreToMunchCardsContainer"
+  ) as HTMLDivElement;
+  moreToMunchCardsContainerEl.innerHTML += moreToMunchCandys
+    .map((product) => cardStructure(product))
+    .join("");
+    
+    //lägg till en knapp "show more"
+    moreSweetsButton();
+    // fortsätt lägga ut godis
+    loadMoreSweets();
+    
 };
+
+function loadMoreSweets() {
+
+}
+
+function moreSweetsButton() {
+  const moreSweetsBtnEl = document.querySelector(
+    ".moreToMunchBtn") as HTMLDivElement;
+
+    moreSweetsBtnEl.addEventListener("click", () => {
+      candyShowNr += 12;
+      console.log("lagt till 12", candyShowNr)
+
+      if (candyShowNr >= moreToMunchCandys.length) {
+        moreSweetsBtnEl.classList.add("d-none");
+      }
+    })
+}

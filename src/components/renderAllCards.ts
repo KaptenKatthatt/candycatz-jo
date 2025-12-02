@@ -1,7 +1,7 @@
 import { getAllCandyInfo } from "../services/candyAPI";
 import type { CandyData } from "../services/candyApiTypes";
 
-let moreToMunchCandys: CandyData[];
+let showMoreCandy: CandyData[];
 let candyShowNr: number = 12;
 
 // funktion för att återanvända kort strukturen flera gånger på olika kategorier
@@ -83,27 +83,37 @@ const usedIds = [...sliceOutTopTreats.map(candy => candy.id),
   ...sliceOutSavings.map(candy => candy.id)
 ];
 console.log("använda id:", usedIds, "längden borde vara 24:", usedIds.length)
-moreToMunchCandys = allCandyCards
-      .filter(candy => !usedIds.includes(candy.id))
-      .slice(0,candyShowNr);
-console.log("övriga 12 stycken godisar att rendera ut:", moreToMunchCandys);
-  
-// Ut med resten av godagodiiiis
+showMoreCandy = allCandyCards
+      .filter(candy => !usedIds.includes(candy.id));
 const moreToMunchCardsContainerEl = document.querySelector(
     ".moreToMunchCardsContainer"
   ) as HTMLDivElement;
-  moreToMunchCardsContainerEl.innerHTML += moreToMunchCandys
+    let showRestCandy = showMoreCandy
+      .slice(0,candyShowNr);
+  moreToMunchCardsContainerEl.innerHTML += showRestCandy
     .map((product) => cardStructure(product))
     .join("");
+
+// Ut med resten av godagodiiiis
+
     
     //lägg till en knapp "show more"
     moreSweetsButton();
     // fortsätt lägga ut godis
-    loadMoreSweets();
+    // plussa på 12 att lägga ut "ovanpå" de previous 12, 24 + osv
     
 };
 
 function loadMoreSweets() {
+  const moreToMunchCardsContainerEl = document.querySelector(
+    ".moreToMunchCardsContainer"
+  ) as HTMLDivElement;
+    let showRestCandy = showMoreCandy
+      .slice(0,candyShowNr);
+  moreToMunchCardsContainerEl.innerHTML = showRestCandy
+    .map((product) => cardStructure(product))
+    .join("");
+
 
 }
 
@@ -113,10 +123,15 @@ function moreSweetsButton() {
 
     moreSweetsBtnEl.addEventListener("click", () => {
       candyShowNr += 12;
+      loadMoreSweets();
       console.log("lagt till 12", candyShowNr)
+      
 
-      if (candyShowNr >= moreToMunchCandys.length) {
+      if (candyShowNr >= showMoreCandy.length) {
         moreSweetsBtnEl.classList.add("d-none");
+        console.log("alla godis renderade", candyShowNr, moreToMunchCandys)
+      } else {
+        moreSweetsBtnEl.classList.remove("d-none");
       }
     })
 }

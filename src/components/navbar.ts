@@ -35,13 +35,13 @@ export const renderNavbar = function () {
           <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav text-end ms-auto">
               <li class="nav-item">
-                <a class="nav-link" href="#">Top Treats</a>
+                <a class="nav-link" href="#topTreats">Top Treats</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">Sweet Savings</a>
+                <a class="nav-link" href="#sweetSavings">Sweet Savings</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">Candy Hotline</a>
+                <a class="nav-link" href="#footer">Candy Hotline</a>
               </li>
             </ul>
           </div>

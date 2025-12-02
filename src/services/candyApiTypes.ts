@@ -1,22 +1,19 @@
 export interface CandyData {
-  status: string;
-  data: {
-    id: number;
-    name: string;
-    price: number;
-    on_sale: boolean;
-    images: {
-      thumbnail: string;
-    };
-    stock_status: string;
-    stock_quantity: number;
+  id: number;
+  name: string;
+  price: number;
+  on_sale: boolean;
+  images: {
+    thumbnail: string;
   };
+  stock_status: string;
+  stock_quantity: number;
 }
 
-// export interface CandyResponse {
-//   status: string;
-//   data: CandyData;
-// }
+export interface CandyResponse {
+  status: string;
+  data: CandyData;
+}
 
 export interface CandyDataID {
   id: number;

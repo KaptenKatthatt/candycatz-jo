@@ -1,5 +1,5 @@
 import { getCandyProductInfo } from "../services/candyAPI";
-import { type CandyData } from "../services/candyApiTypes";
+import { type CandyData, type CandyResponse } from "../services/candyApiTypes";
 
 const allCardsContainerEl =
   document.querySelector<HTMLDivElement>(".allCardsContainer");
@@ -14,7 +14,7 @@ const cartTotalPriceEl =
   document.querySelector<HTMLParagraphElement>(".totalPrice");
 
 let clickedCandyId = 0;
-const kindOfCandyInCartArr: CandyData[] = [];
+const kindOfCandyInCartArr: CandyResponse[] = [];
 let cartArray: CartProduct[] = [];
 
 class CartProduct {

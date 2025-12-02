@@ -70,13 +70,11 @@ export const renderAllCards = async function () {
     ".sweetSavingsCardsContainer"
   ) as HTMLDivElement;
   sweetSavingsCardsContainterEl.innerHTML += sliceOutSavings
-    .map((product) => cardStructure(product))
-    .join("");
+  .map(product => cardStructure(product)).join("");
 
-  // skapa variabel som innehåller de som redan har visats?
-  const usedIds = [
-    ...sliceOutTopTreats.map((candy) => candy.id),
-    ...sliceOutSavings.map((candy) => candy.id),
-  ];
-  console.log("använda id:", usedIds);
+// skapa variabel som innehåller de som redan har visats?
+const usedIds = [...sliceOutTopTreats.map(candy => candy.id),
+  ...sliceOutSavings.map(candy => candy.id)
+];
+console.log("använda id:", usedIds, "längden borde vara 24:", usedIds.length)
 };

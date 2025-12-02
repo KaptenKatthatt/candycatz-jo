@@ -11,7 +11,7 @@ const cartAmountEl =
 const cartContentEl =
   document.querySelector<HTMLParagraphElement>(".cartContents");
 const cartTotalPriceEl =
-  document.querySelector<HTMLParagraphElement>(".totalPrice");
+  document.querySelector<HTMLGParagraphElement>(".totalPrice");
 
 let clickedCandyId = 0;
 const kindOfCandyInCartArr: CandyResponse[] = [];
@@ -124,7 +124,7 @@ const renderItemCardInCart = function () {
           <p class="me-2">Scoop price: ${product.price}</p>
           <p class="me-2">Total product price: ${product.totalCost}</p>
           <button class="increaseBtn btn btn-success me-2">+</button>
-          <p class="me-2">${product.amount}
+          <p class="me-2">${product.amount}</p>
           <button class="decreaseBtn btn btn-primary me-2">-</button>
           <button class="deleteBtn btn btn-danger me-2"><i class="bi bi-trash"></i></button>
         </div>
@@ -150,8 +150,24 @@ allCardsContainerEl?.addEventListener("click", (e) => {
   }
 });
 
+cartContentEl?.addEventListener("click", (e) => {
+  const target = e.target as HTMLElement;
+  const candyCard = target.closest<HTMLDivElement>(".card");
+  clickedCandyId = Number(candyCard?.dataset.productId);
+
+  if (target.classList.contains("increaseBtn")) {
+    increaseAmountOfProductInCart(clickedCandyId);
+  } else if (target.classList.contains("decreaseBtn")) {
+    decreaseAmountOfProductInCart(clickedCandyId);
+  } else if (target.classList.contains("deleteBtn")) {
+    deleteProductFromCart(clickedCandyId);
+  }
+  renderItemCardInCart();
+});
+
 // increaseBtnEl?.addEventListener("click", () => {
-//   increaseAmountOfProductInCart(6600);
+//   console.log("ClickedCID", clickedCandyId);
+//   increaseAmountOfProductInCart(clickedCandyId);
 // });
 // decreaseBtnEl?.addEventListener("click", () => {
 //   decreaseAmountOfProductInCart(6600);

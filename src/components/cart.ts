@@ -134,7 +134,7 @@ const renderCart = function () {
       })
       .join("");
   } else {
-    console.error("cartContensEl is not here yet.");
+    console.error("cartContentsEl is not here yet.");
   }
 };
 

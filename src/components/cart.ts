@@ -117,16 +117,16 @@ const renderItemCardInCart = function () {
     .map((product) => {
       let thumbnailURL = `https://www.bortakvall.se${product.thumbnail}`;
 
-      return `<div class="card container-fluid cardtrans d-flex flex-row rounded-4 p-1" data-product-id="${product.id}" >
+      return `<div class="card cardtrans container-fluid d-flex flex-row rounded-4 p-1" data-product-id="${product.id}" >
 
-      <img src="${thumbnailURL}" width="50" class="img-fluid rounded-4 me-2" alt="Image of ${product.name}">
-        <h5 class="card-title click fs-5 me-2">${product.name}</h5>
-        <p class="me-2">Scoop price: ${product.price}</p>
-        <p class="me-2">Total product price: ${product.totalCost}</p>
-        <button class="me-2 btn btn-success increaseBtn">+</button>
-        <button class="me-2 btn btn-primary decreaseBtn">-</button>
-        <button class="me-2 btn btn-danger deleteBtn"><i class="bi bi-trash"></i></button>
-
+          <img src="${thumbnailURL}" width="50" class="img-fluid rounded-4 me-2" alt="Image of ${product.name}">
+          <h5 class="card-title click fs-5 me-2">${product.name}</h5>
+          <p class="me-2">Scoop price: ${product.price}</p>
+          <p class="me-2">Total product price: ${product.totalCost}</p>
+          <button class="increaseBtn btn btn-success me-2">+</button>
+          <p class="me-2">${product.amount}
+          <button class="decreaseBtn btn btn-primary me-2">-</button>
+          <button class="deleteBtn btn btn-danger me-2"><i class="bi bi-trash"></i></button>
         </div>
       `;
     })
@@ -138,6 +138,7 @@ const renderItemCardInCart = function () {
 // };
 
 //Adds clicked candy to cart, if exists, increase amount instead.
+
 allCardsContainerEl?.addEventListener("click", (e) => {
   const target = e.target as HTMLElement;
   if (target.classList.contains("bi-basket")) {
@@ -145,18 +146,19 @@ allCardsContainerEl?.addEventListener("click", (e) => {
     clickedCandyId = Number(candyCard?.dataset.productId);
     // console.log("Clicked candyId", clickedCandyId);
     addToCart(clickedCandyId);
+    renderItemCardInCart();
   }
 });
 
-increaseBtnEl?.addEventListener("click", () => {
-  increaseAmountOfProductInCart(6600);
-});
-decreaseBtnEl?.addEventListener("click", () => {
-  decreaseAmountOfProductInCart(6600);
-});
-deleteBtnEl?.addEventListener("click", () => {
-  deleteProductFromCart(6600);
-});
+// increaseBtnEl?.addEventListener("click", () => {
+//   increaseAmountOfProductInCart(6600);
+// });
+// decreaseBtnEl?.addEventListener("click", () => {
+//   decreaseAmountOfProductInCart(6600);
+// });
+// deleteBtnEl?.addEventListener("click", () => {
+//   deleteProductFromCart(6600);
+// });
 
 export const addToCart = async function (clickedCandyId: number) {
   let fetchedCandyObject = await getCandyProductInfo(clickedCandyId);
@@ -176,6 +178,7 @@ export const addToCart = async function (clickedCandyId: number) {
 
     cartArray.push(candyProduct);
     console.log("CartArray Contents", cartArray);
+    renderItemCardInCart();
   } else if (foundSameCandyInCart) {
     const candyFound = cartArray.find(
       (product: CartProduct) => product.id === clickedCandyId

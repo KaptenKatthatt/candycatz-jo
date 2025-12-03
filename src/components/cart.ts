@@ -5,12 +5,12 @@ import { getCandyProductInfo } from "../services/candyAPI";
 
 const allCardsContainerEl =
   document.querySelector<HTMLDivElement>(".allCardsContainer");
-const cartAmountEl =
-  document.querySelector<HTMLParagraphElement>(".cartAmount");
+// const cartAmountEl =
+//   document.querySelector<HTMLParagraphElement>(".cartAmount");
 // const cartContentsEl =
 //   document.querySelector<HTMLParagraphElement>(".cartContents");
-const cartTotalPriceEl =
-  document.querySelector<HTMLParagraphElement>(".totalPrice");
+// const cartTotalPriceEl =
+//   document.querySelector<HTMLParagraphElement>(".totalPrice");
 
 let clickedCandyId = 0;
 let cartArray: CartProduct[] = [];
@@ -41,22 +41,12 @@ class CartProduct {
   }
 }
 
-//Spreada CandyResponse till en ny array och lägg på egenskapen amount på den.
 export const increaseAmountOfProductInCart = function (clickedCandyId: number) {
   const candyFound = cartArray.find(
     (product: CartProduct) => product.id === clickedCandyId
   );
   candyFound!.amount++;
   console.log("CartArray after amount++", cartArray);
-  // if (cartAmountEl) {
-  //   cartAmountEl.innerText = `Nbr of products in cart ${String(
-  //     getTotalAmountOfProductsInCart()
-  //   )}`;
-
-  // cartTotalPriceEl!.innerText = `Total cost: ${String(
-  //   getTotalCostOfProductsInCart()
-  // )}`;
-  // }
 };
 
 export const decreaseAmountOfProductInCart = function (clickedCandyId: number) {
@@ -68,17 +58,15 @@ export const decreaseAmountOfProductInCart = function (clickedCandyId: number) {
   } else if (candyFound) {
     candyFound.amount--;
   }
-  // candyFound!.updateTotalCost();
   console.log("CartArray after amount--", cartArray);
-  if (cartAmountEl) {
-    cartAmountEl.innerText = `Nbr of  products in cart ${String(
-      getTotalAmountOfProductsInCart()
-    )}`;
-    cartTotalPriceEl!.innerText = `Total cost: ${String(
-      getTotalCostOfProductsInCart()
-    )}`;
-  }
-  // renderCart();
+  // if (cartAmountEl) {
+  //   cartAmountEl.innerText = `Nbr of  products in cart ${String(
+  //     getTotalAmountOfProductsInCart()
+  //   )}`;
+  //   cartTotalPriceEl!.innerText = `Total cost: ${String(
+  //     getTotalCostOfProductsInCart()
+  //   )}`;
+  // }
 };
 
 export const deleteProductFromCart = function (clickedCandyId: number) {
@@ -89,7 +77,6 @@ export const deleteProductFromCart = function (clickedCandyId: number) {
     candyFound.amount = 0;
     cartArray = cartArray.filter((product) => product.id !== candyFound.id);
   }
-  // renderCart();
 };
 //Gets nbr of kinds of candy at the moment, not total amount of candy.
 export const getTotalAmountOfProductsInCart = function () {
@@ -99,7 +86,6 @@ export const getTotalCostOfProductsInCart = function () {
   return cartArray.reduce((acc, curr) => acc + curr.totalCost, 0);
 };
 
-// candyId: CandyData
 const renderCart = function () {
   const cartContainerEl =
     document.querySelector<HTMLDivElement>(".cartContainer");
@@ -173,53 +159,18 @@ allCardsContainerEl?.addEventListener("click", async (e) => {
   if (target.closest(".addToCartBtn")) {
     const candyCard = target.closest<HTMLDivElement>(".card");
     clickedCandyId = Number(candyCard?.dataset.productId);
-    // console.log("Clicked candyId", clickedCandyId);
     await addToCart(clickedCandyId);
-    // renderCart();
     renderCartBadge();
-    openOffCanvas();
+    // openOffCanvas();
   }
 });
 
-// const offcanvasElement = document.getElementById("offcanvasRight");
-// if (offcanvasElement) {
-//   const bsOffcanvas = new Offcanvas(offcanvasElement);
-//   bsOffcanvas.show();
-// }
-
-// const cartContainerEl =
-//   document.querySelector<HTMLDivElement>(".cartContainer");
-
-// if (cartContainerEl) {
-//   cartContainerEl.addEventListener("click", (e) => {
-//     const target = e.target as HTMLElement;
-//     const candyCard = target.closest<HTMLDivElement>(".card");
-//     clickedCandyId = Number(candyCard?.dataset.productId);
-
-//     if (target.closest(".increaseBtn")) {
-//       increaseAmountOfProductInCart(clickedCandyId);
-//       // renderCart();
-//     } else if (target.closest(".decreaseBtn")) {
-//       decreaseAmountOfProductInCart(clickedCandyId);
-//       // renderCart();
-//     } else if (target.closest(".deleteBtn")) {
-//       deleteProductFromCart(clickedCandyId);
-//     }
-//     // renderCart();
-//     // renderCartBadge();
-//   });
-// } else {
-//   console.log("cartContainerEl is not here");
-// }
-
 export const addToCart = async function (clickedCandyId: number) {
   let fetchedCandyObject = await getCandyProductInfo(clickedCandyId);
-  // console.log("Fetched candyObject", fetchedCandyObject);
   let foundSameCandyInCart = cartArray.some(
     (product) => product.id === clickedCandyId
   );
   if (!foundSameCandyInCart) {
-    // kindOfCandyInCartArr.push(fetchedCandyObject);
     const candyProduct = new CartProduct(
       fetchedCandyObject.data.id,
       fetchedCandyObject.data.name,
@@ -230,7 +181,6 @@ export const addToCart = async function (clickedCandyId: number) {
 
     cartArray.push(candyProduct);
     console.log("CartArray Contents", cartArray);
-    // renderCart();
   } else if (foundSameCandyInCart) {
     const candyFound = cartArray.find(
       (product: CartProduct) => product.id === clickedCandyId
@@ -240,18 +190,4 @@ export const addToCart = async function (clickedCandyId: number) {
     console.log("CartArray after amount++", cartArray);
   }
   renderCart();
-
-  // console.log("kindOfCandyInCartArr", kindOfCandyInCartArr);
-  // console.log(
-  //   "Total amount of prods in cart",
-  //   getTotalAmountOfProductsInCart()
-  // );
-  // if (cartAmountEl) {
-  //   cartAmountEl.innerText = `Nbr of  products in cart ${String(
-  //     getTotalAmountOfProductsInCart()
-  //   )}`;
-  // }
-  // cartTotalPriceEl!.innerText = `Total cost: ${String(
-  //   getTotalCostOfProductsInCart()
-  // )}`;
 };

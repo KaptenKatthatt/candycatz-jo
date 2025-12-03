@@ -1,5 +1,5 @@
 //Bootstrap CSS
-import "bootstrap/dist/css/bootstrap.css";
+// import "bootstrap/dist/css/bootstrap.css";
 //Bootstrap JS
 import * as bootstrap from "bootstrap";
 import { renderOffCan } from "./components/offcan";

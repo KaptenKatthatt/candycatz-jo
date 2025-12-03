@@ -13,20 +13,25 @@ $footer: #C4DCD1;
 $offcanvas: #BDE0FE; 
 $title-text: #ea5d93;
 
-
 @import "bootstrap/scss/bootstrap.scss";
+
+@font-face {
+  font-family: "bootstrap-icons";
+  src: url("bootstrap-icons/font/fonts/bootstrap-icons.woff2?2820a385637f43c2208c9328ac724334") format("woff2"),
+       url("bootstrap-icons/font/fonts/bootstrap-icons.woff?2820a385637f43c2208c9328ac724334") format("woff");
+  font-display: swap; 
+}
+
+@import "bootstrap-icons/font/bootstrap-icons.css";
+
 
 body {
     background-color: $bg;
     padding-top: 105px;
-    
+
 }
 
 
-html, body{
-  height: auto;
-  overflow: auto;
-}
 
 html, body{
   height: auto;
@@ -38,7 +43,7 @@ html, body{
 @font-face {
   font-family: "Super Chiby";
   src: url(/src/assets/fonts/super_chiby/Super\ Chiby.ttf);
-
+  font-display: swap; 
 }
 
 
@@ -82,7 +87,7 @@ h5 {
 
 .cardtrans:hover {
   box-shadow: 6px 6px 6px rgb(167, 167, 167);
-  transform: scale(1.02) rotate(-4deg);
+  transform: scale(1.02);
 }
 
 .offcanvas{ 
@@ -127,11 +132,6 @@ h5 {
 .stockStatus{
   margin-bottom: -1rem;
 }
-
-/* Accordion */
-
-
-
 
 /* FOOTER */
 
@@ -204,15 +204,4 @@ h5 {
 }
 .stockStatus{
   height: 40px;
-}
-
-.moreToMunchBtn {
-  display: flex;
-  justify-content: center;
-}
-.munchBtn {
-  box-shadow: 6px 6px 6px rgb(177, 255, 254);
-}
-.munchBtn:hover {
-  transform: scale(1.02) rotate(-4deg);
 }

@@ -15,7 +15,7 @@ export const renderNavbar = function () {
           <a class="nav-link position-relative" href="#" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
             <i class="bi bi-cart4 fs-3"></i>
             <span
-              class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-primary">
+              class="navCartBadge position-absolute top-0 start-100 translate-middle badge rounded-pill bg-primary">
               0
             </span>
           </a>

@@ -70,8 +70,10 @@ export const renderCheckoutForm = function () {
 `;
 };
 
-// Not sure it belongs here. 
-//export const postUserAddressForm()= function () {
+
+
+
+export const postUserAddressForm = function () {
   placedOrderView.innerHTML = `
 <div class="accordion" id="accordionPanelsStayOpenExample">  
 <div class="accordion-item">
@@ -97,4 +99,4 @@ export const renderCheckoutForm = function () {
       `;
 
 
-//};
+};

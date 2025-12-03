@@ -3,25 +3,31 @@ const products = "/products/";
 
 const fetchProductId = async function (productId: number) {
   const res = await fetch(base + products + productId);
+  if (!res.ok) {
+    throw new Error(`FetchProduct error ${res.status} ${res.statusText}`);
+  }
   const data = await res.json();
   return data;
 };
 
 export const getCandyProductInfo = async function (productId: number) {
-  const result = await fetchProductId(productId);
-  return await result;
+  const res = await fetchProductId(productId);
+  return await res;
 };
-console.log("Get one candyproduct", await getCandyProductInfo(6545));
+// console.log("Get one candyproduct", await getCandyProductInfo(6545));
 
 const fetchAllProducts = async function () {
   const res = await fetch(base + products);
+  if (!res.ok) {
+    throw new Error(`fetchAllProducts error ${res.status} ${res.statusText}`);
+  }
   const data = await res.json();
   return data;
 };
 
 export const getAllCandyInfo = async function () {
-  const result = await fetchAllProducts();
-  return result;
+  const res = await fetchAllProducts();
+  return res;
 };
 
-console.log("Get all the candy", await getAllCandyInfo());
+// console.log("Get all the candy", await getAllCandyInfo());

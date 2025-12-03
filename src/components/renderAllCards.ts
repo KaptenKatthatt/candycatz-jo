@@ -19,7 +19,8 @@ function cardStructure(product: CandyData): string {
       <div class="card-body">
       <div class="infoContainer">
         <h5 class="card-title click fs-5">${product.name}</h5>
-        ${product.stock_status === "instock"
+        ${
+          product.stock_status === "instock"
             ? `<p class="card-text stockStatus">I lager:
             <span class="fw-bold">${product.stock_quantity}</span>`
             : `<p class="card-text stockStatus"><em>Ej i lager</em>`
@@ -27,11 +28,11 @@ function cardStructure(product: CandyData): string {
         <p class="card-text priceTag">Pris/skopa: <span class="fw-bold">${
           product.price
         }:-</span></p>
-        <button class="btn btn-primary my-2"><i class="bi bi-info-circle"></i></button>
-        <button class="btn btn-success" 
-        ${product.stock_status !== "instock" 
-          ? "disabled" 
-          : ""}>+<i class="bi bi-basket ps-2"></i></button>
+        <button class="infoModalBtn btn btn-primary my-2"><i class="bi bi-info-circle"></i></button>
+        <button class="addToCartBtn btn btn-success" 
+        ${
+          product.stock_status !== "instock" ? "disabled" : ""
+        }>+<i class="bi bi-basket ps-2"></i></button>
         </div>
       </div>
         </div>
@@ -78,71 +79,70 @@ export const renderAllCards = async function () {
     ".sweetSavingsCardsContainer"
   ) as HTMLDivElement;
   sweetSavingsCardsContainterEl.innerHTML += sliceOutSavings
-  .map(product => cardStructure(product)).join("");
+    .map((product) => cardStructure(product))
+    .join("");
 
-// skapa variabel array som innehåller de som redan har visats
-usedIds = [...sliceOutTopTreats.map(candy => candy.id),
-  ...sliceOutSavings.map(candy => candy.id)
-];
-console.log("använda id:", usedIds, "längden borde vara 24:", usedIds.length)
-showMoreCandy = allCandyCards
-      .filter(candy => !usedIds.includes(candy.id));
-const moreToMunchCardsContainerEl = document.querySelector(
+  // skapa variabel array som innehåller de som redan har visats
+  usedIds = [
+    ...sliceOutTopTreats.map((candy) => candy.id),
+    ...sliceOutSavings.map((candy) => candy.id),
+  ];
+  console.log("använda id:", usedIds, "längden borde vara 24:", usedIds.length);
+  showMoreCandy = allCandyCards.filter((candy) => !usedIds.includes(candy.id));
+  const moreToMunchCardsContainerEl = document.querySelector(
     ".moreToMunchCardsContainer"
   ) as HTMLDivElement;
-    showRestCandy = showMoreCandy
-      .slice(0,candyShowNr);
+  showRestCandy = showMoreCandy.slice(0, candyShowNr);
   moreToMunchCardsContainerEl.innerHTML += showRestCandy
     .map((product) => cardStructure(product))
     .join("");
 
-// Ut med resten av godagodiiiis
+  // Ut med resten av godagodiiiis
 
-    
-    //lägg till en knapp "show more"
-    moreSweetsButton();
-    // fortsätt lägga ut godis
-    // plussa på 12 att lägga ut "ovanpå" de previous 12, 24 + osv
-    showNumberOfCandys();
+  //lägg till en knapp "show more"
+  moreSweetsButton();
+  // fortsätt lägga ut godis
+  // plussa på 12 att lägga ut "ovanpå" de previous 12, 24 + osv
+  showNumberOfCandys();
 };
 
 function loadMoreSweets() {
   const moreToMunchCardsContainerEl = document.querySelector(
     ".moreToMunchCardsContainer"
   ) as HTMLDivElement;
-    showRestCandy = showMoreCandy
-      .slice(0,candyShowNr);
+  showRestCandy = showMoreCandy.slice(0, candyShowNr);
   moreToMunchCardsContainerEl.innerHTML = showRestCandy
     .map((product) => cardStructure(product))
     .join("");
-    
-    showNumberOfCandys();
-    // lägg till ifall resterande är mindre än 12 så ska X läggas till
-    // för att antalet ska bli rätt i slutändan! 
 
-
+  showNumberOfCandys();
+  // lägg till ifall resterande är mindre än 12 så ska X läggas till
+  // för att antalet ska bli rätt i slutändan!
 }
 
 function moreSweetsButton() {
   const moreSweetsBtnEl = document.querySelector(
-    ".moreToMunchBtn") as HTMLDivElement;
+    ".moreToMunchBtn"
+  ) as HTMLDivElement;
 
-    moreSweetsBtnEl.addEventListener("click", () => {
-      candyShowNr += 12;
-      loadMoreSweets();
-      console.log("lagt till 12", candyShowNr)
-      
+  moreSweetsBtnEl.addEventListener("click", () => {
+    candyShowNr += 12;
+    loadMoreSweets();
+    console.log("lagt till 12", candyShowNr);
 
-      if (candyShowNr >= showMoreCandy.length) {
-        moreSweetsBtnEl.classList.add("d-none");
-        console.log("alla godis renderade", candyShowNr, moreToMunchCandys)
-      } else {
-        moreSweetsBtnEl.classList.remove("d-none");
-      }
-    })
+    if (candyShowNr >= showMoreCandy.length) {
+      moreSweetsBtnEl.classList.add("d-none");
+      console.log("alla godis renderade", candyShowNr, moreToMunchCandys);
+    } else {
+      moreSweetsBtnEl.classList.remove("d-none");
+    }
+  });
 }
 
-function showNumberOfCandys(){
-const candyAmountRendered = document.querySelector<HTMLDivElement>(".candyAmountRendered")!;
-const allTheCandy = usedIds.length + candyShowNr;
-candyAmountRendered.innerHTML = `${allTheCandy}`;}
+function showNumberOfCandys() {
+  const candyAmountRendered = document.querySelector<HTMLDivElement>(
+    ".candyAmountRendered"
+  )!;
+  const allTheCandy = usedIds.length + candyShowNr;
+  candyAmountRendered.innerHTML = `${allTheCandy}`;
+}

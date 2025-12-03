@@ -43,7 +43,7 @@ export const renderCheckoutForm = function () {
   </div>
   <div class="form-group col-md-6">
     <label for="inputNumber">Telefonnummer<span class="text-muted">(optional)</span></label>
-    <input type="number" class="form-control" id="inputNumber" placeholder="telefonnummer">
+    <input type="number" class="form-control" id="inputNumber" placeholder="Telefonnummer">
   </div>
   <div class="form-group col-md-6">
     <label for="inputAddress">Adress</label>
@@ -59,7 +59,7 @@ export const renderCheckoutForm = function () {
       <input type="text" class="form-control" required id="inputZip">
     </div>
   </div>
-  <button type="submit" class="btn btn-primary mt-2">Slutför köp</button>
+  <button type="submit" class="submitFormBtn btn btn-primary mt-2">Slutför köp</button>
 </form>     
  </div>
     </div>

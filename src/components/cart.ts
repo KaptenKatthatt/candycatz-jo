@@ -89,7 +89,6 @@ export const decreaseAmountOfProductInCart = function (clickedCandyId: number) {
 };
 
 export const deleteProductFromCart = function (clickedCandyId: number) {
-  console.log("Running deleteproduct");
   const candyFound = cartArray.find(
     (product: CartProduct) => product.id === clickedCandyId
   );
@@ -141,10 +140,10 @@ const renderCart = function () {
 //Adds clicked candy to cart, if exists, increase amount instead.
 allCardsContainerEl?.addEventListener("click", async (e) => {
   const target = e.target as HTMLElement;
-  if (target.closest(".bi-basket")) {
+  if (target.closest(".addToCartBtn")) {
     const candyCard = target.closest<HTMLDivElement>(".card");
     clickedCandyId = Number(candyCard?.dataset.productId);
-    console.log("Clicked candyId", clickedCandyId);
+    // console.log("Clicked candyId", clickedCandyId);
     await addToCart(clickedCandyId);
     renderCart();
   }
@@ -157,14 +156,14 @@ cartContentsEl?.addEventListener("click", (e) => {
 
   if (target.closest(".increaseBtn")) {
     increaseAmountOfProductInCart(clickedCandyId);
-    renderCart();
+    // renderCart();
   } else if (target.closest(".decreaseBtn")) {
     decreaseAmountOfProductInCart(clickedCandyId);
-    renderCart();
+    // renderCart();
   } else if (target.closest(".deleteBtn")) {
     deleteProductFromCart(clickedCandyId);
-    renderCart();
   }
+  renderCart();
 });
 
 export const addToCart = async function (clickedCandyId: number) {

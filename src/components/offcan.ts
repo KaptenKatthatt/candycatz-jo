@@ -84,8 +84,11 @@ export const renderOffCan = function () {
 
   // EventListner for Proceed to Checkout
 
-  const cartCheckoutContainer = document.querySelector<HTMLDivElement>("#cartCheckoutContainer")!;
-  const checkOutBtn = document.querySelector<HTMLButtonElement>(".checkOutBtn")!;
+  const cartCheckoutContainer = document.querySelector<HTMLDivElement>(
+    "#cartCheckoutContainer"
+  )!;
+  const checkOutBtn =
+    document.querySelector<HTMLButtonElement>(".checkOutBtn")!;
 
   checkOutBtn.addEventListener("click", () => {
     console.log("clicka Proceed to checkout");
@@ -96,7 +99,10 @@ export const renderOffCan = function () {
 
     // remove backdrop shadow
     const backdrop = document.querySelector(".offcanvas-backdrop")!;
-    backdrop?.remove();
+    if (backdrop){
+      
+      backdrop.remove();
+    }
 
     // hide homepage
     const allCardsContainerEl =

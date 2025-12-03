@@ -1,4 +1,6 @@
 import { getCandyProductInfo } from "../services/candyAPI";
+// import { openOffCanvas } from "./offcan";
+
 // import { type CandyData, type CandyResponse } from "../services/candyApiTypes";
 
 const allCardsContainerEl =
@@ -46,15 +48,15 @@ export const increaseAmountOfProductInCart = function (clickedCandyId: number) {
   );
   candyFound!.amount++;
   console.log("CartArray after amount++", cartArray);
-  if (cartAmountEl) {
-    cartAmountEl.innerText = `Nbr of products in cart ${String(
-      getTotalAmountOfProductsInCart()
-    )}`;
+  // if (cartAmountEl) {
+  //   cartAmountEl.innerText = `Nbr of products in cart ${String(
+  //     getTotalAmountOfProductsInCart()
+  //   )}`;
 
-    cartTotalPriceEl!.innerText = `Total cost: ${String(
-      getTotalCostOfProductsInCart()
-    )}`;
-  }
+  // cartTotalPriceEl!.innerText = `Total cost: ${String(
+  //   getTotalCostOfProductsInCart()
+  // )}`;
+  // }
 };
 
 export const decreaseAmountOfProductInCart = function (clickedCandyId: number) {
@@ -106,17 +108,19 @@ const renderCart = function () {
     cartContainerEl!.innerHTML = cartArray
       .map((product) => {
         let thumbnailURL = `https://www.bortakvall.se${product.thumbnail}`;
-        return `<div class="card container-fluid d-flex flex-row rounded-4 p-1" data-product-id="${product.id}" >
-  
+        return `
+        <div class="container-fluid d-flex flex-row rounded-4 p-1" data-product-id="${product.id}" >
             <img src="${thumbnailURL}" width="50" class="img-fluid rounded-4 me-2" alt="Image of ${product.name}">
             <h5 class="card-title click fs-5 me-2">${product.name}</h5>
             <p class="me-2">Scoop price: ${product.price}</p>
             <p class="me-2">Total product price: ${product.totalCost}</p>
-            <button class="increaseBtn btn btn-success me-2">+</button>
+            <button class="increaseBtn plusBtn" type="button">+</button>
             <p class="me-2">${product.amount}</p>
-            <button class="decreaseBtn btn btn-primary me-2">-</button>
-            <button class="deleteBtn btn btn-danger me-2"><i class="bi bi-trash"></i></button>
-          </div>
+            <button class="decreaseBtn minusBtn me-2"  type="button">-</button>
+            <button class="deleteBtn btn btn-sm btn-danger"><i class="bi bi-trash"></i></button>
+        </div>
+            <hr>
+
         `;
       })
       .join("");
@@ -139,6 +143,18 @@ const renderCart = function () {
       renderCartBadge();
     };
   }
+  const subtotalContainerEl = document.querySelector(
+    ".subtotalContainer"
+  ) as HTMLSpanElement;
+
+  subtotalContainerEl.innerText = String(getTotalCostOfProductsInCart());
+  const totalCostContainerEl = document.querySelector(
+    ".totalCostContainer"
+  ) as HTMLSpanElement;
+  const shipping = 19;
+  totalCostContainerEl.innerText = String(
+    getTotalCostOfProductsInCart() + shipping
+  );
 };
 
 const renderCartBadge = function () {
@@ -159,10 +175,18 @@ allCardsContainerEl?.addEventListener("click", async (e) => {
     clickedCandyId = Number(candyCard?.dataset.productId);
     // console.log("Clicked candyId", clickedCandyId);
     await addToCart(clickedCandyId);
-    renderCart();
+    // renderCart();
     renderCartBadge();
+    openOffCanvas();
   }
 });
+
+// const offcanvasElement = document.getElementById("offcanvasRight");
+// if (offcanvasElement) {
+//   const bsOffcanvas = new Offcanvas(offcanvasElement);
+//   bsOffcanvas.show();
+// }
+
 // const cartContainerEl =
 //   document.querySelector<HTMLDivElement>(".cartContainer");
 
@@ -218,16 +242,16 @@ export const addToCart = async function (clickedCandyId: number) {
   renderCart();
 
   // console.log("kindOfCandyInCartArr", kindOfCandyInCartArr);
-  console.log(
-    "Total amount of prods in cart",
-    getTotalAmountOfProductsInCart()
-  );
-  if (cartAmountEl) {
-    cartAmountEl.innerText = `Nbr of  products in cart ${String(
-      getTotalAmountOfProductsInCart()
-    )}`;
-  }
-  cartTotalPriceEl!.innerText = `Total cost: ${String(
-    getTotalCostOfProductsInCart()
-  )}`;
+  // console.log(
+  //   "Total amount of prods in cart",
+  //   getTotalAmountOfProductsInCart()
+  // );
+  // if (cartAmountEl) {
+  //   cartAmountEl.innerText = `Nbr of  products in cart ${String(
+  //     getTotalAmountOfProductsInCart()
+  //   )}`;
+  // }
+  // cartTotalPriceEl!.innerText = `Total cost: ${String(
+  //   getTotalCostOfProductsInCart()
+  // )}`;
 };

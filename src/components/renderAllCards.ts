@@ -19,7 +19,8 @@ function cardStructure(product: CandyData): string {
       <div class="card-body">
       <div class="infoContainer">
         <h5 class="card-title click fs-5">${product.name}</h5>
-        ${product.stock_status === "instock"
+        ${
+          product.stock_status === "instock"
             ? `<p class="card-text stockStatus">I lager:
             <span class="fw-bold">${product.stock_quantity}</span>`
             : `<p class="card-text stockStatus"><em>Ej i lager</em>`
@@ -27,11 +28,11 @@ function cardStructure(product: CandyData): string {
         <p class="card-text priceTag">Pris/skopa: <span class="fw-bold">${
           product.price
         }:-</span></p>
-        <button class="btn btn-primary my-2"><i class="bi bi-info-circle"></i></button>
-        <button class="btn btn-success" 
-        ${product.stock_status !== "instock" 
-          ? "disabled" 
-          : ""}>+<i class="bi bi-basket ps-2"></i></button>
+        <button class="modalInfoBtn btn btn-primary my-2"><i class="bi bi-info-circle"></i></button>
+        <button class="addToCartBtn btn btn-success" 
+        ${
+          product.stock_status !== "instock" ? "disabled" : ""
+        }>+<i class="bi bi-basket ps-2"></i></button>
         </div>
       </div>
         </div>
@@ -76,65 +77,68 @@ export const renderAllCards = async function () {
     ".sweetSavingsCardsContainer"
   ) as HTMLDivElement;
   sweetSavingsCardsContainterEl.innerHTML += sliceOutSavings
-  .map(product => cardStructure(product)).join("");
+    .map((product) => cardStructure(product))
+    .join("");
 
-// skapa variabel array som innehåller de som redan har visats
-usedIds = [...sliceOutTopTreats.map(candy => candy.id),
-  ...sliceOutSavings.map(candy => candy.id)
-];
+  // skapa variabel array som innehåller de som redan har visats
+  usedIds = [
+    ...sliceOutTopTreats.map((candy) => candy.id),
+    ...sliceOutSavings.map((candy) => candy.id),
+  ];
 
-showMoreCandy = allCandyCards
-      .filter(candy => !usedIds.includes(candy.id));
-const moreToMunchCardsContainerEl = document.querySelector(
+  showMoreCandy = allCandyCards.filter((candy) => !usedIds.includes(candy.id));
+  const moreToMunchCardsContainerEl = document.querySelector(
     ".moreToMunchCardsContainer"
   ) as HTMLDivElement;
-    showRestCandy = showMoreCandy
-      .slice(0,addedCandyNr);
+  showRestCandy = showMoreCandy.slice(0, addedCandyNr);
   moreToMunchCardsContainerEl.innerHTML += showRestCandy
     .map((product) => cardStructure(product))
     .join("");
-    //lägg till en knapp "show more"
-    moreSweetsButton();
-    // fortsätt lägga ut godis
-    // plussa på 12 att lägga ut "ovanpå" de previous 12, 24 + osv
-    showNumberOfCandys();
+  //lägg till en knapp "show more"
+  moreSweetsButton();
+  // fortsätt lägga ut godis
+  // plussa på 12 att lägga ut "ovanpå" de previous 12, 24 + osv
+  showNumberOfCandys();
 };
 
 function loadMoreSweets() {
   const moreToMunchCardsContainerEl = document.querySelector(
     ".moreToMunchCardsContainer"
   ) as HTMLDivElement;
-    showRestCandy = showMoreCandy
-      .slice(0,addedCandyNr);
+  showRestCandy = showMoreCandy.slice(0, addedCandyNr);
   moreToMunchCardsContainerEl.innerHTML = showRestCandy
     .map((product) => cardStructure(product))
     .join("");
-    
-    showNumberOfCandys();
-    // lägg till ifall resterande är mindre än 12 så ska X läggas till
-    // för att antalet ska bli rätt i slutändan! 
+
+  showNumberOfCandys();
+  // lägg till ifall resterande är mindre än 12 så ska X läggas till
+  // för att antalet ska bli rätt i slutändan!
 }
 
 function moreSweetsButton() {
   const moreSweetsBtnEl = document.querySelector(
-    ".moreToMunchBtn") as HTMLDivElement;
+    ".moreToMunchBtn"
+  ) as HTMLDivElement;
 
-    moreSweetsBtnEl.addEventListener("click", () => {
-      addedCandyNr += 12;
-      loadMoreSweets();
-      
-      if (addedCandyNr >= showMoreCandy.length) {
-        moreSweetsBtnEl.classList.add("d-none");
-        console.log("alla godis renderade", addedCandyNr);
-      } else {
-        moreSweetsBtnEl.classList.remove("d-none");
-      }
-    })
+  moreSweetsBtnEl.addEventListener("click", () => {
+    addedCandyNr += 12;
+    loadMoreSweets();
+
+    if (addedCandyNr >= showMoreCandy.length) {
+      moreSweetsBtnEl.classList.add("d-none");
+      console.log("alla godis renderade", addedCandyNr);
+    } else {
+      moreSweetsBtnEl.classList.remove("d-none");
+    }
+  });
 }
 
-function showNumberOfCandys(){
-const candyAmountRendered = document.querySelector<HTMLDivElement>(".candyAmountRendered")!;
-const allTheCandy = usedIds.length + showRestCandy.length;
-candyAmountRendered.innerHTML = `${allTheCandy}`;}
+function showNumberOfCandys() {
+  const candyAmountRendered = document.querySelector<HTMLDivElement>(
+    ".candyAmountRendered"
+  )!;
+  const allTheCandy = usedIds.length + showRestCandy.length;
+  candyAmountRendered.innerHTML = `${allTheCandy}`;
+}
 
 // okej allt stämmer här in med det

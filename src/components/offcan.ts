@@ -12,36 +12,11 @@ export const renderOffCan = function () {
 <div class="container py-5">
     <div class="row">
        <div class="col-12 mt-3">
-
             <!-- Cart Items -->
-            <div class="card mb-2">
-                <div class="card-body">
-                    <div class="row align-items-center mb-2 cart-item">
-                        <div class="col-md-2">
-                            <img src="https://placehold.co/80x80 alt="Product 1" class="img-fluid rounded">
-                        </div>
-
-                       
-                    <!-- Qty Controls -->
-                      <div class="col-12 col-md-12 d-flex justify-content-end align-items-center mt-3 mb-2 qty-controls">
-                      <button class="minusBtn me-2"  type="button">-</button>
-                      <input class="product-qty text-center" type="number" name="product-qty" min="0" max="10" value="1">
-                      <button class="plusBtn" type="button">+</button>
-                      <button class="btn btn-sm btn-outline-danger"><i class="bi bi-trash"></i></button>
-                      </div>
-
-                       <div class=" col-12 col-md-4  mb-2 mb-md-0">
-                       <p class="fw-bold mt-1"> Namn: XX</p>
-                      <p class="fw-bold mb-0"> Pris: XX kr</p>
-                     </div>
-
-                    </div>
-
-                    <hr>
-
-                </div>
-            </div>
+            <div class="cartContainer"></div>
+              </div>
         </div>
+      </div>
 
 <!-- Cart Summary -->
         <div class="col-12 mt-3">

@@ -1,5 +1,3 @@
-
-
 export const offCan = document.querySelector<HTMLDivElement>("#offCan")!;
 export const renderOffCan = function () {
   offCan.innerHTML = `
@@ -20,7 +18,7 @@ export const renderOffCan = function () {
                 <div class="card-body">
                     <div class="row align-items-center mb-2 cart-item">
                         <div class="col-md-2">
-                            <img src="https://via.placeholder.com/100" alt="Product 1" class="img-fluid rounded">
+                            <img src="https://placehold.co/80x80 alt="Product 1" class="img-fluid rounded">
                         </div>
 
                        
@@ -78,39 +76,39 @@ export const renderOffCan = function () {
                     <i class="bi bi-arrow-left me-2"></i>Continue Shopping</a>
                     </button>
             </div>
-
+   </div>
+      </div>
+         </div>
 
 `;
 
+  // EventListner for Proceed to Checkout
 
+  const cartCheckoutContainer = document.querySelector<HTMLDivElement>(
+    "#cartCheckoutContainer"
+  )!;
+  const checkOutBtn =
+    document.querySelector<HTMLButtonElement>(".checkOutBtn")!;
 
+  checkOutBtn.addEventListener("click", () => {
+    console.log("clicka Proceed to checkout");
 
-// EventListner for Proceed to Checkout
+    // close offcan
+    const offCanvas = document.querySelector<HTMLDivElement>(".offcanvas")!;
+    offCanvas.classList.remove("show");
 
-const cartCheckoutContainer = document.querySelector<HTMLDivElement>("#cartCheckoutContainer")!;
-const checkOutBtn = document.querySelector<HTMLButtonElement>(".checkOutBtn")!;
+    // remove backdrop shadow
+    const backdrop = document.querySelector(".offcanvas-backdrop")!;
+    if (backdrop) {
+      backdrop.remove();
+    }
 
-checkOutBtn.addEventListener("click", () => {
-  console.log("clicka Proceed to checkout");
+    // hide homepage
+    const allCardsContainerEl =
+      document.querySelector<HTMLDivElement>(".allCardsContainer")!;
+    allCardsContainerEl.classList.add("d-none");
 
-  // close offcan
-  const offCanvas = document.querySelector<HTMLDivElement>(".offcanvas")!;
-  offCanvas.classList.remove("show");
-
-   // remove backdrop shadow
-  const backdrop = document.querySelector(".offcanvas-backdrop")!;
-  if (backdrop) backdrop.remove();
-
-  // hide homepage
-  const allCardsContainerEl =
-    document.querySelector<HTMLDivElement>(".allCardsContainer")!;
-  allCardsContainerEl.classList.add("d-none");
-
-  // show accordion
-  cartCheckoutContainer.classList.remove("d-none");
-
-
-
-});
-
+    // show accordion
+    cartCheckoutContainer.classList.remove("d-none");
+  });
 };

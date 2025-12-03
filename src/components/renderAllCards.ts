@@ -1,8 +1,10 @@
 import { getAllCandyInfo } from "../services/candyAPI";
 import type { CandyData } from "../services/candyApiTypes";
 
-let moreToMunchCandys: CandyData[];
+let showMoreCandy: CandyData[];
 let candyShowNr: number = 12;
+let usedIds: number[];
+let showRestCandy: CandyData[];
 
 // funktion för att återanvända kort strukturen flera gånger på olika kategorier
 function cardStructure(product: CandyData): string {
@@ -81,31 +83,42 @@ export const renderAllCards = async function () {
     .join("");
 
   // skapa variabel array som innehåller de som redan har visats
-  const usedIds = [
+  usedIds = [
     ...sliceOutTopTreats.map((candy) => candy.id),
     ...sliceOutSavings.map((candy) => candy.id),
   ];
   console.log("använda id:", usedIds, "längden borde vara 24:", usedIds.length);
-  moreToMunchCandys = allCandyCards
-    .filter((candy) => !usedIds.includes(candy.id))
-    .slice(0, candyShowNr);
-  console.log("övriga 12 stycken godisar att rendera ut:", moreToMunchCandys);
-
-  // Ut med resten av godagodiiiis
+  showMoreCandy = allCandyCards.filter((candy) => !usedIds.includes(candy.id));
   const moreToMunchCardsContainerEl = document.querySelector(
     ".moreToMunchCardsContainer"
   ) as HTMLDivElement;
-  moreToMunchCardsContainerEl.innerHTML += moreToMunchCandys
+  showRestCandy = showMoreCandy.slice(0, candyShowNr);
+  moreToMunchCardsContainerEl.innerHTML += showRestCandy
     .map((product) => cardStructure(product))
     .join("");
+
+  // Ut med resten av godagodiiiis
 
   //lägg till en knapp "show more"
   moreSweetsButton();
   // fortsätt lägga ut godis
-  loadMoreSweets();
+  // plussa på 12 att lägga ut "ovanpå" de previous 12, 24 + osv
+  showNumberOfCandys();
 };
 
-function loadMoreSweets() {}
+function loadMoreSweets() {
+  const moreToMunchCardsContainerEl = document.querySelector(
+    ".moreToMunchCardsContainer"
+  ) as HTMLDivElement;
+  showRestCandy = showMoreCandy.slice(0, candyShowNr);
+  moreToMunchCardsContainerEl.innerHTML = showRestCandy
+    .map((product) => cardStructure(product))
+    .join("");
+
+  showNumberOfCandys();
+  // lägg till ifall resterande är mindre än 12 så ska X läggas till
+  // för att antalet ska bli rätt i slutändan!
+}
 
 function moreSweetsButton() {
   const moreSweetsBtnEl = document.querySelector(
@@ -114,10 +127,22 @@ function moreSweetsButton() {
 
   moreSweetsBtnEl.addEventListener("click", () => {
     candyShowNr += 12;
+    loadMoreSweets();
     console.log("lagt till 12", candyShowNr);
 
-    if (candyShowNr >= moreToMunchCandys.length) {
+    if (candyShowNr >= showMoreCandy.length) {
       moreSweetsBtnEl.classList.add("d-none");
+      console.log("alla godis renderade", candyShowNr, moreToMunchCandys);
+    } else {
+      moreSweetsBtnEl.classList.remove("d-none");
     }
   });
+}
+
+function showNumberOfCandys() {
+  const candyAmountRendered = document.querySelector<HTMLDivElement>(
+    ".candyAmountRendered"
+  )!;
+  const allTheCandy = usedIds.length + candyShowNr;
+  candyAmountRendered.innerHTML = `${allTheCandy}`;
 }

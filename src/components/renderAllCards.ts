@@ -118,23 +118,6 @@ function loadMoreSweets() {
 function moreSweetsButton() {
   const moreSweetsBtnEl = document.querySelector(
     ".moreToMunchBtn") as HTMLDivElement;
-<<<<<<< HEAD
-72
-    moreSweetsBtnEl.addEventListener("click", () => {
-      if (candyShowNr >= 84) {
-        candyShowNr += 5;
-        console.log("lagt till 5 sista?", candyShowNr)
-      } else {
-      candyShowNr += 12;
-      loadMoreSweets();
-      console.log("lagt till 12", candyShowNr)
-      }
-      
-
-      if (candyShowNr >= showMoreCandy.length) {
-        moreSweetsBtnEl.classList.add("d-none");
-        console.log("alla godis renderade", candyShowNr)
-=======
 
     moreSweetsBtnEl.addEventListener("click", () => {
       addedCandyNr += 12;
@@ -143,7 +126,6 @@ function moreSweetsButton() {
       if (addedCandyNr >= showMoreCandy.length) {
         moreSweetsBtnEl.classList.add("d-none");
         console.log("alla godis renderade", addedCandyNr);
->>>>>>> d187e5b0b891d5998c33713220a07b3efc713c2f
       } else {
         moreSweetsBtnEl.classList.remove("d-none");
       }

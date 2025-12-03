@@ -99,8 +99,7 @@ export const renderOffCan = function () {
 
     // remove backdrop shadow
     const backdrop = document.querySelector(".offcanvas-backdrop")!;
-    if (backdrop){
-      
+    if (backdrop) {
       backdrop.remove();
     }
 

@@ -119,8 +119,6 @@ function loadMoreSweets() {
     showNumberOfCandys();
     // lägg till ifall resterande är mindre än 12 så ska X läggas till
     // för att antalet ska bli rätt i slutändan! 
-
-
 }
 
 function moreSweetsButton() {
@@ -128,14 +126,10 @@ function moreSweetsButton() {
     ".moreToMunchBtn") as HTMLDivElement;
 72
     moreSweetsBtnEl.addEventListener("click", () => {
-      if (candyShowNr >= 84) {
-        candyShowNr += 5;
-        console.log("lagt till 5 sista?", candyShowNr)
-      } else {
       candyShowNr += 12;
       loadMoreSweets();
-      console.log("lagt till 12", candyShowNr)
-      }
+      console.log("lagt till 12", candyShowNr);
+      
       
 
       if (candyShowNr >= showMoreCandy.length) {
@@ -149,5 +143,5 @@ function moreSweetsButton() {
 
 function showNumberOfCandys(){
 const candyAmountRendered = document.querySelector<HTMLDivElement>(".candyAmountRendered")!;
-const allTheCandy = usedIds.length + candyShowNr;
+const allTheCandy = usedIds.length + showRestCandy.length;
 candyAmountRendered.innerHTML = `${allTheCandy}`;}

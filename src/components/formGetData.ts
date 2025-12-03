@@ -1,16 +1,17 @@
 
 import { renderCheckoutForm } from "./accordian";
 
-
+// Get button
 const submitFormBtn = document.querySelector<HTMLButtonElement>(".submitFormBtn")!;
 
-submitFormBtn.addEventListener("click",(e)=>{
-    e.preventDefault();
+// Get form
+const checkoutForm = document.querySelector<HTMLFormElement>("#checkoutForm")!;
 
-const inputName = document.querySelector<HTMLInputElement>("#inputName")!;
-const inputNameValue = inputName.value;
 
-console.log(inputNameValue)
 
-}); 
+
+
+
+
+ 
 

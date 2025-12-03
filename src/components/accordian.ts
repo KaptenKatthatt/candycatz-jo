@@ -25,14 +25,14 @@ export const renderCartView = function () {
 
 export const renderCheckoutForm = function () {
   checkoutForm.innerHTML = `
-<div class="accordion" id="accordionPanelsStayOpenExample">  
+<div class="accordion formAccordion" id="accordionPanelsStayOpenExample">  
 <div class="accordion-item">
     <h2 class="accordion-header" id="panelsStayOpen-headingTwo">
       <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false" aria-controls="panelsStayOpen-collapseTwo">
         Checkout
       </button>
     </h2>
-    <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingTwo">
+    <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse accordionTwo " aria-labelledby="panelsStayOpen-headingTwo">
       <div class="accordion-body">
 
 <form id="form">
@@ -69,37 +69,70 @@ export const renderCheckoutForm = function () {
     </div>
   </div>
  
-  
-
 `;
-// Get button
+// get form and inputs after innerHTML
 
-const checkoutFormContainer = document.querySelector("#checkoutForm") as HTMLFormElement;
+const form = checkoutForm.querySelector<HTMLFormElement>("#form")!;
 const inputName = document.querySelector<HTMLInputElement>("#inputName")!;
+const inputEmail = document.querySelector<HTMLInputElement>("#inputEmail")!;
+const inputNumber = document.querySelector<HTMLInputElement>("#inputNumber")!;
+const inputAddress = document.querySelector<HTMLInputElement>("#inputAddress")!;
+const inputCity = document.querySelector<HTMLInputElement>("#inputCity")!;
+const inputZip= document.querySelector<HTMLInputElement>("#inputZip")!;
 
-checkoutFormContainer.addEventListener("submit",(e)=>{
+
+// Listen to submit
+form.addEventListener("submit",(e)=>{
 e.preventDefault();
 
-const inputNameValue = inputName.value
+const orderData = {
 
-  console.log(inputNameValue);
+name: inputName.value,
+email: inputEmail.value,
+number:  inputNumber.value,
+address: inputAddress.value,
+city:  inputCity.value,
+zip: inputZip.value
+}; 
+
+
+console.log("Order submitted:", orderData);
+
+// show Thank you 
+postUserAddressForm();
+
+const accordionTwo = document.querySelector<HTMLDivElement>(".accordionTwo")!;
+const accordionThree = document.querySelector<HTMLDivElement>(".accordionThree")!;
+accordionTwo.classList.remove("show");
+accordionThree.classList.add("show");
+
+
 });
+
+
+
+
+
+
+
+
+
+
+
 
 };
 
 
-
-
 export const postUserAddressForm = function () {
   placedOrderView.innerHTML = `
-<div class="accordion" id="accordionPanelsStayOpenExample">  
+<div class="accordion showAccordionCheckout" id="accordionPanelsStayOpenExample">  
 <div class="accordion-item">
     <h2 class="accordion-header" id="panelsStayOpen-headingThree">
       <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseThree" aria-expanded="false" aria-controls="panelsStayOpen-collapseThree">
       Tack för din beställning!
       </button>
     </h2>
-    <div id="panelsStayOpen-collapseThree" class="accordion-collapse collapse collapse" aria-labelledby="panelsStayOpen-headingThree">
+    <div id="panelsStayOpen-collapseThree" class="accordion-collapse collapse collapse accordionThree" aria-labelledby="panelsStayOpen-headingThree">
       <div class="accordion-body">
       <div> 
       <p> Här kommer att stå något i stil med "🍬tack för din beställning. välkommen åter! " </p>

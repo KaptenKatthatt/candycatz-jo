@@ -20,7 +20,7 @@ export const renderOffCan = function () {
                 <div class="card-body">
                     <div class="row align-items-center mb-2 cart-item">
                         <div class="col-md-2">
-                            <img src="https://via.placeholder.com/100" alt="Product 1" class="img-fluid rounded">
+                            <img src="" alt="Product 1" class="img-fluid rounded">
                         </div>
 
                        

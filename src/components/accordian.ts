@@ -1,6 +1,7 @@
 const cartView = document.querySelector("#cartView") as HTMLDivElement;
-const checkoutForm = document.querySelector("#checkoutForm") as HTMLDivElement;
+const checkoutForm = document.querySelector("#checkoutForm") as HTMLFormElement;
 const placedOrderView = document.querySelector("#placedOrderView") as HTMLDivElement; 
+
 
 export const renderCartView = function () {
   cartView.innerHTML = `<div class="accordion" id="accordionPanelsStayOpenExample">
@@ -18,7 +19,9 @@ export const renderCartView = function () {
     </div>
   </div>
 `;
+
 };
+
 
 export const renderCheckoutForm = function () {
   checkoutForm.innerHTML = `
@@ -32,7 +35,7 @@ export const renderCheckoutForm = function () {
     <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingTwo">
       <div class="accordion-body">
 
-<form>
+<form id="form">
  <div class="form-group col-md-6">
     <label for="inputName">Namn</label>
     <input type="text" class="form-control" id="inputName" required placeholder= "För- och efternamn">
@@ -60,14 +63,28 @@ export const renderCheckoutForm = function () {
       <input type="text" class="form-control" required id="inputZip">
     </div>
   </div>
-  <button type="submit" class="submitFormBtn btn btn-primary mt-2">Slutför köp</button>
+  <button type="submit" class="submitBtn btn btn-primary mt-2">Slutför köp</button>
 </form>     
  </div>
     </div>
   </div>
  
+  
 
 `;
+// Get button
+
+const checkoutFormContainer = document.querySelector("#checkoutForm") as HTMLFormElement;
+const inputName = document.querySelector<HTMLInputElement>("#inputName")!;
+
+checkoutFormContainer.addEventListener("submit",(e)=>{
+e.preventDefault();
+
+const inputNameValue = inputName.value
+
+  console.log(inputNameValue);
+});
+
 };
 
 
@@ -100,3 +117,6 @@ export const postUserAddressForm = function () {
 
 
 };
+
+
+

@@ -78,11 +78,11 @@ export const renderOffCan = function () {
                     <i class="bi bi-arrow-left me-2"></i>Continue Shopping</a>
                     </button>
             </div>
-
+   </div>
+      </div>
+         </div>
 
 `;
-
-
 
 
 // EventListner for Proceed to Checkout
@@ -98,16 +98,16 @@ checkOutBtn.addEventListener("click", () => {
   offCanvas.classList.remove("show");
 
    // remove backdrop shadow
-//  const backdrop = document.querySelector(".offcanvas-backdrop")!;
-//  if (backdrop) backdrop.remove();
+   const backdrop = document.querySelector(".offcanvas-backdrop")!;
+   backdrop?.remove();
 
   // hide homepage
-  const allCardsContainerEl = document.querySelector<HTMLDivElement>(".allCardsContainer")!;
+  const allCardsContainerEl =
+    document.querySelector<HTMLDivElement>(".allCardsContainer")!;
   allCardsContainerEl.classList.add("d-none");
 
   // show accordion
-cartCheckoutContainer.classList.remove("d-none");
-
+  cartCheckoutContainer.classList.remove("d-none");
 
 
 

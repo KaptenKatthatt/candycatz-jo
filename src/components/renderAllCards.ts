@@ -112,15 +112,24 @@ function loadMoreSweets() {}
 
 function moreSweetsButton() {
   const moreSweetsBtnEl = document.querySelector(
-    ".moreToMunchBtn"
-  ) as HTMLDivElement;
+    ".moreToMunchBtn") as HTMLDivElement;
+72
+    moreSweetsBtnEl.addEventListener("click", () => {
+      if (candyShowNr >= 84) {
+        candyShowNr += 5;
+        console.log("lagt till 5 sista?", candyShowNr)
+      } else {
+      candyShowNr += 12;
+      loadMoreSweets();
+      console.log("lagt till 12", candyShowNr)
+      }
+      
 
-  moreSweetsBtnEl.addEventListener("click", () => {
-    candyShowNr += 12;
-    console.log("lagt till 12", candyShowNr);
-
-    if (candyShowNr >= moreToMunchCandys.length) {
-      moreSweetsBtnEl.classList.add("d-none");
-    }
-  });
+      if (candyShowNr >= showMoreCandy.length) {
+        moreSweetsBtnEl.classList.add("d-none");
+        console.log("alla godis renderade", candyShowNr)
+      } else {
+        moreSweetsBtnEl.classList.remove("d-none");
+      }
+    })
 }

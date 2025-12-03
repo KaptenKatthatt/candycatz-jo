@@ -1,6 +1,6 @@
 const cartView = document.querySelector("#cartView") as HTMLDivElement;
 const checkoutForm = document.querySelector("#checkoutForm") as HTMLDivElement;
-
+const placedOrderView = document.querySelector("#placedOrderView") as HTMLDivElement; 
 
 export const renderCartView = function () {
   cartView.innerHTML = `<div class="accordion" id="accordionPanelsStayOpenExample">
@@ -70,9 +70,9 @@ export const renderCheckoutForm = function () {
 `;
 };
 
-/*
-export const postUserAddressForm()= function () {
-  checkoutForm.innerHTML = `
+
+//export const postUserAddressForm()= function () {
+  placedOrderView.innerHTML = `
 <div class="accordion" id="accordionPanelsStayOpenExample">  
 <div class="accordion-item">
     <h2 class="accordion-header" id="panelsStayOpen-headingTwo">
@@ -84,9 +84,9 @@ export const postUserAddressForm()= function () {
       <div class="accordion-body">
 
       `;
-};
+//};
 
-*/
+
 
 
 

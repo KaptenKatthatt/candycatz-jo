@@ -28,9 +28,8 @@ $title-text: #ea5d93;
 body {
     background-color: $bg;
     padding-top: 105px;
-    
-}
 
+}
 
 
 
@@ -88,7 +87,7 @@ h5 {
 
 .cardtrans:hover {
   box-shadow: 6px 6px 6px rgb(167, 167, 167);
-  transform: scale(1.02) rotate(-4deg);
+  transform: scale(1.02);
 }
 
 .offcanvas{ 
@@ -133,11 +132,6 @@ h5 {
 .stockStatus{
   margin-bottom: -1rem;
 }
-
-/* Accordion */
-
-
-
 
 /* FOOTER */
 
@@ -210,15 +204,4 @@ h5 {
 }
 .stockStatus{
   height: 40px;
-}
-
-.moreToMunchBtn {
-  display: flex;
-  justify-content: center;
-}
-.munchBtn {
-  box-shadow: 6px 6px 6px rgb(177, 255, 254);
-}
-.munchBtn:hover {
-  transform: scale(1.02) rotate(-4deg);
 }

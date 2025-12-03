@@ -76,7 +76,9 @@ export const renderOffCan = function () {
                     <i class="bi bi-arrow-left me-2"></i>Continue Shopping</a>
                     </button>
             </div>
-
+   </div>
+      </div>
+         </div>
 
 `;
 
@@ -96,8 +98,10 @@ export const renderOffCan = function () {
     offCanvas.classList.remove("show");
 
     // remove backdrop shadow
-    //  const backdrop = document.querySelector(".offcanvas-backdrop")!;
-    //  if (backdrop) backdrop.remove();
+    const backdrop = document.querySelector(".offcanvas-backdrop")!;
+    if (backdrop) {
+      backdrop.remove();
+    }
 
     // hide homepage
     const allCardsContainerEl =

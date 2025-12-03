@@ -2,7 +2,7 @@ import { getAllCandyInfo } from "../services/candyAPI";
 import type { CandyData } from "../services/candyApiTypes";
 
 let showMoreCandy: CandyData[];
-let candyShowNr: number = 12;
+let addedCandyNr: number = 12;
 let usedIds: number[];
 let showRestCandy: CandyData[];
 
@@ -91,7 +91,7 @@ const moreToMunchCardsContainerEl = document.querySelector(
     ".moreToMunchCardsContainer"
   ) as HTMLDivElement;
     showRestCandy = showMoreCandy
-      .slice(0,candyShowNr);
+      .slice(0,addedCandyNr);
   moreToMunchCardsContainerEl.innerHTML += showRestCandy
     .map((product) => cardStructure(product))
     .join("");
@@ -111,7 +111,7 @@ function loadMoreSweets() {
     ".moreToMunchCardsContainer"
   ) as HTMLDivElement;
     showRestCandy = showMoreCandy
-      .slice(0,candyShowNr);
+      .slice(0,addedCandyNr);
   moreToMunchCardsContainerEl.innerHTML = showRestCandy
     .map((product) => cardStructure(product))
     .join("");
@@ -126,15 +126,15 @@ function moreSweetsButton() {
     ".moreToMunchBtn") as HTMLDivElement;
 72
     moreSweetsBtnEl.addEventListener("click", () => {
-      candyShowNr += 12;
+      addedCandyNr += 12;
       loadMoreSweets();
-      console.log("lagt till 12", candyShowNr);
+      console.log("lagt till 12", addedCandyNr);
       
       
 
-      if (candyShowNr >= showMoreCandy.length) {
+      if (addedCandyNr >= showMoreCandy.length) {
         moreSweetsBtnEl.classList.add("d-none");
-        console.log("alla godis renderade", candyShowNr)
+        console.log("alla godis renderade", addedCandyNr);
       } else {
         moreSweetsBtnEl.classList.remove("d-none");
       }

@@ -70,24 +70,31 @@ export const renderCheckoutForm = function () {
 `;
 };
 
-
+// Not sure it belongs here. 
 //export const postUserAddressForm()= function () {
   placedOrderView.innerHTML = `
 <div class="accordion" id="accordionPanelsStayOpenExample">  
 <div class="accordion-item">
-    <h2 class="accordion-header" id="panelsStayOpen-headingTwo">
-      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false" aria-controls="panelsStayOpen-collapseTwo">
-       Close
+    <h2 class="accordion-header" id="panelsStayOpen-headingThree">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseThree" aria-expanded="false" aria-controls="panelsStayOpen-collapseThree">
+      Tack för din beställning!
       </button>
     </h2>
-    <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingTwo">
+    <div id="panelsStayOpen-collapseThree" class="accordion-collapse collapse collapse" aria-labelledby="panelsStayOpen-headingThree">
       <div class="accordion-body">
+      <div> 
+      <p> Här kommer att stå något i stil med "🍬tack för din beställning. välkommen åter! " </p>
+      <p> Vi packar dina godsaker med extra kärlek och skickar dem till dig så snart som möjligt" </p>
+      </div>
+      
+       <!-- Continue Shopping Button -->
+            <div class="text-start mt-4 mb-4">
+                <button type="button" class="btn btn-outline-primary" data-bs-dismiss="offcanvas"  aria-label="Close">
+                    <i class="bi bi-arrow-left me-2"></i>Continue Shopping</a>
+                    </button>
+            </div>
 
       `;
+
+
 //};
-
-
-
-
-
-

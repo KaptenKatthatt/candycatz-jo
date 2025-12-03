@@ -1,5 +1,3 @@
-
-
 export const offCan = document.querySelector<HTMLDivElement>("#offCan")!;
 export const renderOffCan = function () {
   offCan.innerHTML = `
@@ -84,33 +82,28 @@ export const renderOffCan = function () {
 
 `;
 
+  // EventListner for Proceed to Checkout
 
-// EventListner for Proceed to Checkout
+  const cartCheckoutContainer = document.querySelector<HTMLDivElement>("#cartCheckoutContainer")!;
+  const checkOutBtn = document.querySelector<HTMLButtonElement>(".checkOutBtn")!;
 
-const cartCheckoutContainer = document.querySelector<HTMLDivElement>("#cartCheckoutContainer")!;
-const checkOutBtn = document.querySelector<HTMLButtonElement>(".checkOutBtn")!;
+  checkOutBtn.addEventListener("click", () => {
+    console.log("clicka Proceed to checkout");
 
-checkOutBtn.addEventListener("click", () => {
-  console.log("clicka Proceed to checkout");
+    // close offcan
+    const offCanvas = document.querySelector<HTMLDivElement>(".offcanvas")!;
+    offCanvas.classList.remove("show");
 
-  // close offcan
-  const offCanvas = document.querySelector<HTMLDivElement>(".offcanvas")!;
-  offCanvas.classList.remove("show");
+    // remove backdrop shadow
+    const backdrop = document.querySelector(".offcanvas-backdrop")!;
+    backdrop?.remove();
 
-   // remove backdrop shadow
-   const backdrop = document.querySelector(".offcanvas-backdrop")!;
-   backdrop?.remove();
+    // hide homepage
+    const allCardsContainerEl =
+      document.querySelector<HTMLDivElement>(".allCardsContainer")!;
+    allCardsContainerEl.classList.add("d-none");
 
-  // hide homepage
-  const allCardsContainerEl =
-    document.querySelector<HTMLDivElement>(".allCardsContainer")!;
-  allCardsContainerEl.classList.add("d-none");
-
-  // show accordion
-  cartCheckoutContainer.classList.remove("d-none");
-
-
-
-});
-
+    // show accordion
+    cartCheckoutContainer.classList.remove("d-none");
+  });
 };

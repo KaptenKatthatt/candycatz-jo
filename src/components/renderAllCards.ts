@@ -83,12 +83,17 @@ export const renderAllCards = async function () {
     .join("");
 
   // skapa variabel array som innehåller de som redan har visats
-  usedIds = [
+  const usedIds = [
     ...sliceOutTopTreats.map((candy) => candy.id),
     ...sliceOutSavings.map((candy) => candy.id),
   ];
   console.log("använda id:", usedIds, "längden borde vara 24:", usedIds.length);
-  showMoreCandy = allCandyCards.filter((candy) => !usedIds.includes(candy.id));
+  moreToMunchCandys = allCandyCards
+    .filter((candy) => !usedIds.includes(candy.id))
+    .slice(0, candyShowNr);
+  console.log("övriga 12 stycken godisar att rendera ut:", moreToMunchCandys);
+
+  // Ut med resten av godagodiiiis
   const moreToMunchCardsContainerEl = document.querySelector(
     ".moreToMunchCardsContainer"
   ) as HTMLDivElement;
@@ -97,28 +102,13 @@ export const renderAllCards = async function () {
     .map((product) => cardStructure(product))
     .join("");
 
-  // Ut med resten av godagodiiiis
-
   //lägg till en knapp "show more"
   moreSweetsButton();
   // fortsätt lägga ut godis
-  // plussa på 12 att lägga ut "ovanpå" de previous 12, 24 + osv
-  showNumberOfCandys();
+  loadMoreSweets();
 };
 
-function loadMoreSweets() {
-  const moreToMunchCardsContainerEl = document.querySelector(
-    ".moreToMunchCardsContainer"
-  ) as HTMLDivElement;
-  showRestCandy = showMoreCandy.slice(0, candyShowNr);
-  moreToMunchCardsContainerEl.innerHTML = showRestCandy
-    .map((product) => cardStructure(product))
-    .join("");
-
-  showNumberOfCandys();
-  // lägg till ifall resterande är mindre än 12 så ska X läggas till
-  // för att antalet ska bli rätt i slutändan!
-}
+function loadMoreSweets() {}
 
 function moreSweetsButton() {
   const moreSweetsBtnEl = document.querySelector(
@@ -127,22 +117,10 @@ function moreSweetsButton() {
 
   moreSweetsBtnEl.addEventListener("click", () => {
     candyShowNr += 12;
-    loadMoreSweets();
     console.log("lagt till 12", candyShowNr);
 
-    if (candyShowNr >= showMoreCandy.length) {
+    if (candyShowNr >= moreToMunchCandys.length) {
       moreSweetsBtnEl.classList.add("d-none");
-      console.log("alla godis renderade", candyShowNr, moreToMunchCandys);
-    } else {
-      moreSweetsBtnEl.classList.remove("d-none");
     }
   });
-}
-
-function showNumberOfCandys() {
-  const candyAmountRendered = document.querySelector<HTMLDivElement>(
-    ".candyAmountRendered"
-  )!;
-  const allTheCandy = usedIds.length + candyShowNr;
-  candyAmountRendered.innerHTML = `${allTheCandy}`;
 }

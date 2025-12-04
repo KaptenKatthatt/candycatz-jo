@@ -11,7 +11,7 @@ export const renderNavbar = function () {
             />
           </a>
           <!--VARUKORG-->
-          <div id="#cartIcon" class="ms-auto me-3">
+          <div id="#cartIcon" class="ms-auto ms-lg-auto order-lg-last m-2">
           <a class="nav-link position-relative" href="#" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
             <i class="bi bi-cart4 fs-3"></i>
             <span

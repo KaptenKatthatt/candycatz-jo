@@ -1,7 +1,8 @@
 const cartView = document.querySelector("#cartView") as HTMLDivElement;
 const checkoutForm = document.querySelector("#checkoutForm") as HTMLFormElement;
-const placedOrderView = document.querySelector("#placedOrderView") as HTMLDivElement; 
-
+const placedOrderView = document.querySelector(
+  "#placedOrderView"
+) as HTMLDivElement;
 
 export const renderCartView = function () {
   cartView.innerHTML = `<div class="accordion" id="accordionPanelsStayOpenExample">
@@ -13,14 +14,12 @@ export const renderCartView = function () {
     </h2>
     <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-headingOne">
       <div class="accordion-body">
-      <strong>This is the first item's accordion body.</strong> 
+      <div class="checkoutCartContainer"></div>
       </div>
     </div>
   </div>
 `;
-
 };
-
 
 export const renderCheckoutForm = function () {
   checkoutForm.innerHTML = `
@@ -69,48 +68,43 @@ export const renderCheckoutForm = function () {
   </div>
  
 `;
-// get form and inputs after innerHTML
+  // get form and inputs after innerHTML
 
-const form = checkoutForm.querySelector<HTMLFormElement>("#form")!;
-const inputName = document.querySelector<HTMLInputElement>("#inputName")!;
-const inputEmail = document.querySelector<HTMLInputElement>("#inputEmail")!;
-const inputNumber = document.querySelector<HTMLInputElement>("#inputNumber")!;
-const inputAddress = document.querySelector<HTMLInputElement>("#inputAddress")!;
-const inputCity = document.querySelector<HTMLInputElement>("#inputCity")!;
-const inputZip= document.querySelector<HTMLInputElement>("#inputZip")!;
+  const form = checkoutForm.querySelector<HTMLFormElement>("#form")!;
+  const inputName = document.querySelector<HTMLInputElement>("#inputName")!;
+  const inputEmail = document.querySelector<HTMLInputElement>("#inputEmail")!;
+  const inputNumber = document.querySelector<HTMLInputElement>("#inputNumber")!;
+  const inputAddress =
+    document.querySelector<HTMLInputElement>("#inputAddress")!;
+  const inputCity = document.querySelector<HTMLInputElement>("#inputCity")!;
+  const inputZip = document.querySelector<HTMLInputElement>("#inputZip")!;
 
+  // Listen to submit
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
 
-// Listen to submit
-form.addEventListener("submit",(e)=>{
-e.preventDefault();
+    const orderData = {
+      name: inputName.value,
+      email: inputEmail.value,
+      number: inputNumber.value,
+      address: inputAddress.value,
+      city: inputCity.value,
+      zip: inputZip.value,
+    };
 
-const orderData = {
+    console.log("Order submitted:", orderData);
 
-name: inputName.value,
-email: inputEmail.value,
-number:  inputNumber.value,
-address: inputAddress.value,
-city:  inputCity.value,
-zip: inputZip.value
-}; 
+    // show Thank you
+    postUserAddressForm();
 
-
-console.log("Order submitted:", orderData);
-
-// show Thank you 
-postUserAddressForm();
-
-const accordionTwo = document.querySelector<HTMLDivElement>(".accordionTwo")!;
-const accordionThree = document.querySelector<HTMLDivElement>(".accordionThree")!;
-accordionTwo.classList.remove("show");
-accordionThree.classList.add("show");
-
-
-});
-
-
+    const accordionTwo =
+      document.querySelector<HTMLDivElement>(".accordionTwo")!;
+    const accordionThree =
+      document.querySelector<HTMLDivElement>(".accordionThree")!;
+    accordionTwo.classList.remove("show");
+    accordionThree.classList.add("show");
+  });
 };
-
 
 export const postUserAddressForm = function () {
   placedOrderView.innerHTML = `
@@ -136,9 +130,4 @@ export const postUserAddressForm = function () {
             </div>
 
       `;
-
-
 };
-
-
-

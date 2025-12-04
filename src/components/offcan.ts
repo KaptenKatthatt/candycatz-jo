@@ -1,5 +1,7 @@
 //NYA OFFCAN
 
+import { renderCheckoutCart } from "./cart";
+
 export const offCan = document.querySelector<HTMLDivElement>("#offCan")!;
 export const renderOffCan = function () {
   offCan.innerHTML = `
@@ -78,6 +80,7 @@ export const renderOffCan = function () {
     document.querySelector<HTMLButtonElement>(".checkOutBtn")!;
 
   checkOutBtn.addEventListener("click", () => {
+    renderCheckoutCart();
     // close offcan
     const offCanvas = document.querySelector<HTMLDivElement>(".offcanvas")!;
     offCanvas.classList.remove("show");

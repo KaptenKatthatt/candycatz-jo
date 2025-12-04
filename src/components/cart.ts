@@ -193,6 +193,7 @@ export const renderCheckoutCart = function () {
             <button class="deleteBtn btn btn-sm btn-danger"><i class="bi bi-trash"></i></button>
           </div>
         </div>
+
         `;
       })
       .join("");

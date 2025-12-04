@@ -1,4 +1,4 @@
-import { CartProduct } from "./cart";
+import { type CartProduct } from "./cart";
 
 export function saveCartArrayToLocalStorage(cartArray: CartProduct[]) {
   try {

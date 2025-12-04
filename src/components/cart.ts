@@ -15,38 +15,44 @@ const cartTotalPriceEl =
 let clickedCandyId = 0;
 let cartArray: CartProduct[] = getCartArrayFromLocalStorage() || [];
 
-export const initStore = function () {
-  cartArray = getCartArrayFromLocalStorage() || renderCart();
-  renderCart();
-  renderCartBadge();
-};
-
-export class CartProduct {
+export interface CartProduct {
   id: number;
   name: string;
   qty: number;
   price: number;
   thumbnail: string;
-
-  get totalCost() {
-    return this.qty * this.price;
-  }
-
-  constructor(
-    id: number,
-    name: string,
-    qty: number,
-    price: number,
-    thumbnail: string
-  ) {
-    this.id = id;
-    this.name = name;
-    this.qty = qty;
-    this.price = price;
-    this.thumbnail = thumbnail;
-  }
 }
 
+// export class CartProduct {
+//   id: number;
+//   name: string;
+//   qty: number;
+//   price: number;
+//   thumbnail: string;
+
+//   get totalCost() {
+//     return this.qty * this.price;
+//   }
+
+//   constructor(
+//     id: number,
+//     name: string,
+//     qty: number,
+//     price: number,
+//     thumbnail: string
+//   ) {
+//     this.id = id;
+//     this.name = name;
+//     this.qty = qty;
+//     this.price = price;
+//     this.thumbnail = thumbnail;
+//   }
+// }
+export const initStore = function () {
+  cartArray = getCartArrayFromLocalStorage() || renderCart();
+  renderCart();
+  renderCartBadge();
+};
 //Spreada CandyResponse till en ny array och lägg på egenskapen qty på den.
 export const increaseAmountOfProductInCart = function (clickedCandyId: number) {
   const candyFound = cartArray.find(
@@ -90,7 +96,7 @@ export const getTotalAmountOfProductsInCart = function () {
   return cartArray.reduce((acc, curr) => acc + curr.qty, 0);
 };
 export const getTotalCostOfProductsInCart = function () {
-  return cartArray.reduce((acc, curr) => acc + curr.totalCost, 0);
+  return cartArray.reduce((acc, curr) => acc + curr.qty * curr.price, 0);
 };
 
 export const renderCart = function () {
@@ -102,16 +108,24 @@ export const renderCart = function () {
       .map((product) => {
         let thumbnailURL = `https://www.bortakvall.se${product.thumbnail}`;
         return `
-        <div class="productItem container-fluid d-flex flex-row" data-product-id="${product.id}">
-        <img src="${thumbnailURL}" class="img-fluid rounded-4 me-2 w-25" alt="Image of ${product.name}">
+        <div class="productItem container-fluid d-flex flex-row" data-product-id="${
+          product.id
+        }">
+        <img src="${thumbnailURL}" class="img-fluid rounded-4 me-2 w-25" alt="Image of ${
+          product.name
+        }">
         <div class="container div-flex flex-column justify-content-center align-items-center">
         <h5 class="card-title click fs-5 me-2">${product.name}</h5>
           <p class="me-2"><strong>${product.price}:-</strong>/skopa</p>
-          <p class="me-2">Produktpris: <strong>${product.totalCost}:-</strong></p>
+          <p class="me-2">Produktpris: <strong>${
+            product.qty * product.price
+          }:-</strong></p>
           </div>
           <div class="buttonContainer d-flex flex-row align-items-center">
           <button class="decreaseBtn minusBtn me-2" type="button">-</button>
-          <p class="me-2 d-flex align-items-center justify-content-center m-0">${product.qty}</p>
+          <p class="me-2 d-flex align-items-center justify-content-center m-0">${
+            product.qty
+          }</p>
           <button class="increaseBtn plusBtn me-2" type="button">+</button>
           <button class="deleteBtn btn btn-danger"><i class="bi bi-trash"></i></button>
           </div>
@@ -142,9 +156,7 @@ export const renderCart = function () {
     ".subtotalContainer"
   ) as HTMLSpanElement;
 
-  subtotalContainerEl.innerText = `${String(
-    getTotalCostOfProductsInCart()
-  )} kr`;
+  subtotalContainerEl.innerText = `${getTotalCostOfProductsInCart()} kr`;
   const shipping = 19;
   // const shippingCostContainerEl = document.querySelector<HTMLSpanElement>(
   //   ".shippingCostContainer"
@@ -178,17 +190,24 @@ export const renderCheckoutCart = function () {
       .map((product) => {
         let thumbnailURL = `https://www.bortakvall.se${product.thumbnail}`;
         return `
-        <div class="productItem container-fluid d-flex flex-row rounded-4 p-1" data-product-id="${product.id}">
-        <img src="${thumbnailURL}" class="w-25 rounded-4 border border-dark me-2" alt="Image of ${product.name}">
-
+        <div class="productItem container-fluid d-flex flex-row rounded-4 p-1" data-product-id="${
+          product.id
+        }">
+        <img src="${thumbnailURL}" class="img-fluid w-25 rounded-4 border border-dark me-2" alt="Image of ${
+          product.name
+        }">
         <div class="container div-flex flex-column justify-content-center">
         <h5 class="card-title click fs-5 me-2">${product.name}</h5>
           <p class="me-2"><strong>${product.price}:-</strong>/skopa</p>
-          <p class="me-2">Produktpris: <strong>${product.totalCost}:-</strong></p>
+          <p class="me-2">Produktpris: <strong>${
+            product.qty * product.price
+          }:-</strong></p>
           </div>
           <div class="buttonContainer d-flex flex-row align-items-center">
             <button class="decreaseBtn minusBtn me-2" type="button">-</button>
-            <p class="me-2 d-flex align-items-center justify-content-center m-0">${product.qty}</p>
+            <p class="me-2 d-flex align-items-center justify-content-center m-0">${
+              product.qty
+            }</p>
             <button class="increaseBtn plusBtn me-2" type="button">+</button>
             <button class="deleteBtn btn btn-sm btn-danger"><i class="bi bi-trash"></i></button>
           </div>
@@ -218,9 +237,7 @@ export const renderCheckoutCart = function () {
     ".subtotalContainer"
   ) as HTMLSpanElement;
 
-  subtotalContainerEl.innerText = `${String(
-    getTotalCostOfProductsInCart()
-  )} kr`;
+  subtotalContainerEl.innerText = `${getTotalCostOfProductsInCart()} kr`;
   const shipping = 19;
   // const shippingCostContainerEl = document.querySelector<HTMLSpanElement>(
   //   ".shippingCostContainer"
@@ -240,13 +257,13 @@ export const addToCart = async function (clickedCandyId: number) {
     (product) => product.id === clickedCandyId
   );
   if (!foundSameCandyInCart) {
-    const candyProduct = new CartProduct(
-      fetchedCandyObject.data.id,
-      fetchedCandyObject.data.name,
-      1,
-      fetchedCandyObject.data.price,
-      fetchedCandyObject.data.images.thumbnail
-    );
+    const candyProduct: CartProduct = {
+      id: fetchedCandyObject.data.id,
+      name: fetchedCandyObject.data.name,
+      qty: 1,
+      price: fetchedCandyObject.data.price,
+      thumbnail: fetchedCandyObject.data.images.thumbnail,
+    };
 
     cartArray.push(candyProduct);
     console.log("CartArray Contents", cartArray);

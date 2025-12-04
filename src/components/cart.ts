@@ -92,9 +92,9 @@ export const renderCart = function () {
       .map((product) => {
         let thumbnailURL = `https://www.bortakvall.se${product.thumbnail}`;
         return `
-        <div class="productItem container-fluid d-flex flex-row rounded-4 p-1" data-product-id="${product.id}">
-        <img src="${thumbnailURL}" width="50" class="img-fluid rounded-4 me-2" alt="Image of ${product.name}">
-        <div class="container div-flex flex-column">
+        <div class="productItem container-fluid d-flex flex-row" data-product-id="${product.id}">
+        <img src="${thumbnailURL}" class="img-fluid rounded-4 me-2 w-25" alt="Image of ${product.name}">
+        <div class="container div-flex flex-column justify-content-center align-items-center">
         <h5 class="card-title click fs-5 me-2">${product.name}</h5>
           <p class="me-2"><strong>${product.price}:-</strong>/skopa</p>
           <p class="me-2">Produktpris: <strong>${product.totalCost}:-</strong></p>
@@ -103,7 +103,7 @@ export const renderCart = function () {
           <button class="decreaseBtn minusBtn me-2" type="button">-</button>
           <p class="me-2 d-flex align-items-center justify-content-center m-0">${product.qty}</p>
           <button class="increaseBtn plusBtn me-2" type="button">+</button>
-          <button class="deleteBtn btn btn-sm btn-danger"><i class="bi bi-trash"></i></button>
+          <button class="deleteBtn btn btn-danger"><i class="bi bi-trash"></i></button>
           </div>
         </div>
           <hr>
@@ -170,7 +170,7 @@ export const renderCheckoutCart = function () {
         let thumbnailURL = `https://www.bortakvall.se${product.thumbnail}`;
         return `
         <div class="productItem container-fluid d-flex flex-row rounded-4 p-1" data-product-id="${product.id}">
-        <img src="${thumbnailURL}" class="img-fluid w-25 rounded-4 border border-dark me-2" alt="Image of ${product.name}">
+        <img src="${thumbnailURL}" class="w-25 rounded-4 border border-dark me-2" alt="Image of ${product.name}">
 
         <div class="container div-flex flex-column justify-content-center">
         <h5 class="card-title click fs-5 me-2">${product.name}</h5>
@@ -184,7 +184,6 @@ export const renderCheckoutCart = function () {
           <button class="deleteBtn btn btn-sm btn-danger"><i class="bi bi-trash"></i></button>
           </div>
         </div>
-          <hr>
 
         `;
       })

@@ -14,48 +14,48 @@ let cartArray: CartProduct[] = [];
 class CartProduct {
   id: number;
   name: string;
-  amount: number;
+  qty: number;
   price: number;
   thumbnail: string;
 
   get totalCost() {
-    return this.amount * this.price;
+    return this.qty * this.price;
   }
 
   constructor(
     id: number,
     name: string,
-    amount: number,
+    qty: number,
     price: number,
     thumbnail: string
   ) {
     this.id = id;
     this.name = name;
-    this.amount = amount;
+    this.qty = qty;
     this.price = price;
     this.thumbnail = thumbnail;
   }
 }
 
-//Spreada CandyResponse till en ny array och lägg på egenskapen amount på den.
+//Spreada CandyResponse till en ny array och lägg på egenskapen qty på den.
 export const increaseAmountOfProductInCart = function (clickedCandyId: number) {
   const candyFound = cartArray.find(
     (product: CartProduct) => product.id === clickedCandyId
   );
-  candyFound!.amount++;
-  console.log("CartArray after amount++", cartArray);
+  candyFound!.qty++;
+  console.log("CartArray after qty++", cartArray);
 };
 
 export const decreaseAmountOfProductInCart = function (clickedCandyId: number) {
   const candyFound = cartArray.find(
     (product: CartProduct) => product.id === clickedCandyId
   );
-  if (candyFound && candyFound.amount === 1) {
+  if (candyFound && candyFound.qty === 1) {
     deleteProductFromCart(clickedCandyId);
   } else if (candyFound) {
-    candyFound.amount--;
+    candyFound.qty--;
   }
-  console.log("CartArray after amount--", cartArray);
+  console.log("CartArray after qty--", cartArray);
   if (cartAmountEl) {
     cartAmountEl.innerText = `Nbr of  products in cart ${String(
       getTotalAmountOfProductsInCart()
@@ -71,13 +71,13 @@ export const deleteProductFromCart = function (clickedCandyId: number) {
     (product: CartProduct) => product.id === clickedCandyId
   );
   if (candyFound) {
-    candyFound.amount = 0;
+    candyFound.qty = 0;
     cartArray = cartArray.filter((product) => product.id !== candyFound.id);
   }
 };
-//Gets nbr of kinds of candy at the moment, not total amount of candy.
+//Gets nbr of kinds of candy at the moment, not total qty of candy.
 export const getTotalAmountOfProductsInCart = function () {
-  return cartArray.reduce((acc, curr) => acc + curr.amount, 0);
+  return cartArray.reduce((acc, curr) => acc + curr.qty, 0);
 };
 export const getTotalCostOfProductsInCart = function () {
   return cartArray.reduce((acc, curr) => acc + curr.totalCost, 0);
@@ -92,22 +92,21 @@ export const renderCart = function () {
       .map((product) => {
         let thumbnailURL = `https://www.bortakvall.se${product.thumbnail}`;
         return `
-        <div class="productItem container-fluid d-flex flex-row rounded-4 p-1" data-product-id="${product.id}" >
-            <img src="${thumbnailURL}" width="50" class="img-fluid rounded-4 me-2" alt="Image of ${product.name}">
-            <div class="container div-flex flex-column"
-              <h5 class="card-title click fs-5 me-2">${product.name}</h5>
-              <p class="me-2">${product.price}/skopa</p>
-              <p class="me-2">Produktpris: ${product.totalCost}</p>
-            </div>
-            <div class="buttonContainer d-flex flex-row align-items-center">
-            <button class="increaseBtn plusBtn" type="button">+</button>
-            <p class="me-2">${product.amount}</p>
-            <button class="decreaseBtn minusBtn me-2"  type="button">-</button>
-            <button class="deleteBtn btn btn-sm btn-danger"><i class="bi bi-trash"></i></button>
-            </div>
-
+        <div class="productItem container-fluid d-flex flex-row rounded-4 p-1" data-product-id="${product.id}">
+        <img src="${thumbnailURL}" width="50" class="img-fluid rounded-4 me-2" alt="Image of ${product.name}">
+        <div class="container div-flex flex-column">
+        <h5 class="card-title click fs-5 me-2">${product.name}</h5>
+          <p class="me-2"><strong>${product.price}:-</strong>/skopa</p>
+          <p class="me-2">Produktpris: <strong>${product.totalCost}:-</strong></p>
+          </div>
+          <div class="buttonContainer d-flex flex-row align-items-center">
+          <button class="decreaseBtn minusBtn me-2" type="button">-</button>
+          <p class="me-2 d-flex align-items-center justify-content-center m-0">${product.qty}</p>
+          <button class="increaseBtn plusBtn me-2" type="button">+</button>
+          <button class="deleteBtn btn btn-sm btn-danger"><i class="bi bi-trash"></i></button>
+          </div>
         </div>
-            <hr>
+          <hr>
 
         `;
       })
@@ -133,14 +132,20 @@ export const renderCart = function () {
     ".subtotalContainer"
   ) as HTMLSpanElement;
 
-  subtotalContainerEl.innerText = String(getTotalCostOfProductsInCart());
+  subtotalContainerEl.innerText = `${String(
+    getTotalCostOfProductsInCart()
+  )} kr`;
+  const shipping = 19;
+  // const shippingCostContainerEl = document.querySelector<HTMLSpanElement>(
+  //   ".shippingCostContainer"
+  // );
+  // shippingCostContainerEl!.innerText = `${shipping} kr`;
   const totalCostContainerEl = document.querySelector(
     ".totalCostContainer"
   ) as HTMLSpanElement;
-  const shipping = 19;
-  totalCostContainerEl.innerText = String(
+  totalCostContainerEl.innerHTML = `<strong>${String(
     getTotalCostOfProductsInCart() + shipping
-  );
+  )} kr</strong>`;
 };
 
 export const renderCartBadge = function () {
@@ -153,7 +158,7 @@ export const renderCartBadge = function () {
   }
 };
 
-//Adds clicked candy to cart, if exists, increase amount instead.
+//Adds clicked candy to cart, if exists, increase qty instead.
 allCardsContainerEl?.addEventListener("click", async (e) => {
   const target = e.target as HTMLElement;
   if (target.closest(".addToCartBtn")) {
@@ -185,9 +190,9 @@ export const addToCart = async function (clickedCandyId: number) {
     const candyFound = cartArray.find(
       (product: CartProduct) => product.id === clickedCandyId
     );
-    candyFound!.amount++;
+    candyFound!.qty++;
 
-    console.log("CartArray after amount++", cartArray);
+    console.log("CartArray after qty++", cartArray);
   }
   renderCart();
 };

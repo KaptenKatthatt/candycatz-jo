@@ -3,6 +3,7 @@ $bg: #FFFCEF;
 $card-body: #FFFDF5;
 $btn-candy-pink: #f472b6;
 $btn-candy-purple: #c084fc;
+$navbar-bg: #f4e6ff;
 $accent: #F38CB9;
 $accent-light: #ffa1ec;
 $pink: #ff69b4;
@@ -17,16 +18,17 @@ $secondary:#F38CB9;
 $footer: #C4DCD1; 
 $offcanvas: #BDE0FE; 
 $title-text: #ea5d93;
+$button-font: "Jersey 15", sans-serif;
 
 @import "bootstrap/scss/bootstrap.scss";
 @import "bootstrap-icons/font/bootstrap-icons.css";
 
 
 body {
-    background-color: $bg;
     padding-top: 105px;
     box-sizing: border-box;
-
+    font-family: "Poppins", sans-serif;
+    background-color: $bg;
 }
 
 
@@ -70,6 +72,10 @@ h5 {
 }
 }
 
+.navbar {
+  background: $navbar-bg;
+}
+
 .outOfStock {
   color: grey;
 }
@@ -82,9 +88,22 @@ h5 {
   margin-left: -12px;
 }
 
+.allCardsContainer {
+      background-color: #f4e6ff;
+      border-radius: 20px;
+      
+      .card-header {
+        background-image: url(/src/assets/img/banderoll.png);
+        background-repeat: reapeat;
+      }
+}
+.cardtrans {
+  background-color: #BDE0FE;
+
 .cardtrans:hover {
   box-shadow: 6px 6px 6px rgb(167, 167, 167);
   transform: scale(1.02) rotate(-1deg);
+}
 }
 
 .offcanvas{ 
@@ -208,6 +227,7 @@ h5 {
 
   .munchBtn {
     border: none;
+    font-family: $button-font;
     border-radius: 50px;
     padding: 15px 30px;
     font-size: 1.2rem;
@@ -218,13 +238,14 @@ h5 {
     background: linear-gradient(90deg, $pink 0%, $blue 100%);
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
     transition: background 0.4s ease, transform 0.2s ease, box-shadow 0.2s ease;
-  :hover {
+  &:hover {
     background: linear-gradient(-90deg, $pink 0%, $blue 50%, pink 100%);
     background-size: 200% 100%;
     background-position: 100% 0;
     transition: background 1.5s ease-in-out, transform 0.2s ease, box-shadow 0.2s ease;
     transform:translateY(-2px);
     box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+    
   }
 }
 }

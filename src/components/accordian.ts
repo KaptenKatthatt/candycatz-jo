@@ -110,16 +110,6 @@ accordionThree.classList.add("show");
 });
 
 
-
-
-
-
-
-
-
-
-
-
 };
 
 

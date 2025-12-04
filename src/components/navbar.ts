@@ -41,6 +41,9 @@ export const renderNavbar = function () {
                 <a class="nav-link" href="#sweetSavings">Sweet Savings</a>
               </li>
               <li class="nav-item">
+                <a class="nav-link" href="#moreToMunch">More To Munch</a>
+              </li>
+              <li class="nav-item">
                 <a class="nav-link" href="#footer">Candy Hotline</a>
               </li>
             </ul>

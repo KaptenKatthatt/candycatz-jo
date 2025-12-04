@@ -3,7 +3,6 @@ $bg: #FFFCEF;
 $card-body: #FFFDF5;
 $btn-candy-pink: #f472b6;
 $btn-candy-purple: #c084fc;
-$navbar-bg: #f4e6ff;
 $accent: #F38CB9;
 $accent-light: #ffa1ec;
 $pink: #ff69b4;
@@ -25,7 +24,7 @@ $button-font: "Jersey 15", sans-serif;
 
 
 body {
-    padding-top: 105px;
+    padding-top: 75px;
     box-sizing: border-box;
     font-family: "Poppins", sans-serif;
     background-color: $bg;
@@ -72,8 +71,9 @@ h5 {
 }
 }
 
-.navbar {
-  background: $navbar-bg;
+.navbar-grad {
+  background: linear-gradient(90deg, #ffb3d9 0%, #ffebb3 30%,#a3dcff 100%);
+  border-bottom-left-radius: 30px;
 }
 
 .outOfStock {

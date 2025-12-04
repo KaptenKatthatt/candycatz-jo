@@ -1,4 +1,8 @@
 import { getCandyProductInfo } from "../services/candyAPI";
+import {
+  getCartArrayFromLocalStorage,
+  saveCartArrayToLocalStorage,
+} from "./localStorage";
 import { openOffCanvas } from "./offcan";
 
 const allCardsContainerEl =
@@ -9,9 +13,15 @@ const cartTotalPriceEl =
   document.querySelector<HTMLParagraphElement>(".totalPrice");
 
 let clickedCandyId = 0;
-let cartArray: CartProduct[] = [];
+let cartArray: CartProduct[] = getCartArrayFromLocalStorage() || [];
 
-class CartProduct {
+export const initStore = function () {
+  cartArray = getCartArrayFromLocalStorage() || renderCart();
+  renderCart();
+  renderCartBadge();
+};
+
+export class CartProduct {
   id: number;
   name: string;
   qty: number;
@@ -43,7 +53,7 @@ export const increaseAmountOfProductInCart = function (clickedCandyId: number) {
     (product: CartProduct) => product.id === clickedCandyId
   );
   candyFound!.qty++;
-  console.log("CartArray after qty++", cartArray);
+  // console.log("CartArray after qty++", cartArray);
 };
 
 export const decreaseAmountOfProductInCart = function (clickedCandyId: number) {
@@ -55,7 +65,7 @@ export const decreaseAmountOfProductInCart = function (clickedCandyId: number) {
   } else if (candyFound) {
     candyFound.qty--;
   }
-  console.log("CartArray after qty--", cartArray);
+  // console.log("CartArray after qty--", cartArray);
   if (cartAmountEl) {
     cartAmountEl.innerText = `Nbr of  products in cart ${String(
       getTotalAmountOfProductsInCart()
@@ -162,10 +172,9 @@ export const renderCheckoutCart = function () {
   const checkoutCartContainerEl = document.querySelector<HTMLDivElement>(
     ".checkoutCartContainer"
   );
-
   // Render a card with added item
   if (checkoutCartContainerEl) {
-    checkoutCartContainerEl!.innerHTML = cartArray
+    checkoutCartContainerEl.innerHTML = cartArray
       .map((product) => {
         let thumbnailURL = `https://www.bortakvall.se${product.thumbnail}`;
         return `
@@ -178,13 +187,12 @@ export const renderCheckoutCart = function () {
           <p class="me-2">Produktpris: <strong>${product.totalCost}:-</strong></p>
           </div>
           <div class="buttonContainer d-flex flex-row align-items-center">
-          <button class="decreaseBtn minusBtn me-2" type="button">-</button>
-          <p class="me-2 d-flex align-items-center justify-content-center m-0">${product.qty}</p>
-          <button class="increaseBtn plusBtn me-2" type="button">+</button>
-          <button class="deleteBtn btn btn-sm btn-danger"><i class="bi bi-trash"></i></button>
+            <button class="decreaseBtn minusBtn me-2" type="button">-</button>
+            <p class="me-2 d-flex align-items-center justify-content-center m-0">${product.qty}</p>
+            <button class="increaseBtn plusBtn me-2" type="button">+</button>
+            <button class="deleteBtn btn btn-sm btn-danger"><i class="bi bi-trash"></i></button>
           </div>
         </div>
-
         `;
       })
       .join("");
@@ -247,9 +255,11 @@ export const addToCart = async function (clickedCandyId: number) {
     );
     candyFound!.qty++;
 
-    console.log("CartArray after qty++", cartArray);
+    // console.log("CartArray after qty++", cartArray);
   }
   renderCart();
+  saveCartArrayToLocalStorage(cartArray);
+  console.log("CartArray from local storage", getCartArrayFromLocalStorage());
 };
 
 //Adds clicked candy to cart, if exists, increase qty instead.

@@ -14,6 +14,7 @@ const cartTotalPriceEl =
 
 let clickedCandyId = 0;
 let cartArray: CartProduct[] = getCartArrayFromLocalStorage() || [];
+const shipping = 19;
 
 export interface CartProduct {
   id: number;
@@ -22,32 +23,6 @@ export interface CartProduct {
   price: number;
   thumbnail: string;
 }
-
-// export class CartProduct {
-//   id: number;
-//   name: string;
-//   qty: number;
-//   price: number;
-//   thumbnail: string;
-
-//   get totalCost() {
-//     return this.qty * this.price;
-//   }
-
-//   constructor(
-//     id: number,
-//     name: string,
-//     qty: number,
-//     price: number,
-//     thumbnail: string
-//   ) {
-//     this.id = id;
-//     this.name = name;
-//     this.qty = qty;
-//     this.price = price;
-//     this.thumbnail = thumbnail;
-//   }
-// }
 export const initStore = function () {
   cartArray = getCartArrayFromLocalStorage() || renderCart();
   renderCart();
@@ -59,7 +34,11 @@ export const increaseAmountOfProductInCart = function (clickedCandyId: number) {
     (product: CartProduct) => product.id === clickedCandyId
   );
   candyFound!.qty++;
-  // console.log("CartArray after qty++", cartArray);
+};
+
+export const clearCart = function () {
+  localStorage.clear();
+  initStore();
 };
 
 export const decreaseAmountOfProductInCart = function (clickedCandyId: number) {
@@ -71,7 +50,6 @@ export const decreaseAmountOfProductInCart = function (clickedCandyId: number) {
   } else if (candyFound) {
     candyFound.qty--;
   }
-  // console.log("CartArray after qty--", cartArray);
   if (cartAmountEl) {
     cartAmountEl.innerText = `Nbr of  products in cart ${String(
       getTotalAmountOfProductsInCart()
@@ -157,7 +135,6 @@ export const renderCart = function () {
   ) as HTMLSpanElement;
 
   subtotalContainerEl.innerText = `${getTotalCostOfProductsInCart()} kr`;
-  const shipping = 19;
   // const shippingCostContainerEl = document.querySelector<HTMLSpanElement>(
   //   ".shippingCostContainer"
   // );

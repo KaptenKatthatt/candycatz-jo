@@ -21,6 +21,7 @@ $title-text: #ea5d93;
 body {
     background-color: $bg;
     padding-top: 105px;
+    box-sizing: border-box;
 
 }
 
@@ -54,9 +55,8 @@ h5 {
 
 .candyAmount {
   font-size: 2.5rem;
-  position: fixed;
   z-index: 100;
-  position: fixed;
+  margin-right: 35px;
 .candyAmountRendered {
   font-size: 1rem;
   position: absolute;

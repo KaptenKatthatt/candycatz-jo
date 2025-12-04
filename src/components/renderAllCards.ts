@@ -138,7 +138,7 @@ function showNumberOfCandys() {
     ".candyAmountRendered"
   )!;
   const allTheCandy = usedIds.length + showRestCandy.length;
-  candyAmountRendered.innerHTML = `${allTheCandy}`;
+  candyAmountRendered.innerHTML = `${allTheCandy}/113`;
 }
 
 // okej allt stämmer här in med det

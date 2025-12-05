@@ -2,14 +2,15 @@
 
 .cardTrans {
   background-color: $offcanvas;
+  transition: box-shadow 0.1s ease-in-out;
 
   &:hover:nth-of-type(odd) {
-    box-shadow: 6px 6px 6px rgb(167, 167, 167);
     transition: transform 0.1s ease-in-out;
+    box-shadow: 0 0 20px $btn-candy-purple;
     transform: scale(1.02) rotate(-1deg);
   }
   &:hover:nth-of-type(even) {
-    box-shadow: 6px 6px 6px rgb(167, 167, 167);
+    box-shadow: 0 0 20px $btn-candy-purple;
     transition: transform 0.1s ease-in-out;
     transform: scale(1.02) rotate(2deg);
   }
@@ -20,9 +21,14 @@
     $btn-candy-pink 50%,
     $btn-candy-purple 100%
   );
+  transition: transform 0.1s ease-in-out;
 
   &:hover {
     box-shadow: 0 4px 8px $btn-candy-purple;
+    transform: scale(1.05);
+  }
+  &:active {
+    transform: scale(0.95);
   }
 }
 .modalInfoBtn {
@@ -31,10 +37,15 @@
     $btn-candy-pink 50%,
     $btn-candy-purple 100%
   );
+  transition: transform 0.1s ease-in-out;
 
   &:hover {
     color: white;
     box-shadow: 0 4px 8px $btn-candy-purple;
+    transform: scale(1.05);
+  }
+  &:active {
+    transform: scale(0.95);
   }
 }
 
@@ -43,5 +54,11 @@
 
   &:hover {
     transform: rotate(360deg);
+  }
+}
+.cardTrans img {
+  transition: box-shadow 0.1s ease-in-out;
+  &:hover {
+    box-shadow: 0 0 20px $btn-candy-purple;
   }
 }

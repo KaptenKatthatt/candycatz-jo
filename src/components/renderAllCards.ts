@@ -6,6 +6,10 @@ let addedCandyNr: number = 12;
 let usedIds: number[];
 let showRestCandy: CandyData[];
 
+let response = await getAllCandyInfo();
+let allCandyCards: CandyData[] = response.data;
+
+
 // funktion för att återanvända kort strukturen flera gånger på olika kategorier
 function cardStructure(product: CandyData): string {
   let thumbnailURL = `https://www.bortakvall.se${product.images.thumbnail}`;
@@ -43,9 +47,7 @@ export const renderAllCards = async function () {
   //Get all products from API
   // const allCandyCards: CandyData[] = await getAllCandyInfo();
 
-  const response = await getAllCandyInfo();
-  const allCandyCards: CandyData[] = response.data;
-
+  
   //TODO Add if check if response.status === "success"
 
   //TOP TREATS Kategorien
@@ -138,7 +140,8 @@ function showNumberOfCandys() {
     ".candyAmountRendered"
   )!;
   const allTheCandy = usedIds.length + showRestCandy.length;
-  candyAmountRendered.innerHTML = `${allTheCandy}/113`;
+  const allTheResponseCandy = allCandyCards.length;
+  candyAmountRendered.innerHTML = `${allTheCandy}/${allTheResponseCandy}`;
 }
 
 // okej allt stämmer här in med det

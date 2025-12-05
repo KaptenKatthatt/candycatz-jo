@@ -43,7 +43,6 @@ export const addToCart = async function (clickedCandyId: number) {
     };
 
     cartArray.push(candyProduct);
-    console.log("CartArray Contents", cartArray);
   } else if (foundSameCandyInCart) {
     const candyFound = cartArray.find(
       (product: CartProduct) => product.id === clickedCandyId
@@ -59,7 +58,6 @@ export const addToCart = async function (clickedCandyId: number) {
   }
   renderCart();
   saveCartArrayToLocalStorage(cartArray);
-  console.log("CartArray from local storage", getCartArrayFromLocalStorage());
 };
 
 export const decreaseAmountOfProductInCart = function (clickedCandyId: number) {
@@ -190,6 +188,7 @@ export const renderCart = function () {
   totalCostContainerEl.innerHTML = `<strong>${String(
     getTotalCostOfProductsInCart() + shipping
   )} kr</strong>`;
+  renderClearCart();
 };
 
 export const renderCartBadge = function () {
@@ -273,6 +272,16 @@ export const renderCheckoutCart = function () {
   )} kr</strong>`;
 };
 
+const renderClearCart = function () {
+  if (getCartArrayFromLocalStorage().length === 0) {
+    document.querySelector(".cart-summary")?.classList.add("d-none");
+    document.querySelector(".clearCartBtn")?.classList.add("d-none");
+  } else {
+    document.querySelector(".cart-summary")?.classList.remove("d-none");
+    document.querySelector(".clearCartBtn")?.classList.remove("d-none");
+  }
+};
+
 //Adds clicked candy to cart, if exists, increase qty instead.
 allCardsContainerEl?.addEventListener("click", async (e) => {
   const target = e.target as HTMLElement;
@@ -284,6 +293,21 @@ allCardsContainerEl?.addEventListener("click", async (e) => {
     openOffCanvas();
   }
 });
+
+//Clear cart btn listener
+mainContainerEl!.addEventListener("click", (e) => {
+  const target = e.target as HTMLElement;
+  if (target.closest(".clearCartBtn")) clearCart();
+});
+
+//SOPHIAS KOD HÄR UNDER. INTRUDERS WILL BE SHOT ON SIGHT.
+const disableAddToCartBtn = function () {
+  const card = document.querySelector<HTMLDivElement>(".cardTrans")!;
+  const addToCartBtn =
+    document.querySelector<HTMLButtonElement>(".addToCartBtn")!;
+
+  addToCartBtn.setAttribute("disabled", "");
+};
 
 //SOPHIAS KOD HÄR UNDER. INTRUDERS WILL BE SHOT ON SIGHT.
 const disableAddToCartBtn = async function() {

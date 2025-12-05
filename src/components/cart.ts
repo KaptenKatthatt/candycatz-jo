@@ -117,7 +117,7 @@ export const renderCart = function () {
       .map((product) => {
         let thumbnailURL = `https://www.bortakvall.se${product.thumbnail}`;
         return `
-          <div class="productItem  d-flex flex-row" data-product-id="${
+          <div class="productItem d-flex flex-row" data-product-id="${
             product.id
           }">
             <img src="${thumbnailURL}" class="cartThumbnail img-fluid rounded-4 me-2" alt="Image of ${

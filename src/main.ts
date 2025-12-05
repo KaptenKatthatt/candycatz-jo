@@ -2,8 +2,9 @@
 // import "bootstrap/dist/css/bootstrap.css";
 //Bootstrap JS
 import * as bootstrap from "bootstrap";
+
+//Function imports
 import { renderOffCan } from "./components/offcan";
-import "./assets/scss/app.scss";
 import {
   postUserAddressForm,
   renderCartView,
@@ -15,6 +16,10 @@ import { renderCarousel } from "./components/carousel";
 import { renderAllCards } from "./components/renderAllCards";
 import { getClickedCandyId } from "./components/getClickedCandyId";
 import { initStore } from "./components/cart";
+
+//SCSS imports
+import "./assets/scss/app.scss";
+import "./assets/scss/offcan.scss";
 
 renderCartView();
 renderCheckoutForm();

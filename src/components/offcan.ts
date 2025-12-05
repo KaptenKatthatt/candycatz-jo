@@ -1,58 +1,43 @@
 import {
-  initStore,
+  // initStore,
   renderCart,
   renderCartBadge,
   renderCheckoutCart,
 } from "./cart";
-import { getCartArrayFromLocalStorage } from "./localStorage";
+// import { getCartArrayFromLocalStorage } from "./localStorage";
 
-export const mainContainerEl = document.querySelector<HTMLDivElement>("main");
 export const offCan = document.querySelector<HTMLDivElement>("#offCan")!;
 
 export const renderOffCan = function () {
   offCan.innerHTML = `
-  <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+  <div class="offcanvas offcanvas-end rounded-start-5" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
   <div class="offcanvas-header">
     <h5 class="offcanvas-title" id="offcanvasRightLabel">Your Candy Cart🍬 </h5>
     <i class="bi bi-cart4 fs-3"></i>
     <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
   </div>
 
-  <div class="container py-5">
-    <div class="row">
-      <div class="col-12 mt-3">
-
-        <!-- Cart Items -->
-
-      </div>
-      <div class="card mb-2">
+  <!-- Cart products container-->
+  <div class=" offcanvasBody px-3">
+    
+      <div class="productContainer card px-2">
         <div class="card-body">
           <div class="row align-items-center mb-2 cart-item">
-
-            <!-- Cart products container -->
-            <div class="col-12 col-md-12 d-flex justify-content-end align-items-center mt-3 mb-2 qty-controls">
-            </div>
-            <div class=" col-12 col-md-4  mb-2 mb-md-0">
-            </div>
-            <div class="cartContainer text-center"></div>
-           <button class="clearCartBtn btn btn-warning"><i class="bi bi-cart-x fs-1 mb-3"></i>Töm kundvagnen</button>
+            <div class="cartContainer"></div>
+           <button class="clearCartBtn btn btn-secondary p-1"><i class="bi bi-cart-x fs-5 mb-3"></i>Töm kundvagnen</button>
           </div>
         </div>
-      </div>
     </div>
 
-    <!-- Cart Summary -->
-    <div class="col-12 mt-3">
-
-      <div class="card cart-summary">
+      <div class="card cart-summary mt-4">
         <div class="card-body">
-          <h5 class="card-title mb-4 ">Order Summary</h5>
+          <h5 class="card-title mb-4 ">Ordersummering</h5>
           <div class="d-flex justify-content-between mb-3">
-            <span>Subtotal</span>
-            <span class="subtotalContainer">XX kr</span>
+            <span>Summa</span>
+            <span class="subtotalContainer"></span>
           </div>
           <div class="d-flex justify-content-between mb-4">
-            <span>Shipping</span>
+            <span>Frakt</span>
             <span>19kr</span>
           </div>
           <hr>
@@ -60,17 +45,15 @@ export const renderOffCan = function () {
             <strong>Total</strong>
             <span class="totalCostContainer"><strong></strong></span>
           </div>
-          <button class="checkOutBtn btn btn-primary w-100" data-bs-dismiss="offcanvas" aria-label="Close">Proceed to
-            Checkout</button>
+          <button class="checkOutBtn btn btn-primary w-100" data-bs-dismiss="offcanvas" aria-label="Close">Gå till kassan</button>
         </div>
-      </div>
     </div>
   </div>
 
   <!-- Continue Shopping Button -->
   <div class="text-start mt-4 mb-4">
     <button type="button" class="btn btn-outline-primary" data-bs-dismiss="offcanvas" aria-label="Close">
-      <i class="bi bi-arrow-left me-2"></i>Continue Shopping
+      <i class="bi bi-arrow-left me-2"></i>Fortsätt Handla
     </button>
   </div>
 </div>
@@ -146,21 +129,4 @@ export const closeOffCanvas = function () {
   if (backdrop) {
     backdrop.remove();
   }
-};
-
-const clearCart = function () {
-  localStorage.removeItem("candyCartArray");
-  initStore();
-};
-
-mainContainerEl!.addEventListener("click", (e) => {
-  const target = e.target as HTMLElement;
-  if (target.closest(".clearCartBtn")) clearCart();
-});
-
-export const renderClearCartBtn = function () {
-  console.log("getarr", getCartArrayFromLocalStorage());
-  return getCartArrayFromLocalStorage().length === 0
-    ? document.querySelector(".clearCartBtn")?.classList.add("d-none")
-    : document.querySelector(".clearCartBtn")?.classList.remove("d-none");
 };

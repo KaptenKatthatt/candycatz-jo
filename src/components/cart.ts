@@ -3,7 +3,7 @@ import {
   getCartArrayFromLocalStorage,
   saveCartArrayToLocalStorage,
 } from "./localStorage";
-import { openOffCanvas, renderClearCartBtn, renderOffCan } from "./offcan";
+import { openOffCanvas } from "./offcan";
 
 const allCardsContainerEl =
   document.querySelector<HTMLDivElement>(".allCardsContainer");
@@ -11,6 +11,7 @@ const cartAmountEl =
   document.querySelector<HTMLParagraphElement>(".cartAmount");
 const cartTotalPriceEl =
   document.querySelector<HTMLParagraphElement>(".totalPrice");
+export const mainContainerEl = document.querySelector<HTMLDivElement>("main");
 
 let clickedCandyId = 0;
 let cartArray: CartProduct[] = getCartArrayFromLocalStorage() || [];
@@ -116,28 +117,28 @@ export const renderCart = function () {
       .map((product) => {
         let thumbnailURL = `https://www.bortakvall.se${product.thumbnail}`;
         return `
-        <div class="productItem container-fluid d-flex flex-row" data-product-id="${
-          product.id
-        }">
-        <img src="${thumbnailURL}" class="img-fluid rounded-4 me-2 w-25" alt="Image of ${
+          <div class="productItem  d-flex flex-row" data-product-id="${
+            product.id
+          }">
+            <img src="${thumbnailURL}" class="cartThumbnail img-fluid rounded-4 me-2" alt="Image of ${
           product.name
         }">
-        <div class="container div-flex flex-column justify-content-center align-items-center">
-        <h5 class="card-title click fs-5 me-2">${product.name}</h5>
-          <p class="me-2"><strong>${product.price}:-</strong>/skopa</p>
-          <p class="me-2">Produktpris: <strong>${
-            product.qty * product.price
-          }:-</strong></p>
+            <div class="container ">
+              <h5 class="card-title click fs-5 mb-3">${product.name}</h5>
+              <p class="mb-2"><strong>${product.price}:-</strong>/skopa</p>
+              <p class="mb-2">Total: <strong>${
+                product.qty * product.price
+              }:-</strong></p>
+            </div>
+            <div class="buttonContainer d-flex flex-row align-items-center">
+              <button class="decreaseBtn minusBtn me-2" type="button">-</button>
+              <p class="me-2 d-flex align-items-center justify-content-center m-0">${
+                product.qty
+              }</p>
+              <button class="increaseBtn plusBtn me-2" type="button">+</button>
+              <button class="deleteBtn btn btn-danger"><i class="bi bi-trash"></i></button>
+            </div>
           </div>
-          <div class="buttonContainer d-flex flex-row align-items-center">
-          <button class="decreaseBtn minusBtn me-2" type="button">-</button>
-          <p class="me-2 d-flex align-items-center justify-content-center m-0">${
-            product.qty
-          }</p>
-          <button class="increaseBtn plusBtn me-2" type="button">+</button>
-          <button class="deleteBtn btn btn-danger"><i class="bi bi-trash"></i></button>
-          </div>
-        </div>
           <hr>
 
         `;
@@ -275,5 +276,21 @@ allCardsContainerEl?.addEventListener("click", async (e) => {
     openOffCanvas();
   }
 });
+
+const clearCart = function () {
+  localStorage.removeItem("candyCartArray");
+  initStore();
+};
+
+mainContainerEl!.addEventListener("click", (e) => {
+  const target = e.target as HTMLElement;
+  if (target.closest(".clearCartBtn")) clearCart();
+});
+
+const renderClearCartBtn = function () {
+  return getCartArrayFromLocalStorage().length === 0
+    ? document.querySelector(".clearCartBtn")?.classList.add("d-none")
+    : document.querySelector(".clearCartBtn")?.classList.remove("d-none");
+};
 
 //SOPHIAS KOD HÄR UNDER. INTRUDERS WILL BE SHOT ON SIGHT.

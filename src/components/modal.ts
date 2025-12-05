@@ -1,10 +1,6 @@
 import { getCandyProductInfo } from "../services/candyAPI";
 import { Modal } from "bootstrap";
 
-// UI.modalTitleEl.innerText = candyproduct.data.name;
-// UI.modalParagraphEl.innerHTML =
-// UI.modalThumbnailEL.src = `https://www.bortakvall.se${candyproduct.data.images.thumbnail}`;
-
 /**
  * Renders a modal with the clicked candyId
  * @param productId
@@ -21,23 +17,17 @@ export const renderModal = async function (productId: number) {
     ".modalContainer"
   ) as HTMLDivElement;
 
-  // const modalTitleEl = document.querySelector(
-  //   ".modalTitle"
-  // ) as HTMLHeadingElement;
-
-  // const modalThumbnailEL = document.querySelector(
-  //   ".modalThumbnail"
-  // ) as HTMLImageElement;
-  // const modalParagraphEl = document.querySelector(
-  //   ".modalParagraph"
-  // ) as HTMLParagraphElement;
-
   modalContainerEl.innerHTML = `
 <div class="modal fade" id="candyModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-sm">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title modalTitle">${candyTitle}</h5>
+          <h          .modalThumbnail{
+               transition: transform 0.5s linear;
+           }
+           .modalThumbnail:hover{
+              transform: rotate(720deg);
+           }5 class="modal-title modalTitle">${candyTitle}</h>
           <button type=" button" class="btn-close" data-bs-dismiss="modal" aria-label="Stäng"></button>
         </div>
         <div class="modal-body">

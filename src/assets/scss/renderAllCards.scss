@@ -3,15 +3,45 @@
 .cardTrans {
   background-color: $offcanvas;
 
+  &:hover:nth-of-type(odd) {
+    box-shadow: 6px 6px 6px rgb(167, 167, 167);
+    transition: transform 0.1s ease-in-out;
+    transform: scale(1.02) rotate(-1deg);
+  }
+  &:hover:nth-of-type(even) {
+    box-shadow: 6px 6px 6px rgb(167, 167, 167);
+    transition: transform 0.1s ease-in-out;
+    transform: scale(1.02) rotate(2deg);
+  }
+}
+.addToCartBtn {
+  background: linear-gradient(
+    45deg,
+    $btn-candy-pink 50%,
+    $btn-candy-purple 100%
+  );
 
-&:hover:nth-of-type(odd) {
-  box-shadow: 6px 6px 6px rgb(167, 167, 167);
-  transition: transform 0.1s ease-in-out;
-  transform: scale(1.02) rotate(-1deg);
+  &:hover {
+    box-shadow: 0 4px 8px $btn-candy-purple;
+  }
 }
-&:hover:nth-of-type(even) {
-  box-shadow: 6px 6px 6px rgb(167, 167, 167);
-  transition: transform 0.1s ease-in-out;
-  transform: scale(1.02) rotate(2deg);
+.modalInfoBtn {
+  background: linear-gradient(
+    45deg,
+    $btn-candy-pink 50%,
+    $btn-candy-purple 100%
+  );
+
+  &:hover {
+    color: white;
+    box-shadow: 0 4px 8px $btn-candy-purple;
+  }
 }
+
+.navbar-brand {
+  transition: transform 0.5s ease-in-out;
+
+  &:hover {
+    transform: rotate(360deg);
+  }
 }

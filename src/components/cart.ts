@@ -185,7 +185,7 @@ export const renderCart = function () {
     getTotalCostOfProductsInCart() + shipping
   )} kr</strong>`;
 
-  renderClearCartBtn();
+  renderClearCart();
 };
 
 export const renderCartBadge = function () {
@@ -269,10 +269,20 @@ export const renderCheckoutCart = function () {
   )} kr</strong>`;
 };
 
-const renderClearCartBtn = function () {
-  return getCartArrayFromLocalStorage().length === 0
-    ? document.querySelector(".clearCartBtn")?.classList.add("d-none")
-    : document.querySelector(".clearCartBtn")?.classList.remove("d-none");
+// const renderClearCart = function () {
+//   return getCartArrayFromLocalStorage().length === 0
+//     ? document.querySelector(".clearCartBtn")?.classList.add("d-none")
+//     : document.querySelector(".clearCartBtn")?.classList.remove("d-none");
+// };
+
+const renderClearCart = function () {
+  if (getCartArrayFromLocalStorage().length === 0) {
+    document.querySelector(".cart-summary")?.classList.add("d-none");
+    document.querySelector(".clearCartBtn")?.classList.add("d-none");
+  } else {
+    document.querySelector(".cart-summary")?.classList.remove("d-none");
+    document.querySelector(".clearCartBtn")?.classList.remove("d-none");
+  }
 };
 
 //Adds clicked candy to cart, if exists, increase qty instead.
@@ -287,7 +297,7 @@ allCardsContainerEl?.addEventListener("click", async (e) => {
     openOffCanvas();
   }
 });
-
+//Clear cart btn listener
 mainContainerEl!.addEventListener("click", (e) => {
   const target = e.target as HTMLElement;
   if (target.closest(".clearCartBtn")) clearCart();

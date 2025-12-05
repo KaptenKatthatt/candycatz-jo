@@ -152,7 +152,8 @@ mainContainerEl!.addEventListener("click", (e) => {
 });
 
 const renderClearCartBtn = function () {
-  getCartArrayFromLocalStorage() === null
+  console.log(getCartArrayFromLocalStorage());
+  return getCartArrayFromLocalStorage() === null
     ? `<button class="clearCartBtn btn btn-warning"><i class="bi bi-cart-x fs-1 mb-3"></i>Töm kundvagnen</button>
 `
     : "";

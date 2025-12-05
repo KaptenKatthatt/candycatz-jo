@@ -14,7 +14,7 @@ $disabled: rgb(148, 148, 148);
 $nav-color: #FFFCEF;
 $shadow: 0 4px 20px rgba(0,0,0,0.5);
 $primary: $accent;
-$secondary:#F38CB9;
+$secondary: #BDE0FE;
 $footer: #C4DCD1; 
 $offcanvas: #BDE0FE; 
 $title-text: #ea5d93;
@@ -97,10 +97,16 @@ h5 {
         background-repeat: repeat;
       }
 }
-.cardtrans {
-  background-color: #BDE0FE;
 
-.cardtrans:hover {
+.cardDis{
+  opacity: 0.5;
+}
+
+.cardTrans {
+  background-color: $offcanvas;
+
+
+&:hover {
   box-shadow: 6px 6px 6px rgb(167, 167, 167);
   transform: scale(1.02) rotate(-1deg);
 }

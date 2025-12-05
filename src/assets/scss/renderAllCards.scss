@@ -58,6 +58,7 @@
 }
 .cardTrans img {
   transition: box-shadow 0.1s ease-in-out;
+  border: 10px dotted $btn-candy-pink;
   &:hover {
     box-shadow: 0 0 20px $btn-candy-purple;
   }

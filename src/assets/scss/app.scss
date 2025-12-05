@@ -97,10 +97,10 @@ h5 {
         background-repeat: repeat;
       }
 }
-.cardtrans {
+.cardTrans {
   background-color: #BDE0FE;
 
-.cardtrans:hover {
+&:hover {
   box-shadow: 6px 6px 6px rgb(167, 167, 167);
   transform: scale(1.02) rotate(-1deg);
 }

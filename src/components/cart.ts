@@ -3,7 +3,7 @@ import {
   getCartArrayFromLocalStorage,
   saveCartArrayToLocalStorage,
 } from "./localStorage";
-import { openOffCanvas, renderClearCartBtn, renderOffCan } from "./offcan";
+import { openOffCanvas } from "./offcan";
 
 const allCardsContainerEl =
   document.querySelector<HTMLDivElement>(".allCardsContainer");
@@ -11,6 +11,7 @@ const cartAmountEl =
   document.querySelector<HTMLParagraphElement>(".cartAmount");
 const cartTotalPriceEl =
   document.querySelector<HTMLParagraphElement>(".totalPrice");
+export const mainContainerEl = document.querySelector<HTMLDivElement>("main");
 
 let clickedCandyId = 0;
 let cartArray: CartProduct[] = getCartArrayFromLocalStorage() || [];
@@ -275,5 +276,21 @@ allCardsContainerEl?.addEventListener("click", async (e) => {
     openOffCanvas();
   }
 });
+
+const clearCart = function () {
+  localStorage.removeItem("candyCartArray");
+  initStore();
+};
+
+mainContainerEl!.addEventListener("click", (e) => {
+  const target = e.target as HTMLElement;
+  if (target.closest(".clearCartBtn")) clearCart();
+});
+
+const renderClearCartBtn = function () {
+  return getCartArrayFromLocalStorage().length === 0
+    ? document.querySelector(".clearCartBtn")?.classList.add("d-none")
+    : document.querySelector(".clearCartBtn")?.classList.remove("d-none");
+};
 
 //SOPHIAS KOD HÄR UNDER. INTRUDERS WILL BE SHOT ON SIGHT.

@@ -1,17 +1,16 @@
 import {
-  initStore,
+  // initStore,
   renderCart,
   renderCartBadge,
   renderCheckoutCart,
 } from "./cart";
-import { getCartArrayFromLocalStorage } from "./localStorage";
+// import { getCartArrayFromLocalStorage } from "./localStorage";
 
-export const mainContainerEl = document.querySelector<HTMLDivElement>("main");
 export const offCan = document.querySelector<HTMLDivElement>("#offCan")!;
 
 export const renderOffCan = function () {
   offCan.innerHTML = `
-  <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+  <div class="offcanvas offcanvas-end rounded-start-5" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
   <div class="offcanvas-header">
     <h5 class="offcanvas-title" id="offcanvasRightLabel">Your Candy Cart🍬 </h5>
     <i class="bi bi-cart4 fs-3"></i>
@@ -146,21 +145,4 @@ export const closeOffCanvas = function () {
   if (backdrop) {
     backdrop.remove();
   }
-};
-
-const clearCart = function () {
-  localStorage.removeItem("candyCartArray");
-  initStore();
-};
-
-mainContainerEl!.addEventListener("click", (e) => {
-  const target = e.target as HTMLElement;
-  if (target.closest(".clearCartBtn")) clearCart();
-});
-
-export const renderClearCartBtn = function () {
-  console.log("getarr", getCartArrayFromLocalStorage());
-  return getCartArrayFromLocalStorage().length === 0
-    ? document.querySelector(".clearCartBtn")?.classList.add("d-none")
-    : document.querySelector(".clearCartBtn")?.classList.remove("d-none");
 };

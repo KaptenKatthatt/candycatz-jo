@@ -23,22 +23,34 @@ export interface CartProduct {
   price: number;
   thumbnail: string;
 }
-export const initStore = function () {
-  cartArray = getCartArrayFromLocalStorage() || renderCart();
-  renderCart();
-  renderCartBadge();
-};
-//Spreada CandyResponse till en ny array och lägg på egenskapen qty på den.
-export const increaseAmountOfProductInCart = function (clickedCandyId: number) {
-  const candyFound = cartArray.find(
-    (product: CartProduct) => product.id === clickedCandyId
-  );
-  candyFound!.qty++;
-};
 
-export const clearCart = function () {
-  localStorage.clear();
-  initStore();
+export const addToCart = async function (clickedCandyId: number) {
+  let fetchedCandyObject = await getCandyProductInfo(clickedCandyId);
+  let foundSameCandyInCart = cartArray.some(
+    (product) => product.id === clickedCandyId
+  );
+  if (!foundSameCandyInCart) {
+    const candyProduct: CartProduct = {
+      id: fetchedCandyObject.data.id,
+      name: fetchedCandyObject.data.name,
+      qty: 1,
+      price: fetchedCandyObject.data.price,
+      thumbnail: fetchedCandyObject.data.images.thumbnail,
+    };
+
+    cartArray.push(candyProduct);
+    console.log("CartArray Contents", cartArray);
+  } else if (foundSameCandyInCart) {
+    const candyFound = cartArray.find(
+      (product: CartProduct) => product.id === clickedCandyId
+    );
+    candyFound!.qty++;
+
+    // console.log("CartArray after qty++", cartArray);
+  }
+  renderCart();
+  saveCartArrayToLocalStorage(cartArray);
+  console.log("CartArray from local storage", getCartArrayFromLocalStorage());
 };
 
 export const decreaseAmountOfProductInCart = function (clickedCandyId: number) {
@@ -58,6 +70,7 @@ export const decreaseAmountOfProductInCart = function (clickedCandyId: number) {
       getTotalCostOfProductsInCart()
     )}`;
   }
+  saveCartArrayToLocalStorage(cartArray);
 };
 
 export const deleteProductFromCart = function (clickedCandyId: number) {
@@ -68,7 +81,24 @@ export const deleteProductFromCart = function (clickedCandyId: number) {
     candyFound.qty = 0;
     cartArray = cartArray.filter((product) => product.id !== candyFound.id);
   }
+  saveCartArrayToLocalStorage(cartArray);
 };
+
+//Spreada CandyResponse till en ny array och lägg på egenskapen qty på den.
+export const increaseAmountOfProductInCart = function (clickedCandyId: number) {
+  const candyFound = cartArray.find(
+    (product: CartProduct) => product.id === clickedCandyId
+  );
+  candyFound!.qty++;
+  saveCartArrayToLocalStorage(cartArray);
+};
+
+export const initStore = function () {
+  cartArray = getCartArrayFromLocalStorage() || [];
+  renderCart();
+  renderCartBadge();
+};
+
 //Gets nbr of kinds of candy at the moment, not total qty of candy.
 export const getTotalAmountOfProductsInCart = function () {
   return cartArray.reduce((acc, curr) => acc + curr.qty, 0);
@@ -81,8 +111,8 @@ export const renderCart = function () {
   const cartContainerEl =
     document.querySelector<HTMLDivElement>(".cartContainer");
   // Render a card with added item
-  if (cartContainerEl) {
-    cartContainerEl!.innerHTML = cartArray
+  if (cartContainerEl && cartArray.length > 0) {
+    cartContainerEl.innerHTML = cartArray
       .map((product) => {
         let thumbnailURL = `https://www.bortakvall.se${product.thumbnail}`;
         return `
@@ -129,6 +159,9 @@ export const renderCart = function () {
       renderCart();
       renderCartBadge();
     };
+  } else {
+    cartContainerEl!.innerHTML = `<p class="py-5">
+      Kundvagnen är tom just nu. Iväg o handla med dig!</p>`;
   }
   const subtotalContainerEl = document.querySelector(
     ".subtotalContainer"
@@ -228,35 +261,6 @@ export const renderCheckoutCart = function () {
   )} kr</strong>`;
 };
 
-export const addToCart = async function (clickedCandyId: number) {
-  let fetchedCandyObject = await getCandyProductInfo(clickedCandyId);
-  let foundSameCandyInCart = cartArray.some(
-    (product) => product.id === clickedCandyId
-  );
-  if (!foundSameCandyInCart) {
-    const candyProduct: CartProduct = {
-      id: fetchedCandyObject.data.id,
-      name: fetchedCandyObject.data.name,
-      qty: 1,
-      price: fetchedCandyObject.data.price,
-      thumbnail: fetchedCandyObject.data.images.thumbnail,
-    };
-
-    cartArray.push(candyProduct);
-    console.log("CartArray Contents", cartArray);
-  } else if (foundSameCandyInCart) {
-    const candyFound = cartArray.find(
-      (product: CartProduct) => product.id === clickedCandyId
-    );
-    candyFound!.qty++;
-
-    // console.log("CartArray after qty++", cartArray);
-  }
-  renderCart();
-  saveCartArrayToLocalStorage(cartArray);
-  console.log("CartArray from local storage", getCartArrayFromLocalStorage());
-};
-
 //Adds clicked candy to cart, if exists, increase qty instead.
 allCardsContainerEl?.addEventListener("click", async (e) => {
   const target = e.target as HTMLElement;
@@ -268,3 +272,5 @@ allCardsContainerEl?.addEventListener("click", async (e) => {
     openOffCanvas();
   }
 });
+
+//SOPHIAS KOD HÄR UNDER. INTRUDERS WILL BE SHOT ON SIGHT.

@@ -1,8 +1,9 @@
-//NYA OFFCAN
+import { initStore, renderCheckoutCart } from "./cart";
+import { getCartArrayFromLocalStorage } from "./localStorage";
 
-import { renderCheckoutCart } from "./cart";
-
+export const mainContainerEl = document.querySelector<HTMLDivElement>("main");
 export const offCan = document.querySelector<HTMLDivElement>("#offCan")!;
+
 export const renderOffCan = function () {
   offCan.innerHTML = `
   <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
@@ -28,7 +29,8 @@ export const renderOffCan = function () {
             </div>
             <div class=" col-12 col-md-4  mb-2 mb-md-0">
             </div>
-            <div class="cartContainer"></div>
+            <div class="cartContainer text-center"></div>
+            ${renderClearCartBtn()}
           </div>
         </div>
       </div>
@@ -53,7 +55,7 @@ export const renderOffCan = function () {
             <strong>Total</strong>
             <span class="totalCostContainer"><strong></strong></span>
           </div>
-          <button class="checkOutBtn btn btn-primary w-100 data-bs-dismiss=" offcanvas" aria-label="Close">Proceed to
+          <button class="checkOutBtn btn btn-primary w-100" data-bs-dismiss="offcanvas" aria-label="Close">Proceed to
             Checkout</button>
         </div>
       </div>
@@ -63,16 +65,14 @@ export const renderOffCan = function () {
   <!-- Continue Shopping Button -->
   <div class="text-start mt-4 mb-4">
     <button type="button" class="btn btn-outline-primary" data-bs-dismiss="offcanvas" aria-label="Close">
-      <i class="bi bi-arrow-left me-2"></i>Continue Shopping</a>
+      <i class="bi bi-arrow-left me-2"></i>Continue Shopping
     </button>
   </div>
 </div>
 </div>
 </div>
 `;
-
-  // EventListner for Proceed to Checkout
-
+  // EventListener for Proceed to Checkout
   const cartCheckoutContainer = document.querySelector<HTMLDivElement>(
     "#cartCheckoutContainer"
   )!;
@@ -139,4 +139,21 @@ export const closeOffCanvas = function () {
   if (backdrop) {
     backdrop.remove();
   }
+};
+
+const clearCart = function () {
+  localStorage.removeItem("candyCartArray");
+  initStore();
+};
+
+mainContainerEl!.addEventListener("click", (e) => {
+  const target = e.target as HTMLElement;
+  if (target.closest(".clearCartBtn")) clearCart();
+});
+
+const renderClearCartBtn = function () {
+  console.log("getarr", getCartArrayFromLocalStorage());
+  return getCartArrayFromLocalStorage === undefined
+    ? ""
+    : `<button class="clearCartBtn btn btn-warning"><i class="bi bi-cart-x fs-1 mb-3"></i>Töm kundvagnen</button>`;
 };

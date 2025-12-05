@@ -4,8 +4,6 @@
 import * as bootstrap from "bootstrap";
 import { renderOffCan } from "./components/offcan";
 import "./assets/scss/app.scss";
-import { getCandyProductInfo } from "./services/candyAPI";
-import { renderModal } from "./components/modal";
 import {
   postUserAddressForm,
   renderCartView,
@@ -16,7 +14,7 @@ import { renderNavbar } from "./components/navbar";
 import { renderCarousel } from "./components/carousel";
 import { renderAllCards } from "./components/renderAllCards";
 import { getClickedCandyId } from "./components/getClickedCandyId";
-import { addToCart, initStore, clearCart } from "./components/cart";
+import { initStore } from "./components/cart";
 
 renderCartView();
 renderCheckoutForm();

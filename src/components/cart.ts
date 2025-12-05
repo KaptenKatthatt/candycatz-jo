@@ -118,28 +118,28 @@ export const renderCart = function () {
       .map((product) => {
         let thumbnailURL = `https://www.bortakvall.se${product.thumbnail}`;
         return `
-          <div class="productItem d-flex flex-row" data-product-id="${
-            product.id
-          }">
-            <img src="${thumbnailURL}" class="cartThumbnail img-fluid rounded-4 me-2" alt="Image of ${
+        <div class="productItem container-fluid d-flex flex-row" data-product-id="${
+          product.id
+        }">
+        <img src="${thumbnailURL}" class="img-fluid rounded-4 me-2 w-25" alt="Image of ${
           product.name
         }">
-            <div class="container ">
-              <h5 class="card-title click fs-5 mb-3">${product.name}</h5>
-              <p class="mb-2"><strong>${product.price}:-</strong>/skopa</p>
-              <p class="mb-2">Total: <strong>${
-                product.qty * product.price
-              }:-</strong></p>
-            </div>
-            <div class="buttonContainer d-flex flex-row align-items-center">
-              <button class="decreaseBtn minusBtn me-2" type="button">-</button>
-              <p class="me-2 d-flex align-items-center justify-content-center m-0">${
-                product.qty
-              }</p>
-              <button class="increaseBtn plusBtn me-2" type="button">+</button>
-              <button class="deleteBtn btn btn-danger"><i class="bi bi-trash"></i></button>
-            </div>
+        <div class="container div-flex flex-column justify-content-center align-items-center">
+        <h5 class="card-title click fs-5 me-2">${product.name}</h5>
+          <p class="me-2"><strong>${product.price}:-</strong>/skopa</p>
+          <p class="me-2">Produktpris: <strong>${
+            product.qty * product.price
+          }:-</strong></p>
           </div>
+          <div class="buttonContainer d-flex flex-row align-items-center">
+          <button class="decreaseBtn minusBtn me-2" type="button">-</button>
+          <p class="me-2 d-flex align-items-center justify-content-center m-0">${
+            product.qty
+          }</p>
+          <button class="increaseBtn plusBtn me-2" type="button">+</button>
+          <button class="deleteBtn btn btn-danger"><i class="bi bi-trash"></i></button>
+          </div>
+        </div>
           <hr>
 
         `;
@@ -180,7 +180,6 @@ export const renderCart = function () {
   totalCostContainerEl.innerHTML = `<strong>${String(
     getTotalCostOfProductsInCart() + shipping
   )} kr</strong>`;
-
   renderClearCart();
 };
 
@@ -207,7 +206,7 @@ export const renderCheckoutCart = function () {
         <div class="productItem container-fluid d-flex flex-row rounded-4 p-1" data-product-id="${
           product.id
         }">
-        <img src="${thumbnailURL}" class="checkOutThumbnail img-fluid rounded-4 border border-dark me-2" alt="Image of ${
+        <img src="${thumbnailURL}" class="img-fluid w-25 rounded-4 border border-dark me-2" alt="Image of ${
           product.name
         }">
         <div class="container div-flex flex-column justify-content-center">
@@ -283,10 +282,10 @@ allCardsContainerEl?.addEventListener("click", async (e) => {
     clickedCandyId = Number(candyCard?.dataset.productId);
     await addToCart(clickedCandyId);
     renderCartBadge();
-    renderCart();
     openOffCanvas();
   }
 });
+
 //Clear cart btn listener
 mainContainerEl!.addEventListener("click", (e) => {
   const target = e.target as HTMLElement;
@@ -294,3 +293,10 @@ mainContainerEl!.addEventListener("click", (e) => {
 });
 
 //SOPHIAS KOD HÄR UNDER. INTRUDERS WILL BE SHOT ON SIGHT.
+const disableAddToCartBtn = function () {
+  const card = document.querySelector<HTMLDivElement>(".cardTrans")!;
+  const addToCartBtn =
+    document.querySelector<HTMLButtonElement>(".addToCartBtn")!;
+
+  addToCartBtn.setAttribute("disabled", "");
+};

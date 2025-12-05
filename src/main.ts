@@ -16,7 +16,7 @@ import { renderNavbar } from "./components/navbar";
 import { renderCarousel } from "./components/carousel";
 import { renderAllCards } from "./components/renderAllCards";
 import { getClickedCandyId } from "./components/getClickedCandyId";
-import { addToCart, initStore } from "./components/cart";
+import { initStore } from "./components/cart";
 
 renderCartView();
 renderCheckoutForm();

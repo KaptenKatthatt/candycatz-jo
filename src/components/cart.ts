@@ -3,7 +3,7 @@ import {
   getCartArrayFromLocalStorage,
   saveCartArrayToLocalStorage,
 } from "./localStorage";
-import { openOffCanvas, renderOffCan } from "./offcan";
+import { openOffCanvas } from "./offcan";
 
 const allCardsContainerEl =
   document.querySelector<HTMLDivElement>(".allCardsContainer");

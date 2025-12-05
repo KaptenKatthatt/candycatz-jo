@@ -22,13 +22,8 @@ export const renderModal = async function (productId: number) {
     <div class="modal-dialog modal-sm">
       <div class="modal-content">
         <div class="modal-header">
-          <h          .modalThumbnail{
-               transition: transform 0.5s linear;
-           }
-           .modalThumbnail:hover{
-              transform: rotate(720deg);
-           }5 class="modal-title modalTitle">${candyTitle}</h>
-          <button type=" button" class="btn-close" data-bs-dismiss="modal" aria-label="Stäng"></button>
+          <h5 id="exampleModalLabel" class="modal-title modalTitle">${candyTitle}</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Stäng"></button>
         </div>
         <div class="modal-body">
           <img src="${modalThumbnailURL}" class="modalThumbnail card-img-top" alt="${candyTitle}">

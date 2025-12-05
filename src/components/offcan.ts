@@ -1,4 +1,5 @@
 import { initStore, renderCheckoutCart } from "./cart";
+import { getCartArrayFromLocalStorage } from "./localStorage";
 
 export const mainContainerEl = document.querySelector<HTMLDivElement>("main");
 export const offCan = document.querySelector<HTMLDivElement>("#offCan")!;
@@ -29,7 +30,7 @@ export const renderOffCan = function () {
             <div class=" col-12 col-md-4  mb-2 mb-md-0">
             </div>
             <div class="cartContainer text-center"></div>
-            <button class="clearCartBtn btn btn-warning"><i class="bi bi-cart-x fs-1 mb-3"></i>Töm kundvagnen</button>
+            ${renderClearCartBtn()}
           </div>
         </div>
       </div>
@@ -149,3 +150,10 @@ mainContainerEl!.addEventListener("click", (e) => {
   const target = e.target as HTMLElement;
   if (target.closest(".clearCartBtn")) clearCart();
 });
+
+const renderClearCartBtn = function () {
+  getCartArrayFromLocalStorage() === null
+    ? `<button class="clearCartBtn btn btn-warning"><i class="bi bi-cart-x fs-1 mb-3"></i>Töm kundvagnen</button>
+`
+    : "";
+};

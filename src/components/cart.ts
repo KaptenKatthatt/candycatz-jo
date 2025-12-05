@@ -272,3 +272,5 @@ allCardsContainerEl?.addEventListener("click", async (e) => {
     openOffCanvas();
   }
 });
+
+//SOPHIAS KOD HÄR UNDER. INTRUDERS WILL BE SHOT ON SIGHT.

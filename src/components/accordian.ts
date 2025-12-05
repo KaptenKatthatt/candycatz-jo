@@ -1,3 +1,7 @@
+
+import type { CandyData, CheckoutData, OrderResponse } from '../services/candyApiTypes';
+
+
 const cartView = document.querySelector("#cartView") as HTMLDivElement;
 const checkoutForm = document.querySelector("#checkoutForm") as HTMLFormElement;
 const placedOrderView = document.querySelector(
@@ -5,7 +9,7 @@ const placedOrderView = document.querySelector(
 ) as HTMLDivElement;
 
 export const renderCartView = function () {
-  cartView.innerHTML = `<div class="accordion" id="accordionPanelsStayOpenExample">
+  cartView.innerHTML = `<div class="accordion" id="accordionCart">
   <div class="accordion-item">
     <h2 class="accordion-header" id="panelsStayOpen-headingOne">
       <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
@@ -23,7 +27,7 @@ export const renderCartView = function () {
 
 export const renderCheckoutForm = function () {
   checkoutForm.innerHTML = `
-<div class="accordion formAccordion" id="accordionPanelsStayOpenExample">  
+<div class="accordion formAccordion" id="accordionCheckout">  
 <div class="accordion-item">
     <h2 class="accordion-header" id="panelsStayOpen-headingTwo">
       <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false" aria-controls="panelsStayOpen-collapseTwo">
@@ -35,8 +39,12 @@ export const renderCheckoutForm = function () {
 
 <form id="form">
  <div class="form-group col-md-6">
-    <label for="inputName">Namn</label>
-    <input type="text" class="form-control" id="inputName" required placeholder= "För- och efternamn">
+    <label for="inputFirstName">Namn</label>
+    <input type="text" class="form-control" id="inputFirstName" required placeholder= "Förnamn">
+  </div>
+   <div class="form-group col-md-6">
+    <label for="inputLastName">Efternamn</label>
+    <input type="text" class="form-control" id="inputLastName" required placeholder= "Efternamn">
   </div>
   <div class="form-row">
     <div class="form-group col-md-6">

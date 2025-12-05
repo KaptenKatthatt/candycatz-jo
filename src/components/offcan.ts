@@ -1,6 +1,8 @@
 import { initStore, renderCheckoutCart } from "./cart";
 
+export const mainContainerEl = document.querySelector<HTMLDivElement>("main");
 export const offCan = document.querySelector<HTMLDivElement>("#offCan")!;
+
 export const renderOffCan = function () {
   offCan.innerHTML = `
   <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
@@ -69,20 +71,7 @@ export const renderOffCan = function () {
 </div>
 </div>
 `;
-
-  const clearCart = function () {
-    localStorage.clear();
-    initStore();
-  };
-
-  document
-    .querySelector<HTMLButtonElement>(".clearCartBtn")!
-    .addEventListener("click", () => {
-      clearCart();
-    });
-
-  // EventListner for Proceed to Checkout
-
+  // EventListener for Proceed to Checkout
   const cartCheckoutContainer = document.querySelector<HTMLDivElement>(
     "#cartCheckoutContainer"
   )!;
@@ -150,3 +139,13 @@ export const closeOffCanvas = function () {
     backdrop.remove();
   }
 };
+
+const clearCart = function () {
+  localStorage.clear();
+  initStore();
+};
+
+mainContainerEl!.addEventListener("click", (e) => {
+  const target = e.target as HTMLElement;
+  if (target.closest(".clearCartBtn")) clearCart();
+});

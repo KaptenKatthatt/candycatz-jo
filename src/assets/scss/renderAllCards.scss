@@ -5,13 +5,13 @@
   transition: box-shadow 0.1s ease-in-out;
 
   &:hover:nth-of-type(odd) {
-    transition: transform 0.1s ease-in-out;
+    transition: transform 0.2s ease-in-out;
     box-shadow: 0 0 20px $btn-candy-purple;
     transform: scale(1.02) rotate(-1deg);
   }
   &:hover:nth-of-type(even) {
     box-shadow: 0 0 20px $btn-candy-purple;
-    transition: transform 0.1s ease-in-out;
+    transition: transform 0.2s ease-in-out;
     transform: scale(1.02) rotate(2deg);
   }
 }
@@ -62,4 +62,9 @@
   &:hover {
     box-shadow: 0 0 20px $btn-candy-purple;
   }
+}
+
+.card-title {
+  color: white;
+  font-size: 1.5rem !important;
 }

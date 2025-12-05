@@ -40,18 +40,14 @@ export const addToCart = async function (clickedCandyId: number) {
     };
 
     cartArray.push(candyProduct);
-    console.log("CartArray Contents", cartArray);
   } else if (foundSameCandyInCart) {
     const candyFound = cartArray.find(
       (product: CartProduct) => product.id === clickedCandyId
     );
     candyFound!.qty++;
-
-    // console.log("CartArray after qty++", cartArray);
   }
   renderCart();
   saveCartArrayToLocalStorage(cartArray);
-  console.log("CartArray from local storage", getCartArrayFromLocalStorage());
 };
 
 const clearCart = function () {

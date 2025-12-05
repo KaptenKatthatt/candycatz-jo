@@ -11,7 +11,6 @@ const cartAmountEl =
   document.querySelector<HTMLParagraphElement>(".cartAmount");
 const cartTotalPriceEl =
   document.querySelector<HTMLParagraphElement>(".totalPrice");
-export const mainContainerEl = document.querySelector<HTMLDivElement>("main");
 
 let clickedCandyId = 0;
 let cartArray: CartProduct[] = getCartArrayFromLocalStorage() || [];
@@ -23,10 +22,13 @@ export interface CartProduct {
   qty: number;
   price: number;
   thumbnail: string;
+  stock_quantity: number;
 }
 
 export const addToCart = async function (clickedCandyId: number) {
   let fetchedCandyObject = await getCandyProductInfo(clickedCandyId);
+  const maxStock = fetchedCandyObject.data.stock_quantity;
+
   let foundSameCandyInCart = cartArray.some(
     (product) => product.id === clickedCandyId
   );
@@ -37,6 +39,7 @@ export const addToCart = async function (clickedCandyId: number) {
       qty: 1,
       price: fetchedCandyObject.data.price,
       thumbnail: fetchedCandyObject.data.images.thumbnail,
+      stock_quantity: maxStock, 
     };
 
     cartArray.push(candyProduct);
@@ -44,15 +47,17 @@ export const addToCart = async function (clickedCandyId: number) {
     const candyFound = cartArray.find(
       (product: CartProduct) => product.id === clickedCandyId
     );
+
+    if (candyFound!.qty < candyFound!.stock_quantity) {
     candyFound!.qty++;
+    } else {
+      // här är alltså lagret slut okiii no more can adds
+      console.log(`Kan icke lägga till mer av ${candyFound!.name}`);
+    }
+    // console.log("CartArray after qty++", cartArray);
   }
   renderCart();
   saveCartArrayToLocalStorage(cartArray);
-};
-
-const clearCart = function () {
-  localStorage.removeItem("candyCartArray");
-  initStore();
 };
 
 export const decreaseAmountOfProductInCart = function (clickedCandyId: number) {
@@ -91,7 +96,9 @@ export const increaseAmountOfProductInCart = function (clickedCandyId: number) {
   const candyFound = cartArray.find(
     (product: CartProduct) => product.id === clickedCandyId
   );
-  candyFound!.qty++;
+  if (candyFound && candyFound.qty < candyFound.stock_quantity){
+  candyFound!.qty++; // här stoppas increase om inte gästqty är mindre än stockqty
+  } 
   saveCartArrayToLocalStorage(cartArray);
 };
 
@@ -136,7 +143,8 @@ export const renderCart = function () {
           <p class="me-2 d-flex align-items-center justify-content-center m-0">${
             product.qty
           }</p>
-          <button class="increaseBtn plusBtn me-2" type="button">+</button>
+          <button class="increaseBtn plusBtn me-2" type="button" 
+          ${product.qty >= product.stock_quantity ? 'disabled' : ''}>+</button>
           <button class="deleteBtn btn btn-danger"><i class="bi bi-trash"></i></button>
           </div>
         </div>
@@ -300,3 +308,22 @@ const disableAddToCartBtn = function () {
 
   addToCartBtn.setAttribute("disabled", "");
 };
+
+//SOPHIAS KOD HÄR UNDER. INTRUDERS WILL BE SHOT ON SIGHT.
+const disableAddToCartBtn = async function() {
+  const allCards = [...document.querySelectorAll<HTMLDivElement>(".cardTrans")];
+
+    console.log(allCards);
+ 
+  const addToCartBtn = document.querySelector<HTMLButtonElement>(".addToCartBtn")!;
+  
+  if (!addToCartBtn) {
+    return;
+  }
+
+  const candyId = await getCandyProductInfo(clickedCandyId);
+  const candy = candyId.data;
+  addToCartBtn.setAttribute("disabled", "");
+}
+
+disableAddToCartBtn();

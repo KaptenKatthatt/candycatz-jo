@@ -1,4 +1,9 @@
-import { initStore, renderCheckoutCart } from "./cart";
+import {
+  initStore,
+  renderCart,
+  renderCartBadge,
+  renderCheckoutCart,
+} from "./cart";
 import { getCartArrayFromLocalStorage } from "./localStorage";
 
 export const mainContainerEl = document.querySelector<HTMLDivElement>("main");
@@ -30,7 +35,7 @@ export const renderOffCan = function () {
             <div class=" col-12 col-md-4  mb-2 mb-md-0">
             </div>
             <div class="cartContainer text-center"></div>
-            ${renderClearCartBtn()}
+           <button class="clearCartBtn btn btn-warning"><i class="bi bi-cart-x fs-1 mb-3"></i>Töm kundvagnen</button>
           </div>
         </div>
       </div>
@@ -116,6 +121,8 @@ export const renderOffCan = function () {
 
 export const openOffCanvas = function () {
   const offCanvas = document.querySelector<HTMLDivElement>(".offcanvas")!;
+  renderCart();
+  renderCartBadge();
   offCanvas.classList.add("show");
   // offCanvas.setAttribute("aria-modal", "true");
   // offCanvas.setAttribute("role", "dialog");
@@ -151,9 +158,9 @@ mainContainerEl!.addEventListener("click", (e) => {
   if (target.closest(".clearCartBtn")) clearCart();
 });
 
-const renderClearCartBtn = function () {
+export const renderClearCartBtn = function () {
   console.log("getarr", getCartArrayFromLocalStorage());
-  return getCartArrayFromLocalStorage === undefined
-    ? ""
-    : `<button class="clearCartBtn btn btn-warning"><i class="bi bi-cart-x fs-1 mb-3"></i>Töm kundvagnen</button>`;
+  return getCartArrayFromLocalStorage().length === 0
+    ? document.querySelector(".clearCartBtn")?.classList.add("d-none")
+    : document.querySelector(".clearCartBtn")?.classList.remove("d-none");
 };

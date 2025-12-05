@@ -21,10 +21,7 @@ import { initStore } from "./components/cart";
 import "./assets/scss/app.scss";
 import "./assets/scss/offcan.scss";
 import "./assets/scss/typography.scss";
-<<<<<<< HEAD
 import "./assets/scss/modal.scss";
-=======
->>>>>>> 7e20c21 (Added colos.scss and typography.scss to split up CSS.)
 
 renderCartView();
 renderCheckoutForm();

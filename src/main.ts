@@ -4,8 +4,6 @@
 import * as bootstrap from "bootstrap";
 import { renderOffCan } from "./components/offcan";
 import "./assets/scss/app.scss";
-import { getCandyProductInfo } from "./services/candyAPI";
-import { renderModal } from "./components/modal";
 import {
   postUserAddressForm,
   renderCartView,

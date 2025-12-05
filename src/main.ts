@@ -20,6 +20,7 @@ import { initStore } from "./components/cart";
 //SCSS imports
 import "./assets/scss/app.scss";
 import "./assets/scss/offcan.scss";
+import "./assets/scss/typography.scss";
 
 renderCartView();
 renderCheckoutForm();

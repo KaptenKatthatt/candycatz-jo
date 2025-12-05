@@ -265,12 +265,6 @@ export const renderCheckoutCart = function () {
   )} kr</strong>`;
 };
 
-// const renderClearCart = function () {
-//   return getCartArrayFromLocalStorage().length === 0
-//     ? document.querySelector(".clearCartBtn")?.classList.add("d-none")
-//     : document.querySelector(".clearCartBtn")?.classList.remove("d-none");
-// };
-
 const renderClearCart = function () {
   if (getCartArrayFromLocalStorage().length === 0) {
     document.querySelector(".cart-summary")?.classList.add("d-none");

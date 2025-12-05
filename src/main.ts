@@ -22,6 +22,7 @@ import "./assets/scss/app.scss";
 import "./assets/scss/offcan.scss";
 import "./assets/scss/typography.scss";
 import "./assets/scss/modal.scss";
+import "./assets/scss/renderAllCards.scss";
 
 renderCartView();
 renderCheckoutForm();

@@ -1,0 +1,17 @@
+@import "colors";
+
+.cardTrans {
+  background-color: $offcanvas;
+
+
+&:hover:nth-of-type(odd) {
+  box-shadow: 6px 6px 6px rgb(167, 167, 167);
+  transition: transform 0.1s ease-in-out;
+  transform: scale(1.02) rotate(-1deg);
+}
+&:hover:nth-of-type(even) {
+  box-shadow: 6px 6px 6px rgb(167, 167, 167);
+  transition: transform 0.1s ease-in-out;
+  transform: scale(1.02) rotate(2deg);
+}
+}

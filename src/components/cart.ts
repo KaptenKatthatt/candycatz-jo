@@ -3,7 +3,7 @@ import {
   getCartArrayFromLocalStorage,
   saveCartArrayToLocalStorage,
 } from "./localStorage";
-import { openOffCanvas } from "./offcan";
+import { openOffCanvas, renderClearCartBtn, renderOffCan } from "./offcan";
 
 const allCardsContainerEl =
   document.querySelector<HTMLDivElement>(".allCardsContainer");
@@ -178,6 +178,8 @@ export const renderCart = function () {
   totalCostContainerEl.innerHTML = `<strong>${String(
     getTotalCostOfProductsInCart() + shipping
   )} kr</strong>`;
+
+  renderClearCartBtn();
 };
 
 export const renderCartBadge = function () {
@@ -269,6 +271,7 @@ allCardsContainerEl?.addEventListener("click", async (e) => {
     clickedCandyId = Number(candyCard?.dataset.productId);
     await addToCart(clickedCandyId);
     renderCartBadge();
+    renderCart();
     openOffCanvas();
   }
 });

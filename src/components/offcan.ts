@@ -17,33 +17,19 @@ export const renderOffCan = function () {
     <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
   </div>
 
-  <div class="container py-5">
-    <div class="row">
-      <div class="col-12 mt-3">
-
-        <!-- Cart Items -->
-
-      </div>
-      <div class="card mb-2">
+  <!-- Cart products container-->
+  <div class=" offcanvasBody px-3">
+    
+      <div class="productContainer card">
         <div class="card-body">
           <div class="row align-items-center mb-2 cart-item">
-
-            <!-- Cart products container -->
-            <div class="col-12 col-md-12 d-flex justify-content-end align-items-center mt-3 mb-2 qty-controls">
-            </div>
-            <div class=" col-12 col-md-4  mb-2 mb-md-0">
-            </div>
             <div class="cartContainer text-center"></div>
            <button class="clearCartBtn btn btn-warning"><i class="bi bi-cart-x fs-1 mb-3"></i>Töm kundvagnen</button>
           </div>
         </div>
-      </div>
     </div>
 
-    <!-- Cart Summary -->
-    <div class="col-12 mt-3">
-
-      <div class="card cart-summary">
+      <div class="card cart-summary mt-4">
         <div class="card-body">
           <h5 class="card-title mb-4 ">Order Summary</h5>
           <div class="d-flex justify-content-between mb-3">
@@ -59,17 +45,15 @@ export const renderOffCan = function () {
             <strong>Total</strong>
             <span class="totalCostContainer"><strong></strong></span>
           </div>
-          <button class="checkOutBtn btn btn-primary w-100" data-bs-dismiss="offcanvas" aria-label="Close">Proceed to
-            Checkout</button>
+          <button class="checkOutBtn btn btn-primary w-100" data-bs-dismiss="offcanvas" aria-label="Close">Gå till kassan</button>
         </div>
-      </div>
     </div>
   </div>
 
   <!-- Continue Shopping Button -->
   <div class="text-start mt-4 mb-4">
     <button type="button" class="btn btn-outline-primary" data-bs-dismiss="offcanvas" aria-label="Close">
-      <i class="bi bi-arrow-left me-2"></i>Continue Shopping
+      <i class="bi bi-arrow-left me-2"></i>Fortsätt Handla
     </button>
   </div>
 </div>

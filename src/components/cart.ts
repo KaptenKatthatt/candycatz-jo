@@ -94,7 +94,7 @@ export const increaseAmountOfProductInCart = function (clickedCandyId: number) {
 };
 
 export const initStore = function () {
-  cartArray = getCartArrayFromLocalStorage() || renderCart();
+  cartArray = getCartArrayFromLocalStorage() || [];
   renderCart();
   renderCartBadge();
 };

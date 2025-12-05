@@ -54,6 +54,11 @@ export const addToCart = async function (clickedCandyId: number) {
   console.log("CartArray from local storage", getCartArrayFromLocalStorage());
 };
 
+const clearCart = function () {
+  localStorage.removeItem("candyCartArray");
+  initStore();
+};
+
 export const decreaseAmountOfProductInCart = function (clickedCandyId: number) {
   const candyFound = cartArray.find(
     (product: CartProduct) => product.id === clickedCandyId
@@ -117,7 +122,7 @@ export const renderCart = function () {
       .map((product) => {
         let thumbnailURL = `https://www.bortakvall.se${product.thumbnail}`;
         return `
-          <div class="productItem  d-flex flex-row" data-product-id="${
+          <div class="productItem d-flex flex-row" data-product-id="${
             product.id
           }">
             <img src="${thumbnailURL}" class="cartThumbnail img-fluid rounded-4 me-2" alt="Image of ${
@@ -180,7 +185,7 @@ export const renderCart = function () {
     getTotalCostOfProductsInCart() + shipping
   )} kr</strong>`;
 
-  renderClearCartBtn();
+  renderClearCart();
 };
 
 export const renderCartBadge = function () {
@@ -206,7 +211,7 @@ export const renderCheckoutCart = function () {
         <div class="productItem container-fluid d-flex flex-row rounded-4 p-1" data-product-id="${
           product.id
         }">
-        <img src="${thumbnailURL}" class="img-fluid w-25 rounded-4 border border-dark me-2" alt="Image of ${
+        <img src="${thumbnailURL}" class="checkOutThumbnail img-fluid rounded-4 border border-dark me-2" alt="Image of ${
           product.name
         }">
         <div class="container div-flex flex-column justify-content-center">
@@ -264,6 +269,22 @@ export const renderCheckoutCart = function () {
   )} kr</strong>`;
 };
 
+// const renderClearCart = function () {
+//   return getCartArrayFromLocalStorage().length === 0
+//     ? document.querySelector(".clearCartBtn")?.classList.add("d-none")
+//     : document.querySelector(".clearCartBtn")?.classList.remove("d-none");
+// };
+
+const renderClearCart = function () {
+  if (getCartArrayFromLocalStorage().length === 0) {
+    document.querySelector(".cart-summary")?.classList.add("d-none");
+    document.querySelector(".clearCartBtn")?.classList.add("d-none");
+  } else {
+    document.querySelector(".cart-summary")?.classList.remove("d-none");
+    document.querySelector(".clearCartBtn")?.classList.remove("d-none");
+  }
+};
+
 //Adds clicked candy to cart, if exists, increase qty instead.
 allCardsContainerEl?.addEventListener("click", async (e) => {
   const target = e.target as HTMLElement;
@@ -276,21 +297,10 @@ allCardsContainerEl?.addEventListener("click", async (e) => {
     openOffCanvas();
   }
 });
-
-const clearCart = function () {
-  localStorage.removeItem("candyCartArray");
-  initStore();
-};
-
+//Clear cart btn listener
 mainContainerEl!.addEventListener("click", (e) => {
   const target = e.target as HTMLElement;
   if (target.closest(".clearCartBtn")) clearCart();
 });
-
-const renderClearCartBtn = function () {
-  return getCartArrayFromLocalStorage().length === 0
-    ? document.querySelector(".clearCartBtn")?.classList.add("d-none")
-    : document.querySelector(".clearCartBtn")?.classList.remove("d-none");
-};
 
 //SOPHIAS KOD HÄR UNDER. INTRUDERS WILL BE SHOT ON SIGHT.

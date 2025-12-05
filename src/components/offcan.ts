@@ -1,10 +1,4 @@
-import {
-  // initStore,
-  renderCart,
-  renderCartBadge,
-  renderCheckoutCart,
-} from "./cart";
-// import { getCartArrayFromLocalStorage } from "./localStorage";
+import { renderCart, renderCartBadge, renderCheckoutCart } from "./cart";
 
 export const offCan = document.querySelector<HTMLDivElement>("#offCan")!;
 
@@ -51,7 +45,7 @@ export const renderOffCan = function () {
   </div>
 
   <!-- Continue Shopping Button -->
-  <div class="text-start mt-4 mb-4">
+  <div class="text-start ms-3 mt-4 mb-4">
     <button type="button" class="btn btn-outline-primary" data-bs-dismiss="offcanvas" aria-label="Close">
       <i class="bi bi-arrow-left me-2"></i>Fortsätt Handla
     </button>

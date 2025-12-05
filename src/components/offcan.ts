@@ -20,24 +20,24 @@ export const renderOffCan = function () {
   <!-- Cart products container-->
   <div class=" offcanvasBody px-3">
     
-      <div class="productContainer card">
+      <div class="productContainer card px-2">
         <div class="card-body">
           <div class="row align-items-center mb-2 cart-item">
-            <div class="cartContainer text-center"></div>
-           <button class="clearCartBtn btn btn-warning"><i class="bi bi-cart-x fs-1 mb-3"></i>Töm kundvagnen</button>
+            <div class="cartContainer"></div>
+           <button class="clearCartBtn btn btn-secondary p-1"><i class="bi bi-cart-x fs-5 mb-3"></i>Töm kundvagnen</button>
           </div>
         </div>
     </div>
 
       <div class="card cart-summary mt-4">
         <div class="card-body">
-          <h5 class="card-title mb-4 ">Order Summary</h5>
+          <h5 class="card-title mb-4 ">Ordersummering</h5>
           <div class="d-flex justify-content-between mb-3">
-            <span>Subtotal</span>
-            <span class="subtotalContainer">XX kr</span>
+            <span>Summa</span>
+            <span class="subtotalContainer"></span>
           </div>
           <div class="d-flex justify-content-between mb-4">
-            <span>Shipping</span>
+            <span>Frakt</span>
             <span>19kr</span>
           </div>
           <hr>

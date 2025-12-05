@@ -21,6 +21,7 @@ import { initStore } from "./components/cart";
 import "./assets/scss/app.scss";
 import "./assets/scss/offcan.scss";
 import "./assets/scss/typography.scss";
+import "./assets/scss/modal.scss";
 
 renderCartView();
 renderCheckoutForm();

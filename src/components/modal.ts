@@ -37,7 +37,7 @@ export const renderModal = async function (productId: number) {
     <div class="modal-dialog modal-sm">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title modalTitle">${candyTitle}</h2>
+          <h5 class="modal-title modalTitle">${candyTitle}</h5>
           <button type=" button" class="btn-close" data-bs-dismiss="modal" aria-label="Stäng"></button>
         </div>
         <div class="modal-body">

@@ -28,7 +28,7 @@ export const renderOffCan = function () {
             </div>
             <div class=" col-12 col-md-4  mb-2 mb-md-0">
             </div>
-            <div class="cartContainer text-center">Kundvagnen är tom just nu. Iväg o handla med dig!</div>
+            <div class="cartContainer text-center"></div>
             <button class="clearCartBtn btn btn-warning"><i class="bi bi-cart-x fs-1 mb-3"></i>Töm kundvagnen</button>
           </div>
         </div>
@@ -141,7 +141,7 @@ export const closeOffCanvas = function () {
 };
 
 const clearCart = function () {
-  localStorage.clear();
+  localStorage.removeItem("candyCartArray");
   initStore();
 };
 

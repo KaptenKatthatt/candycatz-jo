@@ -1,8 +1,8 @@
-interface SubmittedOrderData {
+export interface SubmittedOrderData {
   customer_first_name: string;
   customer_last_name: string;
   customer_address: string;
-  customer_postcode: number;
+  customer_postcode: string;
   customer_city: string;
   customer_email: string;
   order_total: string;
@@ -13,22 +13,27 @@ interface SubmittedOrderData {
     item_total: number;
   }[];
 }
-const base = "https://www.bortakvall.se";
+
+const base = "https://www.bortakvall.se/api/v2";
 const postURL = "/users/81/orders";
 
-const postToCyberDyneHQ = async function (orderObj: SubmittedOrderData) {
+export const postToCyberDyneHQ = async function (
+  orderData: SubmittedOrderData
+) {
   const res = await fetch(base + postURL, {
     method: "POST",
-    headers: "",
-    body: orderObj,
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(orderData),
   });
 
   if (!res.ok) {
     throw new Error(
       `Order posting failed ${(await res).status} ${(await res).statusText}`
     );
-
-    const data = await res.json();
-    return data;
   }
+  const data = await res.json();
+  console.log("Response from SkyNet: ", data);
+  return data;
 };

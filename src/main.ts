@@ -21,6 +21,7 @@ import { sideScroller } from "./components/sideScroller";
 
 //SCSS imports
 import "./assets/scss/app.scss";
+import "./assets/scss/allButtons.scss";
 import "./assets/scss/navbar.scss";
 import "./assets/scss/modal.scss";
 import "./assets/scss/offcan.scss";
@@ -31,7 +32,7 @@ import "./assets/scss/typography.scss";
 // if ("scrollRestoration" in history) {
 //   history.scrollRestoration = "manual";
 // }
-// window.scrollTo(0, 0);
+window.scrollTo(0, 0);
 
 renderCartView();
 renderCheckoutForm();

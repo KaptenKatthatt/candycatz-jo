@@ -11,9 +11,10 @@ let allCandyCards: CandyData[] = response.data;
 function cardStructure(product: CandyData): string {
   let thumbnailURL = `https://www.bortakvall.se${product.images.thumbnail}`;
 
+  // Ta bort det extra " " före data-product-id
   return `<div class="card cardTrans rounded-4 p-1 ${
     product.stock_status !== "instock" ? "cardDis" : ""
-  }" " data-product-id="${product.id}" style="width: 17rem;">
+  }" data-product-id="${product.id}" style="width: 17rem;">
       <img src="${thumbnailURL}" class="card-img-top click rounded-4" alt="Image of ${
     product.name
   }">
@@ -50,11 +51,9 @@ export const sideScroller = function () {
       ) as HTMLDivElement;
 
       if (target.closest(".scrollArrowLeft")) {
-        // scrollContainer.style.scrollBehavior = "smooth";
         scrollContainer.scrollBy(-800, 0);
       }
       if (target.closest(".scrollArrowRight")) {
-        // scrollContainer.style.scrollBehavior = "smooth";
         scrollContainer.scrollBy(800, 0);
       }
     });

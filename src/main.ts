@@ -27,14 +27,10 @@ import "./assets/scss/modal.scss";
 import "./assets/scss/renderAllCards.scss";
 import "./assets/scss/sideScroller.scss";
 
-// Prevents scroll on page load
-window.addEventListener(
-  "scroll",
-  (e) => {
-    window.scrollTo(0, 0);
-  },
-  { once: true }
-);
+// if ("scrollRestoration" in history) {
+//   history.scrollRestoration = "manual";
+// }
+// window.scrollTo(0, 0);
 
 renderCartView();
 renderCheckoutForm();

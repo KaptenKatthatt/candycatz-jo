@@ -7,12 +7,25 @@
   &:hover:nth-of-type(odd) {
     box-shadow: 0 0 20px $btn-candy-purple;
     transform: scale(1.02) rotate(-1deg);
+    filter: brightness(1.1) saturate(110%);
   }
   &:hover:nth-of-type(even) {
     box-shadow: 0 0 20px $btn-candy-purple;
     transform: scale(1.02) rotate(2deg);
+    filter: brightness(1.1) saturate(110%);
   }
 }
+
+.card-title {
+  font-size: 20px !important;
+  color: $btn-candy-pink;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.card-text {
+  font-family: "Courier New", Courier, monospace;
+}
+
 .addToCartBtn {
   background: linear-gradient(
     45deg,
@@ -47,17 +60,10 @@
   }
 }
 
-.navbar-brand {
-  transition: transform 0.5s ease-in-out;
-
-  &:hover {
-    transform: rotate(350deg) scale(1.3);
-    text-shadow: 0 0 10px white;
-  }
-}
 .cardTrans img {
   transition: box-shadow 0.1s ease-in-out;
-  border: 10px dotted $btn-candy-pink;
+  padding: 10px;
+  // border: 10px dotted $btn-candy-pink;
   &:hover {
     box-shadow: 0 0 20px $btn-candy-purple;
   }

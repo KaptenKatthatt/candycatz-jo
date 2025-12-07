@@ -21,11 +21,12 @@ import { sideScroller } from "./components/sideScroller";
 
 //SCSS imports
 import "./assets/scss/app.scss";
-import "./assets/scss/offcan.scss";
-import "./assets/scss/typography.scss";
+import "./assets/scss/navbar.scss";
 import "./assets/scss/modal.scss";
+import "./assets/scss/offcan.scss";
 import "./assets/scss/renderAllCards.scss";
 import "./assets/scss/sideScroller.scss";
+import "./assets/scss/typography.scss";
 
 // if ("scrollRestoration" in history) {
 //   history.scrollRestoration = "manual";

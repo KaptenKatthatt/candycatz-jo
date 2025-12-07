@@ -35,6 +35,14 @@ import "./assets/scss/typography.scss";
 window.scrollTo(0, 0);
 
 import { sendOrder } from "./components/ApiTest";
+// Prevents scroll on page load
+window.addEventListener(
+  "scroll",
+  (e) => {
+    window.scrollTo(0, 0);
+  },
+  { once: true }
+);
 
 renderCartView();
 renderCheckoutForm();

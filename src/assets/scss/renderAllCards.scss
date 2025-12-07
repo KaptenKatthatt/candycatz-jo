@@ -15,9 +15,14 @@
 }
 
 .card-title {
+<<<<<<< HEAD
   font-size: 30px !important;
   color: $btn-candy-pink;
   overflow: hidden;
+=======
+  font-size: 20px !important;
+  color: $btn-candy-pink;
+>>>>>>> 3de1c28 (Brightness, fonts, img margin, removed dots)
   text-overflow: ellipsis;
   white-space: nowrap;
 }
@@ -60,7 +65,11 @@
 }
 
 .cardTrans img {
+<<<<<<< HEAD
   // transition: box-shadow 0.1s ease-in-out;
+=======
+  transition: box-shadow 0.1s ease-in-out;
+>>>>>>> 3de1c28 (Brightness, fonts, img margin, removed dots)
   padding: 10px;
   // border: 10px dotted $btn-candy-pink;
   &:hover {

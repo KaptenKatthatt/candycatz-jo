@@ -21,18 +21,24 @@ import { sideScroller } from "./components/sideScroller";
 
 //SCSS imports
 import "./assets/scss/app.scss";
+<<<<<<< HEAD
 import "./assets/scss/cards.scss";
+=======
+>>>>>>> 3de1c28 (Brightness, fonts, img margin, removed dots)
 import "./assets/scss/navbar.scss";
 import "./assets/scss/modal.scss";
 import "./assets/scss/offcan.scss";
 import "./assets/scss/renderAllCards.scss";
 import "./assets/scss/sideScroller.scss";
 import "./assets/scss/typography.scss";
+<<<<<<< HEAD
 
 // if ("scrollRestoration" in history) {
 //   history.scrollRestoration = "manual";
 // }
 window.scrollTo(0, 0);
+=======
+>>>>>>> 3de1c28 (Brightness, fonts, img margin, removed dots)
 
 import { sendOrder } from "./components/ApiTest";
 // Prevents scroll on page load

@@ -69,28 +69,14 @@ export const sideScroller = function () {
       ) as HTMLDivElement;
 
       if (target.closest(".scrollArrowLeft")) {
-        console.log("left");
         scrollContainer.scrollBy(-800, 0);
       }
       if (target.closest(".scrollArrowRight")) {
-        console.log("right");
         scrollContainer.scrollBy(800, 0);
       }
     });
 };
 
-// function loadMoreSweets() {
-//   const moreToMunchCardsContainerEl = document.querySelector(
-//     ".moreToMunchCardsContainer"
-//   ) as HTMLDivElement;
-//   showRestCandy = showMoreCandy.slice(0, addedCandyNr);
-//   moreToMunchCardsContainerEl.innerHTML = showRestCandy
-//     .map((product) => cardStructure(product))
-//     .join("");
-
-//   // lägg till ifall resterande är mindre än 12 så ska X läggas till
-//   // för att antalet ska bli rätt i slutändan!
-// }
 //TOP TREATS Kategorien
 const topTreatsCategories = [...allCandyCards];
 // ytlig kopia av allCandyCards
@@ -101,6 +87,6 @@ const filterTopTreats = topTreatsCategories.filter((candy) => {
 const sliceOutTopTreats = filterTopTreats.slice(0, 12);
 // slicea sedan ut de första 12
 
-topTreatsSideScrollerContainerEl.innerHTML += sliceOutTopTreats
+topTreatsSideScrollerContainerEl.innerHTML = sliceOutTopTreats
   .map((product) => cardStructure(product))
   .join("");

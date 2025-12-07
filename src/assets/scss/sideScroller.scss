@@ -11,14 +11,13 @@
 
   display: flex;
   flex-direction: row;
-  //   scrollbar-color: $btn-candy-pink $btn-candy-purple;
   scrollbar-width: none;
+  scroll-behavior: smooth;
 }
 
 .topTreatsSideScrollerContainer .card {
   flex-shrink: 0;
   margin-bottom: 20px;
-  scroll-behavior: smooth;
 }
 
 .scrollArrow {

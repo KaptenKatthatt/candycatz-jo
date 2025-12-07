@@ -4,9 +4,6 @@
 import { getAllCandyInfo } from "../services/candyAPI";
 import type { CandyData } from "../services/candyApiTypes";
 
-const topTreatsSideScrollerContainerEl = document.querySelector(
-  ".topTreatsSideScrollerContainer"
-) as HTMLDivElement;
 let response = await getAllCandyInfo();
 let allCandyCards: CandyData[] = response.data;
 
@@ -44,22 +41,6 @@ function cardStructure(product: CandyData): string {
 }
 
 export const sideScroller = function () {
-  //TOP TREATS Kategorien
-  const topTreatsCategories = [...allCandyCards];
-  // ytlig kopia av allCandyCards
-  const filterTopTreats = topTreatsCategories.filter((candy) => {
-    return candy.stock_quantity < 3 && candy.stock_status === "instock";
-  });
-  // returnera ny array med alla som är instock OCH färre än 3
-  const sliceOutTopTreats = filterTopTreats.slice(0, 12);
-  // slicea sedan ut de första 12
-  const topTreatsCardsContainerEl = document.querySelector(
-    ".topTreatsCardsContainer"
-  ) as HTMLDivElement;
-  topTreatsCardsContainerEl.innerHTML += sliceOutTopTreats
-    .map((product) => cardStructure(product))
-    .join("");
-
   document
     .querySelector(".topTreatsSideScrollerWrapper")
     ?.addEventListener("click", (e) => {
@@ -69,15 +50,21 @@ export const sideScroller = function () {
       ) as HTMLDivElement;
 
       if (target.closest(".scrollArrowLeft")) {
+        // scrollContainer.style.scrollBehavior = "smooth";
         scrollContainer.scrollBy(-800, 0);
       }
       if (target.closest(".scrollArrowRight")) {
+        // scrollContainer.style.scrollBehavior = "smooth";
         scrollContainer.scrollBy(800, 0);
       }
     });
 };
 
 //TOP TREATS Kategorien
+const topTreatsSideScrollerContainerEl = document.querySelector(
+  ".topTreatsSideScrollerContainer"
+) as HTMLDivElement;
+
 const topTreatsCategories = [...allCandyCards];
 // ytlig kopia av allCandyCards
 const filterTopTreats = topTreatsCategories.filter((candy) => {

@@ -1,6 +1,12 @@
+//Render 4 cards
+//When
+
 import { getAllCandyInfo } from "../services/candyAPI";
 import type { CandyData } from "../services/candyApiTypes";
 
+const topTreatsSideScrollerContainerEl = document.querySelector(
+  ".topTreatsSideScrollerContainer"
+) as HTMLDivElement;
 let response = await getAllCandyInfo();
 let allCandyCards: CandyData[] = response.data;
 
@@ -10,7 +16,7 @@ function cardStructure(product: CandyData): string {
 
   return `<div class="card cardTrans rounded-4 p-1 ${
     product.stock_status !== "instock" ? "cardDis" : ""
-  }" " data-product-id="${product.id}" style="width: 11rem;">
+  }" " data-product-id="${product.id}" style="width: 17rem;">
       <img src="${thumbnailURL}" class="card-img-top click rounded-4" alt="Image of ${
     product.name
   }">
@@ -37,7 +43,7 @@ function cardStructure(product: CandyData): string {
       `;
 }
 
-export const sideScroller = function (arr: CandyData) {
+export const sideScroller = function () {
   //TOP TREATS Kategorien
   const topTreatsCategories = [...allCandyCards];
   // ytlig kopia av allCandyCards
@@ -53,4 +59,48 @@ export const sideScroller = function (arr: CandyData) {
   topTreatsCardsContainerEl.innerHTML += sliceOutTopTreats
     .map((product) => cardStructure(product))
     .join("");
+
+  document
+    .querySelector(".topTreatsSideScrollerWrapper")
+    ?.addEventListener("click", (e) => {
+      const target = e.target as HTMLElement;
+      const scrollContainer = document.querySelector(
+        ".topTreatsSideScrollerContainer"
+      ) as HTMLDivElement;
+
+      if (target.closest(".scrollArrowLeft")) {
+        console.log("left");
+        scrollContainer.scrollBy(-800, 0);
+      }
+      if (target.closest(".scrollArrowRight")) {
+        console.log("right");
+        scrollContainer.scrollBy(800, 0);
+      }
+    });
 };
+
+// function loadMoreSweets() {
+//   const moreToMunchCardsContainerEl = document.querySelector(
+//     ".moreToMunchCardsContainer"
+//   ) as HTMLDivElement;
+//   showRestCandy = showMoreCandy.slice(0, addedCandyNr);
+//   moreToMunchCardsContainerEl.innerHTML = showRestCandy
+//     .map((product) => cardStructure(product))
+//     .join("");
+
+//   // lägg till ifall resterande är mindre än 12 så ska X läggas till
+//   // för att antalet ska bli rätt i slutändan!
+// }
+//TOP TREATS Kategorien
+const topTreatsCategories = [...allCandyCards];
+// ytlig kopia av allCandyCards
+const filterTopTreats = topTreatsCategories.filter((candy) => {
+  return candy.stock_quantity < 3 && candy.stock_status === "instock";
+});
+// returnera ny array med alla som är instock OCH färre än 3
+const sliceOutTopTreats = filterTopTreats.slice(0, 12);
+// slicea sedan ut de första 12
+
+topTreatsSideScrollerContainerEl.innerHTML += sliceOutTopTreats
+  .map((product) => cardStructure(product))
+  .join("");

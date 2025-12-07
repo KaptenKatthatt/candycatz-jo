@@ -17,12 +17,15 @@ import { renderAllCards } from "./components/renderAllCards";
 import { getClickedCandyId } from "./components/getClickedCandyId";
 import { initStore } from "./components/cart";
 import { postToCyberDyneHQ } from "./services/postAPI";
+import { sideScroller } from "./components/sideScroller";
+
 //SCSS imports
 import "./assets/scss/app.scss";
 import "./assets/scss/offcan.scss";
 import "./assets/scss/typography.scss";
 import "./assets/scss/modal.scss";
 import "./assets/scss/renderAllCards.scss";
+import "./assets/scss/sideScroller.scss";
 
 renderCartView();
 renderCheckoutForm();
@@ -30,7 +33,7 @@ postUserAddressForm();
 
 //RenderAllCards
 renderAllCards();
-
+sideScroller();
 //getCandyClickedId, startar efter alla kort laddas ut
 getClickedCandyId();
 
@@ -65,4 +68,4 @@ const orderData: SubmittedOrderData = {
   ],
 };
 
-postToCyberDyneHQ(orderData);
+// postToCyberDyneHQ(orderData);

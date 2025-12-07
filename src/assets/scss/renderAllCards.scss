@@ -19,6 +19,7 @@
 .card-title {
   font-size: 30px !important;
   color: $btn-candy-pink;
+  overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
 }

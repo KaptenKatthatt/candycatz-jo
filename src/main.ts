@@ -21,7 +21,7 @@ import { sideScroller } from "./components/sideScroller";
 
 //SCSS imports
 import "./assets/scss/app.scss";
-import "./assets/scss/allButtons.scss";
+import "./assets/scss/cards.scss";
 import "./assets/scss/navbar.scss";
 import "./assets/scss/modal.scss";
 import "./assets/scss/offcan.scss";

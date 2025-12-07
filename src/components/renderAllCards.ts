@@ -10,7 +10,7 @@ let response = await getAllCandyInfo();
 let allCandyCards: CandyData[] = response.data;
 
 // funktion för att återanvända kort strukturen flera gånger på olika kategorier
-function cardStructure(product: CandyData): string {
+export const cardStructure = function (product: CandyData): string {
   let thumbnailURL = `https://www.bortakvall.se${product.images.thumbnail}`;
 
   return `<div class="card cardTrans rounded-4 p-1 ${
@@ -40,7 +40,7 @@ function cardStructure(product: CandyData): string {
       </div>
         </div>
       `;
-}
+};
 
 export const renderAllCards = async function () {
   //Get all products from API
@@ -73,10 +73,11 @@ export const renderAllCards = async function () {
   // returnera ny array med alla som är instock OCH färre än 3
   const sliceOutSavings = filterSweetSaving.slice(0, 12);
   // slicea sedan ut de första 12
+
   const sweetSavingsCardsContainterEl = document.querySelector(
     ".sweetSavingsCardsContainer"
   ) as HTMLDivElement;
-  sweetSavingsCardsContainterEl.innerHTML += sliceOutSavings
+  sweetSavingsCardsContainterEl.innerHTML = sliceOutSavings
     .map((product) => cardStructure(product))
     .join("");
 

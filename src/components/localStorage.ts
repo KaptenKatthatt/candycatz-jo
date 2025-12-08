@@ -2,7 +2,7 @@ import type { CandyDataID } from "../services/candyApiTypes";
 import type { OrderItems } from "./ApiTest";
 import { type CartProduct } from "./cart";
 
-export function saveCartArrayToLocalStorage(cartArray: CartProduct[]) {
+export function saveCartArrayToLocalStorage(cartArray: CartProduct[]): void {
   console.log(cartArray);
 
   try {
@@ -13,12 +13,12 @@ export function saveCartArrayToLocalStorage(cartArray: CartProduct[]) {
   }
 }
 
-export function getCartArrayFromLocalStorage(): OrderItems[] {
+export function getCartArrayFromLocalStorage(): CartProduct[] {
   const getCart = localStorage.getItem("candyCartArray");
   return getCart ? JSON.parse(getCart) : [];
 }
 
-export function getCartArrayFromLocalStorageToCheckout(): OrderItems[] {
+export function getCartArrayFromLocalStorageToCheckout(): CartProduct[] {
   const getCart = localStorage.getItem("candyCartArray");
   return getCart ? JSON.parse(getCart) : [];
 }

@@ -5,6 +5,9 @@ import {
   getCartArrayFromLocalStorageToCheckout,
 } from "./localStorage";
 
+// Interfaces
+export interface ApiResponse extends CheckoutData {}
+
 export interface CheckoutData {
   customer_first_name: string;
   customer_last_name: string;
@@ -24,7 +27,10 @@ export interface OrderItems {
   item_total: number;
 }
 
-export const createOrdertoSend = function (orderData: AddressData) {
+// Functions
+export const createOrdertoSend = function (
+  orderData: AddressData
+): CheckoutData {
   const orderItemFromLocalStorage = getCartArrayFromLocalStorageToCheckout();
 
   const orderTotal = orderItemFromLocalStorage.reduce((acc, curr) => {
@@ -57,7 +63,9 @@ export const createOrdertoSend = function (orderData: AddressData) {
   return newOrder;
 };
 
-export const sendOrder = async function (orderData: AddressData) {
+export const sendOrder = async function (
+  orderData: AddressData
+): Promise<ApiResponse | undefined> {
   const newOrder = createOrdertoSend(orderData);
   console.log("Orderitems", newOrder.order_items);
   console.log("newOrder", newOrder);

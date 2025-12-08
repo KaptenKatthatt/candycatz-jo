@@ -33,8 +33,3 @@ export interface CandyDataID {
     slug: string;
   }[];
 }
-
-// export interface CandyResponse {
-//   status: string;
-//   data: CandyDataID;
-// }

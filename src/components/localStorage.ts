@@ -14,30 +14,11 @@ export function saveCartArrayToLocalStorage(cartArray: CartProduct[]) {
 }
 
 export function getCartArrayFromLocalStorage(): OrderItems[] {
-export function getCartArrayFromLocalStorage() {
   const getCart = localStorage.getItem("candyCartArray");
   return getCart ? JSON.parse(getCart) : [];
 }
 
-main
-export function getCartArrayFromLocalStorageToCheckout() {
+export function getCartArrayFromLocalStorageToCheckout(): OrderItems[] {
   const getCart = localStorage.getItem("candyCartArray");
   return getCart ? JSON.parse(getCart) : [];
 }
-
-
-// import { type CartProduct } from "./cart";
-
-// export function saveCartArrayToLocalStorage(cartArray: CartProduct[]) {
-//   try {
-//     const savedCandys = JSON.stringify(cartArray);
-//     localStorage.setItem("candyCartArray", savedCandys);
-//   } catch (error) {
-//     console.log("Could not save to local storage", error);
-//   }
-// }
-
-// export function getCartArrayFromLocalStorage() {
-//   const getCart = localStorage.getItem("candyCartArray");
-//   return getCart ? JSON.parse(getCart) : [];
-// }

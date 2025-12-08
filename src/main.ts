@@ -24,6 +24,8 @@ import "./assets/scss/typography.scss";
 import "./assets/scss/modal.scss";
 import "./assets/scss/renderAllCards.scss";
 
+import { createOrder } from "./components/ApiTest";
+
 renderCartView();
 renderCheckoutForm();
 postUserAddressForm();

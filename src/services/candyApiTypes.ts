@@ -10,10 +10,10 @@ export interface CandyData {
   stock_quantity: number;
 }
 
-export interface CandyResponse {
-  status: string;
-  data: CandyData;
-}
+// export interface CandyResponse {
+//   status: string;
+//   data: CandyData;
+// }
 
 export interface CandyDataID {
   id: number;
@@ -34,7 +34,7 @@ export interface CandyDataID {
   }[];
 }
 
-export interface CandyResponseID {
-  status: string;
-  data: CandyDataID;
-}
+// export interface CandyResponse {
+//   status: string;
+//   data: CandyDataID;
+// }

@@ -1,7 +1,7 @@
 //Bootstrap CSS
 // import "bootstrap/dist/css/bootstrap.css";
 //Bootstrap JS
-import * as bootstrap from "bootstrap";
+// import * as bootstrap from "bootstrap";
 
 //Function imports
 import { renderOffCan } from "./components/offcan";

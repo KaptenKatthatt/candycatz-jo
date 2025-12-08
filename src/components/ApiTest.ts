@@ -1,10 +1,15 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 import type { AddressData } from "./accordian";
 import type { CartProduct } from "./cart";
 import { getCartArrayFromLocalStorage, getCartArrayFromLocalStorageToCheckout } from "./localStorage";
 =======
 import { getCartArrayFromLocalStorage } from "./localStorage";
 >>>>>>> 0f8d0d2 (Converted to localstorage.ts from localst)
+=======
+import type { CartProduct } from "./cart";
+import { getCartArrayFromLocalStorage, getCartArrayFromLocalStorageToCheckout } from "./localStorage";
+>>>>>>> 233858a (Rebasing)
 
 
 export interface CheckoutData {
@@ -20,6 +25,7 @@ export interface CheckoutData {
 }
 
 export interface OrderItems {
+<<<<<<< HEAD
 <<<<<<< HEAD
   product_id: number;
   qty: number;
@@ -55,18 +61,26 @@ export const createOrdertoSend = function (orderData: AddressData) {
     order_total: orderTotal,
 =======
   id: number;
+=======
+  product_id: number;
+>>>>>>> 233858a (Rebasing)
   qty: number;
-  price: number;
-  total: number;
+  item_price: number;
+  item_total: number;
 }
 
-let orderItemFromLocalStorage = getCartArrayFromLocalStorage();
+let orderItemFromLocalStorage = getCartArrayFromLocalStorageToCheckout();
 
-let orderItems: OrderItems[] = orderItemFromLocalStorage.map((product) => ({
-  id: product.id,
+let orderTotal = orderItemFromLocalStorage.reduce((acc,curr) =>{
+  return acc +  (curr.qty * curr.price)
+},0);
+
+
+let orderItems = orderItemFromLocalStorage.map((product) => ({
+  product_id: product.id,
   qty: product.qty,
-  price: product.price,
-  total: product.qty * product.price,
+  item_price: product.price,
+  item_total: product.qty * product.price,
 }));
 
 
@@ -79,8 +93,12 @@ const createOrdertoSend = function () {
     customer_city: "Ankeborg",
     customer_email: "kalle@ankeborgsposten.ab",
     customer_phone: "123123123",
+<<<<<<< HEAD
     order_total: "12",
 >>>>>>> 0f8d0d2 (Converted to localstorage.ts from localst)
+=======
+    order_total: orderTotal,
+>>>>>>> 233858a (Rebasing)
     order_items: orderItems,
   };
 console.log("getlocalstorage", getCartArrayFromLocalStorage());

@@ -34,6 +34,8 @@ import "./assets/scss/typography.scss";
 // }
 window.scrollTo(0, 0);
 
+import { createOrder } from "./components/ApiTest";
+
 renderCartView();
 renderCheckoutForm();
 postUserAddressForm();

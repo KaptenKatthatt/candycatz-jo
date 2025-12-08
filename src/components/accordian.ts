@@ -99,7 +99,7 @@ export const renderCheckoutForm = function () {
   const inputZip = document.querySelector<HTMLInputElement>("#inputZip")!;
 
   // Listen to submit
-  form.addEventListener("submit", (e) => {
+  form.addEventListener("submit", async (e) => {
     e.preventDefault();
 
     const orderData: AddressData = {
@@ -112,7 +112,7 @@ export const renderCheckoutForm = function () {
       customer_postcode: inputZip.value,
     };
 
-    createOrdertoSend(orderData);
+    await createOrdertoSend(orderData); // Vänta på detta
 
     // show Thank you
     postUserAddressForm();

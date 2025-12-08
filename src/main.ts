@@ -41,6 +41,7 @@ window.scrollTo(0, 0);
 >>>>>>> 3de1c28 (Brightness, fonts, img margin, removed dots)
 
 import { sendOrder } from "./components/ApiTest";
+<<<<<<< HEAD
 // Prevents scroll on page load
 window.addEventListener(
   "scroll",
@@ -53,6 +54,8 @@ window.addEventListener(
 //   history.scrollRestoration = "manual";
 // }
 // window.scrollTo(0, 0);
+=======
+>>>>>>> 0f8d0d2 (Converted to localstorage.ts from localst)
 
 renderCartView();
 renderCheckoutForm();

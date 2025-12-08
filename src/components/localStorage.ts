@@ -13,11 +13,10 @@ export function saveCartArrayToLocalStorage(cartArray: CartProduct[]) {
   }
 }
 
-export function getCartArrayFromLocalStorage() {
+export function getCartArrayFromLocalStorage(): OrderItems[] {
   const getCart = localStorage.getItem("candyCartArray");
   return getCart ? JSON.parse(getCart) : [];
 }
-
 
 export function getCartArrayFromLocalStorageToCheckout() {
   const getCart = localStorage.getItem("candyCartArray");

@@ -1,6 +1,10 @@
+<<<<<<< HEAD
 import type { AddressData } from "./accordian";
 import type { CartProduct } from "./cart";
 import { getCartArrayFromLocalStorage, getCartArrayFromLocalStorageToCheckout } from "./localStorage";
+=======
+import { getCartArrayFromLocalStorage } from "./localStorage";
+>>>>>>> 0f8d0d2 (Converted to localstorage.ts from localst)
 
 
 export interface CheckoutData {
@@ -16,6 +20,7 @@ export interface CheckoutData {
 }
 
 export interface OrderItems {
+<<<<<<< HEAD
   product_id: number;
   qty: number;
   item_price: number;
@@ -48,11 +53,40 @@ export const createOrdertoSend = function (orderData: AddressData) {
     customer_email: orderData.customer_email,
     customer_phone: orderData.customer_phone,
     order_total: orderTotal,
+=======
+  id: number;
+  qty: number;
+  price: number;
+  total: number;
+}
+
+let orderItemFromLocalStorage = getCartArrayFromLocalStorage();
+
+let orderItems: OrderItems[] = orderItemFromLocalStorage.map((product) => ({
+  id: product.id,
+  qty: product.qty,
+  price: product.price,
+  total: product.qty * product.price,
+}));
+
+
+const createOrdertoSend = function () {
+  const newOrder: CheckoutData = {
+    customer_first_name: "Kalle",
+    customer_last_name: "Anka",
+    customer_address: "Musse Pigggatan 13",
+    customer_postcode: "12345",
+    customer_city: "Ankeborg",
+    customer_email: "kalle@ankeborgsposten.ab",
+    customer_phone: "123123123",
+    order_total: "12",
+>>>>>>> 0f8d0d2 (Converted to localstorage.ts from localst)
     order_items: orderItems,
   };
 console.log("getlocalstorage", getCartArrayFromLocalStorage());
 console.log("orderItemFromLocalStorage", orderItemFromLocalStorage);
 console.log("New order i create",newOrder)
+<<<<<<< HEAD
 console.log(sendOrder(newOrder));
  sendOrder(newOrder);
 };
@@ -60,6 +94,15 @@ console.log(sendOrder(newOrder));
 export const sendOrder = async function (newOrderData) {
   
   console.log("Orderitems", orderItems);
+=======
+return newOrder;
+};
+
+export const sendOrder = async function () {
+   let newOrder = createOrdertoSend();
+  console.log("Orderitems", orderItems);
+  console.log("newOrder", newOrder);
+>>>>>>> 0f8d0d2 (Converted to localstorage.ts from localst)
   // Send order t API
   const response = await fetch(
     "https://www.bortakvall.se/api/v2/users/81/orders",
@@ -78,3 +121,7 @@ export const sendOrder = async function (newOrderData) {
   return responseData;
 };
 
+<<<<<<< HEAD
+=======
+sendOrder();
+>>>>>>> 0f8d0d2 (Converted to localstorage.ts from localst)

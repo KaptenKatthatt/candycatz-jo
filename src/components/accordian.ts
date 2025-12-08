@@ -48,33 +48,33 @@ export const renderCheckoutForm = function () {
 <form id="form">
  <div class="form-group col-md-6">
     <label for="inputFirstName">Namn</label>
-    <input type="text" class="form-control" id="inputFirstName" required placeholder="Förnamn" value="Jonas">
+    <input type="text" class="form-control" id="inputFirstName" required placeholder="Förnamn" value="Kalle">
   </div>
    <div class="form-group col-md-6">
     <label for="inputLastName">Efternamn</label>
-    <input type="text" class="form-control" id="inputLastName" required placeholder="Efternamn" value="Andersson">
+    <input type="text" class="form-control" id="inputLastName" required placeholder="Efternamn" value="Anka">
   </div>
   <div class="form-row">
     <div class="form-group col-md-6">
       <label for="inputEmail4">Email</label>
-      <input type="email" class="form-control" id="inputEmail" required placeholder="Mailadress" value="jonas@example.com">
+      <input type="email" class="form-control" id="inputEmail" required placeholder="Mailadress" value="kalle@anderstaden.se">
   </div>
   <div class="form-group col-md-6">
     <label for="inputNumber">Telefonnummer<span class="text-muted">(optional)</span></label>
-    <input type="number" class="form-control" id="inputNumber" placeholder="Telefonnummer" value="0701234567">
+    <input type="number" class="form-control" id="inputNumber" placeholder="Telefonnummer" value="0701111111">
   </div>
   <div class="form-group col-md-6">
     <label for="inputAddress">Adress</label>
-    <input type="text" class="form-control" id="inputAddress" required placeholder="Gatuadress" value="Huvudvägen 42">
+    <input type="text" class="form-control" id="inputAddress" required placeholder="Gatuadress" value="Ankvägen 13">
   </div>
   <div class="form-row">
     <div class="form-group col-md-6">
       <label for="inputCity">Ort</label>
-      <input type="text" class="form-control" required id="inputCity" value="Stockholm">
+      <input type="text" class="form-control" required id="inputCity" value="Anderstaden">
     </div>
     <div class="form-group col-md-2">
       <label for="inputZip">Postnummer</label>
-      <input type="text" class="form-control" required id="inputZip" minlength="5" maxlength="6" value="10123">
+      <input type="text" class="form-control" required id="inputZip" minlength="5" maxlength="6" value="12345">
     </div>
   </div>
   <button type="submit" class="submitBtn btn btn-primary mt-2">Slutför köp</button>

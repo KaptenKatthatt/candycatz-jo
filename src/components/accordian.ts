@@ -1,4 +1,3 @@
-
 import { createOrdertoSend } from "./ApiTest";
 
 const cartView = document.querySelector("#cartView") as HTMLDivElement;
@@ -8,16 +7,14 @@ const placedOrderView = document.querySelector(
 ) as HTMLDivElement;
 
 export interface AddressData {
-  customer_first_name: string; 
-  customer_last_name: string; 
-  customer_address: string; 
-  customer_postcode: string; 
-  customer_city: string; 
-  customer_email: string; 
-  customer_phone?: string; 
-
+  customer_first_name: string;
+  customer_last_name: string;
+  customer_address: string;
+  customer_postcode: string;
+  customer_city: string;
+  customer_email: string;
+  customer_phone?: string;
 }
-
 
 export const renderCartView = function () {
   cartView.innerHTML = `<div class="accordion" id="accordionCart">
@@ -90,8 +87,10 @@ export const renderCheckoutForm = function () {
   // get form and inputs after innerHTML
 
   const form = checkoutForm.querySelector<HTMLFormElement>("#form")!;
-  const inputFirstName = document.querySelector<HTMLInputElement>("#inputFirstName")!;
-  const inputLastName= document.querySelector<HTMLInputElement>("#inputLastName")!;
+  const inputFirstName =
+    document.querySelector<HTMLInputElement>("#inputFirstName")!;
+  const inputLastName =
+    document.querySelector<HTMLInputElement>("#inputLastName")!;
   const inputEmail = document.querySelector<HTMLInputElement>("#inputEmail")!;
   const inputNumber = document.querySelector<HTMLInputElement>("#inputNumber")!;
   const inputAddress =
@@ -103,9 +102,7 @@ export const renderCheckoutForm = function () {
   form.addEventListener("submit", (e) => {
     e.preventDefault();
 
-
-
-    const orderData:AddressData = {
+    const orderData: AddressData = {
       customer_first_name: inputFirstName.value,
       customer_last_name: inputLastName.value,
       customer_email: inputEmail.value,
@@ -147,8 +144,8 @@ export const postUserAddressForm = function () {
       
        <!-- Continue Shopping Button -->
             <div class="text-start mt-4 mb-4">
-                <button type="button" class="btn btn-outline-primary" data-bs-dismiss="offcanvas"  aria-label="Close">
-                    <i class="bi bi-arrow-left me-2"></i>Continue Shopping</a>
+                <button type="button" class="btn btn-outline-primary" onclick="location.reload()">
+                    <i class="bi bi-arrow-left me-2"></i>Continue Shopping
                     </button>
             </div>
 

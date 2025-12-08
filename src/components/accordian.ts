@@ -1,11 +1,25 @@
+import { createOrdertoSend } from "./ApiTest";
+
 const cartView = document.querySelector("#cartView") as HTMLDivElement;
 const checkoutForm = document.querySelector("#checkoutForm") as HTMLFormElement;
 const placedOrderView = document.querySelector(
   "#placedOrderView"
 ) as HTMLDivElement;
 
+export interface AddressData {
+  customer_first_name: string; 
+  customer_last_name: string; 
+  customer_address: string; 
+  customer_postcode: string; 
+  customer_city: string; 
+  customer_email: string; 
+  customer_phone?: string; 
+
+}
+
+
 export const renderCartView = function () {
-  cartView.innerHTML = `<div class="accordion" id="accordionPanelsStayOpenExample">
+  cartView.innerHTML = `<div class="accordion" id="accordionCart">
   <div class="accordion-item">
     <h2 class="accordion-header" id="panelsStayOpen-headingOne">
       <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
@@ -23,7 +37,7 @@ export const renderCartView = function () {
 
 export const renderCheckoutForm = function () {
   checkoutForm.innerHTML = `
-<div class="accordion formAccordion" id="accordionPanelsStayOpenExample">  
+<div class="accordion formAccordion" id="accordionCheckout">  
 <div class="accordion-item">
     <h2 class="accordion-header" id="panelsStayOpen-headingTwo">
       <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false" aria-controls="panelsStayOpen-collapseTwo">
@@ -35,8 +49,12 @@ export const renderCheckoutForm = function () {
 
 <form id="form">
  <div class="form-group col-md-6">
-    <label for="inputName">Namn</label>
-    <input type="text" class="form-control" id="inputName" required placeholder= "För- och efternamn">
+    <label for="inputFirstName">Namn</label>
+    <input type="text" class="form-control" id="inputFirstName" required placeholder= "Förnamn">
+  </div>
+   <div class="form-group col-md-6">
+    <label for="inputLastName">Efternamn</label>
+    <input type="text" class="form-control" id="inputLastName" required placeholder= "Efternamn">
   </div>
   <div class="form-row">
     <div class="form-group col-md-6">
@@ -58,7 +76,7 @@ export const renderCheckoutForm = function () {
     </div>
     <div class="form-group col-md-2">
       <label for="inputZip">Postnummer</label>
-      <input type="text" class="form-control" required id="inputZip">
+      <input type="text" class="form-control" required id="inputZip" minlength="5" maxlength="6">
     </div>
   </div>
   <button type="submit" class="submitBtn btn btn-primary mt-2">Slutför köp</button>
@@ -71,7 +89,8 @@ export const renderCheckoutForm = function () {
   // get form and inputs after innerHTML
 
   const form = checkoutForm.querySelector<HTMLFormElement>("#form")!;
-  const inputName = document.querySelector<HTMLInputElement>("#inputName")!;
+  const inputFirstName = document.querySelector<HTMLInputElement>("#inputFirstName")!;
+  const inputLastName= document.querySelector<HTMLInputElement>("#inputLastName")!;
   const inputEmail = document.querySelector<HTMLInputElement>("#inputEmail")!;
   const inputNumber = document.querySelector<HTMLInputElement>("#inputNumber")!;
   const inputAddress =
@@ -83,16 +102,19 @@ export const renderCheckoutForm = function () {
   form.addEventListener("submit", (e) => {
     e.preventDefault();
 
-    const orderData = {
-      name: inputName.value,
-      email: inputEmail.value,
-      number: inputNumber.value,
-      address: inputAddress.value,
-      city: inputCity.value,
-      zip: inputZip.value,
+
+
+    const orderData:AddressData = {
+      customer_first_name: inputFirstName.value,
+      customer_last_name: inputLastName.value,
+      customer_email: inputEmail.value,
+      customer_phone: inputNumber.value,
+      customer_address: inputAddress.value,
+      customer_city: inputCity.value,
+      customer_postcode: inputZip.value,
     };
 
-    console.log("Order submitted:", orderData);
+    createOrdertoSend(orderData);
 
     // show Thank you
     postUserAddressForm();

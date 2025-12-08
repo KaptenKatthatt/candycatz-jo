@@ -54,7 +54,7 @@ export const sideScroller = function () {
   const sliceOutTopTreats = filterTopTreats.slice(0, 12);
   // slicea sedan ut de första 12
   const topTreatsCardsContainerEl = document.querySelector(
-    ".topTreatsCardsContainer"
+    ".topTreatsSideScrollerContainer"
   ) as HTMLDivElement;
 
   topTreatsCardsContainerEl.innerHTML = sliceOutTopTreats

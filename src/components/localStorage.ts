@@ -1,6 +1,6 @@
 import type { CandyDataID } from "../services/candyApiTypes";
-import type { OrderItems } from "../services/candyPOST_API";
-import { type CartProduct } from "./cart";
+import type { OrderItems } from "../services/candyApiTypes";
+import { type CartProduct } from "../services/candyApiTypes";
 
 export function saveCartArrayToLocalStorage(cartArray: CartProduct[]): void {
   console.log(cartArray);
@@ -14,11 +14,6 @@ export function saveCartArrayToLocalStorage(cartArray: CartProduct[]): void {
 }
 
 export function getCartArrayFromLocalStorage(): CartProduct[] {
-  const getCart = localStorage.getItem("candyCartArray");
-  return getCart ? JSON.parse(getCart) : [];
-}
-
-export function getCartArrayFromLocalStorageToCheckout(): CartProduct[] {
   const getCart = localStorage.getItem("candyCartArray");
   return getCart ? JSON.parse(getCart) : [];
 }

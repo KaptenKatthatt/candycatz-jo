@@ -1,32 +1,9 @@
 import type { AddressData } from "../components/accordian";
-import {
-  getCartArrayFromLocalStorage,
-  getCartArrayFromLocalStorageToCheckout,
-} from "../components/localStorage";
+import { getCartArrayFromLocalStorage } from "../components/localStorage";
+import type { CheckoutData } from "./candyApiTypes";
 
-export interface OrderItems {
-  product_id: number;
-  qty: number;
-  item_price: number;
-  item_total: number;
-}
-
-export interface CheckoutData {
-  customer_first_name: string;
-  customer_last_name: string;
-  customer_address: string;
-  customer_postcode: string;
-  customer_city: string;
-  customer_email: string;
-  customer_phone?: string;
-  order_total: number;
-  order_items: OrderItems[];
-}
-
-export const createOrdertoSend = async function (
-  orderData: AddressData
-): Promise<CheckoutData> {
-  const orderItemFromLocalStorage = getCartArrayFromLocalStorageToCheckout();
+export const createOrdertoSend = async function (orderData: AddressData) {
+  const orderItemFromLocalStorage = getCartArrayFromLocalStorage();
 
   const orderTotal = orderItemFromLocalStorage.reduce((acc, curr) => {
     return acc + curr.qty * curr.price;
@@ -59,9 +36,7 @@ export const createOrdertoSend = async function (
   return newOrder;
 };
 
-export const sendOrder = async function (
-  newOrderData: CheckoutData
-): Promise<CheckoutData | undefined> {
+export const sendOrder = async function (newOrderData: CheckoutData) {
   try {
     console.log("Sending order:", newOrderData);
     const response = await fetch(
@@ -78,7 +53,13 @@ export const sendOrder = async function (
       return;
     }
 
-    const responseData: CheckoutData = await response.json();
+    const responseData = await response.json();
+
+    if (responseData.status !== "success") {
+      console.log("Problems with the sent order", responseData.status);
+      return;
+    }
+
     console.log("API svar:", responseData);
     return responseData;
   } catch (error) {

@@ -1,4 +1,5 @@
 import { getCandyProductInfo } from "../services/candyAPI";
+import type { CartProduct } from "../services/candyApiTypes";
 import {
   getCartArrayFromLocalStorage,
   saveCartArrayToLocalStorage,
@@ -16,15 +17,6 @@ export const mainContainerEl = document.querySelector<HTMLDivElement>("main");
 let clickedCandyId = 0;
 let cartArray: CartProduct[] = getCartArrayFromLocalStorage() || [];
 const shipping = 19;
-
-export interface CartProduct {
-  id: number;
-  name: string;
-  qty: number;
-  price: number;
-  thumbnail: string;
-  stock_quantity: number;
-}
 
 export const addToCart = async function (clickedCandyId: number) {
   let fetchedCandyObject = await getCandyProductInfo(clickedCandyId);
@@ -322,6 +314,6 @@ const disableAddToCartBtn = async function () {
   // const candyId = await getCandyProductInfo(clickedCandyId);
   // const candy = candyId.data;
   addToCartBtn.setAttribute("disabled", "");
-}; 
+};
 
 disableAddToCartBtn();

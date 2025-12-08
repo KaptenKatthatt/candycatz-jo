@@ -319,9 +319,9 @@ const disableAddToCartBtn = async function () {
     return;
   }
 
-  const candyId = await getCandyProductInfo(clickedCandyId);
-  const candy = candyId.data;
+  // const candyId = await getCandyProductInfo(clickedCandyId);
+  // const candy = candyId.data;
   addToCartBtn.setAttribute("disabled", "");
-};
+}; 
 
 disableAddToCartBtn();

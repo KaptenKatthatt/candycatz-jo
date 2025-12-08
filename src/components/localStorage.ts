@@ -1,3 +1,4 @@
+import type { CandyDataID } from "../services/candyApiTypes";
 import type { OrderItems } from "./ApiTest";
 import { type CartProduct } from "./cart";
 
@@ -12,11 +13,16 @@ export function saveCartArrayToLocalStorage(cartArray: CartProduct[]) {
   }
 }
 
-export function getCartArrayFromLocalStorage():OrderItems[] {
+export function getCartArrayFromLocalStorage() {
   const getCart = localStorage.getItem("candyCartArray");
   return getCart ? JSON.parse(getCart) : [];
 }
 
+
+export function getCartArrayFromLocalStorageToCheckout() {
+  const getCart = localStorage.getItem("candyCartArray");
+  return getCart ? JSON.parse(getCart) : [];
+}
 
 // import { type CartProduct } from "./cart";
 

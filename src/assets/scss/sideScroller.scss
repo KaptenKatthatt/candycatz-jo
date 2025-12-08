@@ -5,38 +5,25 @@
 
 .topTreatsSideScrollerContainer {
   height: 555px;
-<<<<<<< HEAD
-<<<<<<< HEAD
   margin: 30px 10px;
   gap: 20px;
-=======
   margin: 30px 0;
   gap: 15px;
->>>>>>> 9d6ad87 (Side scroller working)
-=======
   margin: 30px 10px;
   gap: 30px;
->>>>>>> 3de1c28 (Brightness, fonts, img margin, removed dots)
   overflow-x: auto;
 
   display: flex;
   flex-direction: row;
-<<<<<<< HEAD
   scrollbar-width: none;
   scroll-behavior: smooth;
-=======
   //   scrollbar-color: $btn-candy-pink $btn-candy-purple;
-  scrollbar-width: none;
->>>>>>> 9d6ad87 (Side scroller working)
 }
 
 .topTreatsSideScrollerContainer .card {
   flex-shrink: 0;
   margin-bottom: 20px;
-<<<<<<< HEAD
-=======
   scroll-behavior: smooth;
->>>>>>> 9d6ad87 (Side scroller working)
 }
 
 .scrollArrow {
@@ -45,7 +32,6 @@
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-<<<<<<< HEAD
   transition: transform 0.1s ease-in-out;
   // z-index: 100;
   cursor: pointer;
@@ -69,7 +55,6 @@
   }
   &:last-of-type:active {
     transform: scale(0.95) translateY(-50%);
-=======
   z-index: 100;
   cursor: pointer;
 
@@ -79,6 +64,5 @@
 
   &:last-of-type {
     right: 10px;
->>>>>>> 9d6ad87 (Side scroller working)
   }
 }

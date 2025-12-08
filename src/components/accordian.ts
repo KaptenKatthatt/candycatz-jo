@@ -1,8 +1,6 @@
-<<<<<<< HEAD
+
 import { createOrdertoSend } from "./ApiTest";
 
-=======
->>>>>>> 233858a (Rebasing)
 const cartView = document.querySelector("#cartView") as HTMLDivElement;
 const checkoutForm = document.querySelector("#checkoutForm") as HTMLFormElement;
 const placedOrderView = document.querySelector(

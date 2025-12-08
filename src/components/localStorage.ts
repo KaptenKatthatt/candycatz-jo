@@ -19,6 +19,7 @@ export function getCartArrayFromLocalStorage() {
   return getCart ? JSON.parse(getCart) : [];
 }
 
+main
 export function getCartArrayFromLocalStorageToCheckout() {
   const getCart = localStorage.getItem("candyCartArray");
   return getCart ? JSON.parse(getCart) : [];

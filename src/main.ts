@@ -54,6 +54,8 @@ window.addEventListener(
 // }
 // window.scrollTo(0, 0);
 
+import { sendOrder } from "./components/ApiTest";
+
 renderCartView();
 renderCheckoutForm();
 postUserAddressForm();

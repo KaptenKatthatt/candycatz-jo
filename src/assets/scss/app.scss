@@ -90,6 +90,10 @@ h5 {
   margin-left: -12px;
 }
 
+#topTreats, #sweetSavings, #moreToMunch {
+  scroll-margin-top: 100px;
+}
+
 .allCardsContainer {
       background-color: #f4e6ff;
       border-radius: 20px;
@@ -106,7 +110,6 @@ h5 {
 
 .cardTrans {
   background-color: $offcanvas;
-
 
 &:hover {
   box-shadow: 6px 6px 6px rgb(167, 167, 167);
@@ -235,13 +238,6 @@ h5 {
   height: 40px;
 }
 
-.addToCartBtn:disabled {
-  background-color: $disabled;
-  color: rgb(79, 79, 79);
-  border: none;
-  opacity: 0.5;
-
-}
 .moreToMunchBtn {
   margin-bottom: 20px;
 

@@ -1,4 +1,5 @@
-import { getLocalStorageCandy } from "./localst";
+import { getCartArrayFromLocalStorage } from "./localStorage";
+
 
 export interface CheckoutData {
   customer_first_name: string;
@@ -12,35 +13,45 @@ export interface CheckoutData {
   order_items: OrderItems[];
 }
 
-export interface OrderItems{
-    id: number;
-    qty: number;
-    price: number;
-    total: number;
-};
+export interface OrderItems {
+  id: number;
+  qty: number;
+  price: number;
+  total: number;
+}
 
-let orderItemFromLocalStorage = getLocalStorageCandy();
+let orderItemFromLocalStorage = getCartArrayFromLocalStorage();
 
-let orderItems:OrderItems[] = orderItemFromLocalStorage.map(product => ({
-    id: product.id,
-    qty: product.qty,
-    price: product.price,
-    total: product.qty * product.price
+let orderItems: OrderItems[] = orderItemFromLocalStorage.map((product) => ({
+  id: product.id,
+  qty: product.qty,
+  price: product.price,
+  total: product.qty * product.price,
 }));
 
-const newOrder: CheckoutData = {
-  customer_first_name: "Kalle",
-  customer_last_name: "Anka",
-  customer_address: "Musse Pigggatan 13",
-  customer_postcode: "12345",
-  customer_city: "Ankeborg",
-  customer_email: "kalle@ankeborgsposten.ab",
-  customer_phone: "123123123",
-  order_total: "12",
-  order_items: orderItems,
+
+const createOrdertoSend = function () {
+  const newOrder: CheckoutData = {
+    customer_first_name: "Kalle",
+    customer_last_name: "Anka",
+    customer_address: "Musse Pigggatan 13",
+    customer_postcode: "12345",
+    customer_city: "Ankeborg",
+    customer_email: "kalle@ankeborgsposten.ab",
+    customer_phone: "123123123",
+    order_total: "12",
+    order_items: orderItems,
+  };
+console.log("getlocalstorage", getCartArrayFromLocalStorage());
+console.log("orderItemFromLocalStorage", orderItemFromLocalStorage);
+console.log("New order i create",newOrder)
+return newOrder;
 };
 
-export const createOrder = async function (newOrder: CheckoutData) {
+export const sendOrder = async function () {
+   let newOrder = createOrdertoSend();
+  console.log("Orderitems", orderItems);
+  console.log("newOrder", newOrder);
   // Send order t API
   const response = await fetch(
     "https://www.bortakvall.se/api/v2/users/81/orders",
@@ -55,9 +66,8 @@ export const createOrder = async function (newOrder: CheckoutData) {
     return;
   }
   const responseData = await response.json();
-  console.log(responseData)
+  console.log(responseData);
   return responseData;
 };
 
-
-createOrder(newOrder);
+sendOrder();

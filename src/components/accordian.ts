@@ -1,4 +1,4 @@
-import { createOrdertoSend } from "./ApiTest";
+import { createOrdertoSend } from "../services/ApiTest";
 
 const cartView = document.querySelector("#cartView") as HTMLDivElement;
 const checkoutForm = document.querySelector("#checkoutForm") as HTMLFormElement;

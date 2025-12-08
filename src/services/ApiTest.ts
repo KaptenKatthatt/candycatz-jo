@@ -1,9 +1,9 @@
-import type { AddressData } from "./accordian";
-import type { CartProduct } from "./cart";
+import type { AddressData } from "../components/accordian";
+import type { CartProduct } from "../components/cart";
 import {
   getCartArrayFromLocalStorage,
   getCartArrayFromLocalStorageToCheckout,
-} from "./localStorage";
+} from "../components/localStorage";
 
 // Interfaces
 export interface ApiResponse extends CheckoutData {}
@@ -63,9 +63,7 @@ export const createOrdertoSend = function (
   return newOrder;
 };
 
-export const sendOrder = async function (
-  orderData: AddressData
-): Promise<ApiResponse | undefined> {
+export const sendOrder = async function (orderData: AddressData) {
   const newOrder = createOrdertoSend(orderData);
   console.log("Orderitems", newOrder.order_items);
   console.log("newOrder", newOrder);

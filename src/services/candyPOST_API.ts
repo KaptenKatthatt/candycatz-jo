@@ -1,12 +1,15 @@
 import type { AddressData } from "../components/accordian";
-import type { CartProduct } from "../components/cart";
 import {
   getCartArrayFromLocalStorage,
   getCartArrayFromLocalStorageToCheckout,
 } from "../components/localStorage";
 
-// Interfaces
-export interface ApiResponse extends CheckoutData {}
+export interface OrderItems {
+  product_id: number;
+  qty: number;
+  item_price: number;
+  item_total: number;
+}
 
 export interface CheckoutData {
   customer_first_name: string;
@@ -20,18 +23,9 @@ export interface CheckoutData {
   order_items: OrderItems[];
 }
 
-export interface OrderItems {
-  product_id: number;
-  qty: number;
-  item_price: number;
-  item_total: number;
-}
-
-// Functions
 export const createOrdertoSend = async function (
   orderData: AddressData
 ): Promise<CheckoutData> {
-  // Beräkna inuti funktionen varje gång den anropas
   const orderItemFromLocalStorage = getCartArrayFromLocalStorageToCheckout();
 
   const orderTotal = orderItemFromLocalStorage.reduce((acc, curr) => {
@@ -65,7 +59,9 @@ export const createOrdertoSend = async function (
   return newOrder;
 };
 
-export const sendOrder = async function (newOrderData: CheckoutData) {
+export const sendOrder = async function (
+  newOrderData: CheckoutData
+): Promise<CheckoutData | undefined> {
   try {
     console.log("Sending order:", newOrderData);
     const response = await fetch(
@@ -82,7 +78,7 @@ export const sendOrder = async function (newOrderData: CheckoutData) {
       return;
     }
 
-    const responseData = await response.json();
+    const responseData: CheckoutData = await response.json();
     console.log("API svar:", responseData);
     return responseData;
   } catch (error) {

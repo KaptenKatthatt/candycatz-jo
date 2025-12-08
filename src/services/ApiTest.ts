@@ -31,6 +31,7 @@ export interface OrderItems {
 export const createOrdertoSend = function (
   orderData: AddressData
 ): CheckoutData {
+  // Beräkna inuti funktionen varje gång den anropas
   const orderItemFromLocalStorage = getCartArrayFromLocalStorageToCheckout();
 
   const orderTotal = orderItemFromLocalStorage.reduce((acc, curr) => {
@@ -63,27 +64,27 @@ export const createOrdertoSend = function (
   return newOrder;
 };
 
-export const sendOrder = async function (orderData: AddressData) {
-  const newOrder = createOrdertoSend(orderData);
-  console.log("Orderitems", newOrder.order_items);
-  console.log("newOrder", newOrder);
+export const sendOrder = async function (newOrderData: CheckoutData) {
+  try {
+    console.log("Sending order:", newOrderData);
+    const response = await fetch(
+      "https://www.bortakvall.se/api/v2/users/81/orders",
+      {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(newOrderData),
+      }
+    );
 
-  // Send order to API
-  const response = await fetch(
-    "https://www.bortakvall.se/api/v2/users/81/orders",
-    {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(newOrder),
+    if (!response.ok) {
+      console.log("Order was not sent successful: ", response.status);
+      return;
     }
-  );
 
-  if (!response.ok) {
-    console.log("Order was not successful.");
-    return;
+    const responseData = await response.json();
+    console.log("API svar:", responseData);
+    return responseData;
+  } catch (error) {
+    console.error("Error sending order:", error);
   }
-
-  const responseData = await response.json();
-  console.log(responseData);
-  return responseData;
 };

@@ -1,4 +1,5 @@
-import { getCartArrayFromLocalStorage } from "./localStorage";
+import type { CartProduct } from "./cart";
+import { getCartArrayFromLocalStorage, getCartArrayFromLocalStorageToCheckout } from "./localStorage";
 
 
 export interface CheckoutData {
@@ -14,19 +15,24 @@ export interface CheckoutData {
 }
 
 export interface OrderItems {
-  id: number;
+  product_id: number;
   qty: number;
-  price: number;
-  total: number;
+  item_price: number;
+  item_total: number;
 }
 
-let orderItemFromLocalStorage = getCartArrayFromLocalStorage();
+let orderItemFromLocalStorage = getCartArrayFromLocalStorageToCheckout();
 
-let orderItems: OrderItems[] = orderItemFromLocalStorage.map((product) => ({
-  id: product.id,
+let orderTotal = orderItemFromLocalStorage.reduce((acc,curr) =>{
+  return acc +  (curr.qty * curr.price)
+},0);
+
+
+let orderItems = orderItemFromLocalStorage.map((product) => ({
+  product_id: product.id,
   qty: product.qty,
-  price: product.price,
-  total: product.qty * product.price,
+  item_price: product.price,
+  item_total: product.qty * product.price,
 }));
 
 
@@ -39,7 +45,7 @@ const createOrdertoSend = function () {
     customer_city: "Ankeborg",
     customer_email: "kalle@ankeborgsposten.ab",
     customer_phone: "123123123",
-    order_total: "12",
+    order_total: orderTotal,
     order_items: orderItems,
   };
 console.log("getlocalstorage", getCartArrayFromLocalStorage());

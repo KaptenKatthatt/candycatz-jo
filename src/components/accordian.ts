@@ -1,7 +1,3 @@
-
-import type { CandyData, CheckoutData, OrderResponse } from '../services/candyApiTypes';
-
-
 const cartView = document.querySelector("#cartView") as HTMLDivElement;
 const checkoutForm = document.querySelector("#checkoutForm") as HTMLFormElement;
 const placedOrderView = document.querySelector(

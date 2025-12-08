@@ -18,7 +18,7 @@ import { getClickedCandyId } from "./components/getClickedCandyId";
 import { initStore } from "./components/cart";
 import { postToCyberDyneHQ } from "./services/postAPI";
 import { sideScroller } from "./components/sideScroller";
-import send
+import { sendOrder } from "./components/ApiTest";
 
 //SCSS imports
 import "./assets/scss/app.scss";
@@ -30,11 +30,6 @@ import "./assets/scss/renderAllCards.scss";
 import "./assets/scss/sideScroller.scss";
 import "./assets/scss/typography.scss";
 
-// if ("scrollRestoration" in history) {
-//   history.scrollRestoration = "manual";
-// }
-window.scrollTo(0, 0);
-
 // Prevents scroll on page load
 window.addEventListener(
   "scroll",
@@ -43,10 +38,6 @@ window.addEventListener(
   },
   { once: true }
 );
-// if ("scrollRestoration" in history) {
-//   history.scrollRestoration = "manual";
-// }
-// window.scrollTo(0, 0);
 
 renderCartView();
 renderCheckoutForm();

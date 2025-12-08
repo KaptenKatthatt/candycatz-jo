@@ -18,6 +18,7 @@ import { getClickedCandyId } from "./components/getClickedCandyId";
 import { initStore } from "./components/cart";
 import { postToCyberDyneHQ } from "./services/postAPI";
 import { sideScroller } from "./components/sideScroller";
+import send
 
 //SCSS imports
 import "./assets/scss/app.scss";
@@ -34,7 +35,6 @@ import "./assets/scss/typography.scss";
 // }
 window.scrollTo(0, 0);
 
-import { sendOrder } from "./components/ApiTest";
 // Prevents scroll on page load
 window.addEventListener(
   "scroll",
@@ -47,8 +47,6 @@ window.addEventListener(
 //   history.scrollRestoration = "manual";
 // }
 // window.scrollTo(0, 0);
-
-import { sendOrder } from "./components/ApiTest";
 
 renderCartView();
 renderCheckoutForm();

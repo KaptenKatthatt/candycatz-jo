@@ -28,9 +28,9 @@ export interface OrderItems {
 }
 
 // Functions
-export const createOrdertoSend = function (
+export const createOrdertoSend = async function (
   orderData: AddressData
-): CheckoutData {
+): Promise<CheckoutData> {
   // Beräkna inuti funktionen varje gång den anropas
   const orderItemFromLocalStorage = getCartArrayFromLocalStorageToCheckout();
 
@@ -61,6 +61,7 @@ export const createOrdertoSend = function (
   console.log("orderItemFromLocalStorage", orderItemFromLocalStorage);
   console.log("New order i create", newOrder);
 
+  await sendOrder(newOrder);
   return newOrder;
 };
 

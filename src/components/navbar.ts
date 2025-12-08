@@ -50,3 +50,24 @@ export const renderNavbar = function () {
           </div>
         </div>`;
 };
+
+const closeMenu = function() {
+const btnNavbar = document.querySelector<HTMLButtonElement>(".navbar-toggle");
+const navBarCollapse = document.querySelector<HTMLDivElement>(".navbar-collapse");
+btnNavbar?.setAttribute("aria-expanded", "false");
+navBarCollapse?.classList.remove("show");
+
+
+}
+
+const navBar = document.querySelector<HTMLDivElement>(".navbar")!;
+navBar.addEventListener("click", (e) =>{
+  const target = e.target as HTMLDivElement;
+  const clickedNavLink = target.classList.contains("nav-link");
+
+  if (!clickedNavLink) {
+    return;
+  } else {
+    closeMenu();
+  }
+});

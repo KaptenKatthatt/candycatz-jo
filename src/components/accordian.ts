@@ -57,7 +57,7 @@ export const renderCheckoutForm = function () {
   <div class="form-row">
     <div class="form-group col-md-6">
       <label for="inputEmail4">Email</label>
-      <input type="email" class="form-control" id="inputEmail" required placeholder="Mailadress" value="kalle@anderstaden.se">
+      <input type="email" class="form-control" id="inputEmail" required placeholder="Mailadress" value="kalle@ankeborgen.se">
   </div>
   <div class="form-group col-md-6">
     <label for="inputNumber">Telefonnummer<span class="text-muted">(optional)</span></label>
@@ -65,12 +65,12 @@ export const renderCheckoutForm = function () {
   </div>
   <div class="form-group col-md-6">
     <label for="inputAddress">Adress</label>
-    <input type="text" class="form-control" id="inputAddress" required placeholder="Gatuadress" value="Ankvägen 13">
+    <input type="text" class="form-control" id="inputAddress" required placeholder="Gatuadress" value="Kvackvägen 13">
   </div>
   <div class="form-row">
     <div class="form-group col-md-6">
       <label for="inputCity">Ort</label>
-      <input type="text" class="form-control" required id="inputCity" value="Anderstaden">
+      <input type="text" class="form-control" required id="inputCity" value="Ankeborg">
     </div>
     <div class="form-group col-md-2">
       <label for="inputZip">Postnummer</label>

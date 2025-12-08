@@ -17,7 +17,7 @@ export interface AddressData {
 }
 
 export const renderCartView = function () {
-  cartView.innerHTML = `<div class="accordion" id="accordionCart">
+  cartView.innerHTML = `<div class="accordion" id="accordionPanelsStayOpenExample">
   <div class="accordion-item">
     <h2 class="accordion-header" id="panelsStayOpen-headingOne">
       <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
@@ -35,7 +35,7 @@ export const renderCartView = function () {
 
 export const renderCheckoutForm = function () {
   checkoutForm.innerHTML = `
-<div class="accordion formAccordion" id="accordionCheckout">  
+<div class="accordion formAccordion" id="accordionPanelsStayOpenExample">  
 <div class="accordion-item">
     <h2 class="accordion-header" id="panelsStayOpen-headingTwo">
       <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false" aria-controls="panelsStayOpen-collapseTwo">

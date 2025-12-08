@@ -1,4 +1,4 @@
-import { createOrdertoSend } from "../services/ApiTest";
+import { createOrdertoSend } from "../services/candyPOST_API";
 
 const cartView = document.querySelector("#cartView") as HTMLDivElement;
 const checkoutForm = document.querySelector("#checkoutForm") as HTMLFormElement;

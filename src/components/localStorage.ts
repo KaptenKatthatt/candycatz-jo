@@ -1,5 +1,5 @@
 import type { CandyDataID } from "../services/candyApiTypes";
-import type { OrderItems } from "../services/ApiTest";
+import type { OrderItems } from "../services/candyPOST_API";
 import { type CartProduct } from "./cart";
 
 export function saveCartArrayToLocalStorage(cartArray: CartProduct[]): void {

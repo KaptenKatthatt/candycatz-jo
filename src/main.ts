@@ -18,7 +18,7 @@ import { getClickedCandyId } from "./components/getClickedCandyId";
 import { initStore } from "./components/cart";
 import { postToCyberDyneHQ } from "./services/postAPI";
 import { sideScroller } from "./components/sideScroller";
-import { sendOrder } from "./services/ApiTest";
+import { sendOrder } from "./services/candyPOST_API";
 
 //SCSS imports
 import "./assets/scss/app.scss";

@@ -1,3 +1,4 @@
+import type { AddressData } from "./accordian";
 import type { CartProduct } from "./cart";
 import { getCartArrayFromLocalStorage, getCartArrayFromLocalStorageToCheckout } from "./localStorage";
 
@@ -36,35 +37,36 @@ let orderItems = orderItemFromLocalStorage.map((product) => ({
 }));
 
 
-const createOrdertoSend = function () {
+
+export const createOrdertoSend = function (orderData: AddressData) {
   const newOrder: CheckoutData = {
-    customer_first_name: "Kalle",
-    customer_last_name: "Anka",
-    customer_address: "Musse Pigggatan 13",
-    customer_postcode: "12345",
-    customer_city: "Ankeborg",
-    customer_email: "kalle@ankeborgsposten.ab",
-    customer_phone: "123123123",
+    customer_first_name: orderData.customer_first_name,
+    customer_last_name: orderData.customer_last_name,
+    customer_address: orderData.customer_address,
+    customer_postcode: orderData.customer_postcode,
+    customer_city: orderData.customer_city,
+    customer_email: orderData.customer_email,
+    customer_phone: orderData.customer_phone,
     order_total: orderTotal,
     order_items: orderItems,
   };
 console.log("getlocalstorage", getCartArrayFromLocalStorage());
 console.log("orderItemFromLocalStorage", orderItemFromLocalStorage);
 console.log("New order i create",newOrder)
-return newOrder;
+console.log(sendOrder(newOrder));
+ sendOrder(newOrder);
 };
 
-export const sendOrder = async function () {
-   let newOrder = createOrdertoSend();
+export const sendOrder = async function (newOrderData) {
+  
   console.log("Orderitems", orderItems);
-  console.log("newOrder", newOrder);
   // Send order t API
   const response = await fetch(
     "https://www.bortakvall.se/api/v2/users/81/orders",
     {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(newOrder),
+      body: JSON.stringify(newOrderData),
     }
   );
   if (!response.ok) {
@@ -76,4 +78,3 @@ export const sendOrder = async function () {
   return responseData;
 };
 
-sendOrder();

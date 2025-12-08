@@ -17,7 +17,6 @@ export interface AddressData {
 }
 
 export const renderCartView = function () {
-    scrollTo(0,0);
   cartView.innerHTML = `<div class="accordion" id="accordionPanelsStayOpenExample">
   <div class="accordion-item">
     <h2 class="accordion-header" id="panelsStayOpen-headingOne">

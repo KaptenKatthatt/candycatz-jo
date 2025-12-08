@@ -111,7 +111,6 @@ h5 {
 .cardTrans {
   background-color: $offcanvas;
 
-
 &:hover {
   box-shadow: 6px 6px 6px rgb(167, 167, 167);
   transform: scale(1.02) rotate(-1deg);
@@ -239,13 +238,6 @@ h5 {
   height: 40px;
 }
 
-.addToCartBtn:disabled {
-  background-color: $disabled;
-  color: rgb(79, 79, 79);
-  border: none;
-  opacity: 0.5;
-
-}
 .moreToMunchBtn {
   margin-bottom: 20px;
 

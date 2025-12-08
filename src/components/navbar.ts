@@ -6,7 +6,7 @@ export const renderNavbar = function () {
             <img
               src="/src/assets/img/candyCatz4.png"
               width="300px"
-              class="d-inline-block align-top"
+              class="d-inline-block align-top img-fluid"
               alt="CandyCatz logo"
             />
           </a>

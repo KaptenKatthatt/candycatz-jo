@@ -149,7 +149,7 @@ export const renderCart = function () {
               <p class="me-2 d-flex align-items-center justify-content-center m-0">${
                 product.qty
               }</p>
-              <button class="increaseBtn plusBtn me-2" type="button">+</button>
+              <button class="increaseBtn plusBtn me-2" type="button" ${product.qty >= product.stock_quantity ? "disabled" : ""}>+</button>
               <button class="deleteBtn btn btn-danger"><i class="bi bi-trash"></i></button>
             </div>
           </div>
@@ -235,7 +235,7 @@ export const renderCheckoutCart = function () {
             <p class="me-2 d-flex align-items-center justify-content-center m-0">${
               product.qty
             }</p>
-            <button class="increaseBtn plusBtn me-2" type="button">+</button>
+            <button class="increaseBtn plusBtn me-2" type="button" ${product.qty >= product.stock_quantity ? "disabled" : ""}>+</button>
             <button class="deleteBtn btn btn-sm btn-danger"><i class="bi bi-trash"></i></button>
           </div>
         </div>

@@ -9,15 +9,13 @@ let showRestCandy: CandyData[];
 let response = await getAllCandyInfo();
 let allCandyCards: CandyData[] = response.data;
 
-
 // funktion för att återanvända kort strukturen flera gånger på olika kategorier
-function cardStructure(product: CandyData): string {
+export const cardStructure = function (product: CandyData): string {
   let thumbnailURL = `https://www.bortakvall.se${product.images.thumbnail}`;
 
   return `<div class="card cardTrans rounded-4 p-1 ${
-          product.stock_status !== "instock" ? "cardDis" : ""}" " data-product-id="${
-    product.id
-  }" style="width: 11rem;">
+    product.stock_status !== "instock" ? "cardDis" : ""
+  }" " data-product-id="${product.id}" style="width: 11rem;">
       <img src="${thumbnailURL}" class="card-img-top click rounded-4" alt="Image of ${
     product.name
   }">
@@ -42,30 +40,29 @@ function cardStructure(product: CandyData): string {
       </div>
         </div>
       `;
-}
+};
 
 export const renderAllCards = async function () {
   //Get all products from API
   // const allCandyCards: CandyData[] = await getAllCandyInfo();
 
-  
   //TODO Add if check if response.status === "success"
 
-  //TOP TREATS Kategorien
-  const topTreatsCategories = [...allCandyCards];
-  // ytlig kopia av allCandyCards
-  const filterTopTreats = topTreatsCategories.filter((candy) => {
-    return candy.stock_quantity < 3 && candy.stock_status === "instock";
-  });
-  // returnera ny array med alla som är instock OCH färre än 3
-  const sliceOutTopTreats = filterTopTreats.slice(0, 12);
-  // slicea sedan ut de första 12
-  const topTreatsCardsContainerEl = document.querySelector(
-    ".topTreatsCardsContainer"
-  ) as HTMLDivElement;
-  topTreatsCardsContainerEl.innerHTML += sliceOutTopTreats
-    .map((product) => cardStructure(product))
-    .join("");
+  // //TOP TREATS Kategorien
+  // const topTreatsCategories = [...allCandyCards];
+  // // ytlig kopia av allCandyCards
+  // const filterTopTreats = topTreatsCategories.filter((candy) => {
+  //   return candy.stock_quantity < 3 && candy.stock_status === "instock";
+  // });
+  // // returnera ny array med alla som är instock OCH färre än 3
+  // const sliceOutTopTreats = filterTopTreats.slice(0, 12);
+  // // slicea sedan ut de första 12
+  // const topTreatsCardsContainerEl = document.querySelector(
+  //   ".topTreatsCardsContainer"
+  // ) as HTMLDivElement;
+  // topTreatsCardsContainerEl.innerHTML += sliceOutTopTreats
+  //   .map((product) => cardStructure(product))
+  //   .join("");
 
   // SWEETSAVINGS Kategorien
   const sweetSavingsCategories = [...allCandyCards];
@@ -76,16 +73,17 @@ export const renderAllCards = async function () {
   // returnera ny array med alla som är instock OCH färre än 3
   const sliceOutSavings = filterSweetSaving.slice(0, 12);
   // slicea sedan ut de första 12
+
   const sweetSavingsCardsContainterEl = document.querySelector(
     ".sweetSavingsCardsContainer"
   ) as HTMLDivElement;
-  sweetSavingsCardsContainterEl.innerHTML += sliceOutSavings
+  sweetSavingsCardsContainterEl.innerHTML = sliceOutSavings
     .map((product) => cardStructure(product))
     .join("");
 
   // skapa variabel array som innehåller de som redan har visats
   usedIds = [
-    ...sliceOutTopTreats.map((candy) => candy.id),
+    // ...sliceOutTopTreats.map((candy) => candy.id),
     ...sliceOutSavings.map((candy) => candy.id),
   ];
 

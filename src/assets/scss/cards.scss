@@ -1,0 +1,12 @@
+@import "colors";
+
+.card.btn {
+  transition: transform 0.1 ease-in-out;
+  &:hover {
+    //   box-shadow: 0 4px 8px $btn-candy-purple;
+    transform: scale(1.05);
+  }
+  &:active {
+    transform: scale(0.95);
+  }
+}

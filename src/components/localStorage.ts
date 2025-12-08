@@ -3,6 +3,8 @@ import type { OrderItems } from "./ApiTest";
 import { type CartProduct } from "./cart";
 
 export function saveCartArrayToLocalStorage(cartArray: CartProduct[]) {
+  console.log(cartArray);
+
   try {
     const savedCandys = JSON.stringify(cartArray);
     localStorage.setItem("candyCartArray", savedCandys);
@@ -11,16 +13,18 @@ export function saveCartArrayToLocalStorage(cartArray: CartProduct[]) {
   }
 }
 
+export function getCartArrayFromLocalStorage(): OrderItems[] {
 export function getCartArrayFromLocalStorage() {
   const getCart = localStorage.getItem("candyCartArray");
   return getCart ? JSON.parse(getCart) : [];
 }
 
-
+main
 export function getCartArrayFromLocalStorageToCheckout() {
   const getCart = localStorage.getItem("candyCartArray");
   return getCart ? JSON.parse(getCart) : [];
 }
+
 
 // import { type CartProduct } from "./cart";
 

@@ -1,0 +1,81 @@
+@import "colors";
+.topTreatsSideScrollerContainerOuter {
+  position: relative;
+}
+
+.topTreatsSideScrollerContainer {
+  height: 555px;
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> 29e646a (Brightness, fonts, img margin, removed dots)
+  margin: 30px 10px;
+  gap: 20px;
+  margin: 30px 0;
+  gap: 15px;
+<<<<<<< HEAD
+  margin: 30px 10px;
+  gap: 30px;
+=======
+>>>>>>> 9d6ad87 (Side scroller working)
+=======
+  margin: 30px 10px;
+  gap: 30px;
+>>>>>>> 3de1c28 (Brightness, fonts, img margin, removed dots)
+>>>>>>> 29e646a (Brightness, fonts, img margin, removed dots)
+  overflow-x: auto;
+
+  display: flex;
+  flex-direction: row;
+  scrollbar-width: none;
+  scroll-behavior: smooth;
+  //   scrollbar-color: $btn-candy-pink $btn-candy-purple;
+}
+
+.topTreatsSideScrollerContainer .card {
+  flex-shrink: 0;
+  margin-bottom: 20px;
+  scroll-behavior: smooth;
+}
+
+.scrollArrow {
+  color: $btn-candy-purple;
+  font-size: 50px;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  transition: transform 0.1s ease-in-out;
+  // z-index: 100;
+  cursor: pointer;
+
+  &:first-of-type {
+    left: -20px;
+  }
+  &:first-of-type:hover {
+    transform: scale(1.05) translateY(-50%);
+  }
+
+  &:first-of-type:active {
+    transform: scale(0.95) translateY(-50%);
+  }
+
+  &:last-of-type {
+    right: -20px;
+  }
+  &:last-of-type:hover {
+    transform: scale(1.05) translateY(-50%);
+  }
+  &:last-of-type:active {
+    transform: scale(0.95) translateY(-50%);
+  z-index: 100;
+  cursor: pointer;
+
+  &:first-of-type {
+    left: 10px;
+  }
+
+  &:last-of-type {
+    right: 10px;
+  }
+}

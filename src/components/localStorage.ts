@@ -1,6 +1,8 @@
 import { type CartProduct } from "./cart";
 
 export function saveCartArrayToLocalStorage(cartArray: CartProduct[]) {
+  console.log(cartArray);
+
   try {
     const savedCandys = JSON.stringify(cartArray);
     localStorage.setItem("candyCartArray", savedCandys);

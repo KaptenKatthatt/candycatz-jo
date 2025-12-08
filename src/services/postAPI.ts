@@ -5,6 +5,7 @@ export interface SubmittedOrderData {
   customer_postcode: string;
   customer_city: string;
   customer_email: string;
+  customer_phone?: string;
   order_total: string;
   order_items: {
     product_id: number;
@@ -29,9 +30,7 @@ export const postToCyberDyneHQ = async function (
   });
 
   if (!res.ok) {
-    throw new Error(
-      `Order posting failed ${(await res).status} ${(await res).statusText}`
-    );
+    throw new Error(`Order posting failed ${res.status} ${res.statusText}`);
   }
   const data = await res.json();
   console.log("Response from SkyNet: ", data);

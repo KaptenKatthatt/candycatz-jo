@@ -21,6 +21,8 @@ import "./assets/scss/cart.scss";
 import "./assets/scss/categories.scss";
 import "./assets/scss/checkoutCart.scss";
 import "./assets/scss/colors.scss";
+import "./assets/scss/footer.scss";
+import "./assets/scss/mediaQueries.scss";
 import "./assets/scss/modal.scss";
 import "./assets/scss/navbar.scss";
 import "./assets/scss/offcan.scss";

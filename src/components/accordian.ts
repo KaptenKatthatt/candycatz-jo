@@ -57,7 +57,7 @@ const collapseTwo = document.querySelector<HTMLDivElement>("#panelsStayOpen-coll
 if (collapseOne && collapseTwo){ 
   collapseOne.classList.remove("show");
   collapseTwo.classList.add("show"); 
-  window.scrollTo({top: 200, behavior:"smooth"});
+  window.scrollTo({top: 300, behavior:"smooth"});
 }
 });
 
@@ -157,7 +157,7 @@ export const renderCheckoutForm = function () {
      const collapseThree =document.querySelector<HTMLDivElement>("#panelsStayOpen-collapseThree")!;
    collapseTwo.classList.remove("show");
     collapseThree.classList.add("show");
-    window.scrollTo({ top: 250, behavior:"smooth"});
+    window.scrollTo({ top: 300, behavior:"smooth"});
 
   });
 };

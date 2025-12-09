@@ -81,7 +81,7 @@ export const renderOffCan = function () {
     cartCheckoutContainer.classList.remove("d-none");
 
     // scroll to top
-    window.scrollTo({top:0, behavior: "smooth"})
+    window.scrollTo({top:300, behavior: "smooth"})
   });
 
   // Event listeners for closing offcanvas

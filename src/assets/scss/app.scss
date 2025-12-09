@@ -1,9 +1,9 @@
 // 🎀 CandyColors 🍬
-$bg: #FFFCEF;
-$card-body: #FFFDF5;
+$bg: #fffcef;
+$card-body: #fffdf5;
 $btn-candy-pink: #f472b6;
 $btn-candy-purple: #c084fc;
-$accent: #F38CB9;
+$accent: #f38cb9;
 $accent-light: #ffa1ec;
 $pink: #ff69b4;
 $blue: #87cefa;
@@ -11,71 +11,40 @@ $cream-white: #f5f5dc;
 $dark-hover: #e04b90;
 $text: #0d0d0d;
 $disabled: rgb(148, 148, 148);
-$nav-color: #FFFCEF;
-$shadow: 0 4px 20px rgba(0,0,0,0.5);
+$nav-color: #fffcef;
+$shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
 $primary: $accent;
-$secondary: #BDE0FE;
-$footer: #C4DCD1; 
-$offcanvas: #BDE0FE; 
+$secondary: #bde0fe;
+$footer: #c4dcd1;
+$offcanvas: #bde0fe;
 $title-text: #ea5d93;
 
 @import "bootstrap/scss/bootstrap.scss";
 @import "bootstrap-icons/font/bootstrap-icons.css";
 
-
 body {
-    padding-top: 75px;
-    box-sizing: border-box;
-    font-family: "Poppins", sans-serif;
-    background-color: $bg;
+  padding-top: 75px;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+  background-color: $bg;
 }
 
-
-
-html, body{
+html,
+body {
   height: auto;
   overflow: auto;
-}
-
-/*  OFFCAN - YOUR CANDY CART  */
-
-@font-face {
-  font-family: "Super Chiby";
-  src: url(/src/assets/fonts/super_chiby/Super\ Chiby.ttf);
-  font-display: swap; 
-}
-
-
-h2 {
-  font-family: "Super Chiby";
-  font-size: 3rem;
-}
-
-h5 {
-  font-family: "Super Chiby";
-  font-size: 2.3rem;
-  color:$title-text;
-  
 }
 
 .candyAmount {
   font-size: 2.5rem;
   z-index: 100;
   margin-right: 35px;
-.candyAmountRendered {
-  font-size: 1rem;
-  position: absolute;
-  margin-top: 10px;
-  margin-left: -20px;
-
-}
-}
-
-.navbar-grad {
-  background: linear-gradient(90deg, #ffb3d9 0%, #ffebb3 30%,#a3dcff 100%);
-  border-bottom-left-radius: 30px;
-  border-bottom: 4px solid rgb(50, 93, 162);
-  box-shadow: 0 6px 8px rgba(0,0,0,0.3);
+  .candyAmountRendered {
+    font-size: 1rem;
+    position: absolute;
+    margin-top: 10px;
+    margin-left: -20px;
+  }
 }
 
 .outOfStock {
@@ -85,46 +54,37 @@ h5 {
   cursor: pointer;
 }
 
-.carousel {
-  width: 100vw;
-  margin-left: -12px;
-}
-
-#topTreats, #sweetSavings, #moreToMunch {
+#topTreats,
+#sweetSavings,
+#moreToMunch {
   scroll-margin-top: 100px;
 }
 
 .allCardsContainer {
-      background-color: #f4e6ff;
-      border-radius: 20px;
-      
-      .card-header {
-        background-image: url(/src/assets/img/banderoll.png);
-        background-repeat: repeat;
-      }
+  background-color: #f4e6ff;
+  border-radius: 20px;
+
+  .card-header {
+    background-image: url(/src/assets/img/banderoll.png);
+    background-repeat: repeat;
+  }
 }
 
-.cardDis{
+.cardDis {
   opacity: 0.5;
 }
 
 .cardTrans {
   background-color: $offcanvas;
 
-&:hover {
-  box-shadow: 6px 6px 6px rgb(167, 167, 167);
-  transform: scale(1.02) rotate(-1deg);
-}
-}
-
-.offcanvas{ 
-  background-color: $offcanvas;
-  overflow-y: auto;
-  max-height: 100vh;
+  &:hover {
+    box-shadow: 6px 6px 6px rgb(167, 167, 167);
+    transform: scale(1.02) rotate(-1deg);
+  }
 }
 
 .minusBtn,
-.plusBtn{
+.plusBtn {
   width: 40px;
   height: 40px;
   border-radius: 50%;
@@ -140,13 +100,13 @@ h5 {
   &:hover {
     background-color: darkmagenta;
   }
-  
+
   &:disabled {
     opacity: 0.5;
     background-color: $disabled;
   }
 }
-.product-qty{
+.product-qty {
   width: 40px;
   height: 40px;
   display: inline-block;
@@ -156,85 +116,85 @@ h5 {
   font-size: 1.2rem;
 }
 
-.card-text{
+.card-text {
   text-align: left;
   font-size: smaller;
   padding: 0px;
 }
-.stockStatus{
+.stockStatus {
   margin-bottom: -1rem;
 }
 
 /* FOOTER */
 
-.contact-info{
-    padding-top: 50px;
-    margin-bottom: 2rem;
-    color: white;
-    display: inline-block;
-    margin-top: 2rem;
-    vertical-align: top;
-    text-align: left;
-}
-
-.address-list{
-    list-style: none;
-}
-
-.address-list a{
-     text-decoration: none;
-     
-}
-.footer-text {
-    color: white;
-    font-size: 0.7rem; 
-    text-align: center;
-   
-}
-
-
-.footer-icons{
-    color: $btn-candy-pink;
-    text-align: left;
-}
-
-.footer-icons i {
-    display: inline-block;
-    margin: 8px;
-    font-size: 2rem;
-}
-
-.scallop {
-  position:relative;
-  background: $bg;
-}
-
-.scallop::after { 
-  position:absolute;
-  width: 100%;
-  content:" ";
-  background: 
-  radial-gradient(circle at 50% 0%, #FFFCEF 25%, #C4DCD1 26%, #C4DCD1 40%);
-  background-color: #C4DCD1;
-  background-size:50px 100px;
-  height:100px;
-  background-repeat: repeat-x;
- 
-}
-.after-scallop{
-  background: #C4DCD1;
-  padding:50px;
+.contact-info {
+  padding-top: 50px;
+  margin-bottom: 2rem;
+  color: white;
+  display: inline-block;
+  margin-top: 2rem;
+  vertical-align: top;
   text-align: left;
 }
 
-.infoContainer{
+.address-list {
+  list-style: none;
+}
+
+.address-list a {
+  text-decoration: none;
+}
+.footer-text {
+  color: white;
+  font-size: 0.7rem;
+  text-align: center;
+}
+
+.footer-icons {
+  color: $btn-candy-pink;
+  text-align: left;
+}
+
+.footer-icons i {
+  display: inline-block;
+  margin: 8px;
+  font-size: 2rem;
+}
+
+.scallop {
+  position: relative;
+  background: $bg;
+}
+
+.scallop::after {
+  position: absolute;
+  width: 100%;
+  content: " ";
+  background: radial-gradient(
+    circle at 50% 0%,
+    #fffcef 25%,
+    #c4dcd1 26%,
+    #c4dcd1 40%
+  );
+  background-color: #c4dcd1;
+  background-size: 50px 100px;
+  height: 100px;
+  background-repeat: repeat-x;
+}
+.after-scallop {
+  background: #c4dcd1;
+  padding: 50px;
+  text-align: left;
+}
+
+.infoContainer {
   position: relative;
   bottom: 10px;
 }
-.infoContainer h5{
+.infoContainer h5 {
   height: 70px;
 }
-.stockStatus{
+.stockStatus {
   height: 40px;
 }
 
@@ -253,27 +213,26 @@ h5 {
     background: linear-gradient(90deg, $pink 0%, $blue 100%);
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
     transition: background 0.4s ease, transform 0.2s ease, box-shadow 0.2s ease;
-  &:hover {
-    background: linear-gradient(-90deg, $pink 0%, $blue 50%, pink 100%);
-    background-size: 200% 100%;
-    background-position: 100% 0;
-    transition: background 1.5s ease-in-out, transform 0.2s ease, box-shadow 0.2s ease;
-    transform:translateY(-2px);
-    box-shadow: 0 6px 20px rgba(0,0,0,0.3);
-    
+    &:hover {
+      background: linear-gradient(-90deg, $pink 0%, $blue 50%, pink 100%);
+      background-size: 200% 100%;
+      background-position: 100% 0;
+      transition: background 1.5s ease-in-out, transform 0.2s ease,
+        box-shadow 0.2s ease;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+    }
   }
-}
 }
 
 @media screen and (min-width: 668px) {
   .offcanvas {
     --bs-offcanvas-width: 70%;
-}
+  }
 }
 
 @media screen and (min-width: 868px) {
   .offcanvas {
     --bs-offcanvas-width: 50%;
+  }
 }
-}
-

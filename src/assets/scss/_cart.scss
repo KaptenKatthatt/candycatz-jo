@@ -4,7 +4,7 @@
   height: 40px;
   border-radius: 50%;
   background-color: $btn-candy-purple;
-  color: #ffffff;
+  color: #fff;
   border: none;
   display: inline;
   text-align: center;
@@ -25,4 +25,6 @@
 .cartThumbnail {
   max-width: 90px;
   margin-bottom: 20px;
+}
+@media screen and (min-width: 868px) {
 }

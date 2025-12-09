@@ -16,6 +16,8 @@ import { sideScroller } from "./components/sideScroller";
 //SCSS imports
 import "./assets/scss/app.scss";
 
+window.scrollTo(0, 0);
+
 renderCartView();
 renderCheckoutForm();
 postUserAddressForm();

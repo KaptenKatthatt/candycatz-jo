@@ -1,3 +1,7 @@
+.card {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
 .cardTransform {
   background-color: $offcanvas;
   transition: all 0.2s ease-in-out;
@@ -12,9 +16,13 @@
   }
 }
 
+.cardTransform img {
+  padding: 10px;
+}
+
 .card-title {
-  font-size: 20px !important;
-  color: $btn-candy-pink;
+  font-size: 30px !important;
+  color: $card-title;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -25,15 +33,6 @@
 
 .cardDisabled {
   opacity: 0.5;
-}
-
-.cardTransform {
-  background-color: $offcanvas;
-
-  &:hover {
-    box-shadow: 6px 6px 6px rgb(167, 167, 167);
-    transform: scale(1.02) rotate(-1deg);
-  }
 }
 
 .addToCartBtn {
@@ -59,39 +58,15 @@
     opacity: 0.5;
   }
 }
-.modalInfoBtn {
-  background: linear-gradient(
-    45deg,
-    $btn-candy-pink 50%,
-    $btn-candy-purple 100%
-  );
-  transition: transform 0.1s ease-in-out;
 
-  &:hover {
-    color: white;
-    box-shadow: 0 4px 8px $btn-candy-purple;
-    transform: scale(1.05);
-  }
-  &:active {
-    transform: scale(0.95);
-  }
-}
-
-.cardTransform img {
-  padding: 10px;
-}
-
-// .card-title {
-//   color: white;
-//   font-size: 1.5rem !important;
-// }
 .allCardsContainer {
-  background-color: #f4e6ff;
+  background-color: $allCardsContainerBG;
   border-radius: 20px;
 
-  .card-header {
+  .category-header {
     background-image: url(/src/assets/img/banderoll.png);
     background-repeat: repeat;
+    color: $category-header;
   }
 }
 

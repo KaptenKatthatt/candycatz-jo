@@ -123,28 +123,31 @@ export const renderCart = function () {
       .map((product) => {
         let thumbnailURL = `https://www.bortakvall.se${product.thumbnail}`;
         return `
-         <div class="productItem d-flex flex-row" data-product-id="${
-           product.id
-         }">
+          <div class="productItem d-flex flex-row" data-product-id="${
+            product.id
+          }">
             <img src="${thumbnailURL}" class="cartThumbnail img-fluid rounded-4 me-2" alt="Image of ${
           product.name
         }">
-            <div class="container ">
+            <div class="container d-flex flex-column">
+
               <h5 class="card-title click fs-5 mb-3">${product.name}</h5>
               <p class="mb-2"><strong>${product.price}:-</strong>/skopa</p>
               <p class="mb-2">Total: <strong>${
                 product.qty * product.price
               }:-</strong></p>
-            </div>
-            <div class="buttonContainer d-flex flex-row align-items-center">
-              <button class="decreaseBtn minusBtn me-2" type="button">-</button>
-              <p class="me-2 d-flex align-items-center justify-content-center m-0">${
-                product.qty
-              }</p>
-              <button class="increaseBtn plusBtn me-2" type="button" ${
-                product.qty >= product.stock_quantity ? "disabled" : ""
-              }>+</button>
-              <button class="deleteBtn btn btn-danger"><i class="bi bi-trash"></i></button>
+
+              <div class="buttonContainer d-flex flex-row align-items-center mt-2">
+                <button class="decreaseBtn minusBtn me-2" type="button">-</button>
+                <p class="me-2 d-flex align-items-center justify-content-center m-0">${
+                  product.qty
+                }</p>
+                <button class="increaseBtn plusBtn me-2" type="button" ${
+                  product.qty >= product.stock_quantity ? "disabled" : ""
+                }>+</button>
+                <button class="deleteBtn btn btn-danger"><i class="bi bi-trash"></i></button>
+              </div>
+
             </div>
           </div>
 

@@ -1,28 +1,25 @@
-@import "colors";
-
-.modal-body p:nth-of-type(2){
-    color: $primary;
-    font-size: 1.5rem;
+.modal-body p:nth-of-type(2) {
+  color: $primary;
+  font-size: 1.5rem;
   font-family: "Super Chiby";
-    
 }
-.modal-body p:nth-of-type(2)::before{
-content:"🍬"
+.modal-body p:nth-of-type(2)::before {
+  content: "🍬";
 }
-.modal-body p:nth-of-type(2)::after{
-content:"!"
+.modal-body p:nth-of-type(2)::after {
+  content: "!";
 }
 
-.modal-body p:nth-of-type(3)::first-line{
-    font-weight: 800;
+.modal-body p:nth-of-type(3)::first-line {
+  font-weight: 800;
 }
- .modal-content{
-    border: 4px solid $primary
- }
+.modal-content {
+  border: 4px solid $primary;
+}
 
- .modalThumbnail{
-     transition: transform 1.5s ease-in-out;
- }
- .modalThumbnail:hover{
-    transform: scale(0.2);
- }
+.modalThumbnail {
+  transition: transform 1.5s ease-in-out;
+}
+.modalThumbnail:hover {
+  transform: scale(0.2);
+}

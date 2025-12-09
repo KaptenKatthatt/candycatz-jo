@@ -11,7 +11,7 @@ export const cardStructure = function (product: CandyData): string {
   }">
       <div class="card-body">
       <div class="infoContainer">
-        <h5 class="card-title click fs-5">${product.name}</h5>
+        <h5 class="card-title bg-primary click fs-5">${product.name}</h5>
         ${
           product.stock_status === "instock"
             ? `<p class="card-text stockStatus">I lager:

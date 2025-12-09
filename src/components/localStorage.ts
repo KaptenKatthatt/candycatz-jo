@@ -3,8 +3,6 @@ import type { OrderItems } from "../services/candyApiTypes";
 import { type CartProduct } from "../services/candyApiTypes";
 
 export function saveCartArrayToLocalStorage(cartArray: CartProduct[]): void {
-  console.log(cartArray);
-
   try {
     const savedCandys = JSON.stringify(cartArray);
     localStorage.setItem("candyCartArray", savedCandys);

@@ -3,12 +3,16 @@
   font-size: smaller;
   padding: 0px;
 }
-.card-title {
-  color: red !important;
-}
+
 .stockStatus {
+  height: 40px;
   margin-bottom: -1rem;
 }
+// .sideScroller .p,
+// .sideScroller .priceTag {
+//   font-weight: 700;
+//   margin-left: 1rem;
+// }
 
 .infoContainer {
   position: relative;
@@ -16,7 +20,4 @@
 }
 .infoContainer h5 {
   height: 70px;
-}
-.stockStatus {
-  height: 40px;
 }

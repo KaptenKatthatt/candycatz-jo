@@ -2,9 +2,9 @@ import { createOrdertoSend } from "../services/candyPOST_API";
 
 const cartView = document.querySelector("#cartView") as HTMLDivElement;
 const checkoutForm = document.querySelector("#checkoutForm") as HTMLFormElement;
-const placedOrderView = document.querySelector(
-  "#placedOrderView"
-) as HTMLDivElement;
+const placedOrderView = document.querySelector("#placedOrderView") as HTMLDivElement;
+
+
 
 export interface AddressData {
   customer_first_name: string;
@@ -17,25 +17,55 @@ export interface AddressData {
 }
 
 export const renderCartView = function () {
-  cartView.innerHTML = `<div class="accordion" id="accordionPanelsStayOpenExample">
+  cartView.innerHTML = `<div class="accordion" id="accordionCandyCart">
   <div class="accordion-item">
+   <!-- Header -->
     <h2 class="accordion-header" id="panelsStayOpen-headingOne">
-      <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
+      <button class="accordion-button" type="button" 
+      data-bs-toggle="collapse"
+       data-bs-target="#panelsStayOpen-collapseOne" 
+       aria-expanded="true" 
+       aria-controls="panelsStayOpen-collapseOne">
         CandyCart
       </button>
     </h2>
-    <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-headingOne">
+     <!-- Collapse content -->
+    <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show accordionOne" 
+    aria-labelledby="panelsStayOpen-headingOne">
       <div class="accordion-body">
+      <h3>Din CandyCart – godis som gör hjärtat happy 💝</h3>
       <div class="checkoutCartContainer"></div>
       </div>
-    </div>
+    
+     <!--  Button -->
+     <div class="text-center mt-2 mb-4 d-block mx-auto">
+     <button type="button" class="proceedBtn btn btn-primary">Fortsätt till kassan</button>
   </div>
+   </div>
+    </div>
+    </div>
 `;
+
+
+// Click -Fortsätt till kassan
+const proceedBtn =document.querySelector<HTMLDivElement>(".proceedBtn")!;
+proceedBtn.addEventListener("click",() =>{
+
+const collapseOne = document.querySelector<HTMLDivElement>("#panelsStayOpen-collapseOne")!;
+const collapseTwo = document.querySelector<HTMLDivElement>("#panelsStayOpen-collapseTwo")!;
+
+if (collapseOne && collapseTwo){ 
+  collapseOne.classList.remove("show");
+  collapseTwo.classList.add("show"); 
+  window.scrollTo({top: 200, behavior:"smooth"});
+}
+});
+
 };
 
 export const renderCheckoutForm = function () {
   checkoutForm.innerHTML = `
-<div class="accordion formAccordion" id="accordionPanelsStayOpenExample">  
+<div class="accordion formAccordion" id="accordionCheckoutForm">  
 <div class="accordion-item">
     <h2 class="accordion-header" id="panelsStayOpen-headingTwo">
       <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false" aria-controls="panelsStayOpen-collapseTwo">
@@ -44,6 +74,7 @@ export const renderCheckoutForm = function () {
     </h2>
     <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse accordionTwo " aria-labelledby="panelsStayOpen-headingTwo">
       <div class="accordion-body">
+      <h3> Fyll i dina uppgifter </h3>
 
 <form id="form">
  <div class="form-group col-md-6">
@@ -84,6 +115,10 @@ export const renderCheckoutForm = function () {
   </div>
  
 `;
+
+ const collapseTwo =document.querySelector<HTMLDivElement>("#panelsStayOpen-collapseTwo")!;
+
+
   // get form and inputs after innerHTML
 
   const form = checkoutForm.querySelector<HTMLFormElement>("#form")!;
@@ -117,29 +152,37 @@ export const renderCheckoutForm = function () {
     // show Thank you
     postUserAddressForm();
 
-    const accordionTwo =
-      document.querySelector<HTMLDivElement>(".accordionTwo")!;
-    const accordionThree =
-      document.querySelector<HTMLDivElement>(".accordionThree")!;
-    accordionTwo.classList.remove("show");
-    accordionThree.classList.add("show");
+
+    // Open step 3
+     const collapseThree =document.querySelector<HTMLDivElement>("#panelsStayOpen-collapseThree")!;
+   collapseTwo.classList.remove("show");
+    collapseThree.classList.add("show");
+    window.scrollTo({ top: 250, behavior:"smooth"});
+
   });
 };
 
 export const postUserAddressForm = function () {
   placedOrderView.innerHTML = `
-<div class="accordion showAccordionCheckout" id="accordionPanelsStayOpenExample">  
+<div class="accordion showAccordionCheckout" id="accordionThanks">  
 <div class="accordion-item">
     <h2 class="accordion-header" id="panelsStayOpen-headingThree">
-      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseThree" aria-expanded="false" aria-controls="panelsStayOpen-collapseThree">
+      <button class="accordion-button collapsed" type="button"
+      data-bs-toggle="collapse" 
+      data-bs-target="#panelsStayOpen-collapseThree" 
+      aria-expanded="false"
+      aria-controls="panelsStayOpen-collapseThree"
+      disabled>
       Tack för din beställning!
       </button>
     </h2>
-    <div id="panelsStayOpen-collapseThree" class="accordion-collapse collapse collapse accordionThree" aria-labelledby="panelsStayOpen-headingThree">
+
+    <div id="panelsStayOpen-collapseThree" class="accordion-collapse collapse accordionThree" 
+    aria-labelledby="panelsStayOpen-headingThree">
       <div class="accordion-body">
       <div> 
-      <p> Här kommer att stå något i stil med "🍬tack för din beställning. välkommen åter! " </p>
-      <p> Vi packar dina godsaker med extra kärlek och skickar dem till dig så snart som möjligt" </p>
+      <p> Här kommer att stå något i stil med 🍬tack för din beställning. välkommen åter!  </p>
+      <p> Vi packar dina godsaker med extra kärlek och skickar dem till dig så snart som möjligt </p>
       </div>
       
        <!-- Continue Shopping Button -->
@@ -148,6 +191,8 @@ export const postUserAddressForm = function () {
                     <i class="bi bi-arrow-left me-2"></i>Continue Shopping
                     </button>
             </div>
-
+        </div>
+        </div>
+        </div>
       `;
 };

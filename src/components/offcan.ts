@@ -79,6 +79,9 @@ export const renderOffCan = function () {
 
     // show accordion
     cartCheckoutContainer.classList.remove("d-none");
+
+    // scroll to top
+    window.scrollTo({top:0, behavior: "smooth"})
   });
 
   // Event listeners for closing offcanvas

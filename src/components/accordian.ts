@@ -2,9 +2,9 @@ import { createOrdertoSend } from "../services/candyPOST_API";
 
 const cartView = document.querySelector("#cartView") as HTMLDivElement;
 const checkoutForm = document.querySelector("#checkoutForm") as HTMLFormElement;
-const placedOrderView = document.querySelector(
-  "#placedOrderView"
-) as HTMLDivElement;
+const placedOrderView = document.querySelector("#placedOrderView") as HTMLDivElement;
+
+
 
 export interface AddressData {
   customer_first_name: string;
@@ -46,16 +46,20 @@ export const renderCartView = function () {
     </div>
 `;
 
+
 // Click -Fortsätt till kassan
 const proceedBtn =document.querySelector<HTMLDivElement>(".proceedBtn")!;
 proceedBtn.addEventListener("click",() =>{
-  const collapseOne = document.querySelector<HTMLDivElement>("#panelsStayOpen-collapseOne")!;
-  const collapseTwo = document.querySelector<HTMLDivElement>("#panelsStayOpen-collapseTwo")!;
+
+const collapseOne = document.querySelector<HTMLDivElement>("#panelsStayOpen-collapseOne")!;
+const collapseTwo = document.querySelector<HTMLDivElement>("#panelsStayOpen-collapseTwo")!;
+
+if (collapseOne && collapseTwo){ 
   collapseOne.classList.remove("show");
   collapseTwo.classList.add("show"); 
+  collapseTwo.scrollIntoView({behavior: "smooth", block: "nearest"});
+}
 });
-
-
 
 };
 
@@ -70,7 +74,7 @@ export const renderCheckoutForm = function () {
     </h2>
     <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse accordionTwo " aria-labelledby="panelsStayOpen-headingTwo">
       <div class="accordion-body">
-      
+      <h3> Fyll i dina uppgifter </h3>
 
 <form id="form">
  <div class="form-group col-md-6">
@@ -111,6 +115,10 @@ export const renderCheckoutForm = function () {
   </div>
  
 `;
+
+ const collapseTwo =document.querySelector<HTMLDivElement>("#panelsStayOpen-collapseTwo")!;
+
+
   // get form and inputs after innerHTML
 
   const form = checkoutForm.querySelector<HTMLFormElement>("#form")!;
@@ -144,14 +152,13 @@ export const renderCheckoutForm = function () {
     // show Thank you
     postUserAddressForm();
 
-    
-    const accordionTwo =
-      document.querySelector<HTMLDivElement>(".accordionTwo")!;
-    const accordionThree =
-      document.querySelector<HTMLDivElement>(".accordionThree")!;
 
-    accordionTwo.classList.remove("show");
-    accordionThree.classList.add("show");
+    // Open step 3
+     const collapseThree =document.querySelector<HTMLDivElement>("#panelsStayOpen-collapseThree")!;
+   collapseTwo.classList.remove("show");
+    collapseThree.classList.add("show");
+    collapseThree.scrollIntoView({behavior:"smooth", block:"nearest"});
+
   });
 };
 
@@ -164,7 +171,8 @@ export const postUserAddressForm = function () {
       data-bs-toggle="collapse" 
       data-bs-target="#panelsStayOpen-collapseThree" 
       aria-expanded="false"
-      aria-controls="panelsStayOpen-collapseThree">
+      aria-controls="panelsStayOpen-collapseThree"
+      disabled>
       Tack för din beställning!
       </button>
     </h2>

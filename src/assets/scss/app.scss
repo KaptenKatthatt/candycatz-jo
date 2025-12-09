@@ -70,19 +70,6 @@ body {
   }
 }
 
-.cardDis {
-  opacity: 0.5;
-}
-
-.cardTrans {
-  background-color: $offcanvas;
-
-  &:hover {
-    box-shadow: 6px 6px 6px rgb(167, 167, 167);
-    transform: scale(1.02) rotate(-1deg);
-  }
-}
-
 .minusBtn,
 .plusBtn {
   width: 40px;

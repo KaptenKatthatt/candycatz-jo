@@ -1,6 +1,6 @@
 @import "colors";
 
-.cardTrans {
+.cardTransform {
   background-color: $offcanvas;
   transition: all 0.2s ease-in-out;
 
@@ -25,6 +25,19 @@
   font-family: "Courier New", Courier, monospace;
 }
 
+.cardDisabled {
+  opacity: 0.5;
+}
+
+.cardTransform {
+  background-color: $offcanvas;
+
+  &:hover {
+    box-shadow: 6px 6px 6px rgb(167, 167, 167);
+    transform: scale(1.02) rotate(-1deg);
+  }
+}
+
 .addToCartBtn {
   background: linear-gradient(
     45deg,
@@ -42,12 +55,11 @@
     transform: scale(0.95);
   }
   &:disabled {
-  background: $disabled;
-  color: rgb(79, 79, 79);
-  border: none;
-  opacity: 0.5;
-
-}
+    background: $disabled;
+    color: rgb(79, 79, 79);
+    border: none;
+    opacity: 0.5;
+  }
 }
 .modalInfoBtn {
   background: linear-gradient(
@@ -67,7 +79,7 @@
   }
 }
 
-.cardTrans img {
+.cardTransform img {
   padding: 10px;
 }
 

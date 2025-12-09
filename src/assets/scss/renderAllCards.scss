@@ -87,3 +87,24 @@
 //   color: white;
 //   font-size: 1.5rem !important;
 // }
+.allCardsContainer {
+  background-color: #f4e6ff;
+  border-radius: 20px;
+
+  .card-header {
+    background-image: url(/src/assets/img/banderoll.png);
+    background-repeat: repeat;
+  }
+}
+
+.candyAmount {
+  font-size: 2.5rem;
+  z-index: 100;
+  margin-right: 35px;
+  .candyAmountRendered {
+    font-size: 1rem;
+    position: absolute;
+    margin-top: 10px;
+    margin-left: -20px;
+  }
+}

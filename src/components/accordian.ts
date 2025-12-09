@@ -26,10 +26,15 @@ export const renderCartView = function () {
     </h2>
     <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-headingOne">
       <div class="accordion-body">
+      <h3>Din CandyCart – godis som gör hjärtat happy 💝</h3>
       <div class="checkoutCartContainer"></div>
       </div>
     </div>
+     <button type="submit" class="submitBtn btn btn-primary mt-2 mb-4 d-block mx-auto">Fortsätt till kassan</button>
   </div>
+   
+ 
+
 `;
 };
 
@@ -44,6 +49,7 @@ export const renderCheckoutForm = function () {
     </h2>
     <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse accordionTwo " aria-labelledby="panelsStayOpen-headingTwo">
       <div class="accordion-body">
+      
 
 <form id="form">
  <div class="form-group col-md-6">

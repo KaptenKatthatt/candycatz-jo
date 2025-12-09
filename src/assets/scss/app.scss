@@ -1,4 +1,9 @@
+//Variable and config files
 @import "colors";
+//Bootstrap
+@import "bootstrap/scss/bootstrap.scss";
+@import "bootstrap-icons/font/bootstrap-icons.css";
+//Children partials
 @import "badges";
 @import "buttons";
 @import "cards";
@@ -14,9 +19,6 @@
 @import "renderAllCards";
 @import "sideScroller";
 @import "typography";
-
-@import "bootstrap/scss/bootstrap.scss";
-@import "bootstrap-icons/font/bootstrap-icons.css";
 
 body {
   padding-top: 75px;

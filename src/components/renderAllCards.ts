@@ -31,7 +31,7 @@ export const cardStructure = function (product: CandyData): string {
         <p class="card-text priceTag">Pris/skopa: <span class="fw-bold">${
           product.price
         }:-</span></p>
-        <button class="modalInfoBtn btn btn-primary my-2"><i class="bi bi-info-circle"></i></button>
+        <button class="modalInfoBtn btn btn-primary"><i class="bi bi-info-circle"></i></button>
         <button class="addToCartBtn btn btn-success" 
         ${
           product.stock_status !== "instock" ? "disabled" : ""

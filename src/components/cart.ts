@@ -138,11 +138,11 @@ export const renderCart = function () {
               }:-</strong></p>
 
               <div class="buttonContainer d-flex flex-row align-items-center mt-2">
-                <button class="decreaseBtn minusBtn me-2" type="button">-</button>
+                <button class="decreaseBtn cartMinusBtn btn me-2" type="button">-</button>
                 <p class="me-2 d-flex align-items-center justify-content-center m-0">${
                   product.qty
                 }</p>
-                <button class="increaseBtn plusBtn me-2" type="button" ${
+                <button class="increaseBtn cartPlusBtn btn me-2" type="button" ${
                   product.qty >= product.stock_quantity ? "disabled" : ""
                 }>+</button>
                 <button class="deleteBtn btn btn-danger"><i class="bi bi-trash"></i></button>
@@ -228,11 +228,11 @@ export const renderCheckoutCart = function () {
           }:-</strong></p>
           </div>
           <div class="buttonContainer d-flex flex-row align-items-center">
-            <button class="decreaseBtn minusBtn me-2" type="button">-</button>
+            <button class="decreaseBtn cartMinusBtn me-2" type="button">-</button>
             <p class="me-2 d-flex align-items-center justify-content-center m-0">${
               product.qty
             }</p>
-            <button class="increaseBtn plusBtn me-2" type="button" ${
+            <button class="increaseBtn cartPlusBtn me-2" type="button" ${
               product.qty >= product.stock_quantity ? "disabled" : ""
             }>+</button>
             <button class="deleteBtn btn btn-sm btn-danger"><i class="bi bi-trash"></i></button>

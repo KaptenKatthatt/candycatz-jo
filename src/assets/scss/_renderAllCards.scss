@@ -35,30 +35,6 @@
   opacity: 0.5;
 }
 
-.addToCartBtn {
-  background: linear-gradient(
-    45deg,
-    rgb(117, 227, 117) 50%,
-    rgb(54, 161, 54) 100%
-  );
-  transition: transform 0.1s ease-in-out;
-  border: none;
-
-  &:hover {
-    box-shadow: 0 4px 8px $btn-candy-purple;
-    transform: scale(1.05);
-  }
-  &:active {
-    transform: scale(0.95);
-  }
-  &:disabled {
-    background: $disabled;
-    color: rgb(79, 79, 79);
-    border: none;
-    opacity: 0.5;
-  }
-}
-
 .allCardsContainer {
   background-color: $allCardsContainerBG;
   border-radius: 20px;

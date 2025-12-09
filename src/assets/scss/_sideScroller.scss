@@ -4,7 +4,7 @@
 
 .topTreatsSideScrollerContainer {
   height: 555px;
-  margin: 30px 10px;
+  margin: 30px 25px;
   gap: 30px;
   overflow-x: auto;
 
@@ -17,9 +17,7 @@
 .topTreatsSideScrollerContainer .card {
   flex-shrink: 0;
   margin-bottom: 20px;
-  scroll-behavior: smooth;
 }
-
 .scrollArrow {
   color: $btn-candy-purple;
   font-size: 50px;
@@ -27,7 +25,6 @@
   top: 50%;
   transform: translateY(-50%);
   transition: transform 0.1s ease-in-out;
-  // z-index: 100;
   cursor: pointer;
 
   &:first-of-type {
@@ -36,7 +33,6 @@
   &:first-of-type:hover {
     transform: scale(1.05) translateY(-50%);
   }
-
   &:first-of-type:active {
     transform: scale(0.95) translateY(-50%);
   }
@@ -49,16 +45,5 @@
   }
   &:last-of-type:active {
     transform: scale(0.95) translateY(-50%);
-  }
-
-  z-index: 100;
-  cursor: pointer;
-
-  &:first-of-type {
-    left: 10px;
-  }
-
-  &:last-of-type {
-    right: 10px;
   }
 }

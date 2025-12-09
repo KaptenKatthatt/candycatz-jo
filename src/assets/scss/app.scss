@@ -1,6 +1,21 @@
+@import "colors";
+@import "badges";
+@import "buttons";
+@import "cards";
+@import "carousel";
+@import "cart";
+@import "categories";
+@import "checkoutCart";
+@import "footer";
+@import "mediaQueries";
+@import "modal";
+@import "navbar";
+@import "offcan";
+@import "renderAllCards";
+@import "sideScroller";
+@import "typography";
 @import "bootstrap/scss/bootstrap.scss";
 @import "bootstrap-icons/font/bootstrap-icons.css";
-@import "colors";
 
 body {
   padding-top: 75px;

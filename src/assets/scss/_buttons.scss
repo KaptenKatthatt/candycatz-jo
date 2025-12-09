@@ -1,0 +1,9 @@
+.btn {
+  transition: transform 0.1 ease-in-out;
+  &:hover {
+    transform: scale(1.05);
+  }
+  &:active {
+    transform: scale(0.95);
+  }
+}

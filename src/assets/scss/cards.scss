@@ -10,3 +10,23 @@
     transform: scale(0.95);
   }
 }
+
+.card-text {
+  text-align: left;
+  font-size: smaller;
+  padding: 0px;
+}
+.stockStatus {
+  margin-bottom: -1rem;
+}
+
+.infoContainer {
+  position: relative;
+  bottom: 10px;
+}
+.infoContainer h5 {
+  height: 70px;
+}
+.stockStatus {
+  height: 40px;
+}

@@ -1,0 +1,61 @@
+@import "colors";
+
+.contact-info {
+  padding-top: 50px;
+  margin-bottom: 2rem;
+  color: white;
+  display: inline-block;
+  margin-top: 2rem;
+  vertical-align: top;
+  text-align: left;
+}
+
+.address-list {
+  list-style: none;
+}
+
+.address-list a {
+  text-decoration: none;
+}
+.footer-text {
+  color: white;
+  font-size: 0.7rem;
+  text-align: center;
+}
+
+.footer-icons {
+  color: $btn-candy-pink;
+  text-align: left;
+}
+
+.footer-icons i {
+  display: inline-block;
+  margin: 8px;
+  font-size: 2rem;
+}
+
+.scallop {
+  position: relative;
+  background: $bg;
+}
+
+.scallop::after {
+  position: absolute;
+  width: 100%;
+  content: " ";
+  background: radial-gradient(
+    circle at 50% 0%,
+    #fffcef 25%,
+    #c4dcd1 26%,
+    #c4dcd1 40%
+  );
+  background-color: #c4dcd1;
+  background-size: 50px 100px;
+  height: 100px;
+  background-repeat: repeat-x;
+}
+.after-scallop {
+  background: #c4dcd1;
+  padding: 50px;
+  text-align: left;
+}

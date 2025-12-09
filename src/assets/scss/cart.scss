@@ -1,0 +1,25 @@
+@import "colors";
+
+.minusBtn,
+.plusBtn {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: $btn-candy-purple;
+  color: #ffffff;
+  border: none;
+  display: inline;
+  text-align: center;
+  line-height: 40px;
+  font-size: 1.2rem;
+  font-weight: bold;
+
+  &:hover {
+    background-color: darkmagenta;
+  }
+
+  &:disabled {
+    opacity: 0.5;
+    background-color: $disabled;
+  }
+}

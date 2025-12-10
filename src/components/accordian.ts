@@ -1,3 +1,4 @@
+import type { ResponseData } from "../services/candyApiTypes";
 import { createOrdertoSend } from "../services/candyPOST_API";
 
 
@@ -177,11 +178,11 @@ export const postUserAddressForm = function (responseData: ResponseData) {
       
       
       <div> 
-     <h3>Smiles, ${responseData.customer_first_name}!</h3>
+     <h3>Smiles, ${responseData.data.customer_first_name}!</h3>
       <p> Vi har mottagit din beställning och allt är redo i vårt godislaboratorium.
        När din order skickas får du ett nytt meddelande med spårningsinformation, 
        så att du kan följa dina godsaker hela vägen hem. </p>
-     <p> Order: ${responseData.id} | Datum för beställning: </p>
+     <p> Order: ${responseData.data.id} | Datum för beställning: ${responseData.data.order_date} </p>
        <h4>Här är din order:</h4>
       <ul></ul> 
        <p> Njut av sötchocken!</p>

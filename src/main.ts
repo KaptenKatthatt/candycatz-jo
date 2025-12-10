@@ -20,7 +20,6 @@ window.scrollTo(0, 0);
 
 renderCartView();
 renderCheckoutForm();
-postUserAddressForm();
 
 //RenderAllCards
 renderAllCards();

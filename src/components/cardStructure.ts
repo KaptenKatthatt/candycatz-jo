@@ -1,10 +1,10 @@
-import { html } from "lit-html";
+// import { html } from "lit-html";
 import type { CandyData } from "../services/candyApiTypes";
 
 export const cardStructure = function (product: CandyData): string {
   let thumbnailURL = `https://www.bortakvall.se${product.images.thumbnail}`;
 
-  return html`<div class="card smallCards cardTransform rounded-4 p-1 ${
+  return `<div class="card smallCards cardTransform rounded-4 p-1 ${
     product.stock_status !== "instock" ? "cardDisabled" : ""
   }" " data-product-id="${product.id}" style="width: 11rem;">
       <img src="${thumbnailURL}" class="card-img-top click rounded-4" alt="Image of ${

@@ -1,17 +1,19 @@
+import { html } from "lit-html";
 import type { CandyData } from "../services/candyApiTypes";
 
 export const cardStructure = function (product: CandyData): string {
   let thumbnailURL = `https://www.bortakvall.se${product.images.thumbnail}`;
 
-  return `<div class="card cardTransform rounded-4 p-1 ${
+  return html`<div class="card smallCards cardTransform rounded-4 p-1 ${
     product.stock_status !== "instock" ? "cardDisabled" : ""
   }" " data-product-id="${product.id}" style="width: 11rem;">
       <img src="${thumbnailURL}" class="card-img-top click rounded-4" alt="Image of ${
     product.name
   }">
+  
       <div class="card-body">
       <div class="infoContainer">
-        <h5 class="card-title bg-primary click fs-5">${product.name}</h5>
+        <h5 class="card-title click smallCardsTitle">${product.name}</h5>
         ${
           product.stock_status === "instock"
             ? `<p class="card-text stockStatus">I lager:
@@ -21,7 +23,7 @@ export const cardStructure = function (product: CandyData): string {
         <p class="card-text priceTag">Pris/skopa: <span class="fw-bold">${
           product.price
         }:-</span></p>
-        <button class="modalInfoBtn btn btn-primary my-2"><i class="bi bi-info-circle"></i></button>
+        <button class="modalInfoBtn btn btn-primary"><i class="bi bi-info-circle"></i></button>
         <button class="addToCartBtn btn btn-success" 
         ${
           product.stock_status !== "instock" ? "disabled" : ""

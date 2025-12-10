@@ -50,7 +50,11 @@
 .cardTitleSideScroller {
   color: $card-title;
   font-size: 2.5rem;
-  // overflow: auto;
+  overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+}
+
+.cardTitleSideScroller::after {
+  content: "!";
 }

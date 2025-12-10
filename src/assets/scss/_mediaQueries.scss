@@ -3,13 +3,12 @@
     --bs-offcanvas-width: 70%;
   }
   .img-fluids {
-  max-width: 300px;
-}
-
+    max-width: 300px;
+  }
 }
 
 @media screen and (min-width: 868px) {
   .offcanvas {
-    --bs-offcanvas-width: 50%;
+    --bs-offcanvas-width: 45%;
   }
 }

@@ -304,25 +304,3 @@ mainContainerEl!.addEventListener("click", (e) => {
   const target = e.target as HTMLElement;
   if (target.closest(".clearCartBtn")) clearCart();
 });
-
-//SOPHIAS KOD HÄR UNDER. INTRUDERS WILL BE SHOT ON SIGHT.
-const disableAddToCartBtn = async function () {
-  const allCards = [
-    ...document.querySelectorAll<HTMLDivElement>(".cardTransform"),
-  ];
-
-  console.log(allCards);
-
-  const addToCartBtn =
-    document.querySelector<HTMLButtonElement>(".addToCartBtn")!;
-
-  if (!addToCartBtn) {
-    return;
-  }
-
-  // const candyId = await getCandyProductInfo(clickedCandyId);
-  // const candy = candyId.data;
-  addToCartBtn.setAttribute("disabled", "");
-};
-
-disableAddToCartBtn();

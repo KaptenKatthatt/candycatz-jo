@@ -4,9 +4,9 @@
 import { getAllCandyInfo } from "../services/candyAPI";
 import type { CandyData } from "../services/candyApiTypes";
 
-const topTreatsSideScrollerContainerEl = document.querySelector(
-  ".topTreatsSideScrollerContainer"
-) as HTMLDivElement;
+// const topTreatsSideScrollerContainerEl = document.querySelector(
+//   ".topTreatsSideScrollerContainer"
+// ) as HTMLDivElement;
 
 let response = await getAllCandyInfo();
 let allCandyCards: CandyData[] = response.data;

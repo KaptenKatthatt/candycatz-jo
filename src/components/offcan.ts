@@ -17,14 +17,14 @@ export const renderOffCan = function () {
         <div class="card-body">
           <div class="row align-items-center mb-2 cart-item">
             <div class="cartContainer"></div>
-           <button class="clearCartBtn btn btn-secondary p-1"><i class="bi bi-cart-x fs-5 mb-3"></i>Töm kundvagnen</button>
+           <button class="clearCartBtn btn btn-secondary p-1 mt-2"><i class="bi bi-cart-x fs-5  me-2"></i>Töm kundvagnen</button>
           </div>
         </div>
     </div>
 
       <div class="card cart-summary mt-4">
         <div class="card-body">
-          <h5 class="card-title mb-4 ">Ordersummering</h5>
+          <h5 class="card-title mb-4">Ordersummering</h5>
           <div class="d-flex justify-content-between mb-3">
             <span>Summa</span>
             <span class="subtotalContainer"></span>
@@ -81,7 +81,7 @@ export const renderOffCan = function () {
     cartCheckoutContainer.classList.remove("d-none");
 
     // scroll to top
-    window.scrollTo({top:500, behavior: "smooth"})
+    window.scrollTo({ top: 500, behavior: "smooth" });
   });
 
   // Event listeners for closing offcanvas

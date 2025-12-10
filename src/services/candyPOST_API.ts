@@ -53,7 +53,7 @@ export const sendOrder = async function (newOrderData: CheckoutData) {
       return;
     }
 
-    export const responseData = await response.json();
+    const responseData = await response.json();
 
     if (responseData.status !== "success") {
       console.log("Problems with the sent order", responseData.status);

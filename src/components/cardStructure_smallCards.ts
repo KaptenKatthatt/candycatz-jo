@@ -15,7 +15,7 @@ export const cardStructure = function (
       <img src="${thumbnailURL}" class="card-img-top click rounded-4" alt="Image of ${
     product.name
   }">
-
+<!--
 ${
   option === "sale"
     ? `<span class="star10">30%!
@@ -24,9 +24,8 @@ ${
 </button>`
     : ""
 }
+-->
 
-
-        
       <div class="card-body">
       <div class="infoContainer">
         <h3 class="card-title click smallCardsTitle">${product.name}</h3>

@@ -24,3 +24,21 @@
   white-space: nowrap;
   font-size: 1.5rem;
 }
+
+.star10 {
+  width: 5.5rem;
+  height: 4.5rem;
+  position: absolute;
+  top: -30px;
+  right: -30px;
+  font-weight: 700;
+  // padding: 10px;
+  // padding-top: 5px;
+  color: whitesmoke;
+  display: grid;
+  place-content: center;
+
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 10 10'><polygon fill='rgb(255,0,0)' points='5,0 5.710739,2.812571 7.938926,0.954919 6.860737,3.648075 9.755283,3.454915 7.3,5 9.755283,6.545085 6.860737,6.351926 7.938926,9.04508 5.710739,7.187429 5,10 4.289261,7.187429 2.061074,9.04508 3.139263,6.351926 0.244717,6.545085 2.7,5 0.244717,3.454915 3.139263,3.648074 2.061074,0.954919 4.289261,2.812571'/></svg>");
+  background-position: 50%;
+  background-repeat: no-repeat;
+}

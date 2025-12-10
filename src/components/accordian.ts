@@ -257,6 +257,7 @@ const allCardsContainerEl = document.querySelector<HTMLDivElement>(".allCardsCon
 const carouselContainerEl = document.querySelector<HTMLDivElement>(".carouselContainer")!;
 const scrollcontainerEl = document.querySelector<HTMLDivElement>(".scroll-container")!;
 
+const openMainPage = function() {
 navBarEl.addEventListener("click", (e) =>{
   const target = e.target as HTMLDivElement;
   const clickedNavLink = target.closest(".nav-link");
@@ -275,3 +276,5 @@ navBarEl.addEventListener("click", (e) =>{
 
 }
 });
+}
+openMainPage();

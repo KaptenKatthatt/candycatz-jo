@@ -20,11 +20,12 @@ export interface AddressData {
 }
 
 export const renderCartView = function () {
-  cartView.innerHTML = `<div class="accordion" id="accordionCandyCart">
+  cartView.innerHTML = `
+  <div class="accordion" id="accordionCandyCart">
   <div class="accordion-item">
    <!-- Header -->
     <h2 class="accordion-header" id="panelsStayOpen-headingOne">
-      <button class="accordion-button" type="button" 
+      <button class="accordion-button collapsed" type="button" 
       data-bs-toggle="collapse"
        data-bs-target="#panelsStayOpen-collapseOne" 
        aria-expanded="true" 
@@ -37,7 +38,7 @@ export const renderCartView = function () {
     aria-labelledby="panelsStayOpen-headingOne">
       <div class="accordion-body">
       <div class="candyCartTxt">
-      <h3>Din CandyCart – godis som gör hjärtat happy 💝</h3>
+      <h3>Din CandyCart fylld med godis som gör hjärtat happy 💝</h3>
        </div>
       <div class="checkoutCartContainer"></div>
       </div>
@@ -54,17 +55,17 @@ export const renderCartView = function () {
 
 
 // Click -Fortsätt till kassan
-const proceedBtn =document.querySelector<HTMLDivElement>(".proceedBtn")!;
+const proceedBtn = document.querySelector<HTMLDivElement>(".proceedBtn")!;
 proceedBtn.addEventListener("click",() =>{
 
 const collapseOne = document.querySelector<HTMLDivElement>("#panelsStayOpen-collapseOne")!;
 const collapseTwo = document.querySelector<HTMLDivElement>("#panelsStayOpen-collapseTwo")!;
 
-if (collapseOne && collapseTwo){ 
   collapseOne.classList.remove("show");
   collapseTwo.classList.add("show"); 
+
   window.scrollTo({top: 500, behavior:"smooth"});
-}
+
 });
 
 };
@@ -73,14 +74,21 @@ export const renderCheckoutForm = function () {
   checkoutForm.innerHTML = `
 <div class="accordion formAccordion" id="accordionCheckoutForm">  
 <div class="accordion-item">
+ <!-- Header -->
     <h2 class="accordion-header" id="panelsStayOpen-headingTwo">
-      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false" aria-controls="panelsStayOpen-collapseTwo">
+      <button class="accordion-button collapsed" type="button" 
+      data-bs-toggle="collapse" 
+      data-bs-target="#panelsStayOpen-collapseTwo" 
+      aria-expanded="true" 
+      aria-controls="panelsStayOpen-collapseTwo">
         Checkout
       </button>
     </h2>
-    <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse accordionTwo " aria-labelledby="panelsStayOpen-headingTwo">
+    <!-- Collapse content -->
+    <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse  accordionTwo " 
+    aria-labelledby="panelsStayOpen-headingTwo">
       <div class="accordion-body">
-      <h3> Fyll i dina uppgifter </h3>
+      <h3> Fyll i dina uppgifter! </h3>
 
 <form id="form">
  <div class="form-group col-md-6">
@@ -228,5 +236,5 @@ export const postUserAddressForm = function (responseData: ResponseData) {
         </div>
         </div>
       `;
-      clearCart();
+      // clearCart();
 };

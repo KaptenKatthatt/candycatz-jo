@@ -250,3 +250,28 @@ export const postUserAddressForm = function (responseData: ResponseData) {
       `;
       // clearCart();
 };
+
+const navBarEl = document.querySelector<HTMLLinkElement>(".navbar")!;
+const accordianEl = document.querySelector<HTMLDivElement>("#cartCheckoutContainer")!;
+const allCardsContainerEl = document.querySelector<HTMLDivElement>(".allCardsContainer")!;
+const carouselContainerEl = document.querySelector<HTMLDivElement>(".carouselContainer")!;
+const scrollcontainerEl = document.querySelector<HTMLDivElement>(".scroll-container")!;
+
+navBarEl.addEventListener("click", (e) =>{
+  const target = e.target as HTMLDivElement;
+  const clickedNavLink = target.closest(".nav-link");
+  if (clickedNavLink){
+    console.log("klickade på en nav-link", clickedNavLink)
+      console.log('har data-bs-toggle:', clickedNavLink.hasAttribute('data-bs-toggle'));
+    if (!clickedNavLink.hasAttribute("data-bs-toggle")) {
+    console.log("klickade på en cart")
+    } 
+    if (accordianEl) {
+      accordianEl.classList.add("d-none");
+      allCardsContainerEl.classList.remove("d-none");
+      carouselContainerEl.classList.remove("d-none");
+      scrollcontainerEl.classList.remove("d-none");
+    }
+
+}
+});

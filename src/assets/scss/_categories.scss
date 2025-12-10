@@ -15,7 +15,7 @@
     color: $cream-white;
     text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.2);
     position: relative;
-    background: linear-gradient(90deg, $pink 0%, $blue 100%);
+    background: $accent;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
     transition: background 0.4s ease, transform 0.2s ease, box-shadow 0.2s ease;
   }

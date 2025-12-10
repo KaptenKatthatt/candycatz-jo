@@ -119,12 +119,18 @@ function moreSweetsButton() {
 }
 
 function showNumberOfCandys() {
+
+  const instockCandys = [...allCandyCards];
+  // ytlig kopia av allCandyCards
+  const numberOfInStock = instockCandys.filter((candy) => {
+    return candy.stock_status === "instock";
+  });
   const candyAmountRendered = document.querySelector<HTMLDivElement>(
     ".candyAmountRendered"
   )!;
   const allTheCandy = usedIds.length + showRestCandy.length;
   const allTheResponseCandy = allCandyCards.length;
-  candyAmountRendered.innerHTML = `${allTheCandy}/${allTheResponseCandy}`;
+  candyAmountRendered.innerHTML = `${allTheCandy}/${allTheResponseCandy} (${numberOfInStock.length} i lager)`;
 }
 
 // okej allt stämmer här in med det

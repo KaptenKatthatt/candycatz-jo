@@ -7,7 +7,7 @@ export const renderCarousel = function () {
 <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
       <div class="carousel-inner">
         <div class="carousel-item active">
-          <img src="/src/assets/img/candy-1280.jpg" class="d-block w-100" alt="Picture of yummy candy" />
+          <img src="/src/assets/img/sockerKick.png" class="d-block w-100" alt="Picture of yummy candy" />
         </div>
         <div class="carousel-item">
           <img src="/src/assets/img/jelly-beans-1280.jpg" class="d-block w-100" alt="Picture with sour sweet treats" />

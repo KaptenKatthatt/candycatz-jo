@@ -44,7 +44,6 @@ function cardStructureSideScroller(product: CandyData): string {
 }
 
 export const sideScroller = function () {
-<<<<<<< Updated upstream
   // TOP TREATS Kategorien
   const topTreatsCategories = [...allCandyCards];
   // ytlig kopia av allCandyCards
@@ -61,23 +60,6 @@ export const sideScroller = function () {
   topTreatsCardsContainerEl.innerHTML = sliceOutTopTreats
     .map((product) => cardStructureSideScroller(product))
     .join("");
-=======
-  //   //TOP TREATS Kategorien
-  //   const topTreatsCategories = [...allCandyCards];
-  //   // ytlig kopia av allCandyCards
-  //   const filterTopTreats = topTreatsCategories.filter((candy) => {
-  //     return candy.stock_quantity < 3 && candy.stock_status === "instock";
-  //   });
-  // returnera ny array med alla som är instock OCH färre än 3
-  //   const sliceOutTopTreats = filterTopTreats.slice(0, 12);
-  //   // slicea sedan ut de första 12
-  //   const topTreatsCardsContainerEl = document.querySelector(
-  //     ".topTreatsCardsContainer"
-  //   ) as HTMLDivElement;
-  //   topTreatsCardsContainerEl.innerHTML += sliceOutTopTreats
-  //     .map((product) => cardStructure(product))
-  //     .join("");
->>>>>>> Stashed changes
 
   // Side scroller arrow functionality
   document
@@ -92,25 +74,6 @@ export const sideScroller = function () {
         scrollContainer.scrollBy(-800, 0);
       }
       if (target.closest(".scrollArrowRight")) {
-<<<<<<< Updated upstream
-=======
-        scrollContainer.scrollBy(800, 0);
-      }
-    });
-
-  document
-    .querySelector(".sweetSavingsSideScrollerWrapper")
-    ?.addEventListener("click", (e) => {
-      const target = e.target as HTMLElement;
-      const scrollContainer = document.querySelector(
-        ".sweetSavingsSideScrollerContainer"
-      ) as HTMLDivElement;
-
-      if (target.closest(".scrollArrowLeft")) {
-        scrollContainer.scrollBy(-800, 0);
-      }
-      if (target.closest(".scrollArrowRight")) {
->>>>>>> Stashed changes
         scrollContainer.scrollBy(800, 0);
       }
     });

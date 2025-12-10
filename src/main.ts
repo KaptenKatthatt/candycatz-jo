@@ -22,8 +22,8 @@ renderCartView();
 renderCheckoutForm();
 
 //RenderAllCards
-sideScroller();
 renderAllCards();
+sideScroller();
 //getCandyClickedId, startar efter alla kort laddas ut
 getClickedCandyId();
 
@@ -38,27 +38,3 @@ renderOffCan();
 renderFooter();
 
 initStore();
-<<<<<<< Updated upstream
-=======
-
-// import type { SubmittedOrderData } from "./services/postAPI";
-// const orderData: SubmittedOrderData = {
-//   customer_first_name: "Jonas",
-//   customer_last_name: "Andersson",
-//   customer_address: "Storgatan 123",
-//   customer_postcode: "12345",
-//   customer_city: "Stockholm",
-//   customer_email: "jonas@example.com",
-//   order_total: "12",
-//   order_items: [
-//     {
-//       product_id: 5216,
-//       qty: 1,
-//       item_price: 12,
-//       item_total: 12,
-//     },
-//   ],
-// };
-
-// postToCyberDyneHQ(orderData);
->>>>>>> Stashed changes

@@ -1,3 +1,9 @@
+h1 {
+  font-family: "Chicle", serif;
+  font-size: 4rem;
+  color: rgb(203, 0, 0);
+
+}
 .navbar {
   display: flex;
 }
@@ -12,12 +18,5 @@
 }
 .navbar-grad {
   background: linear-gradient(90deg, #ffb3d9 0%, #ffebb3 30%, #a3dcff 100%);
-  border-bottom-left-radius: 30px;
-  border-bottom: 4px solid rgb(50, 93, 162);
-  box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.3);
-}
-
-.img-fluids {
-  max-width: 240px;
 }
 

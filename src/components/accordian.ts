@@ -177,8 +177,8 @@ export const postUserAddressForm = function (responseData: ResponseData) {
       <div class="accordion-body">
       
       
-      <div> 
-     <h3>Smiles, ${responseData.data.customer_first_name}!</h3>
+      <div class="wavecardAccord"> 
+     <h2>Smiles, ${responseData.data.customer_first_name}!</h2>
       <p> Vi har mottagit din beställning och allt är redo i vårt godislaboratorium.
        När din order skickas får du ett nytt meddelande med spårningsinformation, 
        så att du kan följa dina godsaker hela vägen hem. </p>

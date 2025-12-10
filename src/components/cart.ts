@@ -179,10 +179,6 @@ export const renderCart = function () {
   ) as HTMLSpanElement;
 
   subtotalContainerEl.innerText = `${getTotalCostOfProductsInCart()} kr`;
-  // const shippingCostContainerEl = document.querySelector<HTMLSpanElement>(
-  //   ".shippingCostContainer"
-  // );
-  // shippingCostContainerEl!.innerText = `${shipping} kr`;
   const totalCostContainerEl = document.querySelector(
     ".totalCostContainer"
   ) as HTMLSpanElement;
@@ -238,7 +234,6 @@ export const renderCheckoutCart = function () {
             <button class="deleteBtn btn btn-sm btn-danger"><i class="bi bi-trash"></i></button>
           </div>
         </div>
-
         `;
       })
       .join("");
@@ -264,11 +259,6 @@ export const renderCheckoutCart = function () {
   ) as HTMLSpanElement;
 
   subtotalContainerEl.innerText = `${getTotalCostOfProductsInCart()} kr`;
-  const shipping = 19;
-  // const shippingCostContainerEl = document.querySelector<HTMLSpanElement>(
-  //   ".shippingCostContainer"
-  // );
-  // shippingCostContainerEl!.innerText = `${shipping} kr`;
   const totalCostContainerEl = document.querySelector(
     ".totalCostContainer"
   ) as HTMLSpanElement;

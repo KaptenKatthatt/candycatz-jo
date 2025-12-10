@@ -1,6 +1,6 @@
 import { getAllCandyInfo } from "../services/candyAPI";
 import type { CandyData } from "../services/candyApiTypes";
-import { cardStructure } from "./cardStructure";
+import { cardStructure } from "./cardStructure_smallCards";
 import { cardStructureSideScroller } from "./sideScroller";
 
 let showMoreCandy: CandyData[];
@@ -11,10 +11,8 @@ let showRestCandy: CandyData[];
 let response = await getAllCandyInfo();
 let allCandyCards: CandyData[] = response.data;
 
-
 export const renderAllCards = async function () {
-
-    // TOP TREATS Kategorien
+  // TOP TREATS Kategorien
   const topTreatsCategories = [...allCandyCards];
   // ytlig kopia av allCandyCards
   const filterTopTreats = topTreatsCategories.filter((candy) => {
@@ -52,7 +50,7 @@ export const renderAllCards = async function () {
   const sweetSavingsCategories = [...allCandyCards];
   // ytlig kopia av allCandyCards
   const filterSweetSaving = sweetSavingsCategories.filter((candy) => {
-    return candy.stock_quantity > 8 && candy.stock_status === "instock";
+    return candy.on_sale === true && candy.stock_status === "instock";
   });
   // returnera ny array med alla som är instock OCH färre än 3
   const sliceOutSavings = filterSweetSaving.slice(0, 12);
@@ -69,7 +67,7 @@ export const renderAllCards = async function () {
   usedIds = [
     // ...sliceOutTopTreats.map((candy) => candy.id),
     ...sliceOutSavings.map((candy) => candy.id),
-    ...sliceOutTopTreats.map((candy) => candy.id)
+    ...sliceOutTopTreats.map((candy) => candy.id),
   ];
 
   showMoreCandy = allCandyCards.filter((candy) => !usedIds.includes(candy.id));
@@ -119,7 +117,6 @@ function moreSweetsButton() {
 }
 
 function showNumberOfCandys() {
-
   const instockCandys = [...allCandyCards];
   // ytlig kopia av allCandyCards
   const numberOfInStock = instockCandys.filter((candy) => {

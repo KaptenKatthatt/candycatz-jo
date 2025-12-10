@@ -53,7 +53,7 @@ export const addToCart = async function (clickedCandyId: number) {
   saveCartArrayToLocalStorage(cartArray);
 };
 
-const clearCart = function () {
+export const clearCart = function () {
   localStorage.removeItem("candyCartArray");
   initStore();
 };

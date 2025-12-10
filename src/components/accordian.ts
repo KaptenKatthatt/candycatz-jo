@@ -1,5 +1,7 @@
 import type { ResponseData } from "../services/candyApiTypes";
 import { createOrdertoSend } from "../services/candyPOST_API";
+import { clearCart } from "./cart";
+import { getCartArrayFromLocalStorage } from "./localStorage";
 
 
 
@@ -34,9 +36,12 @@ export const renderCartView = function () {
     <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show accordionOne" 
     aria-labelledby="panelsStayOpen-headingOne">
       <div class="accordion-body">
+      <div class="candyCartTxt">
       <h3>Din CandyCart – godis som gör hjärtat happy 💝</h3>
+       </div>
       <div class="checkoutCartContainer"></div>
       </div>
+       
     
      <!--  Button -->
      <div class="text-center mt-2 mb-4 d-block mx-auto">
@@ -79,33 +84,33 @@ export const renderCheckoutForm = function () {
 
 <form id="form">
  <div class="form-group col-md-6">
-    <label for="inputFirstName">Namn</label>
+    <label for="inputFirstName">Namn:</label>
     <input type="text" class="form-control" id="inputFirstName" required placeholder="Förnamn" value="Kalle">
   </div>
    <div class="form-group col-md-6">
-    <label for="inputLastName">Efternamn</label>
+    <label for="inputLastName">Efternamn:</label>
     <input type="text" class="form-control" id="inputLastName" required placeholder="Efternamn" value="Anka">
   </div>
   <div class="form-row">
     <div class="form-group col-md-6">
-      <label for="inputEmail4">Email</label>
+      <label for="inputEmail4">Email:</label>
       <input type="email" class="form-control" id="inputEmail" required placeholder="Mailadress" value="kalle@ankeborgen.se">
   </div>
   <div class="form-group col-md-6">
-    <label for="inputNumber">Telefonnummer<span class="text-muted">(optional)</span></label>
+    <label for="inputNumber">Telefonnummer:<span class="text-muted">(optional)</span></label>
     <input type="number" class="form-control" id="inputNumber" placeholder="Telefonnummer" value="0701111111">
   </div>
   <div class="form-group col-md-6">
-    <label for="inputAddress">Adress</label>
+    <label for="inputAddress">Adress:</label>
     <input type="text" class="form-control" id="inputAddress" required placeholder="Gatuadress" value="Kvackvägen 13">
   </div>
   <div class="form-row">
     <div class="form-group col-md-6">
-      <label for="inputCity">Ort</label>
+      <label for="inputCity">Ort:</label>
       <input type="text" class="form-control" required id="inputCity" value="Ankeborg">
     </div>
     <div class="form-group col-md-2">
-      <label for="inputZip">Postnummer</label>
+      <label for="inputZip">Postnummer:</label>
       <input type="text" class="form-control" required id="inputZip" minlength="5" maxlength="6" value="12345">
     </div>
   </div>
@@ -158,6 +163,24 @@ export const renderCheckoutForm = function () {
 };
 
 export const postUserAddressForm = function (responseData: ResponseData) {
+  const generateOrderItemsInConfirmation = function () {
+    let orderItemsInConfirmation = getCartArrayFromLocalStorage() || [];
+
+    return orderItemsInConfirmation
+      .map((product) => {
+        let thumbnailURL = `https://www.bortakvall.se${product.thumbnail}`;
+
+        return `<div class="card bg-none rounded-4 p-1 style="width: 11rem;">
+      <img src="${thumbnailURL}" class="card-img-top click rounded-4 w-25" alt="Image of ${product.name}">
+      <div class="card-body">
+        <h5 class="card-title click smallCardsTitle">${product.qty} x ${product.name}</h5>
+        </div>
+        </div>`;
+      })
+      .join("");
+    console.log(orderItemsInConfirmation);
+  };
+
   placedOrderView.innerHTML = `
 <div class="accordion showAccordionCheckout" id="accordionThanks">  
 <div class="accordion-item">
@@ -165,9 +188,8 @@ export const postUserAddressForm = function (responseData: ResponseData) {
       <button class="accordion-button collapsed" type="button"
       data-bs-toggle="collapse" 
       data-bs-target="#panelsStayOpen-collapseThree" 
-      aria-expanded="false"
-      aria-controls="panelsStayOpen-collapseThree"
-      disabled>
+      aria-expanded="true"
+      aria-controls="panelsStayOpen-collapseThree">
       Orderbekräftelse!
       </button>
     </h2>
@@ -175,18 +197,25 @@ export const postUserAddressForm = function (responseData: ResponseData) {
     <div id="panelsStayOpen-collapseThree" class="accordion-collapse collapse accordionThree" 
     aria-labelledby="panelsStayOpen-headingThree">
       <div class="accordion-body">
-      
+
+      <div class="placedOrderContainer"> 
       
       <div class="wavecardAccord"> 
+      
      <h2>Smiles, ${responseData.data.customer_first_name}!</h2>
       <p> Vi har mottagit din beställning och allt är redo i vårt godislaboratorium.
        När din order skickas får du ett nytt meddelande med spårningsinformation, 
        så att du kan följa dina godsaker hela vägen hem. </p>
-     <p> Order: ${responseData.data.id} | Datum för beställning: ${responseData.data.order_date} </p>
+     <p> <strong>Order:</strong> ${responseData.data.id} <strong>| Datum för beställning:</strong> ${responseData.data.order_date} </p>
+     <p><strong>Leveransadress:</strong> ${responseData.data.customer_address} </p>
        <h4>Här är din order:</h4>
-      <ul></ul> 
+       <div class="orderConfirmationItems">
+       ${generateOrderItemsInConfirmation()}
+       </div>
        <p> Njut av sötchocken!</p>
-        <p> Med vänlig hälsning, CandyCatz 💖</p>
+        <p> Med vänlig hälsning,</p>
+        <h1>CandyCatz</h1>
+      </div>
       </div>
       
 
@@ -199,4 +228,5 @@ export const postUserAddressForm = function (responseData: ResponseData) {
         </div>
         </div>
       `;
+      clearCart();
 };

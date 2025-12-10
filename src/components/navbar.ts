@@ -2,12 +2,8 @@ export const navbarEl = document.querySelector("nav") as HTMLElement;
 
 export const renderNavbar = function () {
   navbarEl.innerHTML = `<div class="container-fluid">
-          <a class="navbar-brand" href="/index.html">
-            <img
-              src="/src/assets/img/candyCatz4.png"
-              class="d-inline-block align-top img-fluids"
-              alt="CandyCatz logo"
-            />
+          <a class="navbar-brand d-inline-block align-top" href="/index.html">
+            <h1>CandyCatz</h1>
           </a>
           <!--VARUKORG-->
           <div id="#cartIcon" class="ms-auto ms-lg-auto order-lg-last m-2">

@@ -3,11 +3,11 @@ import { createOrdertoSend } from "../services/candyPOST_API";
 import { clearCart } from "./cart";
 import { getCartArrayFromLocalStorage } from "./localStorage";
 
-
-
 const cartView = document.querySelector("#cartView") as HTMLDivElement;
 const checkoutForm = document.querySelector("#checkoutForm") as HTMLFormElement;
-const placedOrderView = document.querySelector("#placedOrderView") as HTMLDivElement;
+const placedOrderView = document.querySelector(
+  "#placedOrderView"
+) as HTMLDivElement;
 
 export interface AddressData {
   customer_first_name: string;
@@ -53,26 +53,30 @@ export const renderCartView = function () {
     </div>
 `;
 
+  // Click -Fortsätt till kassan
+  const proceedBtn = document.querySelector<HTMLDivElement>(".proceedBtn")!;
+  proceedBtn.addEventListener("click", () => {
+    const collapseOne = document.querySelector<HTMLDivElement>(
+      "#panelsStayOpen-collapseOne"
+    )!;
+    const collapseTwo = document.querySelector<HTMLDivElement>(
+      "#panelsStayOpen-collapseTwo"
+    )!;
 
-// Click -Fortsätt till kassan
-const proceedBtn = document.querySelector<HTMLDivElement>(".proceedBtn")!;
-proceedBtn.addEventListener("click",() =>{
+    collapseOne.classList.remove("show");
+    collapseTwo.classList.add("show");
 
-const collapseOne = document.querySelector<HTMLDivElement>("#panelsStayOpen-collapseOne")!;
-const collapseTwo = document.querySelector<HTMLDivElement>("#panelsStayOpen-collapseTwo")!;
-
-  collapseOne.classList.remove("show");
-  collapseTwo.classList.add("show"); 
-
-  const collapseOneBtn = document.querySelector("#panelsStayOpen-headingOne .accordion-button")! as HTMLButtonElement;
-    const collapseTwoBtn = document.querySelector("#panelsStayOpen-headingTwo .accordion-button")! as HTMLButtonElement;
+    const collapseOneBtn = document.querySelector(
+      "#panelsStayOpen-headingOne .accordion-button"
+    )! as HTMLButtonElement;
+    const collapseTwoBtn = document.querySelector(
+      "#panelsStayOpen-headingTwo .accordion-button"
+    )! as HTMLButtonElement;
     collapseOneBtn.setAttribute("aria-expanded", "false");
     collapseTwoBtn.setAttribute("aria-expanded", "true");
 
-  window.scrollTo({top: 500, behavior:"smooth"});
-
-});
-
+    window.scrollTo({ top: 500, behavior: "smooth" });
+  });
 };
 
 export const renderCheckoutForm = function () {
@@ -135,17 +139,21 @@ export const renderCheckoutForm = function () {
  
 `;
 
- const collapseTwo =document.querySelector<HTMLDivElement>("#panelsStayOpen-collapseTwo")!;
-
+  const collapseTwo = document.querySelector<HTMLDivElement>(
+    "#panelsStayOpen-collapseTwo"
+  )!;
 
   // get form and inputs after innerHTML
 
   const form = checkoutForm.querySelector<HTMLFormElement>("#form")!;
-  const inputFirstName =document.querySelector<HTMLInputElement>("#inputFirstName")!;
-  const inputLastName =document.querySelector<HTMLInputElement>("#inputLastName")!;
+  const inputFirstName =
+    document.querySelector<HTMLInputElement>("#inputFirstName")!;
+  const inputLastName =
+    document.querySelector<HTMLInputElement>("#inputLastName")!;
   const inputEmail = document.querySelector<HTMLInputElement>("#inputEmail")!;
   const inputNumber = document.querySelector<HTMLInputElement>("#inputNumber")!;
-  const inputAddress =document.querySelector<HTMLInputElement>("#inputAddress")!;
+  const inputAddress =
+    document.querySelector<HTMLInputElement>("#inputAddress")!;
   const inputCity = document.querySelector<HTMLInputElement>("#inputCity")!;
   const inputZip = document.querySelector<HTMLInputElement>("#inputZip")!;
 
@@ -163,22 +171,25 @@ export const renderCheckoutForm = function () {
       customer_postcode: inputZip.value,
     };
 
-
-    await createOrdertoSend(orderData); 
+    await createOrdertoSend(orderData);
 
     // Open step 3
-    const collapseThree =document.querySelector<HTMLDivElement>("#panelsStayOpen-collapseThree")!;
-   collapseTwo.classList.remove("show");
+    const collapseThree = document.querySelector<HTMLDivElement>(
+      "#panelsStayOpen-collapseThree"
+    )!;
+    collapseTwo.classList.remove("show");
     collapseThree.classList.add("show");
 
-    const collapseTwoBtn = document.querySelector("#panelsStayOpen-headingTwo .accordion-button")! as HTMLButtonElement;
+    const collapseTwoBtn = document.querySelector(
+      "#panelsStayOpen-headingTwo .accordion-button"
+    )! as HTMLButtonElement;
     collapseTwoBtn.setAttribute("aria-expanded", "false");
-    const collapseThreeBtn = document.querySelector("#panelsStayOpen-headingThree .accordion-button")! as HTMLButtonElement;
+    const collapseThreeBtn = document.querySelector(
+      "#panelsStayOpen-headingThree .accordion-button"
+    )! as HTMLButtonElement;
     collapseThreeBtn.setAttribute("aria-expanded", "true");
 
-
-    window.scrollTo({ top: 500, behavior:"smooth"});
-
+    window.scrollTo({ top: 500, behavior: "smooth" });
   });
 };
 
@@ -198,7 +209,6 @@ export const postUserAddressForm = function (responseData: ResponseData) {
         </div>`;
       })
       .join("");
-    console.log(orderItemsInConfirmation);
   };
 
   placedOrderView.innerHTML = `
@@ -218,16 +228,22 @@ export const postUserAddressForm = function (responseData: ResponseData) {
     aria-labelledby="panelsStayOpen-headingThree">
       <div class="accordion-body">
 
+      
       <div class="placedOrderContainer"> 
       
       <div class="wavecardAccord"> 
-      
      <h2>Smiles, ${responseData.data.customer_first_name}!</h2>
       <p> Vi har mottagit din beställning och allt är redo i vårt godislaboratorium.
        När din order skickas får du ett nytt meddelande med spårningsinformation, 
        så att du kan följa dina godsaker hela vägen hem. </p>
-     <p> <strong>Order:</strong> ${responseData.data.id} <strong>| Datum för beställning:</strong> ${responseData.data.order_date} </p>
-     <p><strong>Leveransadress:</strong> ${responseData.data.customer_address} </p>
+     <p> <strong>Order:</strong> ${
+       responseData.data.id
+     } <strong>| Datum för beställning:</strong> ${
+    responseData.data.order_date
+  } </p>
+     <p><strong>Leveransadress:</strong> ${
+       responseData.data.customer_address
+     } </p>
        <h4>Här är din order:</h4>
        <div class="orderConfirmationItems">
        ${generateOrderItemsInConfirmation()}
@@ -248,7 +264,7 @@ export const postUserAddressForm = function (responseData: ResponseData) {
         </div>
         </div>
       `;
-      // clearCart();
+  // clearCart();
 };
 
 const navBarEl = document.querySelector<HTMLLinkElement>(".navbar")!;

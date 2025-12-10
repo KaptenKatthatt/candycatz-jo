@@ -60,7 +60,7 @@ export const renderAllCards = async function () {
     ".sweetSavingsCardsContainer"
   ) as HTMLDivElement;
   sweetSavingsCardsContainterEl.innerHTML = sliceOutSavings
-    .map((product) => cardStructure(product))
+    .map((product) => cardStructure(product, "sale"))
     .join("");
 
   // skapa variabel array som innehåller de som redan har visats

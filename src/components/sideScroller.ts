@@ -34,7 +34,7 @@ export function cardStructureSideScroller(product: CandyData): string {
             product.price
           }:-</span></p>
           <button class="modalInfoBtn btn btn-primary"><i class="bi bi-info-circle"></i></button>
-          <button class="addToCartBtn btn btn-success" 
+          <button class="addToCartBtn btn" 
           ${
             product.stock_status !== "instock" ? "disabled" : ""
           }>+<i class="bi bi-basket ps-2"></i></button>

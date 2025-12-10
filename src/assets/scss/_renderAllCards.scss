@@ -69,16 +69,15 @@
 }
 
 .scallopbox {
-   --r: 30px; 
+  --r: 30px;
   height: auto;
   aspect-ratio: 1;
-  padding: calc(1.5*var(--r));
+  padding: calc(1.5 * var(--r));
   background: $allCardsContainerBG;
-  mask: 
-    linear-gradient(#000 0 0) no-repeat
-     50%/calc(100% - 2*var(--r)) calc(100% - 2*var(--r)), 
-    radial-gradient(farthest-side,#000 97%,#0000) 
-     0 0/calc(2*var(--r)) calc(2*var(--r)) round;
+  mask: linear-gradient(#000 0 0) no-repeat 50% / calc(100% - 2 * var(--r))
+      calc(100% - 2 * var(--r)),
+    radial-gradient(farthest-side, #000 97%, #0000) 0 0 / calc(2 * var(--r))
+      calc(2 * var(--r)) round;
 
   h2 {
     text-align: center;
@@ -88,12 +87,14 @@
 .wavebox {
   z-index: 1;
   background-color: $allCardsContainerBG;
-  --mask:
-    radial-gradient(34.99px at 50% 48px,#000 99%,#0000 101%) calc(50% - 60px) 0/120px 51% repeat-x,
-    radial-gradient(34.99px at 50% -18px,#0000 99%,#000 101%) 50% 30px/120px calc(51% - 30px) repeat-x,
-    radial-gradient(34.99px at 50% calc(100% - 48px),#000 99%,#0000 101%) calc(50% - 60px) 100%/120px 51% repeat-x,
-    radial-gradient(34.99px at 50% calc(100% + 18px),#0000 99%,#000 101%) 50% calc(100% - 30px)/120px calc(51% - 30px) repeat-x;
+  --mask: radial-gradient(34.99px at 50% 48px, #000 99%, #0000 101%)
+      calc(50% - 60px) 0/120px 51% repeat-x,
+    radial-gradient(34.99px at 50% -18px, #0000 99%, #000 101%) 50% 30px/120px
+      calc(51% - 30px) repeat-x,
+    radial-gradient(34.99px at 50% calc(100% - 48px), #000 99%, #0000 101%)
+      calc(50% - 60px) 100%/120px 51% repeat-x,
+    radial-gradient(34.99px at 50% calc(100% + 18px), #0000 99%, #000 101%) 50%
+      calc(100% - 30px) / 120px calc(51% - 30px) repeat-x;
   -webkit-mask: var(--mask);
-          mask: var(--mask);
-
+  mask: var(--mask);
 }

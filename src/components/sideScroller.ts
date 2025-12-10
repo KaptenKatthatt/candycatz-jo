@@ -12,7 +12,7 @@ let response = await getAllCandyInfo();
 let allCandyCards: CandyData[] = response.data;
 
 // funktion för att återanvända kort strukturen flera gånger på olika kategorier
-function cardStructure(product: CandyData): string {
+function cardStructureSideScroller(product: CandyData): string {
   let thumbnailURL = `https://www.bortakvall.se${product.images.thumbnail}`;
 
   return `<div class="card cardTransform rounded-4 p-1 ${
@@ -21,9 +21,9 @@ function cardStructure(product: CandyData): string {
       <img src="${thumbnailURL}" class="card-img-top click rounded-4" alt="Image of ${
     product.name
   }">
-      <div class="card-body">
+  <div class="card-body">
+  <h5 class="card-title cardTitleSideScroller click mb-5">${product.name}</h5>
         <div class="infoContainer">
-          <h5 class="card-title click fs-5">${product.name}</h5>
           ${
             product.stock_status === "instock"
               ? `<p class="card-text stockStatus">I lager:
@@ -33,7 +33,7 @@ function cardStructure(product: CandyData): string {
           <p class="card-text priceTag">Pris/skopa: <span class="fw-bold">${
             product.price
           }:-</span></p>
-          <button class="modalInfoBtn btn btn-primary my-2"><i class="bi bi-info-circle"></i></button>
+          <button class="modalInfoBtn btn btn-primary"><i class="bi bi-info-circle"></i></button>
           <button class="addToCartBtn btn btn-success" 
           ${
             product.stock_status !== "instock" ? "disabled" : ""
@@ -58,7 +58,7 @@ export const sideScroller = function () {
   ) as HTMLDivElement;
 
   topTreatsCardsContainerEl.innerHTML = sliceOutTopTreats
-    .map((product) => cardStructure(product))
+    .map((product) => cardStructureSideScroller(product))
     .join("");
 
   // Side scroller arrow functionality

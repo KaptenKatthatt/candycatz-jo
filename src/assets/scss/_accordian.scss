@@ -1,14 +1,16 @@
 .candyCartTxt{
     color: #79b0df;
     padding: 4%; 
-    
 }
-
-
 
 .accordion-button[aria-expanded="true"]{
     background-color: #90ab70;
-    color: black;
+    color: black
+    
+}
+.accordion-button[aria-expanded="false"]{
+background-color: #fffcef; 
+color: #f38cb9;
 }
 
 .placedOrderContainer{
@@ -16,9 +18,6 @@
     justify-content: center;
   
 }
-
-
-
 .wavecardAccord {
   --s: 10px;  
   --w: 500px; 
@@ -34,10 +33,9 @@
     radial-gradient(calc(sqrt(2)*var(--s)),#000 calc(100% - 1px),#0000),
     conic-gradient(#000 0 0) content-box,
     radial-gradient(calc(sqrt(2)*var(--s)),#0000 100%,#000 calc(100% + 1px)) 
-     var(--s) var(--s) padding-box;
+    var(--s) var(--s) padding-box;
   mask-size: calc(var(--s)*4) calc(var(--s)*4);
 
- 
   color: #ea5d93;
   text-align: center;
 }

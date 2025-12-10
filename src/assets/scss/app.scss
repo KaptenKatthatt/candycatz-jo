@@ -19,7 +19,7 @@
 @import "renderAllCards";
 @import "sideScroller";
 @import "typography";
-@import "accoridian";
+@import "accordian";
 
 body {
   box-sizing: border-box;
@@ -45,19 +45,19 @@ body {
   overflow: hidden;
 
   h4 {
-  white-space: nowrap;
-  width: fit-content;
-  padding-top: 10px;
-  text-align: center;
-  transform: translateX(0);
-  animation: scroll 20s linear infinite;
-}
-@keyframes scroll {
-  0% {
+    white-space: nowrap;
+    width: fit-content;
+    padding-top: 10px;
+    text-align: center;
     transform: translateX(0);
+    animation: scroll 20s linear infinite;
   }
-  100% {
-    transform: translateX(-50%);
+  @keyframes scroll {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
   }
-}
 }

@@ -10,10 +10,10 @@ export const renderCarousel = function () {
           <img src="/src/assets/img/sockerKick.png" class="d-block w-100" alt="Picture of yummy candy" />
         </div>
         <div class="carousel-item">
-          <img src="/src/assets/img/jelly-beans-1280.jpg" class="d-block w-100" alt="Picture with sour sweet treats" />
+          <img src="/src/assets/img/suris.png" class="d-block w-100" alt="Picture with sour sweet treats" />
         </div>
         <div class="carousel-item">
-          <img src="/src/assets/img/marshmallow-1280.jpg" class="d-block w-100" alt="Picture of soft mashmallow" />
+          <img src="/src/assets/img/godisdag.png" class="d-block w-100" alt="Picture of soft mashmallow" />
         </div>
       </div>
       <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying"

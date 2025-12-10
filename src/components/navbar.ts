@@ -1,7 +1,7 @@
 export const navbarEl = document.querySelector("nav") as HTMLElement;
 
 export const renderNavbar = function () {
-  navbarEl.innerHTML = `<div class="container-fluid">
+  navbarEl.innerHTML = `<div class="container-fluid navbarcontent">
           <a class="navbar-brand d-inline-block align-top" href="/index.html">
             <h1>CandyCatz</h1>
           </a>
@@ -17,7 +17,7 @@ export const renderNavbar = function () {
           </div>
 
           <button
-            class="navbar-toggler"
+            class="navbar-toggler me-3"
             type="button"
             data-bs-toggle="collapse"
             data-bs-target="#navbarNav"

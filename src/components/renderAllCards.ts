@@ -76,7 +76,7 @@ export const renderAllCards = async function () {
   ) as HTMLDivElement;
   showRestCandy = showMoreCandy.slice(0, addedCandyNr);
   moreToMunchCardsContainerEl.innerHTML += showRestCandy
-    .map((product) => cardStructure(product))
+    .map((product) => cardStructure(product, "moreToMunch"))
     .join("");
   //lägg till en knapp "show more"
   moreSweetsButton();

@@ -30,7 +30,7 @@ export const renderCartView = function () {
        data-bs-target="#panelsStayOpen-collapseOne" 
        aria-expanded="true" 
        aria-controls="panelsStayOpen-collapseOne">
-        CandyCart
+        🍭CandyCart
       </button>
     </h2>
      <!-- Collapse content -->
@@ -64,6 +64,11 @@ const collapseTwo = document.querySelector<HTMLDivElement>("#panelsStayOpen-coll
   collapseOne.classList.remove("show");
   collapseTwo.classList.add("show"); 
 
+  const collapseOneBtn = document.querySelector("#panelsStayOpen-headingOne .accordion-button")! as HTMLButtonElement;
+    const collapseTwoBtn = document.querySelector("#panelsStayOpen-headingTwo .accordion-button")! as HTMLButtonElement;
+    collapseOneBtn.setAttribute("aria-expanded", "false");
+    collapseTwoBtn.setAttribute("aria-expanded", "true");
+
   window.scrollTo({top: 500, behavior:"smooth"});
 
 });
@@ -81,7 +86,7 @@ export const renderCheckoutForm = function () {
       data-bs-target="#panelsStayOpen-collapseTwo" 
       aria-expanded="true" 
       aria-controls="panelsStayOpen-collapseTwo">
-        Checkout
+        🍬Checkout
       </button>
     </h2>
     <!-- Collapse content -->
@@ -162,9 +167,16 @@ export const renderCheckoutForm = function () {
     await createOrdertoSend(orderData); 
 
     // Open step 3
-     const collapseThree =document.querySelector<HTMLDivElement>("#panelsStayOpen-collapseThree")!;
+    const collapseThree =document.querySelector<HTMLDivElement>("#panelsStayOpen-collapseThree")!;
    collapseTwo.classList.remove("show");
     collapseThree.classList.add("show");
+
+    const collapseTwoBtn = document.querySelector("#panelsStayOpen-headingTwo .accordion-button")! as HTMLButtonElement;
+    collapseTwoBtn.setAttribute("aria-expanded", "false");
+    const collapseThreeBtn = document.querySelector("#panelsStayOpen-headingThree .accordion-button")! as HTMLButtonElement;
+    collapseThreeBtn.setAttribute("aria-expanded", "true");
+
+
     window.scrollTo({ top: 500, behavior:"smooth"});
 
   });
@@ -198,7 +210,7 @@ export const postUserAddressForm = function (responseData: ResponseData) {
       data-bs-target="#panelsStayOpen-collapseThree" 
       aria-expanded="true"
       aria-controls="panelsStayOpen-collapseThree">
-      Orderbekräftelse!
+      😺Orderbekräftelse!
       </button>
     </h2>
 

@@ -13,7 +13,7 @@ export const cardStructure = function (product: CandyData): string {
   
       <div class="card-body">
       <div class="infoContainer">
-        <h5 class="card-title click smallCardsTitle">${product.name}</h5>
+        <h3 class="card-title click smallCardsTitle">${product.name}</h3>
         ${
           product.stock_status === "instock"
             ? `<p class="card-text stockStatus">I lager:

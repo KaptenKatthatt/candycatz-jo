@@ -49,7 +49,7 @@
   height: auto;
   aspect-ratio: 1;
   padding: calc(1.5 * var(--r));
-  background: $allCardsContainerBG;
+  background: $footer;
   mask: linear-gradient(#000 0 0) no-repeat 50% / calc(100% - 2 * var(--r))
       calc(100% - 2 * var(--r)),
     radial-gradient(farthest-side, #000 97%, #0000) 0 0 / calc(2 * var(--r))
@@ -76,20 +76,12 @@
 }
 
 .wavecard {
-  --s: 20px;  
-  --w: 360px; 
-  
-  width: round(var(--w),4*var(--s)); 
-  aspect-ratio: 1;
-  padding: var(--s);
-  border: var(--s) solid #0000;
-  box-sizing: border-box;
-  background: #CD8C52;
-  border-radius: calc(3.5*var(--s)); 
-  mask: 
-    radial-gradient(calc(sqrt(2)*var(--s)),#000 calc(100% - 1px),#0000),
-    conic-gradient(#000 0 0) content-box,
-    radial-gradient(calc(sqrt(2)*var(--s)),#0000 100%,#000 calc(100% + 1px)) 
-     var(--s) var(--s) padding-box;
-  mask-size: calc(var(--s)*4) calc(var(--s)*4);
+  background-color: $accent;
+    --mask:
+    radial-gradient(11.66px at 16px 50%,#000 99%,#0000 101%) 0 calc(50% - 20px)/51% 40px repeat-y,
+    radial-gradient(11.66px at -6px 50%,#0000 99%,#000 101%) 10px 50%/calc(51% - 10px) 40px repeat-y,
+		radial-gradient(11.66px at calc(100% - 16px) 50%,#000 99%,#0000 101%) 100% calc(50% - 20px)/51% 40px repeat-y,
+    radial-gradient(11.66px at calc(100% + 6px) 50%,#0000 99%,#000 101%) calc(100% - 10px) 50%/calc(51% - 10px) 40px repeat-y;
+  -webkit-mask: var(--mask);
+          mask: var(--mask);
 }

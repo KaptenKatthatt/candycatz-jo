@@ -42,6 +42,11 @@ export const renderAllCards = async function () {
   moreToMunchCardsContainerEl.innerHTML += showRestCandy
     .map((product) => cardStructure(product))
     .join("");
+  const loadMoreSweetsCards = moreToMunchCardsContainerEl.querySelectorAll(".card");
+  loadMoreSweetsCards.forEach((card) => {
+  card.classList.add("wavecard");
+  });
+
   //lägg till en knapp "show more"
   moreSweetsButton();
   // fortsätt lägga ut godis

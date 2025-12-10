@@ -1,10 +1,10 @@
 import { createOrdertoSend } from "../services/candyPOST_API";
 
+
+
 const cartView = document.querySelector("#cartView") as HTMLDivElement;
 const checkoutForm = document.querySelector("#checkoutForm") as HTMLFormElement;
 const placedOrderView = document.querySelector("#placedOrderView") as HTMLDivElement;
-
-
 
 export interface AddressData {
   customer_first_name: string;
@@ -57,7 +57,7 @@ const collapseTwo = document.querySelector<HTMLDivElement>("#panelsStayOpen-coll
 if (collapseOne && collapseTwo){ 
   collapseOne.classList.remove("show");
   collapseTwo.classList.add("show"); 
-  window.scrollTo({top: 300, behavior:"smooth"});
+  window.scrollTo({top: 500, behavior:"smooth"});
 }
 });
 
@@ -122,14 +122,11 @@ export const renderCheckoutForm = function () {
   // get form and inputs after innerHTML
 
   const form = checkoutForm.querySelector<HTMLFormElement>("#form")!;
-  const inputFirstName =
-    document.querySelector<HTMLInputElement>("#inputFirstName")!;
-  const inputLastName =
-    document.querySelector<HTMLInputElement>("#inputLastName")!;
+  const inputFirstName =document.querySelector<HTMLInputElement>("#inputFirstName")!;
+  const inputLastName =document.querySelector<HTMLInputElement>("#inputLastName")!;
   const inputEmail = document.querySelector<HTMLInputElement>("#inputEmail")!;
   const inputNumber = document.querySelector<HTMLInputElement>("#inputNumber")!;
-  const inputAddress =
-    document.querySelector<HTMLInputElement>("#inputAddress")!;
+  const inputAddress =document.querySelector<HTMLInputElement>("#inputAddress")!;
   const inputCity = document.querySelector<HTMLInputElement>("#inputCity")!;
   const inputZip = document.querySelector<HTMLInputElement>("#inputZip")!;
 
@@ -147,22 +144,19 @@ export const renderCheckoutForm = function () {
       customer_postcode: inputZip.value,
     };
 
-    await createOrdertoSend(orderData); // Vänta på detta
 
-    // show Thank you
-    postUserAddressForm();
-
+    await createOrdertoSend(orderData); 
 
     // Open step 3
      const collapseThree =document.querySelector<HTMLDivElement>("#panelsStayOpen-collapseThree")!;
    collapseTwo.classList.remove("show");
     collapseThree.classList.add("show");
-    window.scrollTo({ top: 300, behavior:"smooth"});
+    window.scrollTo({ top: 500, behavior:"smooth"});
 
   });
 };
 
-export const postUserAddressForm = function () {
+export const postUserAddressForm = function (responseData: ResponseData) {
   placedOrderView.innerHTML = `
 <div class="accordion showAccordionCheckout" id="accordionThanks">  
 <div class="accordion-item">
@@ -173,23 +167,32 @@ export const postUserAddressForm = function () {
       aria-expanded="false"
       aria-controls="panelsStayOpen-collapseThree"
       disabled>
-      Tack för din beställning!
+      Orderbekräftelse!
       </button>
     </h2>
 
     <div id="panelsStayOpen-collapseThree" class="accordion-collapse collapse accordionThree" 
     aria-labelledby="panelsStayOpen-headingThree">
       <div class="accordion-body">
+      
+      
       <div> 
-      <p> Här kommer att stå något i stil med 🍬tack för din beställning. välkommen åter!  </p>
-      <p> Vi packar dina godsaker med extra kärlek och skickar dem till dig så snart som möjligt </p>
+     <h3>Smiles, ${responseData.customer_first_name}!</h3>
+      <p> Vi har mottagit din beställning och allt är redo i vårt godislaboratorium.
+       När din order skickas får du ett nytt meddelande med spårningsinformation, 
+       så att du kan följa dina godsaker hela vägen hem. </p>
+     <p> Order: ${responseData.id} | Datum för beställning: </p>
+       <h4>Här är din order:</h4>
+      <ul></ul> 
+       <p> Njut av sötchocken!</p>
+        <p> Med vänlig hälsning, CandyCatz 💖</p>
       </div>
       
+
        <!-- Continue Shopping Button -->
             <div class="text-start mt-4 mb-4">
                 <button type="button" class="btn btn-outline-primary" onclick="location.reload()">
-                    <i class="bi bi-arrow-left me-2"></i>Continue Shopping
-                    </button>
+                    <i class="bi bi-arrow-left me-2"></i>Fortsätt att handla!</button>
             </div>
         </div>
         </div>

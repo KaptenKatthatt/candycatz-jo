@@ -8,11 +8,7 @@
   }
 }
 .addToCartBtn {
-  background: linear-gradient(
-    45deg,
-    rgb(117, 227, 117) 50%,
-    rgb(54, 161, 54) 100%
-  );
+  background: #549938;
   transition: transform 0.1s ease-in-out;
 
   &:hover {
@@ -79,11 +75,7 @@
 
 .modalInfoBtn {
   margin-right: 1rem;
-  background: linear-gradient(
-    45deg,
-    $btn-candy-pink 50%,
-    $btn-candy-purple 100%
-  );
+  background: $pink;
   border-radius: 50%;
   padding: 7px 11px;
   transition: transform 0.1s ease-in-out;

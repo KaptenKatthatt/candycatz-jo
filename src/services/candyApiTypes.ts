@@ -54,3 +54,30 @@ export interface CheckoutData {
   order_total: number;
   order_items: OrderItems[];
 }
+
+export interface ResponseData {
+  status: string;
+  data: {
+    created_at: string;
+    customer_address: string;
+    customer_city: string;
+    customer_email: string;
+    customer_first_name: string;
+    customer_last_name: string;
+    customer_phone?: string;
+    customer_postcode: string;
+    id: number;
+    items: {
+      id: number;
+      item_price: number;
+      item_total: number;
+      order_id: number;
+      product_id: number;
+      qty: number;
+    }[];
+    order_date: string;
+    order_total: string;
+    updated_at: string;
+    user_id: number;
+  };
+}

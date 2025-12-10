@@ -1,6 +1,6 @@
-import type { AddressData } from "../components/accordian";
+import { postUserAddressForm, type AddressData } from "../components/accordian";
 import { getCartArrayFromLocalStorage } from "../components/localStorage";
-import type { CheckoutData } from "./candyApiTypes";
+import type { CheckoutData, ResponseData } from "./candyApiTypes";
 
 export const createOrdertoSend = async function (orderData: AddressData) {
   const orderItemFromLocalStorage = getCartArrayFromLocalStorage();
@@ -53,7 +53,7 @@ export const sendOrder = async function (newOrderData: CheckoutData) {
       return;
     }
 
-    const responseData = await response.json();
+    const responseData: ResponseData = await response.json();
 
     if (responseData.status !== "success") {
       console.log("Problems with the sent order", responseData.status);
@@ -61,6 +61,9 @@ export const sendOrder = async function (newOrderData: CheckoutData) {
     }
 
     console.log("API svar:", responseData);
+
+    postUserAddressForm(responseData);
+
     return responseData;
   } catch (error) {
     console.error("Error sending order:", error);

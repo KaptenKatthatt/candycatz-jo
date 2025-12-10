@@ -29,6 +29,7 @@ export const renderModal = async function (productId: number) {
           <img src="${modalThumbnailURL}" class="modalThumbnail card-img-top" alt="${candyTitle}">
           <p class="modalParagraph card-text">${candyParagraph}</p>
           <p class="modal-price">Pris:<strong> ${candyPrice}:- </strong></p>
+          <p>I lager: ${candyProduct.data.stock_quantity}
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Stäng</button>

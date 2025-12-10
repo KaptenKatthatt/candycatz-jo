@@ -1,6 +1,6 @@
-import { cardStructure } from "./renderAllCards";
-
 //send over allCandyCards arr from render all cards so avoid too many API-calls
+
+import { cardStructure } from "./cardStructure_smallCards";
 
 // SWEETSAVINGS Kategorien
 const sweetSavingsCategories = [...allCandyCards];

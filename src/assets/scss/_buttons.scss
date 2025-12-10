@@ -37,6 +37,14 @@
   border-style: double;
   border-right: 5px solid black;
   border-bottom: 5px solid black;
+
+  &:hover,
+  &:active {
+    border: 3px black;
+    border-style: double;
+    border-right: 5px solid black;
+    border-bottom: 5px solid black;
+  }
 }
 
 .clearCartBtn,

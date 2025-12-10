@@ -35,13 +35,17 @@ body {
   overflow: auto;
 }
 
+.container-fluid {
+  padding: 0px;
+  margin: 0px;
+}
+
 .click {
   cursor: pointer;
 }
 .scroll-container {
   background-color: $accent;
   position: relative;
-  margin-left: -12px;
   overflow: hidden;
 
   h4 {

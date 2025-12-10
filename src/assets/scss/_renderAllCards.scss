@@ -60,19 +60,33 @@
   }
 }
 
-.wavebox {
-  z-index: 1;
-  background-color: $allCardsContainerBG;
-  --mask: radial-gradient(34.99px at 50% 48px, #000 99%, #0000 101%)
-      calc(50% - 60px) 0/120px 51% repeat-x,
-    radial-gradient(34.99px at 50% -18px, #0000 99%, #000 101%) 50% 30px/120px
-      calc(51% - 30px) repeat-x,
-    radial-gradient(34.99px at 50% calc(100% - 48px), #000 99%, #0000 101%)
-      calc(50% - 60px) 100%/120px 51% repeat-x,
-    radial-gradient(34.99px at 50% calc(100% + 18px), #0000 99%, #000 101%) 50%
-      calc(100% - 30px) / 120px calc(51% - 30px) repeat-x;
-  -webkit-mask: var(--mask);
-  mask: var(--mask);
+.flowerBox {
+  display: flex;
+  justify-content: center;
+  margin: auto;
+  background-color: $footer;
+  width: 200px; /* adjust to control the size */
+  aspect-ratio: 1;
+  --g:/20.56% 20.56% radial-gradient(#000 calc(71% - 1px),#0000 71%) no-repeat;
+  mask: 100% 50% var(--g),93.301% 75% var(--g),75% 93.301% var(--g),50% 100% var(--g),25% 93.301% var(--g),6.699% 75% var(--g),0% 50% var(--g),6.699% 25% var(--g),25% 6.699% var(--g),50% 0% var(--g),75% 6.699% var(--g),93.301% 25% var(--g),radial-gradient(100% 100%,#000 38.366%,#0000 calc(38.366% + 1px));
+
+}
+
+.waveborder {
+  --s: 44px; 
+  --b: 16px; 
+  --m: 0.4; 
+  
+  background: $accent;
+  --R: calc(var(--s)*sqrt(var(--m)*var(--m) + 1) + var(--b)/2);
+  height: calc(2*var(--R));
+  width: 100%;
+  --_g: #0000 calc(99% - var(--b)), #000 calc(101% - var(--b)) 99%, #0000 101%;
+  mask:
+    radial-gradient(var(--R) at left 50% bottom calc(-1*var(--m)*var(--s)), var(--_g)) 
+     calc(50% - 2*var(--s)) calc(50% - var(--s)/2 - var(--b)/2)/calc(4*var(--s)) calc(var(--s) + var(--b)) repeat-x,
+    radial-gradient(var(--R) at left 50% top calc(-1*var(--m)*var(--s)),var(--_g)) 
+     50% calc(50% + var(--s)/2 + var(--b)/2)/calc(4*var(--s)) calc(var(--s) + var(--b)) repeat-x;
 }
 
 .wavecard {

@@ -28,7 +28,7 @@
   cursor: pointer;
 
   &:first-of-type {
-    left: -20px;
+    left: 0px;
   }
   &:first-of-type:hover {
     transform: scale(1.05) translateY(-50%);
@@ -38,7 +38,7 @@
   }
 
   &:last-of-type {
-    right: -20px;
+    right: 0px;
   }
   &:last-of-type:hover {
     transform: scale(1.05) translateY(-50%);

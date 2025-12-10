@@ -29,6 +29,11 @@ body {
   padding: 0px;
 }
 
+.container-fluid {
+  margin: 0px;
+  padding: 0px;
+}
+
 html,
 body {
   height: auto;
@@ -40,8 +45,8 @@ body {
 }
 .scroll-container {
   background-color: $accent;
+  width: 100vw;
   position: relative;
-  margin-left: -12px;
   overflow: hidden;
 
   h4 {
@@ -60,4 +65,18 @@ body {
       transform: translateX(-50%);
     }
   }
-}
+    white-space: nowrap;
+    width: fit-content;
+    padding-top: 10px;
+    text-align: center;
+    transform: translateX(0);
+    animation: scroll 20s linear infinite;
+  }
+  @keyframes scroll {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }

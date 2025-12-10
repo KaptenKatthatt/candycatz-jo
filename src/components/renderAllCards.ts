@@ -1,6 +1,7 @@
 import { getAllCandyInfo } from "../services/candyAPI";
 import type { CandyData } from "../services/candyApiTypes";
 import { cardStructure } from "./cardStructure";
+import { cardStructureSideScroller } from "./sideScroller";
 
 let showMoreCandy: CandyData[];
 let addedCandyNr: number = 12;
@@ -10,7 +11,43 @@ let showRestCandy: CandyData[];
 let response = await getAllCandyInfo();
 let allCandyCards: CandyData[] = response.data;
 
+
 export const renderAllCards = async function () {
+
+    // TOP TREATS Kategorien
+  const topTreatsCategories = [...allCandyCards];
+  // ytlig kopia av allCandyCards
+  const filterTopTreats = topTreatsCategories.filter((candy) => {
+    return candy.stock_quantity < 3 && candy.stock_status === "instock";
+  });
+  // returnera ny array med alla som är instock OCH färre än 3
+  const sliceOutTopTreats = filterTopTreats.slice(0, 12);
+  // slicea sedan ut de första 12
+  const topTreatsCardsContainerEl = document.querySelector(
+    ".topTreatsSideScrollerContainer"
+  ) as HTMLDivElement;
+
+  topTreatsCardsContainerEl.innerHTML = sliceOutTopTreats
+    .map((product) => cardStructureSideScroller(product))
+    .join("");
+
+  // Side scroller arrow functionality
+  document
+    .querySelector(".topTreatsSideScrollerWrapper")
+    ?.addEventListener("click", (e) => {
+      const target = e.target as HTMLElement;
+      const scrollContainer = document.querySelector(
+        ".topTreatsSideScrollerContainer"
+      ) as HTMLDivElement;
+
+      if (target.closest(".scrollArrowLeft")) {
+        scrollContainer.scrollBy(-800, 0);
+      }
+      if (target.closest(".scrollArrowRight")) {
+        scrollContainer.scrollBy(800, 0);
+      }
+    });
+
   // SWEETSAVINGS Kategorien
   const sweetSavingsCategories = [...allCandyCards];
   // ytlig kopia av allCandyCards
@@ -32,6 +69,7 @@ export const renderAllCards = async function () {
   usedIds = [
     // ...sliceOutTopTreats.map((candy) => candy.id),
     ...sliceOutSavings.map((candy) => candy.id),
+    ...sliceOutTopTreats.map((candy) => candy.id)
   ];
 
   showMoreCandy = allCandyCards.filter((candy) => !usedIds.includes(candy.id));
@@ -48,7 +86,6 @@ export const renderAllCards = async function () {
   // plussa på 12 att lägga ut "ovanpå" de previous 12, 24 + osv
   showNumberOfCandys();
 };
-
 function loadMoreSweets() {
   const moreToMunchCardsContainerEl = document.querySelector(
     ".moreToMunchCardsContainer"

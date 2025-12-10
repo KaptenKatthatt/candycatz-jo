@@ -11,7 +11,6 @@ import { renderCarousel } from "./components/carousel";
 import { renderAllCards } from "./components/renderAllCards";
 import { getClickedCandyId } from "./components/getClickedCandyId";
 import { initStore } from "./components/cart";
-import { sideScroller } from "./components/sideScroller";
 
 //SCSS imports
 import "./assets/scss/app.scss";
@@ -23,7 +22,6 @@ renderCheckoutForm();
 
 //RenderAllCards
 renderAllCards();
-sideScroller();
 //getCandyClickedId, startar efter alla kort laddas ut
 getClickedCandyId();
 

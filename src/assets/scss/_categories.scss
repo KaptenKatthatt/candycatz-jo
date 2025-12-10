@@ -8,7 +8,6 @@
   margin-bottom: 20px;
 
   .munchBtn {
-    border: none;
     border-radius: 50px;
     padding: 15px 30px;
     font-size: 1.2rem;
@@ -19,14 +18,5 @@
     background: linear-gradient(90deg, $pink 0%, $blue 100%);
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
     transition: background 0.4s ease, transform 0.2s ease, box-shadow 0.2s ease;
-    &:hover {
-      background: linear-gradient(-90deg, $pink 0%, $blue 50%, pink 100%);
-      background-size: 200% 100%;
-      background-position: 100% 0;
-      transition: background 1.5s ease-in-out, transform 0.2s ease,
-        box-shadow 0.2s ease;
-      transform: translateY(-2px);
-      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
-    }
   }
 }

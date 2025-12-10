@@ -12,7 +12,7 @@ let response = await getAllCandyInfo();
 let allCandyCards: CandyData[] = response.data;
 
 // funktion för att återanvända kort strukturen flera gånger på olika kategorier
-function cardStructureSideScroller(product: CandyData): string {
+export function cardStructureSideScroller(product: CandyData): string {
   let thumbnailURL = `https://www.bortakvall.se${product.images.thumbnail}`;
 
   return `<div class="card cardTransform rounded-4 p-1 ${
@@ -42,39 +42,3 @@ function cardStructureSideScroller(product: CandyData): string {
       </div>
     </div>`;
 }
-
-export const sideScroller = function () {
-  // TOP TREATS Kategorien
-  const topTreatsCategories = [...allCandyCards];
-  // ytlig kopia av allCandyCards
-  const filterTopTreats = topTreatsCategories.filter((candy) => {
-    return candy.stock_quantity < 3 && candy.stock_status === "instock";
-  });
-  // returnera ny array med alla som är instock OCH färre än 3
-  const sliceOutTopTreats = filterTopTreats.slice(0, 12);
-  // slicea sedan ut de första 12
-  const topTreatsCardsContainerEl = document.querySelector(
-    ".topTreatsSideScrollerContainer"
-  ) as HTMLDivElement;
-
-  topTreatsCardsContainerEl.innerHTML = sliceOutTopTreats
-    .map((product) => cardStructureSideScroller(product))
-    .join("");
-
-  // Side scroller arrow functionality
-  document
-    .querySelector(".topTreatsSideScrollerWrapper")
-    ?.addEventListener("click", (e) => {
-      const target = e.target as HTMLElement;
-      const scrollContainer = document.querySelector(
-        ".topTreatsSideScrollerContainer"
-      ) as HTMLDivElement;
-
-      if (target.closest(".scrollArrowLeft")) {
-        scrollContainer.scrollBy(-800, 0);
-      }
-      if (target.closest(".scrollArrowRight")) {
-        scrollContainer.scrollBy(800, 0);
-      }
-    });
-};

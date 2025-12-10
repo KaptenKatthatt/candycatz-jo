@@ -4,7 +4,7 @@
 
 .topTreatsSideScrollerContainer {
   height: 555px;
-  margin: 30px 25px;
+  margin: 30px 45px;
   gap: 30px;
   overflow-x: auto;
 
@@ -15,10 +15,12 @@
 }
 
 .topTreatsSideScrollerContainer .card {
+  width: 300px;
   flex-shrink: 0;
   margin-bottom: 20px;
 }
 .scrollArrow {
+  margin: 0px 30px;
   color: $sideScrollerArrow;
   font-size: 50px;
   position: absolute;

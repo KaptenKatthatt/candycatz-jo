@@ -44,8 +44,8 @@
   background: radial-gradient(
     circle at 50% 0%,
     #fffcef 25%,
-    #c4dcd1 26%,
-    #c4dcd1 40%
+    $footer 26%,
+    $footer 40%
   );
   background-color: $accent;
   background-size: 50px 100px;
@@ -53,7 +53,7 @@
   background-repeat: repeat-x;
 }
 .after-scallop {
-  background: #c4dcd1;
+  background: $footer;
   padding: 50px;
   text-align: left;
 }

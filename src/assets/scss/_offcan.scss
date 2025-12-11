@@ -18,8 +18,13 @@ h5 {
   overflow-x: hidden;
   // overflow-y: auto;
   // max-height: 100vh;
-  // --bs-offcanvas-width: 45%;
+  // --bs-offcanvas-width: 35%;
   // display: flex;
+}
+
+.productContainer {
+  margin: 0px 10px;
+  min-width: fit-content;
 }
 
 .offcanvas p {
@@ -27,12 +32,18 @@ h5 {
   padding: 0;
 }
 
+.offcanvasBody {
+  min-width: fit-content;
+  margin: 0 auto;
+}
+
 .cartListItem {
   border-radius: 0px 0px 10px 10px;
   box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.4);
+  min-width: fit-content;
 
   margin-bottom: 0.5rem;
-  padding: 5px;
+  padding: 8px;
   max-width: 500px;
   --bs-card-title-spacer-y: 0.3rem;
   overflow: hidden;

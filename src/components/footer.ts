@@ -10,8 +10,8 @@ document.querySelector("footer")!.innerHTML = `
             <h6>Slå oss en pling eller kom förbi!</h6>
                 <ul class="address-list">
                     <li> CandyCatz HQ</li>
-                    <li>123 Sweet St</li>
-                    <li> Candy City, CC 12345</li>
+                    <li>Godisgatan 13A</li>
+                    <li> Gotteby, 12345</li>
                     <li> Mailadress:<a href="candycatz@sweets.com">info@candycatz.com </a></li>
                     <li> Telefonnummer: <a href="123-456-7890">123-456-7890</a></li>
                 </ul>

@@ -188,7 +188,10 @@ export const renderCart = function () {
       renderCartBadge();
     };
   } else {
-    cartContainerEl!.innerHTML = `<p class="py-5">
+    cartContainerEl!.innerHTML = `
+                    <img src="src/assets/img/sadcat.gif" alt="">
+
+    <p class="py-5">
       Kundvagnen är tom just nu. Iväg o handla med dig!</p>`;
   }
   const subtotalContainerEl = document.querySelector(

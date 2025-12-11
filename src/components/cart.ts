@@ -189,7 +189,7 @@ export const renderCart = function () {
     };
   } else {
     cartContainerEl!.innerHTML = `
-                    <img src="src/assets/img/sadcat.gif" alt="">
+                    <img src="/img/sadcat.gif" alt="">
 
     <p class="py-5">
       Kundvagnen är tom just nu. Iväg o handla med dig!</p>`;

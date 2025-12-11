@@ -15,13 +15,13 @@ export const renderOffCan = function () {
   <div class=" offcanvasBody px-3">
       <div class="productContainer card">
         <div class="card-body">
-          <div class="row align-items-center mb-2 cart-item">
+          <div class="row align-items-center cart-item">
 
           <!-- Inject cart contents from cart.ts -->
             <div class="cartContainer"></div>
 
 
-           <button class="clearCartBtn btn btn-secondary mt-4"><i class="bi bi-cart-x fs-5  me-2"></i>Töm kundvagnen</button>
+           <button class="clearCartBtn btn btn-secondary mt-4"><i class="bi bi-cart-x fs-5 mt-5"></i>Töm kundvagnen</button>
           </div>
         </div>
     </div>

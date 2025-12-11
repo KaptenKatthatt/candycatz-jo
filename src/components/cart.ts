@@ -130,10 +130,10 @@ export const renderCart = function () {
             
             <img
               src="${thumbnailURL}"
-              class="cartThumbnail rounded-4 border border-dark me-2"
+              class="cartThumbnail"
               alt="Image of ${product.name}"
             />
-            <h5 class="card-title click fs-5">${product.name}</h5>
+            <h3 class="card-title fs-5">${product.name}</h3>
 
 
             <div class="cartPrice">

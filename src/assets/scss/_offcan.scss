@@ -22,12 +22,7 @@ h5 {
   display: flex;
 }
 
-.offcanvasBody {
-  // background-color: red;
-}
-
 .offcanvas p {
-  color: red;
   margin: 0;
   padding: 0;
 }
@@ -45,7 +40,12 @@ h5 {
 // }
 
 .cartListItem {
+  margin-bottom: 0.5rem;
+  padding: 5px;
   max-width: 500px;
+  border: 1px solid gray;
+  --bs-card-title-spacer-y: 0.3rem;
+  overflow: hidden;
 
   display: grid;
   grid-template-rows: auto auto auto;
@@ -56,8 +56,9 @@ h5 {
     "cartThumbnail cartQty buttonContainer";
 }
 
-.castListItem > .cartThumbnail {
+.cartThumbnail {
   grid-area: cartThumbnail;
+  align-self: center;
 }
 .card-title {
   grid-area: card-title;

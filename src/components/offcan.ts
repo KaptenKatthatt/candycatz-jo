@@ -21,7 +21,7 @@ export const renderOffCan = function () {
             <div class="cartContainer"></div>
 
 
-           <button class="clearCartBtn btn btn-secondary mt-4"><i class="bi bi-cart-x fs-5 mt-5"></i>Töm kundvagnen</button>
+           <button class="clearCartBtn btn btn-secondary mt-4"><i class="bi bi-cart-x fs-5"></i>Töm kundvagnen</button>
           </div>
         </div>
     </div>

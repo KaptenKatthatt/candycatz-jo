@@ -124,7 +124,7 @@ export const renderCart = function () {
         let thumbnailURL = `https://www.bortakvall.se${product.thumbnail}`;
         return `
          <div
-            class="cartListItem rounded-4"
+            class="cartListItem"
             data-product-id="${product.id}"
           >
             

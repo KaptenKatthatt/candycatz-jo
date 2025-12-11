@@ -207,7 +207,7 @@ export const postUserAddressForm = function (responseData: ResponseData) {
       style="width: 50px; height: 50px; object-fit: cover;" 
       alt="Image of ${product.name}">
       <div class="d-flex align-items-center m-0">
-        <h5 class="card-title text-center">${product.qty} x ${product.name}</h5>
+        <h5 class="card-title text-sum text-center">${product.qty} x ${product.name}</h5>
         </div>
         </div>`;
       })

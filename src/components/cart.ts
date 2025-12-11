@@ -123,32 +123,49 @@ export const renderCart = function () {
       .map((product) => {
         let thumbnailURL = `https://www.bortakvall.se${product.thumbnail}`;
         return `
-          <div class="productItem d-flex flex-row" data-product-id="${
-            product.id
-          }">
-            <img src="${thumbnailURL}" class="cartThumbnail img-fluid rounded-4 me-2" alt="Image of ${
-          product.name
-        }">
-            <div class="container d-flex flex-column">
+         <div
+            class="cartListItem"
+            data-product-id="${product.id}"
+          >
+            
+            <img
+              src="${thumbnailURL}"
+              class="cartThumbnail"
+              alt="Image of ${product.name}"
+            />
+            <h3 class="card-title fs-5">${product.name}</h3>
 
-              <h5 class="card-title click fs-5 mb-3">${product.name}</h5>
-              <p class="mb-2"><strong>${product.price}:-</strong>/skopa</p>
-              <p class="mb-2">Total: <strong>${
-                product.qty * product.price
-              }:-</strong></p>
 
-              <div class="buttonContainer d-flex flex-row align-items-center mt-2">
-                <button class="decreaseBtn cartMinusBtn btn me-2" type="button">-</button>
-                <p class="me-2 d-flex align-items-center justify-content-center m-0">${
-                  product.qty
-                }</p>
-                <button class="increaseBtn cartPlusBtn btn me-2" type="button" ${
-                  product.qty >= product.stock_quantity ? "disabled" : ""
-                }>+</button>
-                <button class="deleteBtn btn btn-danger"><i class="bi bi-trash"></i></button>
+            <div class="cartPrice">
+              <p class=" me-2"><strong>${product.price}:-</strong>/skopa</p>
+            </div>
+            <div class="cartQty">
+              <p>
+                Totalt: <strong>${product.qty * product.price}:-</strong>
+              </p>
+            </div>
+
+              <div class="buttonContainer d-flex flex-row align-items-center">
+                <button class="decreaseBtn cartMinusBtn" type="button">
+                  -
+                </button>
+                <p
+                  class="cartQty mx-2"
+                >
+                  ${product.qty}
+                </p>
+                <button
+                  class="increaseBtn cartPlusBtn me-2"
+                  type="button"
+                  ${product.qty >= product.stock_quantity ? "disabled" : ""}
+                >
+                  +
+                </button>
+                <button class="deleteBtn btn btn-sm btn-danger">
+                  <i class="bi bi-trash"></i>
+                </button>
               </div>
 
-            </div>
           </div>
 
         `;
@@ -157,7 +174,7 @@ export const renderCart = function () {
 
     cartContainerEl.onclick = (e) => {
       const target = e.target as HTMLElement;
-      const candyCard = target.closest<HTMLDivElement>(".productItem");
+      const candyCard = target.closest<HTMLDivElement>(".cartListItem");
       clickedCandyId = Number(candyCard?.dataset.productId);
 
       if (target.closest(".increaseBtn")) {
@@ -208,39 +225,51 @@ export const renderCheckoutCart = function () {
       .map((product) => {
         let thumbnailURL = `https://www.bortakvall.se${product.thumbnail}`;
         return `
-        <div class="productItem container-fluid d-flex flex-row rounded-4 p-1" data-product-id="${
-          product.id
-        }">
-        
-        <img src="${thumbnailURL}" class="checkOutThumbnail img-fluid rounded-4 border border-dark me-2" alt="Image of ${
-          product.name
-        }">
-        
-        <div class="container div-flex flex-column justify-content-center">
-        <h5 class="card-title click fs-5 me-2">${product.name}</h5>
-          <p class="me-2"><strong>${product.price}:-</strong>/skopa</p>
-          <p class="me-2">Produktpris: <strong>${
-            product.qty * product.price
-          }:-</strong></p>
+          <div
+            class="cartListItem container-fluid d-flex flex-row rounded-4 p-1"
+            data-product-id="${product.id}"
+          >
+            <img
+              src="${thumbnailURL}"
+              class="checkOutThumbnail img-fluid rounded-4 border border-dark me-2"
+              alt="Image of ${product.name}"
+            />
+
+            <div class="container div-flex flex-row justify-content-center">
+              <h5 class="card-title click fs-5 me-2">${product.name}</h5>
+              <p class="me-2"><strong>${product.price}:-</strong>/skopa</p>
+              <p class="me-2">
+                Produktpris: <strong>${product.qty * product.price}:-</strong>
+              </p>
+            </div>
+            <div class="buttonContainer d-flex flex-row align-items-center">
+              <button class="decreaseBtn cartMinusBtn me-2" type="button">
+                -
+              </button>
+              <p
+                class="me-2 d-flex align-items-center justify-content-center m-0"
+              >
+                ${product.qty}
+              </p>
+              <button
+                class="increaseBtn cartPlusBtn me-2"
+                type="button"
+                ${product.qty >= product.stock_quantity ? "disabled" : ""}
+              >
+                +
+              </button>
+              <button class="deleteBtn btn btn-sm btn-danger">
+                <i class="bi bi-trash"></i>
+              </button>
+            </div>
           </div>
-          <div class="buttonContainer d-flex flex-row align-items-center">
-            <button class="decreaseBtn cartMinusBtn me-2" type="button">-</button>
-            <p class="me-2 d-flex align-items-center justify-content-center m-0">${
-              product.qty
-            }</p>
-            <button class="increaseBtn cartPlusBtn me-2" type="button" ${
-              product.qty >= product.stock_quantity ? "disabled" : ""
-            }>+</button>
-            <button class="deleteBtn btn btn-sm btn-danger"><i class="bi bi-trash"></i></button>
-          </div>
-        </div>
         `;
       })
       .join("");
 
     checkoutCartContainerEl.onclick = (e) => {
       const target = e.target as HTMLElement;
-      const candyCard = target.closest<HTMLDivElement>(".productItem");
+      const candyCard = target.closest<HTMLDivElement>(".cartListItem");
       clickedCandyId = Number(candyCard?.dataset.productId);
 
       if (target.closest(".increaseBtn")) {

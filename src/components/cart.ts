@@ -124,42 +124,48 @@ export const renderCart = function () {
         let thumbnailURL = `https://www.bortakvall.se${product.thumbnail}`;
         return `
          <div
-            class="productItem container-fluid d-flex flex-row rounded-4 p-1"
+            class="cartListItem container  rounded-4"
             data-product-id="${product.id}"
           >
+            
             <img
               src="${thumbnailURL}"
-              class="checkOutThumbnail img-fluid rounded-4 border border-dark me-2"
+              class="cartThumbnail img-fluid rounded-4 border border-dark me-2"
               alt="Image of ${product.name}"
             />
+            <h5 class="card-title click fs-5 me-2">${product.name}</h5>
 
-            <div class="container div-flex flex-row justify-content-center">
-              <h5 class="card-title click fs-5 me-2">${product.name}</h5>
-              <p class="me-2"><strong>${product.price}:-</strong>/skopa</p>
-              <p class="me-2">
-                Produktpris: <strong>${product.qty * product.price}:-</strong>
+
+            <div class="cartPrice">
+              <p class=" me-2"><strong>${product.price}:-</strong>/skopa</p>
+            </div>
+            <div class="cartQty">
+              <p>
+                Totalt: <strong>${product.qty * product.price}:-</strong>
               </p>
             </div>
-            <div class="buttonContainer d-flex flex-row align-items-center">
-              <button class="decreaseBtn cartMinusBtn me-2" type="button">
-                -
-              </button>
-              <p
-                class="me-2 d-flex align-items-center justify-content-center m-0"
-              >
-                ${product.qty}
-              </p>
-              <button
-                class="increaseBtn cartPlusBtn me-2"
-                type="button"
-                ${product.qty >= product.stock_quantity ? "disabled" : ""}
-              >
-                +
-              </button>
-              <button class="deleteBtn btn btn-sm btn-danger">
-                <i class="bi bi-trash"></i>
-              </button>
-            </div>
+
+              <div class="buttonContainer d-flex flex-row align-items-center">
+                <button class="decreaseBtn cartMinusBtn me-2" type="button">
+                  -
+                </button>
+                <p
+                  class="cartQty"
+                >
+                  ${product.qty}
+                </p>
+                <button
+                  class="increaseBtn cartPlusBtn me-2"
+                  type="button"
+                  ${product.qty >= product.stock_quantity ? "disabled" : ""}
+                >
+                  +
+                </button>
+                <button class="deleteBtn btn btn-sm btn-danger">
+                  <i class="bi bi-trash"></i>
+                </button>
+              </div>
+
           </div>
 
         `;

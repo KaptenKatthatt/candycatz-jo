@@ -1,10 +1,81 @@
+/**
+ * Bootstrap Breakpoints
+ * 
+ * xs: 0px (default)
+ * sm: 576px
+ * md: 768px
+ * lg: 992px
+ * xl: 1200px
+ * xxl: 1400px
+ */
+
 h5 {
   font-size: 2.5rem;
   color: $title-text;
 }
 .offcanvas {
   background-color: $offcanvas;
-  overflow-x: hidden;
+  overflow-x: auto;
   // overflow-y: auto;
   max-height: 100vh;
+  --bs-offcanvas-width: 94%;
+  display: flex;
 }
+
+.offcanvasBody {
+  // background-color: red;
+}
+
+.offcanvas p {
+  color: red;
+  margin: 0;
+  padding: 0;
+}
+
+@media screen and (min-width: 768px) {
+  .offcanvas {
+    --bs-offcanvas-width: 45%;
+  }
+}
+
+// @media screen and (min-width: 868px) {
+//   .offcanvas {
+//     --bs-offcanvas-width: 45%;
+//   }
+// }
+
+.cartListItem {
+  max-width: 500px;
+
+  display: grid;
+  grid-template-rows: auto auto auto;
+  grid-template-columns: auto auto auto;
+  grid-template-areas:
+    "cartThumbnail card-title  card-title"
+    "cartThumbnail cartPrice buttonContainer"
+    "cartThumbnail cartQty buttonContainer";
+}
+
+.cartThumbnail {
+  grid-area: cartThumbnail;
+}
+.card-title {
+  grid-area: card-title;
+}
+.cartPrice {
+  grid-area: cartPrice;
+}
+.cartQty {
+  grid-area: cartQty;
+}
+.buttonContainer {
+  grid-area: buttonContainer;
+}
+
+//3 rows
+//3 cols
+
+//Thumb col:1 row 1-3
+// header col:2-3 row 1
+//Price, qty col 2 row 2
+//Buttons col 3 row 2-3

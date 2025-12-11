@@ -1,10 +1,6 @@
 //Function imports
 import { renderOffCan } from "./components/offcan";
-import {
-  postUserAddressForm,
-  renderCartView,
-  renderCheckoutForm,
-} from "./components/accordian";
+import { renderCartView, renderCheckoutForm } from "./components/accordian";
 import { renderFooter } from "./components/footer";
 import { renderNavbar } from "./components/navbar";
 import { renderCarousel } from "./components/carousel";

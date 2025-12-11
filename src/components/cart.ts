@@ -229,7 +229,7 @@ export const renderCheckoutCart = function () {
         let thumbnailURL = `https://www.bortakvall.se${product.thumbnail}`;
         return `
           <div
-            class="checkoutCartListItem container-fluid d-flex flex-row rounded-4 p-1"
+            class="checkoutCartListItem container-fluid d-flex flex-column flex-md-row rounded-4 p-1 "
             data-product-id="${product.id}"
           >
             <img

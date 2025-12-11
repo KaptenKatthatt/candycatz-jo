@@ -16,23 +16,49 @@ h5 {
 .offcanvas {
   background-color: $offcanvas;
   overflow-x: hidden;
-  // overflow-y: auto;
+  overflow-y: auto;
   // max-height: 100vh;
-  // --bs-offcanvas-width: 45%;
+  // --bs-offcanvas-width: 28vw;
   // display: flex;
+  // min-width: fit-content;
+  padding: 0px 20px;
+}
+
+.clearCartBtn {
+  width: 94%;
+  margin: 0 auto;
+}
+.checkOutBtn {
+  width: 100%;
+  margin: 0 auto;
+}
+
+.productContainer {
+  // margin: 0px 10px;
+  // min-width: fit-content;
 }
 
 .offcanvas p {
   margin: 0;
   padding: 0;
 }
+.offcanvas {
+}
 
+.offcanvasBody {
+  // min-width: fit-content;
+  margin: 0 auto;
+}
+
+.cartContainer {
+}
 .cartListItem {
   border-radius: 0px 0px 10px 10px;
   box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.4);
+  margin: 0 auto;
 
   margin-bottom: 0.5rem;
-  padding: 5px;
+  padding: 8px;
   max-width: 500px;
   --bs-card-title-spacer-y: 0.3rem;
   overflow: hidden;
@@ -64,6 +90,7 @@ h5 {
 .buttonContainer {
   grid-area: buttonContainer;
   margin-left: 10px;
+  padding: 0;
 }
 
 /* @media screen and (min-width: 886px) {

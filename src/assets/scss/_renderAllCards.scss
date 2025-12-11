@@ -33,18 +33,15 @@
 
 .candyAmount {
   font-size: 2.5rem;
-  z-index: 100;
-  margin-right: 35px;
   .candyAmountRendered {
     font-size: 1rem;
-    position: absolute;
-    margin-top: 10px;
-    margin-left: -20px;
+    padding: 8px;
+    border-radius: 20px;
   }
 }
 
 .scallopbox {
-  --r: 30px;
+  --r: 0.5rem;
   height: auto;
   aspect-ratio: 1;
   padding: calc(1.5 * var(--r));
@@ -59,6 +56,13 @@
   }
 }
 
+.sweetSavingsCardsContainer {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto;
+  justify-self: center;
+  
+}
 .wavebox {
   padding-top: 25px;
   padding-bottom: 25px;
@@ -112,4 +116,22 @@
       calc(100% - 10px) 50% / calc(51% - 10px) 40px repeat-y;
   -webkit-mask: var(--mask);
   mask: var(--mask);
+}
+
+@media screen and (min-width: 576px) {
+  .scallopbox {
+  --r: 1.3rem;
+  }
+
+  .sweetSavingsCardsContainer {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  }
+}
+@media screen and (min-width: 768px) {
+  
+  .scallopbox {
+  --r: 1.8rem; 
+  }
 }

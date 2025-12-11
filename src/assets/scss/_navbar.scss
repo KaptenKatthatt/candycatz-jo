@@ -3,10 +3,11 @@ h1 {
   font-size: 4rem;
   color: rgb(203, 0, 0);
   margin: 0px 10px;
-
 }
 .navbar {
   display: flex;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  border-radius: 0px 0px 0px 20%;
 }
 
 .navbar-brand {
@@ -19,4 +20,14 @@ h1 {
 }
 .navbar-grad {
   background: linear-gradient(90deg, #ffb3d9 0%, #ffebb3 30%, #a3dcff 100%);
+}
+
+.navbarCart {
+  transition: transform 0.2s ease-in-out;
+  display: inline-block;
+
+  &:hover {
+    color: $btn-candy-pink;
+    transform: scale(1.4) rotate(-10deg) translateX(3px);
+  }
 }

@@ -124,16 +124,16 @@ export const renderCart = function () {
         let thumbnailURL = `https://www.bortakvall.se${product.thumbnail}`;
         return `
          <div
-            class="cartListItem container  rounded-4"
+            class="cartListItem rounded-4"
             data-product-id="${product.id}"
           >
             
             <img
               src="${thumbnailURL}"
-              class="cartThumbnail img-fluid rounded-4 border border-dark me-2"
+              class="cartThumbnail rounded-4 border border-dark me-2"
               alt="Image of ${product.name}"
             />
-            <h5 class="card-title click fs-5 me-2">${product.name}</h5>
+            <h5 class="card-title click fs-5">${product.name}</h5>
 
 
             <div class="cartPrice">
@@ -146,11 +146,11 @@ export const renderCart = function () {
             </div>
 
               <div class="buttonContainer d-flex flex-row align-items-center">
-                <button class="decreaseBtn cartMinusBtn me-2" type="button">
+                <button class="decreaseBtn cartMinusBtn" type="button">
                   -
                 </button>
                 <p
-                  class="cartQty"
+                  class="cartQty mx-2"
                 >
                   ${product.qty}
                 </p>

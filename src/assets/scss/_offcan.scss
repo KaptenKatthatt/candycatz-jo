@@ -49,14 +49,14 @@ h5 {
 
   display: grid;
   grid-template-rows: auto auto auto;
-  grid-template-columns: auto auto auto;
+  grid-template-columns: 80px auto auto;
   grid-template-areas:
     "cartThumbnail card-title  card-title"
     "cartThumbnail cartPrice buttonContainer"
     "cartThumbnail cartQty buttonContainer";
 }
 
-.cartThumbnail {
+.castListItem > .cartThumbnail {
   grid-area: cartThumbnail;
 }
 .card-title {

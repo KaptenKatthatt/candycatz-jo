@@ -10,16 +10,16 @@
  */
 
 h5 {
-  font-size: 2.5rem;
+  font-size: 2rem;
   color: $title-text;
 }
 .offcanvas {
   background-color: $offcanvas;
   overflow-x: hidden;
   // overflow-y: auto;
-  max-height: 100vh;
+  // max-height: 100vh;
   // --bs-offcanvas-width: 45%;
-  display: flex;
+  // display: flex;
 }
 
 .offcanvas p {
@@ -63,6 +63,7 @@ h5 {
 }
 .buttonContainer {
   grid-area: buttonContainer;
+  margin-left: 10px;
 }
 
 /* @media screen and (min-width: 886px) {

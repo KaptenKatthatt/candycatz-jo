@@ -174,7 +174,7 @@ export const renderCart = function () {
 
     cartContainerEl.onclick = (e) => {
       const target = e.target as HTMLElement;
-      const candyCard = target.closest<HTMLDivElement>(".productItem");
+      const candyCard = target.closest<HTMLDivElement>(".cartListItem");
       clickedCandyId = Number(candyCard?.dataset.productId);
 
       if (target.closest(".increaseBtn")) {
@@ -226,7 +226,7 @@ export const renderCheckoutCart = function () {
         let thumbnailURL = `https://www.bortakvall.se${product.thumbnail}`;
         return `
           <div
-            class="productItem container-fluid d-flex flex-row rounded-4 p-1"
+            class="cartListItem container-fluid d-flex flex-row rounded-4 p-1"
             data-product-id="${product.id}"
           >
             <img
@@ -269,7 +269,7 @@ export const renderCheckoutCart = function () {
 
     checkoutCartContainerEl.onclick = (e) => {
       const target = e.target as HTMLElement;
-      const candyCard = target.closest<HTMLDivElement>(".productItem");
+      const candyCard = target.closest<HTMLDivElement>(".cartListItem");
       clickedCandyId = Number(candyCard?.dataset.productId);
 
       if (target.closest(".increaseBtn")) {

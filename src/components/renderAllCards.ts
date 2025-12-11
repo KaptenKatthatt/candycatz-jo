@@ -100,7 +100,7 @@ function loadMoreSweets() {
 
 function moreSweetsButton() {
   const moreSweetsBtnEl = document.querySelector(
-    ".moreToMunchBtn"
+    ".munchBtn"
   ) as HTMLDivElement;
 
   moreSweetsBtnEl.addEventListener("click", () => {

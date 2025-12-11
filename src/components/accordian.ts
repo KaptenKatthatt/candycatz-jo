@@ -3,11 +3,11 @@ import { createOrdertoSend } from "../services/candyPOST_API";
 import { clearCart } from "./cart";
 import { getCartArrayFromLocalStorage } from "./localStorage";
 
-
-
 const cartView = document.querySelector("#cartView") as HTMLDivElement;
 const checkoutForm = document.querySelector("#checkoutForm") as HTMLFormElement;
-const placedOrderView = document.querySelector("#placedOrderView") as HTMLDivElement;
+const placedOrderView = document.querySelector(
+  "#placedOrderView"
+) as HTMLDivElement;
 
 export interface AddressData {
   customer_first_name: string;
@@ -53,26 +53,30 @@ export const renderCartView = function () {
     </div>
 `;
 
+  // Click -Fortsätt till kassan
+  const proceedBtn = document.querySelector<HTMLDivElement>(".proceedBtn")!;
+  proceedBtn.addEventListener("click", () => {
+    const collapseOne = document.querySelector<HTMLDivElement>(
+      "#panelsStayOpen-collapseOne"
+    )!;
+    const collapseTwo = document.querySelector<HTMLDivElement>(
+      "#panelsStayOpen-collapseTwo"
+    )!;
 
-// Click -Fortsätt till kassan
-const proceedBtn = document.querySelector<HTMLDivElement>(".proceedBtn")!;
-proceedBtn.addEventListener("click",() =>{
+    collapseOne.classList.remove("show");
+    collapseTwo.classList.add("show");
 
-const collapseOne = document.querySelector<HTMLDivElement>("#panelsStayOpen-collapseOne")!;
-const collapseTwo = document.querySelector<HTMLDivElement>("#panelsStayOpen-collapseTwo")!;
-
-  collapseOne.classList.remove("show");
-  collapseTwo.classList.add("show"); 
-
-  const collapseOneBtn = document.querySelector("#panelsStayOpen-headingOne .accordion-button")! as HTMLButtonElement;
-    const collapseTwoBtn = document.querySelector("#panelsStayOpen-headingTwo .accordion-button")! as HTMLButtonElement;
+    const collapseOneBtn = document.querySelector(
+      "#panelsStayOpen-headingOne .accordion-button"
+    )! as HTMLButtonElement;
+    const collapseTwoBtn = document.querySelector(
+      "#panelsStayOpen-headingTwo .accordion-button"
+    )! as HTMLButtonElement;
     collapseOneBtn.setAttribute("aria-expanded", "false");
     collapseTwoBtn.setAttribute("aria-expanded", "true");
 
-  window.scrollTo({top: 500, behavior:"smooth"});
-
-});
-
+    window.scrollTo({ top: 500, behavior: "smooth" });
+  });
 };
 
 export const renderCheckoutForm = function () {
@@ -135,17 +139,21 @@ export const renderCheckoutForm = function () {
  
 `;
 
- const collapseTwo =document.querySelector<HTMLDivElement>("#panelsStayOpen-collapseTwo")!;
-
+  const collapseTwo = document.querySelector<HTMLDivElement>(
+    "#panelsStayOpen-collapseTwo"
+  )!;
 
   // get form and inputs after innerHTML
 
   const form = checkoutForm.querySelector<HTMLFormElement>("#form")!;
-  const inputFirstName =document.querySelector<HTMLInputElement>("#inputFirstName")!;
-  const inputLastName =document.querySelector<HTMLInputElement>("#inputLastName")!;
+  const inputFirstName =
+    document.querySelector<HTMLInputElement>("#inputFirstName")!;
+  const inputLastName =
+    document.querySelector<HTMLInputElement>("#inputLastName")!;
   const inputEmail = document.querySelector<HTMLInputElement>("#inputEmail")!;
   const inputNumber = document.querySelector<HTMLInputElement>("#inputNumber")!;
-  const inputAddress =document.querySelector<HTMLInputElement>("#inputAddress")!;
+  const inputAddress =
+    document.querySelector<HTMLInputElement>("#inputAddress")!;
   const inputCity = document.querySelector<HTMLInputElement>("#inputCity")!;
   const inputZip = document.querySelector<HTMLInputElement>("#inputZip")!;
 
@@ -163,22 +171,25 @@ export const renderCheckoutForm = function () {
       customer_postcode: inputZip.value,
     };
 
-
-    await createOrdertoSend(orderData); 
+    await createOrdertoSend(orderData);
 
     // Open step 3
-    const collapseThree =document.querySelector<HTMLDivElement>("#panelsStayOpen-collapseThree")!;
-   collapseTwo.classList.remove("show");
+    const collapseThree = document.querySelector<HTMLDivElement>(
+      "#panelsStayOpen-collapseThree"
+    )!;
+    collapseTwo.classList.remove("show");
     collapseThree.classList.add("show");
 
-    const collapseTwoBtn = document.querySelector("#panelsStayOpen-headingTwo .accordion-button")! as HTMLButtonElement;
+    const collapseTwoBtn = document.querySelector(
+      "#panelsStayOpen-headingTwo .accordion-button"
+    )! as HTMLButtonElement;
     collapseTwoBtn.setAttribute("aria-expanded", "false");
-    const collapseThreeBtn = document.querySelector("#panelsStayOpen-headingThree .accordion-button")! as HTMLButtonElement;
+    const collapseThreeBtn = document.querySelector(
+      "#panelsStayOpen-headingThree .accordion-button"
+    )! as HTMLButtonElement;
     collapseThreeBtn.setAttribute("aria-expanded", "true");
 
-
-    window.scrollTo({ top: 500, behavior:"smooth"});
-
+    window.scrollTo({ top: 500, behavior: "smooth" });
   });
 };
 
@@ -190,15 +201,17 @@ export const postUserAddressForm = function (responseData: ResponseData) {
       .map((product) => {
         let thumbnailURL = `https://www.bortakvall.se${product.thumbnail}`;
 
-        return `<div class="card bg-none rounded-4 p-1 style="width: 11rem;">
-      <img src="${thumbnailURL}" class="card-img-top click rounded-4 w-25" alt="Image of ${product.name}">
-      <div class="card-body">
-        <h5 class="card-title click smallCardsTitle">${product.qty} x ${product.name}</h5>
+        return `<div class="d-flex justify-content-start mb-2 rounded-4 p-1 border-0 mx-auto" 
+        style= "background: transparent; box-shadow: none; width: 20rem;">
+      <img src="${thumbnailURL}" class="rounded-4 me-3" 
+      style="width: 50px; height: 50px; object-fit: cover;" 
+      alt="Image of ${product.name}">
+      <div class="d-flex align-items-center m-0">
+        <h5 class="card-title text-center">${product.qty} x ${product.name}</h5>
         </div>
         </div>`;
       })
       .join("");
-    console.log(orderItemsInConfirmation);
   };
 
   placedOrderView.innerHTML = `
@@ -218,18 +231,22 @@ export const postUserAddressForm = function (responseData: ResponseData) {
     aria-labelledby="panelsStayOpen-headingThree">
       <div class="accordion-body">
 
+      
       <div class="placedOrderContainer"> 
       
       <div class="wavecardAccord"> 
-      
-     <h2>Smiles, ${responseData.data.customer_first_name}!</h2>
+     <h2 class="smilesTxt">Smiles, ${responseData.data.customer_first_name}!</h2>
       <p> Vi har mottagit din beställning och allt är redo i vårt godislaboratorium.
        När din order skickas får du ett nytt meddelande med spårningsinformation, 
        så att du kan följa dina godsaker hela vägen hem. </p>
-     <p> <strong>Order:</strong> ${responseData.data.id} <strong>| Datum för beställning:</strong> ${responseData.data.order_date} </p>
-     <p><strong>Leveransadress:</strong> ${responseData.data.customer_address} </p>
-       <h4>Här är din order:</h4>
-       <div class="orderConfirmationItems">
+     <p> <strong>Order:</strong> ${
+       responseData.data.id
+     } <strong>| Datum för beställning:</strong> ${
+    responseData.data.order_date
+  } </p>
+     <p><strong>Leveransadress:</strong> ${responseData.data.customer_address}, ${responseData.data.customer_city}, ${responseData.data.customer_postcode} </p>
+       <h4 class="orderTxt">Här är din order:</h4>
+       <div class="d-flex flex-column align-items-start gap-2">
        ${generateOrderItemsInConfirmation()}
        </div>
        <p> Njut av sötchocken!</p>
@@ -241,12 +258,41 @@ export const postUserAddressForm = function (responseData: ResponseData) {
 
        <!-- Continue Shopping Button -->
             <div class="text-start mt-4 mb-4">
-                <button type="button" class="btn btn-outline-primary" onclick="location.reload()">
-                    <i class="bi bi-arrow-left me-2"></i>Fortsätt att handla!</button>
+                <button type="button" class="btn btn-outline-primary" onclick="location.reload()">Fortsätt att handla!</button>
             </div>
         </div>
         </div>
         </div>
       `;
-      // clearCart();
+  clearCart();
 };
+
+const navBarEl = document.querySelector<HTMLLinkElement>(".navbar")!;
+const accordianEl = document.querySelector<HTMLDivElement>("#cartCheckoutContainer")!;
+const allCardsContainerEl = document.querySelector<HTMLDivElement>(".allCardsContainer")!;
+const carouselContainerEl = document.querySelector<HTMLDivElement>(".carouselContainer")!;
+const scrollcontainerEl = document.querySelector<HTMLDivElement>(".scroll-container")!;
+
+const openMainPage = function() {
+navBarEl.addEventListener("click", (e) =>{
+  const target = e.target as HTMLDivElement;
+  const clickedNavLink = target.closest(".nav-link");
+  if (clickedNavLink){
+      const innerBtnText = clickedNavLink.textContent.trim();
+        if (!clickedNavLink.hasAttribute("data-bs-toggle")) {
+        }
+     if (innerBtnText === "Candy Hotline") {
+      return;
+    }
+  
+    if (accordianEl) {
+      accordianEl.classList.add("d-none");
+      allCardsContainerEl.classList.remove("d-none");
+      carouselContainerEl.classList.remove("d-none");
+      scrollcontainerEl.classList.remove("d-none");
+    }
+  }
+})
+}
+
+openMainPage();

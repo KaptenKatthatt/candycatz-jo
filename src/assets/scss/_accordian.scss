@@ -19,24 +19,31 @@ color: #f38cb9;
   
 }
 .wavecardAccord {
-  --s: 10px;  
-  --w: 500px; 
-  height: auto;
-  width: round(var(--w),4*var(--s)); 
-  aspect-ratio: 1;
-  padding: var(--s);
+  
+  max-width: 500px;
+  width: 100%; 
+  padding: 10px;
   border: var(--s) solid #0000;
   box-sizing: border-box;
   background: #79b0df;
-  border-radius: calc(3.5*var(--s)); 
-  mask: 
-    radial-gradient(calc(sqrt(2)*var(--s)),#000 calc(100% - 1px),#0000),
-    conic-gradient(#000 0 0) content-box,
-    radial-gradient(calc(sqrt(2)*var(--s)),#0000 100%,#000 calc(100% + 1px)) 
-    var(--s) var(--s) padding-box;
-  mask-size: calc(var(--s)*4) calc(var(--s)*4);
-
-  color: #ea5d93;
+  border-radius: 50px;
+  
+  color: black;
   text-align: center;
 }
 
+.smilesTxt{
+  color:rgb(203, 0, 0);
+}
+
+.orderTxt{
+  color:rgb(203, 0, 0);
+
+}
+
+.card-title{
+  color: #000;
+   font-family: "Figtree", sans-serif;
+   font-size: 1rem;
+   
+}

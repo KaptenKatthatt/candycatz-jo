@@ -7,13 +7,13 @@ document.querySelector("footer")!.innerHTML = `
       <div class="after-scallop">
 
         <div class="contact-info">
-            <h6>Reach out to us:</h6>
+            <h6>Slå oss en pling eller kom förbi!</h6>
                 <ul class="address-list">
                     <li> CandyCatz HQ</li>
                     <li>123 Sweet St</li>
                     <li> Candy City, CC 12345</li>
-                    <li> Email:<a href="candycatz@sweets.com">info@candycatz.com </a></li>
-                    <li> Phone: <a href="123-456-7890">123-456-7890</a></li>
+                    <li> Mailadress:<a href="candycatz@sweets.com">info@candycatz.com </a></li>
+                    <li> Telefonnummer: <a href="123-456-7890">123-456-7890</a></li>
                 </ul>
         </div>
        

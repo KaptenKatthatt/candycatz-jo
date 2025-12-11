@@ -201,10 +201,13 @@ export const postUserAddressForm = function (responseData: ResponseData) {
       .map((product) => {
         let thumbnailURL = `https://www.bortakvall.se${product.thumbnail}`;
 
-        return `<div class="card bg-none rounded-4 p-1 style="width: 11rem;">
-      <img src="${thumbnailURL}" class="card-img-top click rounded-4 w-25" alt="Image of ${product.name}">
-      <div class="card-body">
-        <h5 class="card-title click smallCardsTitle">${product.qty} x ${product.name}</h5>
+        return `<div class="d-flex justify-content-start mb-2 rounded-4 p-1 border-0 mx-auto" 
+        style= "background: transparent; box-shadow: none; width: 20rem;">
+      <img src="${thumbnailURL}" class="rounded-4 me-3" 
+      style="width: 50px; height: 50px; object-fit: cover;" 
+      alt="Image of ${product.name}">
+      <div class="d-flex align-items-center m-0">
+        <h5 class="card-title text-center">${product.qty} x ${product.name}</h5>
         </div>
         </div>`;
       })
@@ -232,7 +235,7 @@ export const postUserAddressForm = function (responseData: ResponseData) {
       <div class="placedOrderContainer"> 
       
       <div class="wavecardAccord"> 
-     <h2>Smiles, ${responseData.data.customer_first_name}!</h2>
+     <h2 class="smilesTxt">Smiles, ${responseData.data.customer_first_name}!</h2>
       <p> Vi har mottagit din beställning och allt är redo i vårt godislaboratorium.
        När din order skickas får du ett nytt meddelande med spårningsinformation, 
        så att du kan följa dina godsaker hela vägen hem. </p>
@@ -241,11 +244,9 @@ export const postUserAddressForm = function (responseData: ResponseData) {
      } <strong>| Datum för beställning:</strong> ${
     responseData.data.order_date
   } </p>
-     <p><strong>Leveransadress:</strong> ${
-       responseData.data.customer_address
-     } </p>
-       <h4>Här är din order:</h4>
-       <div class="orderConfirmationItems">
+     <p><strong>Leveransadress:</strong> ${responseData.data.customer_address}, ${responseData.data.customer_city}, ${responseData.data.customer_postcode} </p>
+       <h4 class="orderTxt">Här är din order:</h4>
+       <div class="d-flex flex-column align-items-start gap-2">
        ${generateOrderItemsInConfirmation()}
        </div>
        <p> Njut av sötchocken!</p>
@@ -257,14 +258,13 @@ export const postUserAddressForm = function (responseData: ResponseData) {
 
        <!-- Continue Shopping Button -->
             <div class="text-start mt-4 mb-4">
-                <button type="button" class="btn btn-outline-primary" onclick="location.reload()">
-                    <i class="bi bi-arrow-left me-2"></i>Fortsätt att handla!</button>
+                <button type="button" class="btn btn-outline-primary" onclick="location.reload()">Fortsätt att handla!</button>
             </div>
         </div>
         </div>
         </div>
       `;
-  // clearCart();
+  clearCart();
 };
 
 const navBarEl = document.querySelector<HTMLLinkElement>(".navbar")!;

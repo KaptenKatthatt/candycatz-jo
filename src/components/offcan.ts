@@ -12,7 +12,7 @@ export const renderOffCan = function () {
   </div>
 
   <!-- Cart products container-->
-  <div class=" offcanvasBody px-3">
+  <div class="offcanvasBody">
       <div class="productContainer card">
         <div class="card-body">
           <div class="row align-items-center cart-item">
@@ -29,7 +29,7 @@ export const renderOffCan = function () {
       <!-- Order summary -->
       <div class="card cart-summary mt-4">
         <div class="card-body">
-          <h5 class="card-title mb-4">Ordersummering</h5>
+          <h5 class="orderSummaryHeader text-dark mb-4">Ordersummering</h5>
           <div class="d-flex justify-content-between mb-3">
             <span>Summa</span>
             <span class="subtotalContainer"></span>
@@ -43,7 +43,7 @@ export const renderOffCan = function () {
             <strong>Total</strong>
             <span class="totalCostContainer"><strong></strong></span>
           </div>
-          <button class="checkOutBtn btn btn-primary w-100" data-bs-dismiss="offcanvas" aria-label="Close">Gå till kassan</button>
+          <button class="checkOutBtn btn btn-primary" data-bs-dismiss="offcanvas" aria-label="Close">Gå till kassan</button>
         </div>
     </div>
   </div>

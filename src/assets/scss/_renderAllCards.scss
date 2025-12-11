@@ -41,7 +41,7 @@
 }
 
 .scallopbox {
-  --r: 9px;
+  --r: 0.5rem;
   height: auto;
   aspect-ratio: 1;
   padding: calc(1.5 * var(--r));
@@ -116,4 +116,22 @@
       calc(100% - 10px) 50% / calc(51% - 10px) 40px repeat-y;
   -webkit-mask: var(--mask);
   mask: var(--mask);
+}
+
+@media screen and (min-width: 576px) {
+  .scallopbox {
+  --r: 1.3rem;
+  }
+
+  .sweetSavingsCardsContainer {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  }
+}
+@media screen and (min-width: 768px) {
+  
+  .scallopbox {
+  --r: 1.8rem; 
+  }
 }

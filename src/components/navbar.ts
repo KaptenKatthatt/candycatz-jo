@@ -6,9 +6,9 @@ export const renderNavbar = function () {
             <h1>CandyCatz</h1>
           </a>
           <!--VARUKORG-->
-          <div id="#cartIcon" class="ms-auto ms-lg-auto order-lg-last m-2 me-3">
+          <div id="#cartIcon" class="ms-auto ms-lg-auto order-lg-last">
           <a class="nav-link position-relative" href="#" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
-            <i class="navbarCart bi bi-cart4 fs-3"></i>
+            <i class="navbarCart bi bi-cart4 fs-3 "></i>
             <span
               class="navCartBadge position-absolute top-0 start-100 translate-middle badge rounded-pill bg-primary">
               0
@@ -17,7 +17,7 @@ export const renderNavbar = function () {
           </div>
 
           <button
-            class="navbar-toggler me-3"
+            class="navbar-toggler"
             type="button"
             data-bs-toggle="collapse"
             data-bs-target="#navbarNav"

@@ -18,10 +18,6 @@ h1 {
     text-shadow: 0px 0px 10px white;
   }
 }
-.navbar-grad {
-  background: linear-gradient(90deg, #ffb3d9 0%, #ffebb3 30%, #a3dcff 100%);
-}
-
 .navbarCart {
   transition: transform 0.2s ease-in-out;
   display: inline-block;
@@ -30,4 +26,16 @@ h1 {
     color: $btn-candy-pink;
     transform: scale(1.4) rotate(-10deg) translateX(3px);
   }
+}
+
+.navbar-grad {
+  background: linear-gradient(90deg, #ffb3d9 0%, #ffebb3 30%, #a3dcff 100%);
+}
+.nav-link {
+  margin-right: 15px;
+}
+
+.navbar-toggler {
+  margin-left: 0.2rem;
+  margin-right: 0.8rem;
 }

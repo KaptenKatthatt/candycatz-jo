@@ -21,15 +21,15 @@ export const renderModal = async function (productId: number) {
 <div class="modal fade" id="candyModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-sm-sm">
       <div class="modal-content">
-        <div class="modal-header">
-          <h5 id="exampleModalLabel" class="modal-title modalTitle">${candyTitle}</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Stäng"></button>
-        </div>
+        <div class="modal-body">
         <div class="row">
-        <div class="modal-body col-sm-6 d-flex align-items-center">
+        
+        <div class="col-sm-6 d-flex align-items-center">
           <img src="${modalThumbnailURL}" class="modalThumbnail card-img" alt="${candyTitle}">
           </div>
-          <div class="col-sm-6"><p class="modalParagraph card-text">${candyParagraph}</p>
+          <div class="col-6">
+          <div class="scrollableModal">
+          <p class="modalParagraph card-text pt-2">${candyParagraph}</p>
           <p class="modal-price">Pris:<strong> ${candyPrice}:- </strong></p>
           <p>I lager: ${candyProduct.data.stock_quantity}
         </div>
@@ -39,7 +39,6 @@ export const renderModal = async function (productId: number) {
         </div>
         </div>
       </div>
-    </div>
   </div>
   `;
   const candyModal = document.getElementById("candyModal");

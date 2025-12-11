@@ -22,3 +22,14 @@
 .modalThumbnail:hover {
   transform: scale(0.2);
 }
+.modal-price {
+  margin: 0px;
+}
+.modal-footer {
+  border: none;
+}
+.scrollableModal{
+  max-height: 400px;
+  overflow-y: auto;
+  padding-right:10px;
+}

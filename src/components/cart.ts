@@ -189,7 +189,7 @@ export const renderCart = function () {
     };
   } else {
     cartContainerEl!.innerHTML = `
-                    <img src="src/assets/img/sadcat.gif" alt="">
+                    <img src="/img/sadcat.gif" alt="">
 
     <p class="py-5">
       Kundvagnen är tom just nu. Iväg o handla med dig!</p>`;
@@ -229,7 +229,7 @@ export const renderCheckoutCart = function () {
         let thumbnailURL = `https://www.bortakvall.se${product.thumbnail}`;
         return `
           <div
-            class="checkoutCartListItem container-fluid d-flex flex-row rounded-4 p-1"
+            class="checkoutCartListItem container-fluid d-flex flex-column flex-md-row rounded-4 p-1 "
             data-product-id="${product.id}"
           >
             <img

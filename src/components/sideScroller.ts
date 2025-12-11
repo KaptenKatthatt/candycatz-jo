@@ -1,15 +1,4 @@
-//Render 4 cards
-//When
-
-import { getAllCandyInfo } from "../services/candyAPI";
 import type { CandyData } from "../services/candyApiTypes";
-
-// const topTreatsSideScrollerContainerEl = document.querySelector(
-//   ".topTreatsSideScrollerContainer"
-// ) as HTMLDivElement;
-
-let response = await getAllCandyInfo();
-let allCandyCards: CandyData[] = response.data;
 
 // funktion för att återanvända kort strukturen flera gånger på olika kategorier
 export function cardStructureSideScroller(product: CandyData): string {

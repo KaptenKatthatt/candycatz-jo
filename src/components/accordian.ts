@@ -1,6 +1,5 @@
 import type { ResponseData } from "../services/candyApiTypes";
 import { createOrdertoSend } from "../services/candyPOST_API";
-import { clearCart } from "./cart";
 import { getCartArrayFromLocalStorage } from "./localStorage";
 
 const cartView = document.querySelector("#cartView") as HTMLDivElement;
@@ -235,7 +234,9 @@ export const postUserAddressForm = function (responseData: ResponseData) {
       <div class="placedOrderContainer"> 
       
       <div class="wavecardAccord"> 
-     <h2 class="smilesTxt">Smiles, ${responseData.data.customer_first_name}!</h2>
+     <h2 class="smilesTxt">Smiles, ${
+       responseData.data.customer_first_name
+     }!</h2>
       <p> Vi har mottagit din beställning och allt är redo i vårt godislaboratorium.
        När din order skickas får du ett nytt meddelande med spårningsinformation, 
        så att du kan följa dina godsaker hela vägen hem. </p>
@@ -244,7 +245,11 @@ export const postUserAddressForm = function (responseData: ResponseData) {
      } <strong>| Datum för beställning:</strong> ${
     responseData.data.order_date
   } </p>
-     <p><strong>Leveransadress:</strong> ${responseData.data.customer_address}, ${responseData.data.customer_city}, ${responseData.data.customer_postcode} </p>
+     <p><strong>Leveransadress:</strong> ${
+       responseData.data.customer_address
+     }, ${responseData.data.customer_city}, ${
+    responseData.data.customer_postcode
+  } </p>
        <h4 class="orderTxt">Här är din order:</h4>
        <div class="d-flex flex-column align-items-start gap-2">
        ${generateOrderItemsInConfirmation()}
@@ -268,31 +273,36 @@ export const postUserAddressForm = function (responseData: ResponseData) {
 };
 
 const navBarEl = document.querySelector<HTMLLinkElement>(".navbar")!;
-const accordianEl = document.querySelector<HTMLDivElement>("#cartCheckoutContainer")!;
-const allCardsContainerEl = document.querySelector<HTMLDivElement>(".allCardsContainer")!;
-const carouselContainerEl = document.querySelector<HTMLDivElement>(".carouselContainer")!;
-const scrollcontainerEl = document.querySelector<HTMLDivElement>(".scroll-container")!;
+const accordianEl = document.querySelector<HTMLDivElement>(
+  "#cartCheckoutContainer"
+)!;
+const allCardsContainerEl =
+  document.querySelector<HTMLDivElement>(".allCardsContainer")!;
+const carouselContainerEl =
+  document.querySelector<HTMLDivElement>(".carouselContainer")!;
+const scrollcontainerEl =
+  document.querySelector<HTMLDivElement>(".scroll-container")!;
 
-const openMainPage = function() {
-navBarEl.addEventListener("click", (e) =>{
-  const target = e.target as HTMLDivElement;
-  const clickedNavLink = target.closest(".nav-link");
-  if (clickedNavLink){
+const openMainPage = function () {
+  navBarEl.addEventListener("click", (e) => {
+    const target = e.target as HTMLDivElement;
+    const clickedNavLink = target.closest(".nav-link");
+    if (clickedNavLink) {
       const innerBtnText = clickedNavLink.textContent.trim();
-        if (!clickedNavLink.hasAttribute("data-bs-toggle")) {
-        }
-     if (innerBtnText === "Candy Hotline") {
-      return;
+      if (!clickedNavLink.hasAttribute("data-bs-toggle")) {
+      }
+      if (innerBtnText === "Candy Hotline") {
+        return;
+      }
+
+      if (accordianEl) {
+        accordianEl.classList.add("d-none");
+        allCardsContainerEl.classList.remove("d-none");
+        carouselContainerEl.classList.remove("d-none");
+        scrollcontainerEl.classList.remove("d-none");
+      }
     }
-  
-    if (accordianEl) {
-      accordianEl.classList.add("d-none");
-      allCardsContainerEl.classList.remove("d-none");
-      carouselContainerEl.classList.remove("d-none");
-      scrollcontainerEl.classList.remove("d-none");
-    }
-  }
-})
-}
+  });
+};
 
 openMainPage();

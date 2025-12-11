@@ -41,7 +41,7 @@
 }
 
 .scallopbox {
-  --r: 30px;
+  --r: 9px;
   height: auto;
   aspect-ratio: 1;
   padding: calc(1.5 * var(--r));
@@ -56,6 +56,13 @@
   }
 }
 
+.sweetSavingsCardsContainer {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto;
+  justify-self: center;
+  
+}
 .wavebox {
   padding-top: 25px;
   padding-bottom: 25px;

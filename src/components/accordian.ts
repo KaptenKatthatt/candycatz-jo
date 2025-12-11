@@ -264,7 +264,7 @@ export const postUserAddressForm = function (responseData: ResponseData) {
         </div>
         </div>
       `;
-  // clearCart();
+  clearCart();
 };
 
 const navBarEl = document.querySelector<HTMLLinkElement>(".navbar")!;

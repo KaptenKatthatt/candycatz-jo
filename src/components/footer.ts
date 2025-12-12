@@ -1,10 +1,10 @@
-export const renderFooter = function() {
-document.querySelector("footer")!.innerHTML = `
+export const renderFooter = function () {
+  document.querySelector("footer")!.innerHTML = `
 
 
     <footer class="footer">
       <div class="scallop"></div>
-      <div class="after-scallop">
+      <div class="after-scallop text-center">
 
         <div class="contact-info">
             <h6>Slå oss en pling eller kom förbi!</h6>
@@ -19,7 +19,7 @@ document.querySelector("footer")!.innerHTML = `
        
         
 
-        <div class="footer-icons">
+        <div class="footer-icons text-center">
           <i class="bi bi-facebook"></i>
           <i class="bi bi-instagram"></i>
           <i class="bi bi-yelp"></i>
@@ -42,7 +42,5 @@ document.querySelector("footer")!.innerHTML = `
   </body>
 </html>
 </footer>
-`
-}
-
-   
+`;
+};

@@ -35,7 +35,7 @@ export const renderCheckoutCart = function () {
               <p class="checkOutCartPrice me-2"><strong>${
                 product.price
               }:-</strong>/skopa</p>
-              <p class="checkOutCartTootalme-2">
+              <p class="checkOutCartTotal me-2">
                 Produktpris: <strong>${product.qty * product.price}:-</strong>
               </p>
             </div>

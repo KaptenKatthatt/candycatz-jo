@@ -37,8 +37,6 @@ export const renderFooter = function () {
       </div>
     </footer>
 
-    <div id="app"></div>
-    <script type="module" src="/src/main.ts"></script>
   </body>
 </html>
 </footer>

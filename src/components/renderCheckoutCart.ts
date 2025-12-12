@@ -24,7 +24,7 @@ export const renderCheckoutCart = function () {
           >
             <img
               src="${thumbnailURL}"
-              class="checkOutThumbnail rounded-4  "
+              class="checkOutThumbnail rounded-4"
               alt="Image of ${product.name}"
             />
             <h3 class="checkOutCartTitle fs-5">${product.name}</h3>

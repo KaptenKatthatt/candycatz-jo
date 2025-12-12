@@ -5,9 +5,7 @@ p {
 
 .checkoutCartListItem {
   width: 100%;
-  @media (min-width: 768px) {
-    max-width: 90vw;
-  }
+
   border-radius: 0px 0px 10px 10px;
   box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.4);
   margin: 0 auto;
@@ -23,7 +21,7 @@ p {
 
   display: grid;
   grid-template-rows: auto auto auto;
-  grid-template-columns: 80px 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
   grid-template-areas:
     "checkOutThumbnail checkOutCartTitle checkOutCartTitle"
     "checkOutThumbnail checkOutCartPrice checkOutCartTotal"
@@ -54,11 +52,11 @@ p {
   .checkoutCartListItem {
     border-radius: 0px 0px 10px 10px;
     box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.4);
-    margin: 0 auto;
+    // margin: 0 auto;
+    // width: 60vw;
 
     margin-bottom: 0.5rem;
     padding: 8px;
-    // max-width: 500px;
     --bs-checkOutCartTitle-spacer-y: 0.3rem;
     overflow: hidden;
 
@@ -67,7 +65,7 @@ p {
 
     display: grid;
     grid-template-rows: auto auto auto;
-    grid-template-columns: 80px auto auto;
+    grid-template-columns: 120px 10rem auto;
     grid-template-areas:
       "checkOutThumbnail checkOutCartTitle  checkOutCartTitle"
       "checkOutThumbnail checkOutCartPrice buttonContainer"
@@ -75,11 +73,12 @@ p {
   }
 
   .checkOutThumbnail {
-    // max-width: 70px;
     grid-area: checkOutThumbnail;
     align-self: center;
     border-radius: 10px;
+    max-width: 110px;
   }
+
   .checkOutCartTitle {
     grid-area: checkOutCartTitle;
   }
@@ -91,7 +90,6 @@ p {
   }
   .buttonContainer {
     grid-area: buttonContainer;
-    margin-left: 10px;
-    padding: 0;
+    margin-right: 10px;
   }
 }

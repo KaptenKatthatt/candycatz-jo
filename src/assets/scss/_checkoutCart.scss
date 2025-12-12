@@ -7,7 +7,9 @@ p {
   width: 100%;
 
   border-radius: 0px 0px 10px 10px;
-  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.4);
+  // box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 8px 20px $primary;
+
   margin: 0 auto;
 
   margin-bottom: 0.5rem;
@@ -51,7 +53,7 @@ p {
 @media screen and (min-width: 886px) {
   .checkoutCartListItem {
     border-radius: 0px 0px 10px 10px;
-    box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.4);
+
     // margin: 0 auto;
     // width: 60vw;
 

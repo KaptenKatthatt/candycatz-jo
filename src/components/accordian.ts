@@ -54,7 +54,8 @@ cartView.innerHTML = `
 
         <!--  Continue to checkout button -->
         <div class="proceedBtnContainer text-center mt-2 mb-4 mx-auto">
-          <button type="button" class="proceedBtn btn btn-primary">Fortsätt till kassan</button>
+          <button type="button" class="proceedBtn btn btn-primary">😸 <i class="bi bi-chevron-down"></i> Fortsätt till
+            kassan! <i class="bi bi-chevron-down"></i> 😸</button>
         </div>
       </div>
     </div>

@@ -44,8 +44,8 @@
   --r: 0.5rem;
   padding: calc(1.5 * var(--r));
   background: $footer;
-  mask: linear-gradient(#000 0 0) no-repeat 50% / calc(100% - 2 * var(--r))
-      calc(100% - 2 * var(--r)),
+  mask: linear-gradient(#000 0 0) 50% / calc(100% - 2 * var(--r))
+      calc(100% - 2 * var(--r)) no-repeat,
     radial-gradient(farthest-side, #000 97%, #0000) 0 0 / calc(2 * var(--r))
       calc(2 * var(--r)) round;
 

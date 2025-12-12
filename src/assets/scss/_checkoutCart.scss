@@ -1,15 +1,13 @@
-.checkOutThumbnail {
-  max-width: 110px;
+p {
+  padding: 0px;
+  margin: 0px;
 }
 
 .checkoutCartListItem {
   width: 100%;
   @media (min-width: 768px) {
-    max-width: 60vw;
+    max-width: 90vw;
   }
-}
-
-.checkoutCartListItem {
   border-radius: 0px 0px 10px 10px;
   box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.4);
   margin: 0 auto;
@@ -25,7 +23,7 @@
 
   display: grid;
   grid-template-rows: auto auto auto;
-  grid-template-columns: 80px auto auto;
+  grid-template-columns: 80px 1fr 1fr;
   grid-template-areas:
     "checkOutThumbnail checkOutCartTitle checkOutCartTitle"
     "checkOutThumbnail checkOutCartPrice checkOutCartTotal"
@@ -50,8 +48,9 @@
 }
 .buttonContainer {
   grid-area: buttonContainer;
-  margin-left: 10px;
-  margin-top: 1rem;
+  border: 1px solid lime;
+  // margin-left: 10px;
+  margin-top: 0rem;
   padding: 0;
 }
 
@@ -63,7 +62,7 @@
 
     margin-bottom: 0.5rem;
     padding: 8px;
-    max-width: 500px;
+    // max-width: 500px;
     --bs-checkOutCartTitle-spacer-y: 0.3rem;
     overflow: hidden;
 
@@ -87,7 +86,6 @@
   }
   .checkOutCartTitle {
     grid-area: checkOutCartTitle;
-    color: red;
   }
   .checkOutCartPrice {
     grid-area: checkOutCartPrice;

@@ -19,33 +19,27 @@ export const renderCheckoutCart = function () {
         let thumbnailURL = `https://www.bortakvall.se${product.thumbnail}`;
         return `
           <div
-            class="checkoutCartListItem cartListItem d-flex flex-column flex-md-row rounded-4 p-1 "
+            class="checkoutCartListItem cartListItem rounded-4"
             data-product-id="${product.id}"
           >
             <img
               src="${thumbnailURL}"
-              class="checkOutThumbnail img-fluid rounded-4 border border-dark me-2"
+              class="checkOutThumbnail rounded-4  "
               alt="Image of ${product.name}"
             />
+            <h3 class="checkOutCartTitle fs-5">${product.name}</h3>
+            <p class="checkOutCartPrice"><strong>${
+              product.price
+            }:-</strong>/skopa</p>
+            <p class="checkOutCartTotal">Totalt: <strong>${
+              product.qty * product.price
+            }:-</strong></p>
 
-            <div class="container div-flex flex-row justify-content-center">
-              <h5 class="card-title checkOutCartTitle click fs-5 me-2">${
-                product.name
-              }</h5>
-              <p class="checkOutCartPrice me-2"><strong>${
-                product.price
-              }:-</strong>/skopa</p>
-              <p class="checkOutCartTotal me-2">
-                Produktpris: <strong>${product.qty * product.price}:-</strong>
-              </p>
-            </div>
             <div class="buttonContainer d-flex flex-row align-items-center">
               <button class="decreaseBtn cartMinusBtn btn me-2" type="button">
                 -
               </button>
-              <p
-                class="checkOutCartQty me-2 d-flex align-items-center justify-content-center m-0"
-              >
+              <p class="checkOutCartQty me-2 d-flex align-items-center justify-content-center m-0">
                 ${product.qty}
               </p>
               <button

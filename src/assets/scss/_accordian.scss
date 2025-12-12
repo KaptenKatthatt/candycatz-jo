@@ -1,21 +1,53 @@
-.candyCartTxt {
-  color: #79b0df;
-  padding: 1rem 0rem 0.5rem 0rem;
+.accordion-button[aria-expanded="false"] {
+  background-color: #fffcef;
+  color: #f38cb9;
 }
 
 .accordion-button[aria-expanded="true"] {
   background-color: #90ab70;
   color: black;
 }
-.accordion-button[aria-expanded="false"] {
-  background-color: #fffcef;
-  color: #f38cb9;
+
+.candyCartTxt {
+  color: #79b0df;
+  padding: 1rem 0rem 0.5rem 0rem;
+}
+
+.checkoutLogo {
+  margin: 0 auto;
+  width: 15rem;
+}
+
+.orderTxt {
+  color: rgb(203, 0, 0);
 }
 
 .placedOrderContainer {
   display: flex;
   justify-content: center;
 }
+
+.proceedBtnContainer {
+  width: 100%;
+  height: 10rem;
+  background: url("../../../public/img/banderoll.png");
+  display: grid !important;
+  place-items: center;
+}
+.proceedBtn {
+  // margin: 0 auto;
+}
+
+.smilesTxt {
+  color: rgb(203, 0, 0);
+}
+
+.text-sum {
+  color: #000;
+  font-family: "Figtree", sans-serif;
+  font-size: 1rem;
+}
+
 .wavecardAccord {
   max-width: 500px;
   width: 100%;
@@ -27,23 +59,4 @@
 
   color: black;
   text-align: center;
-}
-
-.smilesTxt {
-  color: rgb(203, 0, 0);
-}
-
-.orderTxt {
-  color: rgb(203, 0, 0);
-}
-
-.text-sum {
-  color: #000;
-  font-family: "Figtree", sans-serif;
-  font-size: 1rem;
-}
-
-.checkoutLogo {
-  margin: 0 auto;
-  width: 15rem;
 }

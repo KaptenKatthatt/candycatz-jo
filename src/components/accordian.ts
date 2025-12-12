@@ -23,6 +23,7 @@ cartView.innerHTML = `
     <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show accordionOne"
       aria-labelledby="panelsStayOpen-headingOne">
       <div class="accordion-body d-flex flex-column align-items-center">
+
         <img class="checkoutLogo" src="../../public/img/candyCatz3.png" alt="">
         <div class="candyCartTxt">
           <h3>Din CandyCart fylld med godis som gör hjärtat happy 💝</h3>
@@ -52,7 +53,7 @@ cartView.innerHTML = `
         </div>
 
         <!--  Continue to checkout button -->
-        <div class="text-center mt-2 mb-4 d-block mx-auto">
+        <div class="proceedBtnContainer text-center mt-2 mb-4 mx-auto">
           <button type="button" class="proceedBtn btn btn-primary">Fortsätt till kassan</button>
         </div>
       </div>

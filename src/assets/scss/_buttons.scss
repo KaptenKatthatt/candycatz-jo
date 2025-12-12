@@ -1,10 +1,11 @@
 .addToCartBtn {
   background: #549938;
-  transition: transform 0.1s ease-in-out;
+  transition: transform 0.2s ease-in-out;
 
   &:hover {
-    box-shadow: 0 4px 8px $btn-candy-purple;
+    box-shadow: 0 8px 20px $btn-candy-purple;
     transform: scale(1.05);
+    color: white;
   }
   &:active {
     transform: scale(0.95);
@@ -56,7 +57,7 @@
   text-align: center;
   font-size: 1.2rem;
   font-weight: bold;
-  padding: 0px 0px 0px 0px;
+  padding: 0px;
 
   &:hover {
     background-color: darkmagenta;

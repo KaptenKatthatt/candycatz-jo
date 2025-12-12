@@ -1,10 +1,11 @@
-import { renderCart, renderCartBadge, renderCheckoutCart } from "./cart";
+import { renderCart, renderCartBadge } from "./cart";
+import { renderCheckoutCart } from "./renderCheckoutCart";
 
 export const offCan = document.querySelector<HTMLDivElement>("#offCan")!;
 
 export const renderOffCan = function () {
   offCan.innerHTML = `
-  <div class="offcanvas offcanvas-end rounded-top-4" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel" data-bs-scroll="false">
+  <div class="offcanvas offcanvas-end rounded-top-4 tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel" data-bs-scroll="false">
   <div class="offcanvas-header">
     <h5 class="offcanvas-title" id="offcanvasRightLabel">Your Candy Cart🍬 </h5>
     <i class="bi bi-cart4 fs-3"></i>
@@ -32,7 +33,7 @@ export const renderOffCan = function () {
     </button>
 
       <!-- Order summary -->
-      <div class="card cart-summary mt-4">
+      <div class="card cart-summary my-4">
         <div class="card-body">
           <h5 class="orderSummaryHeader text-dark mb-4">Ordersummering</h5>
           <div class="d-flex justify-content-between mb-3">

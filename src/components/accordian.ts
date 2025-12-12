@@ -1,4 +1,4 @@
-import type { ResponseData } from "../services/candyApiTypes";
+import type { AddressData, ResponseData } from "../services/candyApiTypes";
 import { createOrdertoSend } from "../services/candyPOST_API";
 import { getCartArrayFromLocalStorage } from "./localStorage";
 
@@ -7,16 +7,6 @@ const checkoutForm = document.querySelector("#checkoutForm") as HTMLFormElement;
 const placedOrderView = document.querySelector(
   "#placedOrderView"
 ) as HTMLDivElement;
-
-export interface AddressData {
-  customer_first_name: string;
-  customer_last_name: string;
-  customer_address: string;
-  customer_postcode: string;
-  customer_city: string;
-  customer_email: string;
-  customer_phone?: string;
-}
 
 export const renderCartView = function () {
   cartView.innerHTML = `
@@ -35,7 +25,7 @@ export const renderCartView = function () {
      <!-- Collapse content -->
     <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show accordionOne" 
     aria-labelledby="panelsStayOpen-headingOne">
-      <div class="accordion-body">
+      <div class="accordion-body d-flex flex-column align-items-center">
       <div class="candyCartTxt">
       <h3>Din CandyCart fylld med godis som gör hjärtat happy 💝</h3>
        </div>

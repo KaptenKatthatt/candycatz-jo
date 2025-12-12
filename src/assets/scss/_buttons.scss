@@ -1,12 +1,3 @@
-.btn {
-  transition: transform 0.1 ease-in-out;
-  &:hover {
-    transform: scale(1.05);
-  }
-  &:active {
-    transform: scale(0.95);
-  }
-}
 .addToCartBtn {
   background: #549938;
   transition: transform 0.1s ease-in-out;
@@ -26,11 +17,21 @@
   }
 }
 
+.btn {
+  transition: transform 0.1 ease-in-out;
+  &:hover {
+    transform: scale(1.05);
+  }
+  &:active {
+    transform: scale(0.95);
+  }
+}
+
 .cartMinusBtn,
 .cartPlusBtn,
-.deleteBtn,
 .clearCartBtn,
 .checkOutBtn,
+.deleteBtn,
 .btn {
   // box-shadow: 0 4px 4px rgba(0, 0, 0, 0.2);
   border: 3px black;
@@ -70,9 +71,14 @@
     background-color: $disabled;
   }
 }
+
+.continueShoppingBtn {
+  margin-top: 2rem;
+}
+
 .modalInfoBtn,
 .addToCartBtn {
-  margin-top: 20px;
+  margin-top: 1rem;
 }
 
 .modalInfoBtn {
@@ -90,7 +96,4 @@
   &:active {
     transform: scale(0.95);
   }
-}
-.continueShoppingBtn {
-  margin-top: 30px;
 }

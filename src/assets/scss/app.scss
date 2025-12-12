@@ -40,7 +40,8 @@ body {
   overflow: auto;
 }
 
-.click {
+.click,
+.btn {
   cursor: pointer;
 }
 .scroll-container {
@@ -49,33 +50,32 @@ body {
   overflow: hidden;
   white-space: nowrap;
   padding: 10px 0px;
+}
 
-  }
-
- .scroll-content{
+.scroll-content {
   display: inline-flex;
   white-space: nowrap;
   animation: scroll 20s linear infinite;
   gap: 3.5rem;
-  }
+}
 
-.scroll-content span{
+.scroll-content span {
   display: inline-flex;
-  }
+}
 
-  span{
-    flex-shrink: 0;
-    white-space: nowrap;
-  }
+span {
+  flex-shrink: 0;
+  white-space: nowrap;
+}
 
-  @keyframes scroll {
-    0% {
-      transform: translateX(0);
-    }
-    100% {
-      transform: translateX(-50%);
-    }
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
   }
+  100% {
+    transform: translateX(-50%);
+  }
+}
 
 .sale-banner {
   background-color: rgb(71, 18, 27);
@@ -85,28 +85,26 @@ body {
   border-radius: 20px;
   margin: 50px auto;
   max-width: 600px;
-  box-shadow:  0 4px 10px rgba(0,0,0,0.2);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 
-  
   transform: scale(1);
-  animation: pulse 1s infinite ease-in-out; 
+  animation: pulse 1s infinite ease-in-out;
 }
 
- @keyframes pulse{
-  0%{
-   transform: scale(1);
-  }
-
-  50%{
-    transform: scale(1.05);
-  }
-  100%{
+@keyframes pulse {
+  0% {
     transform: scale(1);
   }
- }
 
- .sale-banner:hover {
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.sale-banner:hover {
   transform: scale(1.1);
   transition: transform 0.3s ease;
 }
-

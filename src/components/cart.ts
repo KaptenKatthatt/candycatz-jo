@@ -136,10 +136,10 @@ export const renderCart = function () {
             <h3 class="offCanCartTitle fs-5">${product.name}</h3>
 
 
-            <div class="cartPrice">
+            <div class="offCanCartPrice">
               <p class=" me-2"><strong>${product.price}:-</strong>/skopa</p>
             </div>
-            <div class="cartQty">
+            <div class="offCanCartTotal">
               <p>
                 Totalt: <strong>${product.qty * product.price}:-</strong>
               </p>

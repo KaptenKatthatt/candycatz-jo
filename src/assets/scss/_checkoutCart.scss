@@ -16,8 +16,8 @@
 
   margin-bottom: 0.5rem;
   padding: 8px;
-  max-width: 500px;
-  --bs-card-title-spacer-y: 0.3rem;
+  // max-width: 500px;
+  --bs-checkOutCartTitle-spacer-y: 0.3rem;
   overflow: hidden;
 
   row-gap: 6px;
@@ -28,7 +28,7 @@
   grid-template-columns: 80px auto auto;
   grid-template-areas:
     "checkOutThumbnail checkOutCartTitle checkOutCartTitle"
-    "checkOutThumbnail checkOutCartPrice checkOutCartQty"
+    "checkOutThumbnail checkOutCartPrice checkOutCartTotal"
     "checkOutThumbnail buttonContainer buttonContainer";
 }
 
@@ -45,8 +45,8 @@
 .checkOutCartPrice {
   grid-area: checkOutCartPrice;
 }
-.checkOutCartQty {
-  grid-area: checkOutCartQty;
+.checkOutCartTotal {
+  grid-area: checkOutCartTotal;
 }
 .buttonContainer {
   grid-area: buttonContainer;
@@ -64,7 +64,7 @@
     margin-bottom: 0.5rem;
     padding: 8px;
     max-width: 500px;
-    --bs-card-title-spacer-y: 0.3rem;
+    --bs-checkOutCartTitle-spacer-y: 0.3rem;
     overflow: hidden;
 
     row-gap: 6px;
@@ -75,8 +75,8 @@
     grid-template-columns: 80px auto auto;
     grid-template-areas:
       "checkOutThumbnail checkOutCartTitle  checkOutCartTitle"
-      "checkOutThumbnail checkOutCartPrice checkOutCartQty"
-      "checkOutThumbnail buttonContainer buttonContainer";
+      "checkOutThumbnail checkOutCartPrice buttonContainer"
+      "checkOutThumbnail checkOutCartTotal buttonContainer";
   }
 
   .checkOutThumbnail {
@@ -87,12 +87,13 @@
   }
   .checkOutCartTitle {
     grid-area: checkOutCartTitle;
+    color: red;
   }
   .checkOutCartPrice {
     grid-area: checkOutCartPrice;
   }
-  .checkOutCartQty {
-    grid-area: checkOutCartQty;
+  .checkOutCartTotal {
+    grid-area: checkOutCartTotal;
   }
   .buttonContainer {
     grid-area: buttonContainer;

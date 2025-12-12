@@ -9,10 +9,6 @@
  * xxl: 1400px
  */
 
-h5 {
-  font-size: 2rem;
-  color: $title-text;
-}
 .offcanvas {
   background-color: $offcanvas;
   overflow-x: hidden;
@@ -61,7 +57,7 @@ h5 {
   grid-template-columns: 80px auto auto;
   grid-template-areas:
     "cartThumbnail offCanCartTitle  offCanCartTitle"
-    "cartThumbnail offCanCartPrice offCanCartQty"
+    "cartThumbnail offCanCartPrice offCanCartTotal"
     "cartThumbnail buttonContainer buttonContainer";
 }
 
@@ -75,11 +71,11 @@ h5 {
   grid-area: offCanCartTitle;
   font-weight: 700;
 }
-.cartPrice {
-  grid-area: cartPrice;
+.offCanCartPrice {
+  grid-area: offCanCartPrice;
 }
-.cartQty {
-  grid-area: cartQty;
+.offCanCartTotal {
+  grid-area: offCanCartTotal;
 }
 .buttonContainer {
   grid-area: buttonContainer;
@@ -108,8 +104,8 @@ h5 {
     grid-template-columns: 80px auto auto;
     grid-template-areas:
       "cartThumbnail offCanCartTitle  offCanCartTitle"
-      "cartThumbnail cartPrice buttonContainer"
-      "cartThumbnail cartQty buttonContainer";
+      "cartThumbnail offCanCartPrice buttonContainer"
+      "cartThumbnail offCanCartTotal buttonContainer";
   }
 
   .cartThumbnail {
@@ -121,11 +117,11 @@ h5 {
   .offCanCartTitle {
     grid-area: offCanCartTitle;
   }
-  .cartPrice {
-    grid-area: cartPrice;
+  .offCanCartPrice {
+    grid-area: offCanCartPrice;
   }
-  .cartQty {
-    grid-area: cartQty;
+  .offCanCartTotal {
+    grid-area: offCanCartTotal;
   }
   .buttonContainer {
     grid-area: buttonContainer;

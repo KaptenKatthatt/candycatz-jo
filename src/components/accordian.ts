@@ -25,7 +25,7 @@ export const renderCartView = function () {
      <!-- Collapse content -->
     <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show accordionOne" 
     aria-labelledby="panelsStayOpen-headingOne">
-      <div class="accordion-body">
+      <div class="accordion-body d-flex flex-column align-items-center">
       <div class="candyCartTxt">
       <h3>Din CandyCart fylld med godis som gör hjärtat happy 💝</h3>
        </div>

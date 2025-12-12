@@ -26,6 +26,11 @@ export const renderOffCan = function () {
         </div>
     </div>
 
+  <!-- Continue Shopping Button -->
+    <button type="button" class="continueShoppingBtn btn btn-primary" data-bs-dismiss="offcanvas" aria-label="Close">
+      <i class="bi bi-arrow-left me-2"></i>Fortsätt Handla
+    </button>
+
       <!-- Order summary -->
       <div class="card cart-summary mt-4">
         <div class="card-body">
@@ -48,12 +53,7 @@ export const renderOffCan = function () {
     </div>
   </div>
 
-  <!-- Continue Shopping Button -->
-  <div class="text-start ms-3 mt-4 mb-4">
-    <button type="button" class="btn btn-outline-primary" data-bs-dismiss="offcanvas" aria-label="Close">
-      <i class="bi bi-arrow-left me-2"></i>Fortsätt Handla
-    </button>
-  </div>
+
 </div>
 </div>
 </div>

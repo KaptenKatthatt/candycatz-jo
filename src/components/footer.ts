@@ -32,7 +32,7 @@ export const renderFooter = function () {
           <p>
             &copy; 2025 CandyCatz - "🍬 Pop and chew - all dreams come true! 🍭"
           </p>
-          <p>Created by Jonas, Sophia & Klara</p>
+          <p class="gangGang">Created by Jonas, Sophia & Klara</p>
         </div>
       </div>
     </footer>

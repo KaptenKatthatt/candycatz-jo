@@ -18,6 +18,10 @@ export const renderAllCards = async function () {
   const filterTopTreats = topTreatsCategories.filter((candy) => {
     return candy.stock_quantity < 3 && candy.stock_status === "instock";
   });
+
+
+  filterTopTreats.sort((a,b) => a.name.localeCompare(b.name, "sv"));
+
   // returnera ny array med alla som är instock OCH färre än 3
   const sliceOutTopTreats = filterTopTreats.slice(0, 12);
   // slicea sedan ut de första 12
@@ -52,6 +56,7 @@ export const renderAllCards = async function () {
   const filterSweetSaving = sweetSavingsCategories.filter((candy) => {
     return candy.on_sale === true && candy.stock_status === "instock";
   });
+  filterSweetSaving.sort((a,b) => a.name.localeCompare(b.name, "sv"));
   // returnera ny array med alla som är instock OCH färre än 3
   const sliceOutSavings = filterSweetSaving.slice(0, 12);
   // slicea sedan ut de första 12
@@ -71,6 +76,9 @@ export const renderAllCards = async function () {
   ];
 
   showMoreCandy = allCandyCards.filter((candy) => !usedIds.includes(candy.id));
+  // sortera array i bokstavsordning med svenska alfabets"regler"
+  showMoreCandy.sort((a,b) => a.name.localeCompare(b.name, "sv"));
+
   const moreToMunchCardsContainerEl = document.querySelector(
     ".moreToMunchCardsContainer"
   ) as HTMLDivElement;

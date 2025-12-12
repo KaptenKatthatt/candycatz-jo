@@ -29,9 +29,13 @@ export const renderCheckoutCart = function () {
             />
 
             <div class="container div-flex flex-row justify-content-center">
-              <h5 class="card-title click fs-5 me-2">${product.name}</h5>
-              <p class="me-2"><strong>${product.price}:-</strong>/skopa</p>
-              <p class="me-2">
+              <h5 class="card-title checkOutCartTitle click fs-5 me-2">${
+                product.name
+              }</h5>
+              <p class="checkOutCartPrice me-2"><strong>${
+                product.price
+              }:-</strong>/skopa</p>
+              <p class="checkOutCartTootalme-2">
                 Produktpris: <strong>${product.qty * product.price}:-</strong>
               </p>
             </div>
@@ -40,7 +44,7 @@ export const renderCheckoutCart = function () {
                 -
               </button>
               <p
-                class="me-2 d-flex align-items-center justify-content-center m-0"
+                class="checkOutCartQty me-2 d-flex align-items-center justify-content-center m-0"
               >
                 ${product.qty}
               </p>

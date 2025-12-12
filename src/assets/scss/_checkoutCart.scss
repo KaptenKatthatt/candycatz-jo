@@ -3,6 +3,100 @@
 }
 
 .checkoutCartListItem {
-  max-width: 60vw;
-  padding: 10px;
+  width: 100%;
+  @media (min-width: 768px) {
+    max-width: 60vw;
+  }
+}
+
+.checkoutCartListItem {
+  border-radius: 0px 0px 10px 10px;
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.4);
+  margin: 0 auto;
+
+  margin-bottom: 0.5rem;
+  padding: 8px;
+  max-width: 500px;
+  --bs-card-title-spacer-y: 0.3rem;
+  overflow: hidden;
+
+  row-gap: 6px;
+  column-gap: 6px;
+
+  display: grid;
+  grid-template-rows: auto auto auto;
+  grid-template-columns: 80px auto auto;
+  grid-template-areas:
+    "checkOutThumbnail checkOutCartTitle checkOutCartTitle"
+    "checkOutThumbnail checkOutCartPrice checkOutCartQty"
+    "checkOutThumbnail buttonContainer buttonContainer";
+}
+
+.checkOutThumbnail {
+  max-width: 70px;
+  grid-area: checkOutThumbnail;
+  align-self: center;
+  border-radius: 10px;
+}
+.checkOutCartTitle {
+  grid-area: checkOutCartTitle;
+  font-weight: 700;
+}
+.checkOutCartPrice {
+  grid-area: checkOutCartPrice;
+}
+.checkOutCartQty {
+  grid-area: checkOutCartQty;
+}
+.buttonContainer {
+  grid-area: buttonContainer;
+  margin-left: 10px;
+  margin-top: 1rem;
+  padding: 0;
+}
+
+@media screen and (min-width: 886px) {
+  .checkoutCartListItem {
+    border-radius: 0px 0px 10px 10px;
+    box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.4);
+    margin: 0 auto;
+
+    margin-bottom: 0.5rem;
+    padding: 8px;
+    max-width: 500px;
+    --bs-card-title-spacer-y: 0.3rem;
+    overflow: hidden;
+
+    row-gap: 6px;
+    column-gap: 6px;
+
+    display: grid;
+    grid-template-rows: auto auto auto;
+    grid-template-columns: 80px auto auto;
+    grid-template-areas:
+      "checkOutThumbnail checkOutCartTitle  checkOutCartTitle"
+      "checkOutThumbnail checkOutCartPrice buttonContainer"
+      "checkOutThumbnail checkOutCartQty buttonContainer";
+  }
+
+  .checkOutThumbnail {
+    // max-width: 70px;
+    grid-area: checkOutThumbnail;
+    align-self: center;
+    border-radius: 10px;
+  }
+  .checkOutCartTitle {
+    grid-area: card-title;
+  }
+  .checkOutCartPrice {
+    grid-area: checkOutCartPrice;
+  }
+  .checkOutCartQty {
+    grid-area: checkOutCartQty;
+  }
+  .buttonContainer {
+    grid-area: buttonContainer;
+    margin-left: 10px;
+    padding: 0;
+  }
 }

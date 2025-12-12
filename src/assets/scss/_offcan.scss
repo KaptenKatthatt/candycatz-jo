@@ -107,7 +107,7 @@ h5 {
     grid-template-rows: auto auto auto;
     grid-template-columns: 80px auto auto;
     grid-template-areas:
-      "cartThumbnail card-title  card-title"
+      "cartThumbnail offCanCartTitle  offCanCartTitle"
       "cartThumbnail cartPrice buttonContainer"
       "cartThumbnail cartQty buttonContainer";
   }

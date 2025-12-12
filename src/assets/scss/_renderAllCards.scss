@@ -42,7 +42,6 @@
 
 .scallopbox {
   --r: 0.5rem;
-  // aspect-ratio: 1;
   padding: calc(1.5 * var(--r));
   background: $footer;
   mask: linear-gradient(#000 0 0) no-repeat 50% / calc(100% - 2 * var(--r))

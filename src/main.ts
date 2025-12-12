@@ -1,12 +1,12 @@
 //Function imports
-import { renderOffCan } from "./components/offcan";
+import { getClickedCandyId } from "./components/getClickedCandyId";
+import { initStore } from "./components/cart";
+import { renderAllCards } from "./components/renderAllCards";
+import { renderCarousel } from "./components/carousel";
 import { renderCartView, renderCheckoutForm } from "./components/accordian";
 import { renderFooter } from "./components/footer";
 import { renderNavbar } from "./components/navbar";
-import { renderCarousel } from "./components/carousel";
-import { renderAllCards } from "./components/renderAllCards";
-import { getClickedCandyId } from "./components/getClickedCandyId";
-import { initStore } from "./components/cart";
+import { renderOffCan } from "./components/offcan";
 
 //SCSS imports
 import "./assets/scss/app.scss";

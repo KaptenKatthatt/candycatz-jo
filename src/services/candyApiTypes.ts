@@ -1,3 +1,13 @@
+export interface AddressData {
+  customer_first_name: string;
+  customer_last_name: string;
+  customer_address: string;
+  customer_postcode: string;
+  customer_city: string;
+  customer_email: string;
+  customer_phone?: string;
+}
+
 export interface CandyData {
   id: number;
   name: string;
@@ -28,6 +38,7 @@ export interface CandyDataID {
     slug: string;
   }[];
 }
+
 export interface CartProduct {
   id: number;
   name: string;
@@ -35,12 +46,6 @@ export interface CartProduct {
   price: number;
   thumbnail: string;
   stock_quantity: number;
-}
-export interface OrderItems {
-  product_id: number;
-  qty: number;
-  item_price: number;
-  item_total: number;
 }
 
 export interface CheckoutData {
@@ -53,6 +58,13 @@ export interface CheckoutData {
   customer_phone?: string;
   order_total: number;
   order_items: OrderItems[];
+}
+
+export interface OrderItems {
+  product_id: number;
+  qty: number;
+  item_price: number;
+  item_total: number;
 }
 
 export interface ResponseData {

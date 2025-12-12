@@ -10,7 +10,7 @@ const placedOrderView = document.querySelector(
 
 export const renderCartView = function () {
   cartView.innerHTML = `
-  <div class="accordion" id="accordionCandyCart">
+  <div class="accordion mt-5" id="accordionCandyCart">
   <div class="accordion-item">
    <!-- Header -->
     <h2 class="accordion-header" id="panelsStayOpen-headingOne">
@@ -83,7 +83,7 @@ export const renderCartView = function () {
     collapseOneBtn.setAttribute("aria-expanded", "false");
     collapseTwoBtn.setAttribute("aria-expanded", "true");
 
-    window.scrollTo({ top: 500, behavior: "smooth" });
+    window.scrollTo({ top: 0, behavior: "smooth" });
   });
 };
 
@@ -197,7 +197,7 @@ export const renderCheckoutForm = function () {
     )! as HTMLButtonElement;
     collapseThreeBtn.setAttribute("aria-expanded", "true");
 
-    window.scrollTo({ top: 500, behavior: "smooth" });
+    window.scrollTo({ top: 0, behavior: "smooth" });
   });
 };
 

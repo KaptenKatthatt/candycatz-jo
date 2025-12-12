@@ -8,7 +8,7 @@ export const renderNavbar = function () {
           <!--VARUKORG-->
           <div id="#cartIcon" class="ms-auto me-lg-4 order-lg-last">
           <a class="nav-link position-relative" href="#" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
-            <i class="navbarCart bi bi-cart4 fs-3 "></i>
+            <i class="navbarCart bi bi-cart4 fs-3"></i>
             <span
               class="navCartBadge position-absolute top-0 start-100 translate-middle badge rounded-pill bg-primary">
               0

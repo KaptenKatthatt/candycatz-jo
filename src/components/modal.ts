@@ -34,7 +34,7 @@ export const renderModal = async function (productId: number) {
           <div class="scrollableModal">
           <p class="modalParagraph card-text pt-2">${candyParagraph}</p>
           <p class="modal-price">Pris:<strong> ${candyPrice}:- </strong></p>
-          <p>I lager: ${candyProduct.data.stock_quantity}
+          <p>I lager: ${candyProduct.data.stock_quantity}</p>
         </div>
         </div>
         <div class="modal-footer">

@@ -101,6 +101,7 @@ export const increaseAmountOfProductInCart = function (clickedCandyId: number) {
 };
 
 export const initStore = function () {
+  document.querySelector(".carousel")?.classList.remove("d-none");
   cartArray = getCartArrayFromLocalStorage() || [];
   renderCart();
   renderCartBadge();

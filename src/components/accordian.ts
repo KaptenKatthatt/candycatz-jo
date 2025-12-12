@@ -5,11 +5,11 @@ import { getCartArrayFromLocalStorage } from "./localStorage";
 const cartView = document.querySelector("#cartView") as HTMLDivElement;
 const checkoutForm = document.querySelector("#checkoutForm") as HTMLFormElement;
 const placedOrderView = document.querySelector(
-"#placedOrderView"
+  "#placedOrderView"
 ) as HTMLDivElement;
 
 export const renderCartView = function () {
-cartView.innerHTML = `
+  cartView.innerHTML = `
 <div class="accordion mt-5" id="accordionCandyCart">
   <div class="accordion-item">
     <!-- Header -->
@@ -64,32 +64,32 @@ cartView.innerHTML = `
 
   // Click -Fortsätt till kassan
   const proceedBtn = document.querySelector<HTMLDivElement>(".proceedBtn")!;
-    proceedBtn.addEventListener("click", () => {
+  proceedBtn.addEventListener("click", () => {
     const collapseOne = document.querySelector<HTMLDivElement>(
       "#panelsStayOpen-collapseOne"
-      )!;
-      const collapseTwo = document.querySelector<HTMLDivElement>(
-        "#panelsStayOpen-collapseTwo"
-        )!;
+    )!;
+    const collapseTwo = document.querySelector<HTMLDivElement>(
+      "#panelsStayOpen-collapseTwo"
+    )!;
 
-        collapseOne.classList.remove("show");
-        collapseTwo.classList.add("show");
+    collapseOne.classList.remove("show");
+    collapseTwo.classList.add("show");
 
-        const collapseOneBtn = document.querySelector(
-        "#panelsStayOpen-headingOne .accordion-button"
-        )! as HTMLButtonElement;
-        const collapseTwoBtn = document.querySelector(
-        "#panelsStayOpen-headingTwo .accordion-button"
-        )! as HTMLButtonElement;
-        collapseOneBtn.setAttribute("aria-expanded", "false");
-        collapseTwoBtn.setAttribute("aria-expanded", "true");
+    const collapseOneBtn = document.querySelector(
+      "#panelsStayOpen-headingOne .accordion-button"
+    )! as HTMLButtonElement;
+    const collapseTwoBtn = document.querySelector(
+      "#panelsStayOpen-headingTwo .accordion-button"
+    )! as HTMLButtonElement;
+    collapseOneBtn.setAttribute("aria-expanded", "false");
+    collapseTwoBtn.setAttribute("aria-expanded", "true");
 
-        window.scrollTo({ top: 0, behavior: "smooth" });
-        });
-        };
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  });
+};
 
-        export const renderCheckoutForm = function () {
-        checkoutForm.innerHTML = `
+export const renderCheckoutForm = function () {
+  checkoutForm.innerHTML = `
         <div class="accordion formAccordion" id="accordionCheckoutForm">
           <div class="accordion-item">
             <!-- Header -->
@@ -152,69 +152,69 @@ cartView.innerHTML = `
           </div>
           `;
 
-          const collapseTwo = document.querySelector<HTMLDivElement>(
-            "#panelsStayOpen-collapseTwo"
-            )!;
+  const collapseTwo = document.querySelector<HTMLDivElement>(
+    "#panelsStayOpen-collapseTwo"
+  )!;
 
-            // get form and inputs after innerHTML
+  // get form and inputs after innerHTML
 
-            const form = checkoutForm.querySelector<HTMLFormElement>("#form")!;
-              const inputFirstName =
-              document.querySelector<HTMLInputElement>("#inputFirstName")!;
-                const inputLastName =
-                document.querySelector<HTMLInputElement>("#inputLastName")!;
-                  const inputEmail = document.querySelector<HTMLInputElement>("#inputEmail")!;
-                    const inputNumber = document.querySelector<HTMLInputElement>("#inputNumber")!;
-                      const inputAddress =
-                      document.querySelector<HTMLInputElement>("#inputAddress")!;
-                        const inputCity = document.querySelector<HTMLInputElement>("#inputCity")!;
-                          const inputZip = document.querySelector<HTMLInputElement>("#inputZip")!;
+  const form = checkoutForm.querySelector<HTMLFormElement>("#form")!;
+  const inputFirstName =
+    document.querySelector<HTMLInputElement>("#inputFirstName")!;
+  const inputLastName =
+    document.querySelector<HTMLInputElement>("#inputLastName")!;
+  const inputEmail = document.querySelector<HTMLInputElement>("#inputEmail")!;
+  const inputNumber = document.querySelector<HTMLInputElement>("#inputNumber")!;
+  const inputAddress =
+    document.querySelector<HTMLInputElement>("#inputAddress")!;
+  const inputCity = document.querySelector<HTMLInputElement>("#inputCity")!;
+  const inputZip = document.querySelector<HTMLInputElement>("#inputZip")!;
 
-                            // Listen to submit
-                            form.addEventListener("submit", async (e) => {
-                            e.preventDefault();
+  // Listen to submit
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
 
-                            const orderData: AddressData = {
-                            customer_first_name: inputFirstName.value,
-                            customer_last_name: inputLastName.value,
-                            customer_email: inputEmail.value,
-                            customer_phone: inputNumber.value,
-                            customer_address: inputAddress.value,
-                            customer_city: inputCity.value,
-                            customer_postcode: inputZip.value,
-                            };
+    const orderData: AddressData = {
+      customer_first_name: inputFirstName.value,
+      customer_last_name: inputLastName.value,
+      customer_email: inputEmail.value,
+      customer_phone: inputNumber.value,
+      customer_address: inputAddress.value,
+      customer_city: inputCity.value,
+      customer_postcode: inputZip.value,
+    };
 
-                            await createOrdertoSend(orderData);
+    await createOrdertoSend(orderData);
 
-                            // Open step 3
-                            const collapseThree = document.querySelector<HTMLDivElement>(
-                              "#panelsStayOpen-collapseThree"
-                              )!;
-                              collapseTwo.classList.remove("show");
-                              collapseThree.classList.add("show");
+    // Open step 3
+    const collapseThree = document.querySelector<HTMLDivElement>(
+      "#panelsStayOpen-collapseThree"
+    )!;
+    collapseTwo.classList.remove("show");
+    collapseThree.classList.add("show");
 
-                              const collapseTwoBtn = document.querySelector(
-                              "#panelsStayOpen-headingTwo .accordion-button"
-                              )! as HTMLButtonElement;
-                              collapseTwoBtn.setAttribute("aria-expanded", "false");
-                              const collapseThreeBtn = document.querySelector(
-                              "#panelsStayOpen-headingThree .accordion-button"
-                              )! as HTMLButtonElement;
-                              collapseThreeBtn.setAttribute("aria-expanded", "true");
+    const collapseTwoBtn = document.querySelector(
+      "#panelsStayOpen-headingTwo .accordion-button"
+    )! as HTMLButtonElement;
+    collapseTwoBtn.setAttribute("aria-expanded", "false");
+    const collapseThreeBtn = document.querySelector(
+      "#panelsStayOpen-headingThree .accordion-button"
+    )! as HTMLButtonElement;
+    collapseThreeBtn.setAttribute("aria-expanded", "true");
 
-                              window.scrollTo({ top: 0, behavior: "smooth" });
-                              });
-                              };
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  });
+};
 
-                              export const postUserAddressForm = function (responseData: ResponseData) {
-                              const generateOrderItemsInConfirmation = function () {
-                              let orderItemsInConfirmation = getCartArrayFromLocalStorage() || [];
+export const postUserAddressForm = function (responseData: ResponseData) {
+  const generateOrderItemsInConfirmation = function () {
+    let orderItemsInConfirmation = getCartArrayFromLocalStorage() || [];
 
-                              return orderItemsInConfirmation
-                              .map((product) => {
-                              let thumbnailURL = `https://www.bortakvall.se${product.thumbnail}`;
+    return orderItemsInConfirmation
+      .map((product) => {
+        let thumbnailURL = `https://www.bortakvall.se${product.thumbnail}`;
 
-                              return `<div class="d-flex justify-content-start mb-2 rounded-4 p-1 border-0 mx-auto"
+        return `<div class="d-flex justify-content-start mb-2 rounded-4 p-1 border-0 mx-auto"
                                 style="background: transparent; box-shadow: none; width: 20rem;">
                                 <img src="${thumbnailURL}" class="rounded-4 me-3"
                                   style="width: 50px; height: 50px; object-fit: cover;" alt="Image of ${product.name}">
@@ -222,11 +222,11 @@ cartView.innerHTML = `
                                   <h5 class="card-title text-sum text-center">${product.qty} x ${product.name}</h5>
                                 </div>
                               </div>`;
-                              })
-                              .join("");
-                              };
+      })
+      .join("");
+  };
 
-                              placedOrderView.innerHTML = `
+  placedOrderView.innerHTML = `
                               <div class="accordion showAccordionCheckout" id="accordionThanks">
                                 <div class="accordion-item">
                                   <h2 class="accordion-header" id="panelsStayOpen-headingThree">
@@ -244,21 +244,22 @@ cartView.innerHTML = `
                                       <div class="placedOrderContainer">
                                         <div class="wavecardAccord">
                                           <h2 class="smilesTxt">Smiles, ${
-                                            responseData.data.customer_first_name
-                                            }!</h2>
+                                            responseData.data
+                                              .customer_first_name
+                                          }!</h2>
                                           <p> Vi har mottagit din beställning och allt är redo i vårt godislaboratorium.
                                             När din order skickas får du ett nytt meddelande med spårningsinformation,
                                             så att du kan följa dina godsaker hela vägen hem. </p>
                                           <p> <strong>Order:</strong> ${
                                             responseData.data.id
-                                            } <strong>| Datum för beställning:</strong> ${
-                                            responseData.data.order_date
-                                            } </p>
+                                          } <strong>| Datum för beställning:</strong> ${
+    responseData.data.order_date
+  } </p>
                                           <p><strong>Leveransadress:</strong> ${
                                             responseData.data.customer_address
-                                            }, ${responseData.data.customer_city}, ${
-                                            responseData.data.customer_postcode
-                                            } </p>
+                                          }, ${
+    responseData.data.customer_city
+  }, ${responseData.data.customer_postcode} </p>
                                           <h4 class="orderTxt">Här är din order:</h4>
                                           <div class="d-flex flex-column align-items-start gap-2">
                                             ${generateOrderItemsInConfirmation()}
@@ -278,40 +279,41 @@ cartView.innerHTML = `
                                   </div>
                                 </div>
                                 `;
-                                //clearCart();
-                                };
 
-                                const navBarEl = document.querySelector<HTMLLinkElement>(".navbar")!;
-                                  const accordianEl = document.querySelector<HTMLDivElement>(
-                                    "#cartCheckoutContainer"
-                                    )!;
-                                    const allCardsContainerEl =
-                                    document.querySelector<HTMLDivElement>(".allCardsContainer")!;
-                                      const carouselContainerEl =
-                                      document.querySelector<HTMLDivElement>(".carouselContainer")!;
-                                        const scrollcontainerEl =
-                                        document.querySelector<HTMLDivElement>(".scroll-container")!;
+  //clearCart();
+};
 
-                                          const openMainPage = function () {
-                                          navBarEl.addEventListener("click", (e) => {
-                                          const target = e.target as HTMLDivElement;
-                                          const clickedNavLink = target.closest(".nav-link");
-                                          if (clickedNavLink) {
-                                          const innerBtnText = clickedNavLink.textContent.trim();
-                                          if (!clickedNavLink.hasAttribute("data-bs-toggle")) {
-                                          }
-                                          if (innerBtnText === "Candy Hotline") {
-                                          return;
-                                          }
+const navBarEl = document.querySelector<HTMLLinkElement>(".navbar")!;
+const accordianEl = document.querySelector<HTMLDivElement>(
+  "#cartCheckoutContainer"
+)!;
+const allCardsContainerEl =
+  document.querySelector<HTMLDivElement>(".allCardsContainer")!;
+const carouselContainerEl =
+  document.querySelector<HTMLDivElement>(".carouselContainer")!;
+const scrollcontainerEl =
+  document.querySelector<HTMLDivElement>(".scroll-container")!;
 
-                                          if (accordianEl) {
-                                          accordianEl.classList.add("d-none");
-                                          allCardsContainerEl.classList.remove("d-none");
-                                          carouselContainerEl.classList.remove("d-none");
-                                          scrollcontainerEl.classList.remove("d-none");
-                                          }
-                                          }
-                                          });
-                                          };
+const openMainPage = function () {
+  navBarEl.addEventListener("click", (e) => {
+    const target = e.target as HTMLDivElement;
+    const clickedNavLink = target.closest(".nav-link");
+    if (clickedNavLink) {
+      const innerBtnText = clickedNavLink.textContent.trim();
+      if (!clickedNavLink.hasAttribute("data-bs-toggle")) {
+      }
+      if (innerBtnText === "Candy Hotline") {
+        return;
+      }
 
-                                          openMainPage();
+      if (accordianEl) {
+        accordianEl.classList.add("d-none");
+        allCardsContainerEl.classList.remove("d-none");
+        carouselContainerEl.classList.remove("d-none");
+        scrollcontainerEl.classList.remove("d-none");
+      }
+    }
+  });
+};
+
+openMainPage();

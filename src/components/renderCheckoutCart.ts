@@ -24,7 +24,7 @@ export const renderCheckoutCart = function () {
           >
             <img
               src="${thumbnailURL}"
-              class="checkOutThumbnail rounded-4  "
+              class="checkOutThumbnail rounded-4"
               alt="Image of ${product.name}"
             />
             <h3 class="checkOutCartTitle fs-5">${product.name}</h3>
@@ -78,12 +78,24 @@ export const renderCheckoutCart = function () {
   const subtotalContainerEl = document.querySelector(
     ".subtotalContainer"
   ) as HTMLSpanElement;
+  const checkoutSubtotalContainerEl = document.querySelector(
+    ".checkoutSubtotalContainer"
+  ) as HTMLSpanElement;
 
   subtotalContainerEl.innerText = `${getTotalCostOfProductsInCart()} kr`;
+  checkoutSubtotalContainerEl.innerText = `${getTotalCostOfProductsInCart()} kr`;
+
   const totalCostContainerEl = document.querySelector(
     ".totalCostContainer"
   ) as HTMLSpanElement;
+  const checkoutTotalCostContainerEl = document.querySelector(
+    ".checkoutTotalCostContainer"
+  ) as HTMLSpanElement;
+
   totalCostContainerEl.innerHTML = `<strong>${String(
+    getTotalCostOfProductsInCart() + shipping
+  )} kr</strong>`;
+  checkoutTotalCostContainerEl.innerHTML = `<strong>${String(
     getTotalCostOfProductsInCart() + shipping
   )} kr</strong>`;
 };

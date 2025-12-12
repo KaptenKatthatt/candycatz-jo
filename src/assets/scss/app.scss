@@ -27,6 +27,7 @@ body {
   background-color: $bg;
   margin: 0px;
   padding: 0px;
+  cursor: url("../../../public/img/cursors/pinkCursor_32px.png"), auto;
 }
 
 .container-fluid {
@@ -40,8 +41,9 @@ body {
   overflow: auto;
 }
 
-.click {
-  cursor: pointer;
+.click,
+.btn {
+  cursor: url("../../../public/img/cursors/pinkPointer_32px.png"), auto !important;
 }
 .scroll-container {
   background-color: $accent;
@@ -49,31 +51,29 @@ body {
   overflow: hidden;
   white-space: nowrap;
   padding: 10px 0px;
+}
 
-  }
-
- .scroll-content{
+.scroll-content {
   display: inline-flex;
   white-space: nowrap;
   animation: scroll 20s linear infinite;
   gap: 3.5rem;
-  }
+}
 
-.scroll-content span{
+.scroll-content span {
   display: inline-flex;
-  }
+}
 
-  span{
-    flex-shrink: 0;
-    white-space: nowrap;
-  }
+span {
+  flex-shrink: 0;
+  white-space: nowrap;
+}
 
-  @keyframes scroll {
-    0% {
-      transform: translateX(0);
-    }
-    100% {
-      transform: translateX(-50%);
-    }
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
   }
-
+  100% {
+    transform: translateX(-50%);
+  }
+}

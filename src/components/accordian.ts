@@ -28,12 +28,31 @@ export const renderCartView = function () {
       <div class="accordion-body d-flex flex-column align-items-center">
       <div class="candyCartTxt">
       <h3>Din CandyCart fylld med godis som gör hjärtat happy 💝</h3>
+      <!-- Checkout cart container-->
        </div>
       <div class="checkoutCartContainer"></div>
       </div>
        
-    
-     <!--  Button -->
+     <!-- Order summary -->
+      <div class="card cart-summary my-2 w-50 mx-auto">
+        <div class="card-body">
+          <h5 class="orderSummaryHeader text-dark mb-4">Ordersummering</h5>
+          <div class="d-flex justify-content-between mb-3">
+            <span>Summa</span>
+            <span class="checkoutSubtotalContainer"></span>
+          </div>
+          <div class="d-flex justify-content-between mb-4">
+            <span>Frakt</span>
+            <span>19kr</span>
+          </div>
+          <hr>
+          <div class="d-flex justify-content-between mb-4">
+            <strong>Total</strong>
+            <span class="checkoutTotalCostContainer"><strong></strong></span>
+          </div>
+        </div>
+
+     <!--  Continue to checkout button -->
      <div class="text-center mt-2 mb-4 d-block mx-auto">
      <button type="button" class="proceedBtn btn btn-primary">Fortsätt till kassan</button>
   </div>

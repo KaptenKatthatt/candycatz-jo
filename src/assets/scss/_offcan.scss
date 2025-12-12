@@ -33,24 +33,16 @@ h5 {
   margin: 0 auto;
 }
 
-.productContainer {
-  // margin: 0px 10px;
-  // min-width: fit-content;
-}
-
 .offcanvas p {
   margin: 0;
   padding: 0;
 }
-.offcanvas {
-}
-
 .offcanvasBody {
   // min-width: fit-content;
   margin: 0 auto;
 }
 
-.cartListItem {
+.offCanCartListItem {
   border-radius: 0px 0px 10px 10px;
   box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.4);
   margin: 0 auto;
@@ -68,9 +60,9 @@ h5 {
   grid-template-rows: auto auto auto;
   grid-template-columns: 80px auto auto;
   grid-template-areas:
-    "cartThumbnail card-title  card-title"
-    "cartThumbnail cartPrice buttonContainer"
-    "cartThumbnail cartQty buttonContainer";
+    "cartThumbnail offCanCartTitle  offCanCartTitle"
+    "cartThumbnail cartPrice cartQty"
+    "cartThumbnail buttonContainer buttonContainer";
 }
 
 .cartThumbnail {
@@ -79,8 +71,9 @@ h5 {
   align-self: center;
   border-radius: 10px;
 }
-.card-title {
-  grid-area: card-title;
+.offCanCartTitle {
+  grid-area: offCanCartTitle;
+  font-weight: 700;
 }
 .cartPrice {
   grid-area: cartPrice;
@@ -91,22 +84,24 @@ h5 {
 .buttonContainer {
   grid-area: buttonContainer;
   margin-left: 10px;
+  margin-top: 1rem;
   padding: 0;
 }
 
-/* @media screen and (min-width: 886px) {
-  .offcanvas {
-    // --bs-offcanvas-width: 45%;
-  }
-  .cartListItem {
+@media screen and (min-width: 886px) {
+  .offCanCartListItem {
     border-radius: 0px 0px 10px 10px;
     box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.4);
+    margin: 0 auto;
 
     margin-bottom: 0.5rem;
-    padding: 5px;
+    padding: 8px;
     max-width: 500px;
     --bs-card-title-spacer-y: 0.3rem;
     overflow: hidden;
+
+    row-gap: 6px;
+    column-gap: 6px;
 
     display: grid;
     grid-template-rows: auto auto auto;
@@ -118,12 +113,12 @@ h5 {
   }
 
   .cartThumbnail {
-    max-width: 70px;
+    // max-width: 70px;
     grid-area: cartThumbnail;
     align-self: center;
     border-radius: 10px;
   }
-  .card-title {
+  .offCanCartTitle {
     grid-area: card-title;
   }
   .cartPrice {
@@ -134,6 +129,7 @@ h5 {
   }
   .buttonContainer {
     grid-area: buttonContainer;
+    margin-left: 10px;
+    padding: 0;
   }
 }
- */

@@ -67,6 +67,8 @@ export const renderOffCan = function () {
     document.querySelector<HTMLButtonElement>(".checkOutBtn")!;
 
   checkOutBtn.addEventListener("click", () => {
+    document.querySelector(".carousel")?.classList.add("d-none");
+
     renderCheckoutCart();
     // close offcan
     const offCanvas = document.querySelector<HTMLDivElement>(".offcanvas")!;
@@ -87,7 +89,7 @@ export const renderOffCan = function () {
     cartCheckoutContainer.classList.remove("d-none");
 
     // scroll to top
-    window.scrollTo({ top: 500, behavior: "smooth" });
+    window.scrollTo({ top: 0, behavior: "smooth" });
   });
 
   // Event listeners for closing offcanvas

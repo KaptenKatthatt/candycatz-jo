@@ -124,7 +124,7 @@ export const renderCart = function () {
         let thumbnailURL = `https://www.bortakvall.se${product.thumbnail}`;
         return `
          <div
-            class="cartListItem"
+            class="offCanCartListItem cartListItem"
             data-product-id="${product.id}"
           >
             
@@ -133,13 +133,13 @@ export const renderCart = function () {
               class="cartThumbnail"
               alt="Image of ${product.name}"
             />
-            <h3 class="card-title fs-5">${product.name}</h3>
+            <h3 class="offCanCartTitle fs-5">${product.name}</h3>
 
 
-            <div class="cartPrice">
+            <div class="offCanCartPrice">
               <p class=" me-2"><strong>${product.price}:-</strong>/skopa</p>
             </div>
-            <div class="cartQty">
+            <div class="offCanCartTotal">
               <p>
                 Totalt: <strong>${product.qty * product.price}:-</strong>
               </p>

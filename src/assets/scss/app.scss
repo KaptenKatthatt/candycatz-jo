@@ -1,5 +1,31 @@
 //Variable and config files
 @import "colors";
+
+$cursors: (
+  auto: auto,
+  default: default,
+  pointer: url("../../../public/img/cursors/pinkPointer_32px.png"),
+  grab: url("../../../public/img/cursors/pinkPointer_32px.png"),
+  grabbing: url("../../../public/img/cursors/pinkPointer_32px.png"),
+) !default;
+
+.accordion-button {
+  cursor: url("../../../public/img/cursors/pinkPointer_32px.png"), pointer !important;
+}
+
+.btn-close {
+  cursor: url("../../../public/img/cursors/pinkPointer_32px.png"), pointer !important;
+}
+
+.dropdown-toggle,
+.nav-link,
+input[type="button"],
+input[type="submit"],
+select,
+textarea {
+  cursor: url("../../../public/img/cursors/pinkPointer_32px.png"), pointer !important;
+}
+
 //Bootstrap
 @import "bootstrap/scss/bootstrap.scss";
 @import "bootstrap-icons/font/bootstrap-icons.css";

@@ -19,8 +19,7 @@ export const renderAllCards = async function () {
     return candy.stock_quantity < 3 && candy.stock_status === "instock";
   });
 
-
-  filterTopTreats.sort((a,b) => a.name.localeCompare(b.name, "sv"));
+  filterTopTreats.sort((a, b) => a.name.localeCompare(b.name, "sv"));
 
   // returnera ny array med alla som är instock OCH färre än 3
   const sliceOutTopTreats = filterTopTreats.slice(0, 12);
@@ -56,7 +55,7 @@ export const renderAllCards = async function () {
   const filterSweetSaving = sweetSavingsCategories.filter((candy) => {
     return candy.on_sale === true && candy.stock_status === "instock";
   });
-  filterSweetSaving.sort((a,b) => a.name.localeCompare(b.name, "sv"));
+  filterSweetSaving.sort((a, b) => a.name.localeCompare(b.name, "sv"));
   // returnera ny array med alla som är instock OCH färre än 3
   const sliceOutSavings = filterSweetSaving.slice(0, 12);
   // slicea sedan ut de första 12
@@ -77,7 +76,7 @@ export const renderAllCards = async function () {
 
   showMoreCandy = allCandyCards.filter((candy) => !usedIds.includes(candy.id));
   // sortera array i bokstavsordning med svenska alfabets"regler"
-  showMoreCandy.sort((a,b) => a.name.localeCompare(b.name, "sv"));
+  showMoreCandy.sort((a, b) => a.name.localeCompare(b.name, "sv"));
 
   const moreToMunchCardsContainerEl = document.querySelector(
     ".moreToMunchCardsContainer"
@@ -107,9 +106,7 @@ function loadMoreSweets() {
 }
 
 function moreSweetsButton() {
-  const moreSweetsBtnEl = document.querySelector(
-    ".munchBtn"
-  ) as HTMLDivElement;
+  const moreSweetsBtnEl = document.querySelector(".munchBtn") as HTMLDivElement;
 
   moreSweetsBtnEl.addEventListener("click", () => {
     addedCandyNr += 12;
@@ -135,7 +132,7 @@ function showNumberOfCandys() {
   )!;
   const allTheCandy = usedIds.length + showRestCandy.length;
   const allTheResponseCandy = allCandyCards.length;
-  candyAmountRendered.innerHTML = `${allTheCandy}/${allTheResponseCandy} (${numberOfInStock.length} i lager)`;
+  candyAmountRendered.innerHTML = `Visar ${allTheCandy}/${allTheResponseCandy} (${numberOfInStock.length} i lager)`;
 }
 
 // okej allt stämmer här in med det

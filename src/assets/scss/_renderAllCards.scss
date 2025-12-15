@@ -32,6 +32,8 @@
 }
 
 .scallopbox {
+  max-width: 860px;
+  margin: auto;
   --r: 0.5rem;
   padding: calc(1.5 * var(--r));
   background: $footer;
@@ -50,6 +52,11 @@
   grid-template-columns: 1fr 1fr;
   grid-template-rows: auto;
   justify-self: center;
+}
+
+.moreToMunchCardsContainer {
+  max-width: 1200px;
+  margin: auto;
 }
 .wavebox {
   padding-top: 25px;
@@ -92,7 +99,7 @@
       calc(var(--s) + var(--b)) repeat-x;
 }
 
-.wavecard {
+.waveMoreToMunch {
   background-color: $accent;
   --mask: radial-gradient(11.66px at 16px 50%, #000 99%, #0000 101%) 0
       calc(50% - 20px) / 51% 40px repeat-y,

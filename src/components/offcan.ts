@@ -1,4 +1,4 @@
-import { initStore, renderCart, renderCartBadge } from "./cart";
+import { renderCart, renderCartBadge } from "./cart";
 import { renderCheckoutCart } from "./renderCheckoutCart";
 
 export const offCan = document.querySelector<HTMLDivElement>("#offCan")!;

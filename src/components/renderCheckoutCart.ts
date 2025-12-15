@@ -37,7 +37,7 @@ export const renderCheckoutCart = function () {
 
             <div class="buttonContainer d-flex flex-row align-items-center">
             <span class="smallButtonContainer">
-              <button class="decreaseBtn cartMinusBtn btn me-2" type="button">
+              <button class="decreaseBtn cartMinusBtn btn" type="button">
                 -
               </button>
               <p class="cartQty d-flex align-items-center justify-content-center">

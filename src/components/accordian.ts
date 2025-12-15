@@ -121,7 +121,7 @@ export const renderCheckoutForm = function () {
                   </div>
                   <div class="form-row">
                     <div class="form-group col-md-6">
-                      <label for="inputEmail4">Email:</label>
+                      <label for="inputEmail">Email:</label>
                       <input type="email" class="form-control" id="inputEmail" required placeholder="Mailadress"
                         value="kalle@ankeborgen.se">
                     </div>

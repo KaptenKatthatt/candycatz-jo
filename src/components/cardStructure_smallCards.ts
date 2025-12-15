@@ -25,7 +25,7 @@ export const cardStructure = function (
         option === "sale"
           ? `
         <span class="star10">
-          30%!
+          30%
           <span class="visually-hidden">Sale badge</span>
         </span>
       `

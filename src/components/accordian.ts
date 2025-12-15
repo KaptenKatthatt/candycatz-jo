@@ -241,7 +241,7 @@ export const postUserAddressForm = function (responseData: ResponseData) {
                                     aria-labelledby="panelsStayOpen-headingThree">
                                     <div class="accordion-body">
                                       <div class="placedOrderContainer">
-                                        <div class="wavecardAccord">
+                                        <div class="wavecardAccord mt-3">
                                           <h2 class="smilesTxt">Smiles, ${
                                             responseData.data
                                               .customer_first_name
@@ -270,7 +270,7 @@ export const postUserAddressForm = function (responseData: ResponseData) {
                                       </div>
 
                                       <!-- Continue Shopping Button -->
-                                    <button type="button" class="goBackToHomeBtn btn btn-primary" onclick="location.reload()">
+                                    <button type="button" class="goBackToHomeBtn btn btn-primary mt-5" onclick="location.reload()">
                                      <i class="bi bi-arrow-left me-2"></i>Handla mera!
                                      </button>
                                     </div>

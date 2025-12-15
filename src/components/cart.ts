@@ -145,21 +145,21 @@ export const renderCart = function () {
             </div>
 
               <div class="buttonContainer d-flex flex-row align-items-center">
+              <span class="smallButtonContainer">
                 <button class="decreaseBtn cartMinusBtn btn" type="button">
                   -
                 </button>
                 <p
-                  class="cartQty mx-2"
+                  class="cartQty"
                 >
                   ${product.qty}
                 </p>
                 <button
-                  class="increaseBtn cartPlusBtn btn me-2"
+                  class="increaseBtn cartPlusBtn btn"
                   type="button"
                   ${product.qty >= product.stock_quantity ? "disabled" : ""}
-                >
-                  +
-                </button>
+                >+</button>
+                </span>
                 <button class="deleteBtn btn btn-sm btn-danger">
                   <i class="bi bi-trash"></i>
                 </button>

@@ -3,12 +3,9 @@
   transition: transform 0.2s ease-in-out;
 
   &:hover {
-    box-shadow: 0 8px 20px $btn-candy-purple;
     transform: scale(1.05);
+    background-color: #77b260;
     color: white;
-  }
-  &:active {
-    transform: scale(0.95);
   }
   &:disabled {
     background: $disabled;
@@ -28,11 +25,8 @@
   }
 }
 
-.cartMinusBtn,
-.cartPlusBtn,
 .clearCartBtn,
 .checkOutBtn,
-.deleteBtn,
 .btn {
   border: 3px double black;
   border-right: 5px solid black;
@@ -48,11 +42,10 @@
 
 .cartMinusBtn,
 .cartPlusBtn {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  background-color: $btn-candy-purple;
-  color: #fff;
+  width: 30px;
+  height: 30px;
+  border: none;
+  color: black;
   display: inline;
   text-align: center;
   font-size: 1.2rem;
@@ -60,12 +53,15 @@
   padding: 0px;
 
   &:hover {
-    background-color: darkmagenta;
+    border: none;
   }
 
   &:disabled {
+    margin: 0;
+    height: 40px;
     opacity: 0.5;
     background-color: $disabled;
+    border-radius: 0px 9px 9px 0px;
   }
 }
 

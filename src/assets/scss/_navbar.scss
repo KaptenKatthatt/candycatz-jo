@@ -36,13 +36,19 @@ h1 {
   transition: transform 0.2s, color 0.2;
 
 &:hover{
-  transform: scale(1.1); 
   color: $btn-candy-pink;
 }
 }
 .navbar-toggler {
+  border: 1px solid $primary;
+  box-shadow: 2px 3px 3px $btn-candy-pink;
   margin-left: 0.2rem;
   margin-right: 0.8rem;
+
+  &:focus {
+    border: 1rem;
+    color: $btn-candy-pink;
+  }
 }
 
 @media screen and (min-width: 992px) {
@@ -62,4 +68,8 @@ h1 {
   .navbar-nav {
     font-size: 1.5rem;
   } 
+
+  .nav-link:hover {
+    transform: scale(1.1); 
+  }
 }

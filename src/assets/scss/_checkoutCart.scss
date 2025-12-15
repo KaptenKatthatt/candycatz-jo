@@ -50,14 +50,31 @@
   grid-area: buttonContainer;
 }
 
-.cartQty {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  border: none;
-  background-color: rgb(212, 212, 212);
-  color: #fff;
+.smallButtonContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  border: solid 1px rgb(187, 187, 187);
+  border-radius: 10px;
+
+ .cartQty {
+  display: inline-block;
   text-align: center;
+  margin: auto;
+  width: 40px;
+  line-height: 40px;
+  border: none;
+  color: black;
+  background-color: $footer;
+}
+}
+
+.deleteBtn {
+  border: none;
+  &:hover {
+    border: none;
+  }
 }
 
 @media screen and (min-width: 886px) {

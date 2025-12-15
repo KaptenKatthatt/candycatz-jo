@@ -7,8 +7,8 @@ export const renderOffCan = function () {
   offCan.innerHTML = `
   <div class="offcanvas offcanvas-end rounded-top-4 tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel" data-bs-scroll="false">
   <div class="offcanvas-header">
-    <h5 class="offcanvas-title" id="offcanvasRightLabel">Your Candy Cart🍬 </h5>
-    <i class="bi bi-cart4 fs-3"></i>
+    <h5 class="offcanvas-title" id="offcanvasRightLabel">Your Candy Cart </h5>
+    <i class="bi bi-cart4 fs-3 ps-2"></i>
     <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
   </div>
 

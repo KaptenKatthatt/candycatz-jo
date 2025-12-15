@@ -7,9 +7,6 @@
     background-color: #77b260;
     color: white;
   }
-  &:active {
-    transform: scale(0.95);
-  }
   &:disabled {
     background: $disabled;
     color: rgb(79, 79, 79);
@@ -47,9 +44,8 @@
 .cartPlusBtn {
   width: 30px;
   height: 30px;
-  border-radius: 50%;
   border: none;
-  color: $btn-candy-purple;
+  color: black;
   display: inline;
   text-align: center;
   font-size: 1.2rem;
@@ -57,13 +53,15 @@
   padding: 0px;
 
   &:hover {
-    background-color: darkmagenta;
     border: none;
   }
 
   &:disabled {
+    margin: 0;
+    height: 40px;
     opacity: 0.5;
     background-color: $disabled;
+    border-radius: 0px 9px 9px 0px;
   }
 }
 

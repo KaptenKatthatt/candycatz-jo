@@ -273,10 +273,9 @@ export const postUserAddressForm = function (responseData: ResponseData) {
                                       </div>
 
                                       <!-- Continue Shopping Button -->
-                                      <div class="text-start mt-4 mb-4">
-                                        <button type="button" class="btn btn-outline-primary"
-                                          onclick="location.reload()">Fortsätt att handla!</button>
-                                      </div>
+                                    <button type="button" class="continueShoppingBtn btn btn-primary" data-bs-dismiss="offcanvas" aria-label="Close">
+                                     <i class="bi bi-arrow-left me-2"></i>Fortsätt Handla
+                                     </button>
                                     </div>
                                   </div>
                                 </div>

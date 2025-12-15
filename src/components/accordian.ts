@@ -82,7 +82,7 @@ export const renderCartView = function () {
     collapseOneBtn.setAttribute("aria-expanded", "false");
     collapseTwoBtn.setAttribute("aria-expanded", "true");
 
-    window.scrollTo({ top: 100, behavior: "smooth" });
+    window.scrollTo({ top: 120, behavior: "smooth" });
   });
 };
 
@@ -201,7 +201,7 @@ export const renderCheckoutForm = function () {
     )! as HTMLButtonElement;
     collapseThreeBtn.setAttribute("aria-expanded", "true");
 
-    window.scrollTo({ top: 100, behavior: "smooth" });
+    window.scrollTo({ top: 120, behavior: "smooth" });
   });
 };
 

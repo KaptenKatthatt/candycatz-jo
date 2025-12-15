@@ -20,9 +20,15 @@ export const renderFooter = function () {
         
 
         <div class="footer-icons text-center">
-          <i class="bi bi-facebook"></i>
+        <a href="https://www.facebook.com"target="_blank" rel="noopener">
+          <i class="bi bi-facebook"></i> 
+          </a>
+          <a href="https://www.instagram.com"target="_blank" rel="noopener">
           <i class="bi bi-instagram"></i>
+          </a>
+          <a href="https://www.yelp.com"target="_blank" rel="noopener">
           <i class="bi bi-yelp"></i>
+          </a>
         </div>
 
 
@@ -32,7 +38,12 @@ export const renderFooter = function () {
           <p>
             &copy; 2025 CandyCatz - "🍬 Pop and chew - all dreams come true! 🍭"
           </p>
-          <p class="gangGang">Created by Jonas, Sophia & Klara</p>
+          <p class="gangGang">Created by
+           <a href="https://www.linkedin.com/in/jonas-olson-79858a63/" target="_blank" rel="noopener">Jonas</a>,
+            <a href="https://www.linkedin.com/in/sophia-englund" target="_blank" rel="noopener">Sophia</a>
+            &amp; 
+          <a href="https://www.linkedin.com/in/klarathelllenntorp" target="_blank" rel="noopener">Klara</a>
+          </p>
         </div>
       </div>
     </footer>

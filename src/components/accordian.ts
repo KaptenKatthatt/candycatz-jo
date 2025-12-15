@@ -270,8 +270,8 @@ export const postUserAddressForm = function (responseData: ResponseData) {
                                       </div>
 
                                       <!-- Continue Shopping Button -->
-                                    <button type="button" class="continueShoppingBtn btn btn-primary" data-bs-dismiss="offcanvas" aria-label="Close">
-                                     <i class="bi bi-arrow-left me-2"></i>Fortsätt Handla
+                                    <button type="button" class="goBackToHomeBtn btn btn-primary" onclick="location.reload()">
+                                     <i class="bi bi-arrow-left me-2"></i>Handla mera!
                                      </button>
                                     </div>
                                   </div>

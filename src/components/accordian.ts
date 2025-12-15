@@ -1,5 +1,6 @@
 import type { AddressData, ResponseData } from "../services/candyApiTypes";
 import { createOrdertoSend } from "../services/candyPOST_API";
+import { clearCart } from "./cart";
 import { getCartArrayFromLocalStorage } from "./localStorage";
 
 const cartView = document.querySelector("#cartView") as HTMLDivElement;
@@ -281,7 +282,7 @@ export const postUserAddressForm = function (responseData: ResponseData) {
                                 </div>
                                 `;
 
-  //clearCart();
+  clearCart();
 };
 
 const navBarEl = document.querySelector<HTMLLinkElement>(".navbar")!;

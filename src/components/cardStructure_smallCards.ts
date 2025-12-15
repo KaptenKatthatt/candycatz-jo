@@ -51,7 +51,11 @@ export const cardStructure = function (
 
           <p class="card-text priceTag">
             Pris/skopa:
-            <span class="fw-bold">${Math.round(product.price * 0.7)}:-</span>
+            <span class="fw-bold ${
+              product.on_sale ? "text-danger" : "text-black"
+            }">${
+    product.on_sale ? Math.round(product.price * 0.7) : product.price
+  }:-</span>
           </p>
 
           <button class="modalInfoBtn btn btn-primary">

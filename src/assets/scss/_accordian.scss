@@ -39,6 +39,14 @@
   // box-shadow: 0 4px 20px $primary;
 }
 
+.formTitle{
+ 
+  font-family: "Super Chiby";
+  font-size: 3rem;
+  color: #f38cb9;
+  
+}
+
 .smilesTxt {
   color: rgb(203, 0, 0);
 }
@@ -55,11 +63,13 @@
   padding: 10px;
   border: var(--s) solid #0000;
   box-sizing: border-box;
-  background: #79b0df;
+  background: $bg;
   border-radius: 50px;
 
   color: black;
   text-align: center;
+   box-shadow: 0 8px 20px $primary;
+
 }
 
 .checkoutOrderSummary {

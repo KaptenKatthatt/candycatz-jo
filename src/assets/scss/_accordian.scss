@@ -4,12 +4,12 @@
   margin: auto;
 }
 .accordion-button[aria-expanded="false"] {
-  background-color: #fffcef;
-  color: #f38cb9;
+  background-color: $nav-color;
+  color: $accent;
 }
 
 .accordion-button[aria-expanded="true"] {
-  background-color: #90ab70;
+  background-color: $accordion;
   color: black;
 }
 
@@ -46,7 +46,7 @@ font-size: 2rem;
 .formTitle {
   font-family: "Super Chiby";
   font-size: 3rem;
-  color: #f38cb9;
+  color: $accent;
 }
 
 .smilesTxt {

@@ -234,6 +234,7 @@ allCardsContainerEl?.addEventListener("click", async (e) => {
     const candyCard = target.closest<HTMLDivElement>(".card");
     clickedCandyId = Number(candyCard?.dataset.productId);
     await addToCart(clickedCandyId);
+
     renderCartBadge();
     openOffCanvas();
   }

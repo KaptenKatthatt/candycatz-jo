@@ -149,7 +149,7 @@ export const renderCart = function () {
                   -
                 </button>
                 <p
-                  class="cartQty mx-2"
+                  class="cartQty mx-1"
                 >
                   ${product.qty}
                 </p>

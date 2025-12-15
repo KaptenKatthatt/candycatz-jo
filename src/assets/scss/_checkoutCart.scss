@@ -50,6 +50,16 @@
   grid-area: buttonContainer;
 }
 
+.cartQty {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: none;
+  background-color: rgb(212, 212, 212);
+  color: #fff;
+  text-align: center;
+}
+
 @media screen and (min-width: 886px) {
   .checkoutCartListItem {
     border-radius: 0px 0px 10px 10px;

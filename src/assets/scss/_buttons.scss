@@ -3,8 +3,8 @@
   transition: transform 0.2s ease-in-out;
 
   &:hover {
-    box-shadow: 0 8px 20px $btn-candy-purple;
     transform: scale(1.05);
+    background-color: #77b260;
     color: white;
   }
   &:active {
@@ -28,11 +28,8 @@
   }
 }
 
-.cartMinusBtn,
-.cartPlusBtn,
 .clearCartBtn,
 .checkOutBtn,
-.deleteBtn,
 .btn {
   border: 3px double black;
   border-right: 5px solid black;
@@ -48,11 +45,11 @@
 
 .cartMinusBtn,
 .cartPlusBtn {
-  width: 40px;
-  height: 40px;
+  width: 30px;
+  height: 30px;
   border-radius: 50%;
-  background-color: $btn-candy-purple;
-  color: #fff;
+  border: none;
+  color: $btn-candy-purple;
   display: inline;
   text-align: center;
   font-size: 1.2rem;
@@ -61,6 +58,7 @@
 
   &:hover {
     background-color: darkmagenta;
+    border: none;
   }
 
   &:disabled {

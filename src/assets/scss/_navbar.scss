@@ -33,8 +33,13 @@ h1 {
 }
 .nav-link {
   margin-right: 15px;
-}
+  transition: transform 0.2s, color 0.2;
 
+&:hover{
+  transform: scale(1.1); 
+  color: $btn-candy-pink;
+}
+}
 .navbar-toggler {
   margin-left: 0.2rem;
   margin-right: 0.8rem;
@@ -48,6 +53,13 @@ h1 {
     margin: auto;
     justify-content: flex-start;
     gap: 3rem;
+    font-weight: 400;
   } 
   
+}
+
+@media screen and (min-width: 1200px){
+  .navbar-nav {
+    font-size: 1.5rem;
+  } 
 }

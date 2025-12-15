@@ -12,13 +12,14 @@
   //border: 4px solid $primary;
   font-size: 0.8rem;
 }
-.modalThumbnail {
+.card-img {
   margin: auto;
   transition: transform 1.5s ease-in-out;
-  max-width: 200px;
-}
-.modalThumbnail:hover {
+  width: 200px;
+
+ &:hover {
   transform: scale(0.2);
+}
 }
 .modal-price {
   margin: 0px;
@@ -36,8 +37,5 @@
 .modalBtn {
   max-width: 50%;
   margin: auto;
-}
-.modalThumbnail {
-  max-width: 300px;
 }
 }

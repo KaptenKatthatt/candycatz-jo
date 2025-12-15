@@ -31,15 +31,6 @@
   filter: saturate(0);
 }
 
-.candyAmount {
-  font-size: 2.5rem;
-  .candyAmountRendered {
-    font-size: 1rem;
-    padding: 8px;
-    border-radius: 20px;
-  }
-}
-
 .scallopbox {
   --r: 0.5rem;
   padding: calc(1.5 * var(--r));

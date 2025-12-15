@@ -7,6 +7,8 @@ export const renderModal = async function (productId: number) {
   let candyParagraph = candyProduct.data.description;
   let modalThumbnailURL = `https://www.bortakvall.se${candyProduct.data.images.thumbnail}`;
   let candyPrice = candyProduct.data.price;
+  let candyStock = candyProduct.data.stock_status;
+  let candyQty = candyProduct.data.stock_quantity;
 
   //Modal product info
   const modalContainerEl = document.querySelector(
@@ -31,7 +33,18 @@ export const renderModal = async function (productId: number) {
           <div class="scrollableModal">
           <p class="modalParagraph card-text pt-2">${candyParagraph}</p>
           <p class="modal-price">Pris:<strong> ${candyPrice}:- </strong></p>
-          <p>I lager: ${candyProduct.data.stock_quantity}</p>
+          ${
+            candyStock === "instock"
+              ? `
+            <p class="card-text stockStatus">
+              I lager:
+              <span class="fw-bold">${candyQty}</span>
+            </p>
+          `
+              : `
+            <p class="card-text stockStatus"><em>Ej i lager</em></p>
+          `
+          }
         </div>
         </div>
           <button type="button" class="btn btn-secondary modalBtn mt-2" data-bs-dismiss="modal">Stäng</button>

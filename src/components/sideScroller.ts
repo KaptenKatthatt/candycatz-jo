@@ -1,6 +1,5 @@
 import type { CandyData } from "../services/candyApiTypes";
 
-// funktion för att återanvända kort strukturen flera gånger på olika kategorier
 export function cardStructureSideScroller(product: CandyData): string {
   let thumbnailURL = `https://www.bortakvall.se${product.images.thumbnail}`;
 

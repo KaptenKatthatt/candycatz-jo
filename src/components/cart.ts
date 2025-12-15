@@ -44,10 +44,8 @@ export const addToCart = async function (clickedCandyId: number) {
     if (candyFound!.qty < candyFound!.stock_quantity) {
       candyFound!.qty++;
     } else {
-      // här är alltså lagret slut okiii no more can adds
       console.log(`Kan icke lägga till mer av ${candyFound!.name}`);
     }
-    // console.log("CartArray after qty++", cartArray);
   }
   renderCart();
   saveCartArrayToLocalStorage(cartArray);
@@ -89,13 +87,13 @@ export const deleteProductFromCart = function (clickedCandyId: number) {
   saveCartArrayToLocalStorage(cartArray);
 };
 
-//Spreada CandyResponse till en ny array och lägg på egenskapen qty på den.
+//Spread CandyResponse to new array and add qty property.
 export const increaseAmountOfProductInCart = function (clickedCandyId: number) {
   const candyFound = cartArray.find(
     (product: CartProduct) => product.id === clickedCandyId
   );
   if (candyFound && candyFound.qty < candyFound.stock_quantity) {
-    candyFound!.qty++; // här stoppas increase om inte gästqty är mindre än stockqty
+    candyFound!.qty++; //Stop increase if qty is less than stockqty
   }
   saveCartArrayToLocalStorage(cartArray);
 };

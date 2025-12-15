@@ -1,10 +1,6 @@
 import { getCandyProductInfo } from "../services/candyAPI";
 import { Modal } from "bootstrap";
 
-/**
- * Renders a modal with the clicked candyId
- * @param productId
- */
 export const renderModal = async function (productId: number) {
   let candyProduct = await getCandyProductInfo(productId);
   let candyTitle = candyProduct.data.name;

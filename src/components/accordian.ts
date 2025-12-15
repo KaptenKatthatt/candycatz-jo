@@ -60,7 +60,7 @@ export const renderCartView = function () {
   </div>
   `;
 
-  // Click -Fortsätt till kassan
+  // Click -Continue to checkout
   const proceedBtn = document.querySelector<HTMLDivElement>(".proceedBtn")!;
   proceedBtn.addEventListener("click", () => {
     const collapseOne = document.querySelector<HTMLDivElement>(

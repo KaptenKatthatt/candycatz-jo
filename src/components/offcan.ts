@@ -111,8 +111,6 @@ export const openOffCanvas = function () {
   renderCart();
   renderCartBadge();
   offCanvas.classList.add("show");
-  // offCanvas.setAttribute("aria-modal", "true");
-  // offCanvas.setAttribute("role", "dialog");
 
   let backdrop = document.querySelector(".offcanvas-backdrop");
   if (!backdrop) {
@@ -126,8 +124,6 @@ export const openOffCanvas = function () {
 export const closeOffCanvas = function () {
   const offCanvas = document.querySelector<HTMLDivElement>(".offcanvas")!;
   offCanvas.classList.remove("show");
-  // offCanvas.removeAttribute("aria-modal");
-  // offCanvas.removeAttribute("role");
 
   const backdrop = document.querySelector(".offcanvas-backdrop");
   if (backdrop) {

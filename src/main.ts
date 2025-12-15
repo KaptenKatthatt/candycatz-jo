@@ -1,4 +1,3 @@
-//Function imports
 import { getClickedCandyId } from "./components/getClickedCandyId";
 import { initStore } from "./components/cart";
 import { renderAllCards } from "./components/renderAllCards";
@@ -11,24 +10,16 @@ import { renderOffCan } from "./components/offcan";
 //SCSS imports
 import "./assets/scss/app.scss";
 
+//Scroll to top to combat anchor links left in url
 window.scrollTo(0, 0);
 
 renderCartView();
 renderCheckoutForm();
-
-//RenderAllCards
 renderAllCards();
-//getCandyClickedId, startar efter alla kort laddas ut
 getClickedCandyId();
-
-//Carousel hero
 renderCarousel();
-//Navbar
 renderNavbar();
-//OffCanvas cart
 renderOffCan();
-
-//Footer
 renderFooter();
 
 initStore();

@@ -51,7 +51,7 @@ export const renderCheckoutCart = function () {
                 +
               </button>
               </span>
-              <button class="deleteBtn btn btn-sm btn-danger">
+              <button class="deleteBtn btn btn-sm btn-danger ms-2">
                 <i class="bi bi-trash"></i>
               </button>
             </div>

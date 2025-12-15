@@ -36,19 +36,21 @@ export const renderCheckoutCart = function () {
             }:-</strong></p>
 
             <div class="buttonContainer d-flex flex-row align-items-center">
+            <span class="smallButtonContainer">
               <button class="decreaseBtn cartMinusBtn btn me-2" type="button">
                 -
               </button>
-              <p class="checkOutCartQty me-2 d-flex align-items-center justify-content-center m-0">
+              <p class="cartQty d-flex align-items-center justify-content-center">
                 ${product.qty}
               </p>
               <button
-                class="increaseBtn cartPlusBtn btn me-2"
+                class="increaseBtn cartPlusBtn btn"
                 type="button"
                 ${product.qty >= product.stock_quantity ? "disabled" : ""}
               >
                 +
               </button>
+              </span>
               <button class="deleteBtn btn btn-sm btn-danger">
                 <i class="bi bi-trash"></i>
               </button>

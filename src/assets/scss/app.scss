@@ -45,38 +45,7 @@ body {
 .btn {
   cursor: pointer;
 }
-.scroll-container {
-  background-color: $accent;
-  width: 100%;
-  overflow: hidden;
-  white-space: nowrap;
-  padding: 10px 0px;
-}
 
-.scroll-content {
-  display: inline-flex;
-  white-space: nowrap;
-  animation: scroll 20s linear infinite;
-  gap: 3.5rem;
-}
-
-.scroll-content span {
-  display: inline-flex;
-}
-
-span {
-  flex-shrink: 0;
-  white-space: nowrap;
-}
-
-@keyframes scroll {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-50%);
-  }
-}
 @media screen and (min-width: 576px) {
 .body {
   padding-top: 0px;

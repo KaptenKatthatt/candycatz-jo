@@ -98,12 +98,12 @@ export const renderOffCan = function () {
     btnClose.addEventListener("click", closeOffCanvas);
   }
 
-  const continueShoppingBtn = document.querySelector<HTMLButtonElement>(
-    ".btn-outline-primary"
-  );
-  if (continueShoppingBtn) {
-    continueShoppingBtn.addEventListener("click", closeOffCanvas);
-  }
+  offCan.addEventListener("click", (e) => {
+    const target = e.target as HTMLElement;
+    if (target.classList.contains("continueShoppingBtn")) {
+      closeOffCanvas();
+    }
+  });
 };
 
 export const openOffCanvas = function () {

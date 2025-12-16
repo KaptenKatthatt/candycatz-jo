@@ -20,7 +20,6 @@ export const renderOffCan = function () {
 
           <!-- Inject cart contents from cart.ts -->
             <div class="cartContainer"></div>
-
           </div>
         </div>
     </div>

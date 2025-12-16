@@ -180,6 +180,9 @@ export const renderCart = function () {
     document
       .querySelector<HTMLDivElement>(".heartCatContainer")!
       .classList.remove("d-none");
+    document
+      .querySelector<HTMLDivElement>(".checkOutBtn")!
+      .classList.remove("d-none");
     document.querySelector<HTMLDivElement>(
       ".heartCatContainer"
     )!.innerHTML = `<img class="rounded-4 w-100 my-3" src="/img/heartCat.gif" alt="Happy cat with hearts">`;
@@ -202,6 +205,9 @@ export const renderCart = function () {
   } else {
     document
       .querySelector<HTMLDivElement>(".heartCatContainer")!
+      .classList.add("d-none");
+    document
+      .querySelector<HTMLDivElement>(".checkOutBtn")!
       .classList.add("d-none");
     cartContainerEl!.innerHTML = `
                     <img src="/img/sadcat.gif" alt="">

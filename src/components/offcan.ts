@@ -48,6 +48,7 @@ export const renderOffCan = function () {
         >
           <i class="bi bi-arrow-left me-2"></i>Fortsätt Handla
         </button>
+
         <button
           class="checkOutBtn"
           data-bs-dismiss="offcanvas"
@@ -56,6 +57,7 @@ export const renderOffCan = function () {
           Gå till kassan
           <i class="bi bi-arrow-right ms-2"></i>
         </button>
+
         <div class="heartCatContainer"></div>
       </div>
     </div>
@@ -63,7 +65,7 @@ export const renderOffCan = function () {
   // EventListener for Proceed to Checkout
   const cartCheckoutContainer = document.querySelector<HTMLDivElement>(
     "#cartCheckoutContainer"
-  )!;
+  );
   const checkOutBtn =
     document.querySelector<HTMLButtonElement>(".checkOutBtn")!;
 
@@ -88,7 +90,7 @@ export const renderOffCan = function () {
     allCardsContainerEl.classList.add("d-none");
 
     // show accordion
-    cartCheckoutContainer.classList.remove("d-none");
+    cartCheckoutContainer!.classList.remove("d-none");
 
     // scroll to top
     window.scrollTo({ top: 100, behavior: "smooth" });

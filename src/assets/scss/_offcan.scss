@@ -1,3 +1,11 @@
+// Bootstrap Breakpoints
+// xs: 0px
+// sm: 576px
+// md: 768px
+// lg: 992px
+// xl: 1200px
+// xxl: 1400px
+
 .buttonContainer {
   grid-area: buttonContainer;
   margin-left: 10px;
@@ -16,6 +24,17 @@
   background-color: $accordion;
   margin: 0 auto;
   width: 100%;
+  padding: $btn-padding-y $btn-padding-x;
+
+  &:hover {
+    filter: brightness(1.15);
+    transform: scale(1);
+    background-color: $accordion;
+  }
+  &:active {
+    // background-color: $accordion !important;
+    transform: scale(0.95);
+  }
 }
 
 .clearCartBtn {
@@ -157,6 +176,6 @@
 }
 @media screen and (min-width: 1400px) {
   .offcanvas {
-    --bs-offcanvas-width: 29vw;
+    --bs-offcanvas-width: 27vw;
   }
 }

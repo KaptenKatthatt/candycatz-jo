@@ -26,10 +26,10 @@ export const renderOffCan = function () {
     </div>
 
   <!-- Continue Shopping Button -->
-    <button type="button" class="continueShoppingBtn btn btn-primary w-100" data-bs-dismiss="offcanvas" aria-label="Close">
+    <button type="button" class="continueShoppingBtn" data-bs-dismiss="offcanvas" aria-label="Close">
       <i class="bi bi-arrow-left me-2"></i>Fortsätt Handla
     </button>
-          <button class="checkOutBtn btn btn-primary" data-bs-dismiss="offcanvas" aria-label="Close">Gå till kassan<i class="bi bi-arrow-right me-2"></i></button>
+          <button class="checkOutBtn" data-bs-dismiss="offcanvas" aria-label="Close">Gå till kassan<i class="bi bi-arrow-right ms-2"></i></button>
 
       <!-- Order summary -->
       <div class="card cart-summary my-4">

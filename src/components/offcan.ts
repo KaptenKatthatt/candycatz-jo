@@ -58,7 +58,7 @@ export const offCan = document.querySelector<HTMLDivElement>("#offCan")!;
         </div>
       </div>
  -->
-      <img class="rounded-4 w-100 mt-3" src="/img/heartCat.gif" alt="Happy cat with hearts">
+      <div class="heartCatContainer"></div>
 
 
     </div>

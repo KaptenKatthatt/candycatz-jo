@@ -170,6 +170,12 @@ export const renderCart = function () {
         `;
       })
       .join("");
+    document
+      .querySelector<HTMLDivElement>(".heartCatContainer")!
+      .classList.remove("d-none");
+    document.querySelector<HTMLDivElement>(
+      ".heartCatContainer"
+    )!.innerHTML = `<img class="rounded-4 w-100 mt-3" src="/img/heartCat.gif" alt="Happy cat with hearts">`;
 
     cartContainerEl.onclick = (e) => {
       const target = e.target as HTMLElement;
@@ -187,15 +193,18 @@ export const renderCart = function () {
       renderCartBadge();
     };
   } else {
+    document
+      .querySelector<HTMLDivElement>(".heartCatContainer")!
+      .classList.add("d-none");
     cartContainerEl!.innerHTML = `
                     <img src="/img/sadcat.gif" alt="">
 
     <p class="py-5">
       Kundvagnen är tom just nu. Iväg o handla med dig!</p>`;
   }
-  const subtotalContainerEl = document.querySelector(
-    ".subtotalContainer"
-  ) as HTMLSpanElement;
+  // const subtotalContainerEl = document.querySelector(
+  //   ".subtotalContainer"
+  // ) as HTMLSpanElement;
 
   // subtotalContainerEl.innerText = `${getTotalCostOfProductsInCart()} kr`;
 

@@ -21,7 +21,14 @@ export const shipping = 19;
 export const addToCart = async function (clickedCandyId: number) {
   let fetchedCandyObject = await getCandyProductInfo(clickedCandyId);
   const maxStock = fetchedCandyObject.data.stock_quantity;
+  const candyPrice = fetchedCandyObject.data.on_sale
+    ? Math.round(fetchedCandyObject.data.price * 0.7)
+    : fetchedCandyObject.data.price;
+  const discount =
+    fetchedCandyObject.data.price -
+    Math.round(fetchedCandyObject.data.price * 0.7);
 
+  console.log("fetchedObj", fetchedCandyObject);
   let foundSameCandyInCart = cartArray.some(
     (product) => product.id === clickedCandyId
   );
@@ -30,8 +37,9 @@ export const addToCart = async function (clickedCandyId: number) {
       id: fetchedCandyObject.data.id,
       name: fetchedCandyObject.data.name,
       qty: 1,
-      price: fetchedCandyObject.data.price,
+      price: candyPrice,
       thumbnail: fetchedCandyObject.data.images.thumbnail,
+      on_sale: fetchedCandyObject.data.on_sale,
       stock_quantity: maxStock,
     };
 
@@ -44,9 +52,10 @@ export const addToCart = async function (clickedCandyId: number) {
     if (candyFound!.qty < candyFound!.stock_quantity) {
       candyFound!.qty++;
     } else {
-      console.log(`Kan icke lägga till mer av ${candyFound!.name}`);
+      alert(`Kan icke lägga till mer av ${candyFound!.name}, slut i lager.`);
     }
   }
+  console.log(cartArray);
   renderCart();
   saveCartArrayToLocalStorage(cartArray);
 };
@@ -104,7 +113,7 @@ export const initStore = function () {
   renderCart();
   renderCartBadge();
 };
-
+console.log("cartarr from locstor", cartArray);
 //Gets nbr of kinds of candy at the moment, not total qty of candy.
 export const getTotalAmountOfProductsInCart = function () {
   return cartArray.reduce((acc, curr) => acc + curr.qty, 0);
@@ -119,7 +128,10 @@ export const renderCart = function () {
   // Render a card with added item
   if (cartContainerEl && cartArray.length > 0) {
     cartContainerEl.innerHTML = cartArray
-      .map((product) => {
+      .map((product: CartProduct) => {
+        let productOnDiscount = product.on_sale ? "text-danger" : "text-dark";
+
+        console.log("product", product);
         let thumbnailURL = `https://www.bortakvall.se${product.thumbnail}`;
         return `
          <div
@@ -134,9 +146,10 @@ export const renderCart = function () {
             />
             <h3 class="offCanCartTitle fs-5">${product.name}</h3>
 
-
             <div class="offCanCartPrice">
-              <p class=" me-2"><strong>${product.price}:-</strong>/skopa</p>
+              <p class="me-2"><strong class=" ${productOnDiscount}">${
+          product.price
+        }:-</strong>/skopa</p>
             </div>
             <div class="offCanCartTotal">
               <p>

@@ -76,15 +76,10 @@ export const renderCheckoutCart = function () {
       renderCartBadge();
     };
   }
-
-  // const subtotalContainerEl = document.querySelector(
-  //   ".subtotalContainer"
-  // ) as HTMLSpanElement;
   const checkoutSubtotalContainerEl = document.querySelector(
     ".checkoutSubtotalContainer"
   ) as HTMLSpanElement;
 
-  // subtotalContainerEl.innerText = `${getTotalCostOfProductsInCart()} kr`;
   checkoutSubtotalContainerEl.innerText = `${getTotalCostOfProductsInCart()} kr`;
 
   const totalCostContainerEl = document.querySelector(

@@ -27,6 +27,7 @@ export interface CartProduct {
   price: number;
   thumbnail: string;
   stock_quantity: number;
+  on_sale: boolean;
 }
 
 export interface CheckoutData {

@@ -25,7 +25,6 @@ export const renderCheckoutCart = function () {
         totalAmountSaved += product.on_sale
           ? productTotalPrice - Math.round(productTotalPrice * 0.7)
           : 0;
-        console.log(`Totalsave ${totalAmountSaved}`);
 
         return `
           <div

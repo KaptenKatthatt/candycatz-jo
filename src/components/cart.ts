@@ -5,6 +5,7 @@ import {
   saveCartArrayToLocalStorage,
 } from "./localStorage";
 import { openOffCanvas } from "./offcan";
+import { renderCheckoutCart } from "./renderCheckoutCart.1";
 
 const allCardsContainerEl =
   document.querySelector<HTMLDivElement>(".allCardsContainer");
@@ -24,11 +25,6 @@ export const addToCart = async function (clickedCandyId: number) {
   const candyPrice = fetchedCandyObject.data.on_sale
     ? Math.round(fetchedCandyObject.data.price * 0.7)
     : fetchedCandyObject.data.price;
-  const discount =
-    fetchedCandyObject.data.price -
-    Math.round(fetchedCandyObject.data.price * 0.7);
-
-  console.log("fetchedObj", fetchedCandyObject);
   let foundSameCandyInCart = cartArray.some(
     (product) => product.id === clickedCandyId
   );
@@ -55,7 +51,6 @@ export const addToCart = async function (clickedCandyId: number) {
       alert(`Kan icke lägga till mer av ${candyFound!.name}, slut i lager.`);
     }
   }
-  console.log(cartArray);
   renderCart();
   saveCartArrayToLocalStorage(cartArray);
 };
@@ -93,6 +88,8 @@ export const deleteProductFromCart = function (clickedCandyId: number) {
     candyFound.qty = 0;
     cartArray = cartArray.filter((product) => product.id !== candyFound.id);
   }
+  renderCheckoutCart();
+  renderdisc;
   saveCartArrayToLocalStorage(cartArray);
 };
 
@@ -113,7 +110,6 @@ export const initStore = function () {
   renderCart();
   renderCartBadge();
 };
-console.log("cartarr from locstor", cartArray);
 //Gets nbr of kinds of candy at the moment, not total qty of candy.
 export const getTotalAmountOfProductsInCart = function () {
   return cartArray.reduce((acc, curr) => acc + curr.qty, 0);
@@ -131,7 +127,6 @@ export const renderCart = function () {
       .map((product: CartProduct) => {
         let productOnDiscount = product.on_sale ? "text-danger" : "text-dark";
 
-        console.log("product", product);
         let thumbnailURL = `https://www.bortakvall.se${product.thumbnail}`;
         return `
          <div

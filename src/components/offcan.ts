@@ -52,7 +52,7 @@ export const renderOffCan = function () {
           </div>
           <hr>
           <div class="d-flex justify-content-between mb-4">
-            <strong>Total</strong>
+            <strong>Totalt</strong>
             <span class="totalCostContainer"><strong></strong></span>
           </div>
         </div>

@@ -77,9 +77,9 @@ export const renderCheckoutCart = function () {
     };
   }
 
-  const subtotalContainerEl = document.querySelector(
-    ".subtotalContainer"
-  ) as HTMLSpanElement;
+  // const subtotalContainerEl = document.querySelector(
+  //   ".subtotalContainer"
+  // ) as HTMLSpanElement;
   const checkoutSubtotalContainerEl = document.querySelector(
     ".checkoutSubtotalContainer"
   ) as HTMLSpanElement;

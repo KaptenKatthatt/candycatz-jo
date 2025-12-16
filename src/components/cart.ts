@@ -197,12 +197,14 @@ export const renderCart = function () {
     ".subtotalContainer"
   ) as HTMLSpanElement;
 
-  subtotalContainerEl.innerText = `${getTotalCostOfProductsInCart()} kr`;
+  // subtotalContainerEl.innerText = `${getTotalCostOfProductsInCart()} kr`;
+
   const totalCostContainerEl = document.querySelector(
     ".totalCostContainer"
   ) as HTMLSpanElement;
+
   totalCostContainerEl.innerHTML = `<strong>${String(
-    getTotalCostOfProductsInCart() + shipping
+    getTotalCostOfProductsInCart()
   )} kr</strong>`;
   renderClearCart();
 };

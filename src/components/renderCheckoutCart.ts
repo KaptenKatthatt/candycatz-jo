@@ -84,7 +84,7 @@ export const renderCheckoutCart = function () {
     ".checkoutSubtotalContainer"
   ) as HTMLSpanElement;
 
-  subtotalContainerEl.innerText = `${getTotalCostOfProductsInCart()} kr`;
+  // subtotalContainerEl.innerText = `${getTotalCostOfProductsInCart()} kr`;
   checkoutSubtotalContainerEl.innerText = `${getTotalCostOfProductsInCart()} kr`;
 
   const totalCostContainerEl = document.querySelector(

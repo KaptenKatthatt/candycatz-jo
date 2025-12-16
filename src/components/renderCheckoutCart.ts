@@ -84,7 +84,6 @@ export const renderCheckoutCart = function () {
       }
       renderCheckoutCart();
       renderCartBadge();
-      renderDiscountContainer();
     };
   }
   const checkoutSubtotalContainerEl = document.querySelector(
@@ -107,16 +106,14 @@ export const renderCheckoutCart = function () {
     getTotalCostOfProductsInCart() + shipping
   )} kr</strong>`;
 
-  const renderDiscountContainer = function () {
-    const haveDiscountContainerEl = document.querySelector<HTMLDivElement>(
-      ".haveDiscountContainer"
-    );
-    if (haveDiscountContainerEl && totalAmountSaved > 0) {
-      haveDiscountContainerEl.innerHTML = `
+  const haveDiscountContainerEl = document.querySelector<HTMLDivElement>(
+    ".haveDiscountContainer"
+  );
+  if (haveDiscountContainerEl && totalAmountSaved > 0) {
+    haveDiscountContainerEl.innerHTML = `
       <span class="text-danger">Rabatt avdragen</span>
-      <span class="amountSavedContainer text-danger">${String(
-        totalAmountSaved
-      )} kr</span>`;
-    }
-  };
+      <span class="amountSavedContainer text-danger">${totalAmountSaved} kr</span>`;
+  } else {
+    haveDiscountContainerEl!.innerHTML = "";
+  }
 };

@@ -37,9 +37,11 @@ export const renderCartView = function () {
                 <span>Summa</span>
                 <span class="checkoutSubtotalContainer"></span>
               </div>
+              <div class="haveDiscountContainer d-flex justify-content-between mb-3">
+              </div>
               <div class="d-flex justify-content-between mb-4">
                 <span>Frakt</span>
-                <span>19kr</span>
+                <span>19 kr</span>
               </div>
               <hr>
               <div class="d-flex justify-content-between mb-4">

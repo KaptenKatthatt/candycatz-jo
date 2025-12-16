@@ -1,3 +1,4 @@
+import { discountMultiplier, shipping } from "../main";
 import {
   cartArray,
   increaseAmountOfProductInCart,
@@ -5,10 +6,10 @@ import {
   deleteProductFromCart,
   renderCartBadge,
   getTotalCostOfProductsInCart,
-  shipping,
 } from "./cart";
 
 export const renderCheckoutCart = function () {
+  let totalAmountSaved = 0;
   const checkoutCartContainerEl = document.querySelector<HTMLDivElement>(
     ".checkoutCartContainer"
   );
@@ -17,6 +18,15 @@ export const renderCheckoutCart = function () {
     checkoutCartContainerEl.innerHTML = cartArray
       .map((product) => {
         let thumbnailURL = `https://www.bortakvall.se${product.thumbnail}`;
+        let productOnDiscount = product.on_sale ? "text-danger" : "text-dark";
+
+        const productTotalPrice = product.qty * product.price;
+
+        totalAmountSaved += product.on_sale
+          ? productTotalPrice -
+            Math.round(productTotalPrice * discountMultiplier)
+          : 0;
+
         return `
           <div
             class="checkoutCartListItem cartListItem rounded-4"
@@ -28,9 +38,9 @@ export const renderCheckoutCart = function () {
               alt="Image of ${product.name}"
             />
             <h3 class="checkOutCartTitle fs-5">${product.name}</h3>
-            <p class="checkOutCartPrice"><strong>${
-              product.price
-            }:-</strong>/skopa</p>
+            <p class="checkOutCartPrice"><strong class="${productOnDiscount}">${
+          product.price
+        }:-</strong>/skopa</p>
             <p class="checkOutCartTotal">Totalt: <strong>${
               product.qty * product.price
             }:-</strong></p>
@@ -76,15 +86,10 @@ export const renderCheckoutCart = function () {
       renderCartBadge();
     };
   }
-
-  // const subtotalContainerEl = document.querySelector(
-  //   ".subtotalContainer"
-  // ) as HTMLSpanElement;
   const checkoutSubtotalContainerEl = document.querySelector(
     ".checkoutSubtotalContainer"
   ) as HTMLSpanElement;
 
-  // subtotalContainerEl.innerText = `${getTotalCostOfProductsInCart()} kr`;
   checkoutSubtotalContainerEl.innerText = `${getTotalCostOfProductsInCart()} kr`;
 
   const totalCostContainerEl = document.querySelector(
@@ -100,4 +105,15 @@ export const renderCheckoutCart = function () {
   checkoutTotalCostContainerEl.innerHTML = `<strong>${String(
     getTotalCostOfProductsInCart() + shipping
   )} kr</strong>`;
+
+  const haveDiscountContainerEl = document.querySelector<HTMLDivElement>(
+    ".haveDiscountContainer"
+  );
+  if (haveDiscountContainerEl && totalAmountSaved > 0) {
+    haveDiscountContainerEl.innerHTML = `
+      <span class="text-danger">Rabatt avdragen</span>
+      <span class="amountSavedContainer text-danger">${totalAmountSaved} kr</span>`;
+  } else {
+    haveDiscountContainerEl!.innerHTML = "";
+  }
 };

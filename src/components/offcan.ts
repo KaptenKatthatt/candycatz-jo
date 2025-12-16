@@ -5,73 +5,67 @@ export const offCan = document.querySelector<HTMLDivElement>("#offCan")!;
 
 export const renderOffCan = function () {
   offCan.innerHTML = `
-  <div class="offcanvas offcanvas-end rounded-top-4 tabindex=" -1" id="offcanvasRight"
-    aria-labelledby="offcanvasRightLabel" data-bs-scroll="false">
-    <div class="offcanvas-header">
-      <h5 class="offcanvas-title" id="offcanvasRightLabel">Your Candy Cart </h5>
-      <i class="bi bi-cart4 fs-3 ps-2"></i>
-      <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-    </div>
-
-    <!-- Cart products container-->
-    <div class="offcanvasBody">
-      <div class="productContainer card">
-        <div class="card-body">
-          <div class="row align-items-center cart-item">
-
-            <!-- Inject cart contents from cart.ts -->
-            <div class="cartContainer"></div>
-          </div>
-          <hr>
-          <div class="d-flex justify-content-between mb-4">
-            <strong>Totalt</strong>
-            <span class="totalCostContainer"><strong></strong></span>
-          </div>
-        </div>
+    <div
+      class="offcanvas offcanvas-end rounded-top-4"
+      tabindex="-1"
+      id="offcanvasRight"
+      aria-labelledby="offcanvasRightLabel"
+      data-bs-scroll="false"
+    >
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="offcanvasRightLabel">Your Candy Cart</h5>
+        <i class="bi bi-cart4 fs-3 ps-2"></i>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="offcanvas"
+          aria-label="Close"
+        ></button>
       </div>
 
-      <!-- Continue Shopping Button -->
-      <button type="button" class="continueShoppingBtn" data-bs-dismiss="offcanvas" aria-label="Close">
-        <i class="bi bi-arrow-left me-2"></i>Fortsätt Handla
-      </button>
-      <button class="checkOutBtn" data-bs-dismiss="offcanvas" aria-label="Close">Gå till kassan<i
-          class="bi bi-arrow-right ms-2"></i></button>
-
-      <!-- Order summary -->
-      <!-- 
-      <div class="card cart-summary my-4">
-        <div class="card-body">
-          <h5 class="orderSummaryHeader text-dark mb-4">Ordersummering</h5>
-          <div class="d-flex justify-content-between mb-3">
-            <span>Summa</span>
-            <span class="subtotalContainer"></span>
-          </div>
-          <div class="d-flex justify-content-between mb-4">
-            <span>Frakt</span>
-            <span>19kr</span>
-          </div>
-          <hr>
-          <div class="d-flex justify-content-between mb-4">
-            <strong>Totalt</strong>
-            <span class="totalCostContainer"><strong></strong></span>
+      <!-- Cart products container -->
+      <div class="offcanvas-body offcanvasBody">
+        <div class="productContainer card">
+          <div class="card-body">
+            <div class="row align-items-center cart-item">
+              <!-- Inject cart contents from cart.ts -->
+              <div class="cartContainer"></div>
+            </div>
+            <hr />
+            <div class="d-flex justify-content-between mb-4">
+              <strong>Totalt</strong>
+              <span class="totalCostContainer"><strong></strong></span>
+            </div>
           </div>
         </div>
+
+        <!-- Continue Shopping Button -->
+        <button
+          type="button"
+          class="continueShoppingBtn"
+          data-bs-dismiss="offcanvas"
+          aria-label="Close"
+        >
+          <i class="bi bi-arrow-left me-2"></i>Fortsätt Handla
+        </button>
+
+        <button
+          class="checkOutBtn"
+          data-bs-dismiss="offcanvas"
+          aria-label="Close"
+        >
+          Gå till kassan
+          <i class="bi bi-arrow-right ms-2"></i>
+        </button>
+
+        <div class="heartCatContainer"></div>
       </div>
- -->
-      <div class="heartCatContainer"></div>
-
-
     </div>
-
-
-  </div>
-  </div>
-  </div>
   `;
   // EventListener for Proceed to Checkout
   const cartCheckoutContainer = document.querySelector<HTMLDivElement>(
     "#cartCheckoutContainer"
-  )!;
+  );
   const checkOutBtn =
     document.querySelector<HTMLButtonElement>(".checkOutBtn")!;
 
@@ -96,7 +90,7 @@ export const renderOffCan = function () {
     allCardsContainerEl.classList.add("d-none");
 
     // show accordion
-    cartCheckoutContainer.classList.remove("d-none");
+    cartCheckoutContainer!.classList.remove("d-none");
 
     // scroll to top
     window.scrollTo({ top: 100, behavior: "smooth" });

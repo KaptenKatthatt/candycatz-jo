@@ -1,3 +1,4 @@
+import { discountMultiplier } from "../main";
 import { getCandyProductInfo } from "../services/candyAPI";
 import type { CartProduct } from "../services/candyApiTypes";
 import {
@@ -5,6 +6,7 @@ import {
   saveCartArrayToLocalStorage,
 } from "./localStorage";
 import { openOffCanvas } from "./offcan";
+import { renderCheckoutCart } from "./renderCheckoutCart";
 
 const allCardsContainerEl =
   document.querySelector<HTMLDivElement>(".allCardsContainer");
@@ -16,12 +18,13 @@ export const mainContainerEl = document.querySelector<HTMLDivElement>("main");
 
 export let clickedCandyId = 0;
 export let cartArray: CartProduct[] = getCartArrayFromLocalStorage() || [];
-export const shipping = 19;
 
 export const addToCart = async function (clickedCandyId: number) {
   let fetchedCandyObject = await getCandyProductInfo(clickedCandyId);
   const maxStock = fetchedCandyObject.data.stock_quantity;
-
+  const candyPrice = fetchedCandyObject.data.on_sale
+    ? Math.round(fetchedCandyObject.data.price * discountMultiplier)
+    : fetchedCandyObject.data.price;
   let foundSameCandyInCart = cartArray.some(
     (product) => product.id === clickedCandyId
   );
@@ -30,8 +33,9 @@ export const addToCart = async function (clickedCandyId: number) {
       id: fetchedCandyObject.data.id,
       name: fetchedCandyObject.data.name,
       qty: 1,
-      price: fetchedCandyObject.data.price,
+      price: candyPrice,
       thumbnail: fetchedCandyObject.data.images.thumbnail,
+      on_sale: fetchedCandyObject.data.on_sale,
       stock_quantity: maxStock,
     };
 
@@ -44,7 +48,7 @@ export const addToCart = async function (clickedCandyId: number) {
     if (candyFound!.qty < candyFound!.stock_quantity) {
       candyFound!.qty++;
     } else {
-      console.log(`Kan icke lägga till mer av ${candyFound!.name}`);
+      alert(`Kan icke lägga till mer av ${candyFound!.name}, slut i lager.`);
     }
   }
   renderCart();
@@ -84,6 +88,7 @@ export const deleteProductFromCart = function (clickedCandyId: number) {
     candyFound.qty = 0;
     cartArray = cartArray.filter((product) => product.id !== candyFound.id);
   }
+  renderCheckoutCart();
   saveCartArrayToLocalStorage(cartArray);
 };
 
@@ -104,7 +109,6 @@ export const initStore = function () {
   renderCart();
   renderCartBadge();
 };
-
 //Gets nbr of kinds of candy at the moment, not total qty of candy.
 export const getTotalAmountOfProductsInCart = function () {
   return cartArray.reduce((acc, curr) => acc + curr.qty, 0);
@@ -119,7 +123,9 @@ export const renderCart = function () {
   // Render a card with added item
   if (cartContainerEl && cartArray.length > 0) {
     cartContainerEl.innerHTML = cartArray
-      .map((product) => {
+      .map((product: CartProduct) => {
+        let productOnDiscount = product.on_sale ? "text-danger" : "text-dark";
+
         let thumbnailURL = `https://www.bortakvall.se${product.thumbnail}`;
         return `
          <div
@@ -134,9 +140,10 @@ export const renderCart = function () {
             />
             <h3 class="offCanCartTitle fs-5">${product.name}</h3>
 
-
             <div class="offCanCartPrice">
-              <p class=" me-2"><strong>${product.price}:-</strong>/skopa</p>
+              <p class="me-2"><strong class=" ${productOnDiscount}">${
+          product.price
+        }:-</strong>/skopa</p>
             </div>
             <div class="offCanCartTotal">
               <p>
@@ -173,6 +180,9 @@ export const renderCart = function () {
     document
       .querySelector<HTMLDivElement>(".heartCatContainer")!
       .classList.remove("d-none");
+    document
+      .querySelector<HTMLDivElement>(".checkOutBtn")!
+      .classList.remove("d-none");
     document.querySelector<HTMLDivElement>(
       ".heartCatContainer"
     )!.innerHTML = `<img class="rounded-4 w-100 my-3" src="/img/heartCat.gif" alt="Happy cat with hearts">`;
@@ -195,6 +205,9 @@ export const renderCart = function () {
   } else {
     document
       .querySelector<HTMLDivElement>(".heartCatContainer")!
+      .classList.add("d-none");
+    document
+      .querySelector<HTMLDivElement>(".checkOutBtn")!
       .classList.add("d-none");
     cartContainerEl!.innerHTML = `
                     <img src="/img/sadcat.gif" alt="">

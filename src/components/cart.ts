@@ -5,7 +5,7 @@ import {
   saveCartArrayToLocalStorage,
 } from "./localStorage";
 import { openOffCanvas } from "./offcan";
-import { renderCheckoutCart } from "./renderCheckoutCart.1";
+import { renderCheckoutCart } from "./renderCheckoutCart";
 
 const allCardsContainerEl =
   document.querySelector<HTMLDivElement>(".allCardsContainer");
@@ -89,7 +89,6 @@ export const deleteProductFromCart = function (clickedCandyId: number) {
     cartArray = cartArray.filter((product) => product.id !== candyFound.id);
   }
   renderCheckoutCart();
-  renderdisc;
   saveCartArrayToLocalStorage(cartArray);
 };
 

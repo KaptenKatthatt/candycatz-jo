@@ -1,5 +1,5 @@
 import { renderCart, renderCartBadge } from "./cart";
-import { renderCheckoutCart } from "./renderCheckoutCart.1";
+import { renderCheckoutCart } from "./renderCheckoutCart";
 
 export const offCan = document.querySelector<HTMLDivElement>("#offCan")!;
 

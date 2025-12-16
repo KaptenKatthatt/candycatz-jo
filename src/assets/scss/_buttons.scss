@@ -25,9 +25,9 @@
   }
 }
 
-.clearCartBtn,
+.btn,
 .checkOutBtn,
-.btn {
+.continueShoppingBtn {
   border: 3px double black;
   border-right: 5px solid black;
   border-bottom: 5px solid black;
@@ -66,7 +66,21 @@
 }
 
 .continueShoppingBtn {
-  margin-top: 2rem;
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+  background-color: $primary;
+  width: 100%;
+  padding: $btn-padding-y $btn-padding-x;
+
+  &:hover {
+    filter: brightness(1.15);
+    transform: scale(1);
+    background-color: $primary;
+  }
+  &:active {
+    background-color: $primary;
+    transform: scale(0.95);
+  }
 }
 
 .modalInfoBtn,

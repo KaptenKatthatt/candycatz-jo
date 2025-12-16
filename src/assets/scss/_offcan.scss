@@ -1,85 +1,11 @@
-/**
- * Bootstrap Breakpoints
- * 
- * xs: 0px (default)
- * sm: 576px
- * md: 768px
- * lg: 992px
- * xl: 1200px
- * xxl: 1400px
- */
+// Bootstrap Breakpoints
+// xs: 0px
+// sm: 576px
+// md: 768px
+// lg: 992px
+// xl: 1200px
+// xxl: 1400px
 
-.offcanvas {
-  background-color: $offcanvas;
-  overflow-x: hidden;
-  overflow-y: auto;
-  padding: 0px 20px;
-}
-.offcanvas-title {
-  font-size: 1.8rem;
-}
-
-.orderSummaryHeader {
-  font-size: 2rem;
-}
-
-.clearCartBtn {
-  width: 94%;
-  margin: 0 auto;
-}
-.checkOutBtn {
-  width: 100%;
-  margin: 0 auto;
-}
-
-.offcanvas p {
-  margin: 0;
-  padding: 0;
-}
-.offcanvasBody {
-  // min-width: fit-content;
-  margin: 0 auto;
-}
-
-.offCanCartListItem {
-  border-radius: 0px 0px 10px 10px;
-  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.4);
-  margin: 0 auto;
-
-  margin-bottom: 0.5rem;
-  padding: 8px;
-  max-width: 500px;
-  --bs-card-title-spacer-y: 0.3rem;
-  overflow: hidden;
-
-  row-gap: 6px;
-  column-gap: 6px;
-
-  display: grid;
-  grid-template-rows: auto auto auto;
-  grid-template-columns: 80px auto auto;
-  grid-template-areas:
-    "cartThumbnail offCanCartTitle  offCanCartTitle"
-    "cartThumbnail offCanCartPrice offCanCartTotal"
-    "cartThumbnail buttonContainer buttonContainer";
-}
-
-.cartThumbnail {
-  max-width: 70px;
-  grid-area: cartThumbnail;
-  align-self: center;
-  border-radius: 10px;
-}
-.offCanCartTitle {
-  grid-area: offCanCartTitle;
-  font-weight: 700;
-}
-.offCanCartPrice {
-  grid-area: offCanCartPrice;
-}
-.offCanCartTotal {
-  grid-area: offCanCartTotal;
-}
 .buttonContainer {
   grid-area: buttonContainer;
   margin-left: 10px;
@@ -87,77 +13,178 @@
   padding: 0;
 }
 
+.cartThumbnail {
+  align-self: center;
+  border-radius: 10px;
+  grid-area: cartThumbnail;
+  max-width: 70px;
+}
+
+.checkOutBtn {
+  background-color: $accordion;
+  margin: 0 auto;
+  width: 100%;
+  padding: $btn-padding-y $btn-padding-x;
+
+  &:hover {
+    filter: brightness(1.15);
+    transform: scale(1);
+    background-color: $accordion;
+  }
+  &:active {
+    // background-color: $accordion !important;
+    transform: scale(0.95);
+  }
+}
+
+.clearCartBtn {
+  margin: 0 auto;
+  width: 94%;
+}
+
+.offCanCartListItem {
+  --bs-card-title-spacer-y: 0.3rem;
+  border-radius: 0px 0px 10px 10px;
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.4);
+  column-gap: 6px;
+
+  display: grid;
+  grid-template-areas:
+    "cartThumbnail offCanCartTitle  offCanCartTitle"
+    "cartThumbnail offCanCartPrice offCanCartTotal"
+    "cartThumbnail buttonContainer buttonContainer";
+  grid-template-columns: 80px auto auto;
+  grid-template-rows: auto auto auto;
+
+  margin: 0 auto;
+  margin-bottom: 0.5rem;
+  max-width: 500px;
+  overflow: hidden;
+  padding: 8px;
+  row-gap: 6px;
+}
+
+.offCanCartPrice {
+  grid-area: offCanCartPrice;
+}
+
+.offCanCartTitle {
+  font-weight: 700;
+  grid-area: offCanCartTitle;
+}
+
+.offCanCartTotal {
+  grid-area: offCanCartTotal;
+}
+
+.offcanvas {
+  background-color: $offcanvas;
+  overflow-x: hidden;
+  overflow-y: auto;
+  padding: 0px 20px;
+}
+
+.offcanvas p {
+  margin: 0;
+  padding: 0;
+}
+
+.offcanvas-title {
+  font-size: 1.8rem;
+}
+
+.offcanvasBody {
+  // min-width: fit-content;
+  margin: 0 auto;
+}
+
+.orderSummaryHeader {
+  font-size: 2rem;
+}
+
 @media screen and (min-width: 576px) {
-  .offcanvas {
-    --bs-offcanvas-width: 70vw;
-  }
-
-  .offcanvas-title {
-    font-size: 2rem;
-  }
-
-  .offCanCartListItem {
-    border-radius: 0px 0px 10px 10px;
-    box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.4);
-    margin: 0 auto;
-
-    margin-bottom: 0.5rem;
-    padding: 8px;
-    max-width: 500px;
-    --bs-card-title-spacer-y: 0.3rem;
-    overflow: hidden;
-
-    row-gap: 6px;
-    column-gap: 6px;
-
-    display: grid;
-    grid-template-rows: auto auto auto;
-    grid-template-columns: 80px auto auto;
-    grid-template-areas:
-      "cartThumbnail offCanCartTitle  offCanCartTitle"
-      "cartThumbnail offCanCartPrice buttonContainer"
-      "cartThumbnail offCanCartTotal buttonContainer";
-  }
-
-  .cartThumbnail {
-    // max-width: 70px;
-    grid-area: cartThumbnail;
-    align-self: center;
-    border-radius: 10px;
-  }
-  .offCanCartTitle {
-    grid-area: offCanCartTitle;
-  }
-  .offCanCartPrice {
-    grid-area: offCanCartPrice;
-  }
-  .offCanCartTotal {
-    grid-area: offCanCartTotal;
-  }
   .buttonContainer {
     grid-area: buttonContainer;
     margin-left: 10px;
     padding: 0;
   }
+
+  .cartThumbnail {
+    // max-width: 70px;
+    align-self: center;
+    border-radius: 10px;
+    grid-area: cartThumbnail;
+  }
+
+  .offCanCartListItem {
+    --bs-card-title-spacer-y: 0.3rem;
+    border-radius: 0px 0px 10px 10px;
+    box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.4);
+    column-gap: 6px;
+
+    display: grid;
+    grid-template-areas:
+      "cartThumbnail offCanCartTitle  offCanCartTitle"
+      "cartThumbnail offCanCartPrice buttonContainer"
+      "cartThumbnail offCanCartTotal buttonContainer";
+    grid-template-columns: 80px auto auto;
+    grid-template-rows: auto auto auto;
+
+    margin: 0 auto;
+    margin-bottom: 0.5rem;
+    max-width: 500px;
+    overflow: hidden;
+    padding: 8px;
+    row-gap: 6px;
+  }
+
+  .offCanCartPrice {
+    grid-area: offCanCartPrice;
+  }
+
+  .offCanCartTitle {
+    grid-area: offCanCartTitle;
+  }
+
+  .offCanCartTotal {
+    grid-area: offCanCartTotal;
+  }
+
+  .offcanvas {
+    --bs-offcanvas-width: 65vw;
+  }
+
+  .offcanvas-title {
+    font-size: 1.8rem;
+  }
+}
+
+@media screen and (min-width: 600px) {
+  .offcanvas {
+    --bs-offcanvas-width: 64vw;
+  }
 }
 
 @media screen and (min-width: 768px) {
   .offcanvas-title {
-    font-size: 2.5rem;
+    font-size: 2.2rem;
+  }
+  .offcanvas {
+    --bs-offcanvas-width: 52vw;
   }
 }
 @media screen and (min-width: 992px) {
   .offcanvas {
-    --bs-offcanvas-width: 50vw;
+    --bs-offcanvas-width: 41vw;
   }
 }
 @media screen and (min-width: 1200px) {
   .offcanvas {
-    --bs-offcanvas-width: 40vw;
+    --bs-offcanvas-width: 33vw;
   }
 }
 @media screen and (min-width: 1400px) {
   .offcanvas {
-    --bs-offcanvas-width: 30vw;
+    --bs-offcanvas-width: 28vw;
   }
 }

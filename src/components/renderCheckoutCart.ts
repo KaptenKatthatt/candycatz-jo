@@ -37,14 +37,14 @@ export const renderCheckoutCart = function () {
 
             <div class="buttonContainer d-flex flex-row align-items-center">
             <span class="smallButtonContainer">
-              <button class="decreaseBtn cartMinusBtn btn" type="button">
+              <button class="cartMinusBtn btn" type="button">
                 -
               </button>
               <p class="cartQty d-flex align-items-center justify-content-center">
                 ${product.qty}
               </p>
               <button
-                class="increaseBtn cartPlusBtn btn"
+                class="cartPlusBtn btn"
                 type="button"
                 ${product.qty >= product.stock_quantity ? "disabled" : ""}
               >
@@ -65,9 +65,9 @@ export const renderCheckoutCart = function () {
       const candyCard = target.closest<HTMLDivElement>(".cartListItem");
       const productId = Number(candyCard?.dataset.productId);
 
-      if (target.closest(".increaseBtn")) {
+      if (target.closest(".cartPlusBtn")) {
         increaseAmountOfProductInCart(productId);
-      } else if (target.closest(".decreaseBtn")) {
+      } else if (target.closest(".cartMinusBtn")) {
         decreaseAmountOfProductInCart(productId);
       } else if (target.closest(".deleteBtn")) {
         deleteProductFromCart(productId);
@@ -84,7 +84,7 @@ export const renderCheckoutCart = function () {
     ".checkoutSubtotalContainer"
   ) as HTMLSpanElement;
 
-  subtotalContainerEl.innerText = `${getTotalCostOfProductsInCart()} kr`;
+  // subtotalContainerEl.innerText = `${getTotalCostOfProductsInCart()} kr`;
   checkoutSubtotalContainerEl.innerText = `${getTotalCostOfProductsInCart()} kr`;
 
   const totalCostContainerEl = document.querySelector(

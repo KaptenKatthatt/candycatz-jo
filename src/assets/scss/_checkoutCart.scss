@@ -57,8 +57,9 @@
   margin: auto;
   border: solid 1px rgb(187, 187, 187);
   border-radius: 10px;
+}
 
- .cartQty {
+.cartQty {
   display: inline-block;
   text-align: center;
   margin: auto;
@@ -67,7 +68,6 @@
   border: none;
   color: black;
   background-color: $footer;
-}
 }
 
 .deleteBtn {

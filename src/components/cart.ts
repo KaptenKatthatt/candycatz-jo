@@ -146,7 +146,7 @@ export const renderCart = function () {
 
               <div class="buttonContainer d-flex flex-row align-items-center">
               <span class="smallButtonContainer">
-                <button class="decreaseBtn cartMinusBtn btn" type="button">
+                <button class="cartMinusBtn btn" type="button">
                   -
                 </button>
                 <p
@@ -155,12 +155,12 @@ export const renderCart = function () {
                   ${product.qty}
                 </p>
                 <button
-                  class="increaseBtn cartPlusBtn btn"
+                  class="cartPlusBtn btn"
                   type="button"
                   ${product.qty >= product.stock_quantity ? "disabled" : ""}
                 >+</button>
                 </span>
-                <button class="deleteBtn btn btn-sm btn-danger">
+                <button class="deleteBtn ms-1 btn btn-sm btn-danger">
                   <i class="bi bi-trash"></i>
                 </button>
               </div>
@@ -170,15 +170,21 @@ export const renderCart = function () {
         `;
       })
       .join("");
+    document
+      .querySelector<HTMLDivElement>(".heartCatContainer")!
+      .classList.remove("d-none");
+    document.querySelector<HTMLDivElement>(
+      ".heartCatContainer"
+    )!.innerHTML = `<img class="rounded-4 w-100 my-3" src="/img/heartCat.gif" alt="Happy cat with hearts">`;
 
     cartContainerEl.onclick = (e) => {
       const target = e.target as HTMLElement;
       const candyCard = target.closest<HTMLDivElement>(".cartListItem");
       clickedCandyId = Number(candyCard?.dataset.productId);
 
-      if (target.closest(".increaseBtn")) {
+      if (target.closest(".cartPlusBtn")) {
         increaseAmountOfProductInCart(clickedCandyId);
-      } else if (target.closest(".decreaseBtn")) {
+      } else if (target.closest(".cartMinusBtn")) {
         decreaseAmountOfProductInCart(clickedCandyId);
       } else if (target.closest(".deleteBtn")) {
         deleteProductFromCart(clickedCandyId);
@@ -187,22 +193,27 @@ export const renderCart = function () {
       renderCartBadge();
     };
   } else {
+    document
+      .querySelector<HTMLDivElement>(".heartCatContainer")!
+      .classList.add("d-none");
     cartContainerEl!.innerHTML = `
                     <img src="/img/sadcat.gif" alt="">
 
     <p class="py-5">
       Kundvagnen är tom just nu. Iväg o handla med dig!</p>`;
   }
-  const subtotalContainerEl = document.querySelector(
-    ".subtotalContainer"
-  ) as HTMLSpanElement;
+  // const subtotalContainerEl = document.querySelector(
+  //   ".subtotalContainer"
+  // ) as HTMLSpanElement;
 
-  subtotalContainerEl.innerText = `${getTotalCostOfProductsInCart()} kr`;
+  // subtotalContainerEl.innerText = `${getTotalCostOfProductsInCart()} kr`;
+
   const totalCostContainerEl = document.querySelector(
     ".totalCostContainer"
   ) as HTMLSpanElement;
+
   totalCostContainerEl.innerHTML = `<strong>${String(
-    getTotalCostOfProductsInCart() + shipping
+    getTotalCostOfProductsInCart()
   )} kr</strong>`;
   renderClearCart();
 };

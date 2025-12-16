@@ -146,7 +146,7 @@ export const renderCart = function () {
 
               <div class="buttonContainer d-flex flex-row align-items-center">
               <span class="smallButtonContainer">
-                <button class="decreaseBtn cartMinusBtn btn" type="button">
+                <button class="cartMinusBtn btn" type="button">
                   -
                 </button>
                 <p
@@ -155,7 +155,7 @@ export const renderCart = function () {
                   ${product.qty}
                 </p>
                 <button
-                  class="increaseBtn cartPlusBtn btn"
+                  class="cartPlusBtn btn"
                   type="button"
                   ${product.qty >= product.stock_quantity ? "disabled" : ""}
                 >+</button>
@@ -176,9 +176,9 @@ export const renderCart = function () {
       const candyCard = target.closest<HTMLDivElement>(".cartListItem");
       clickedCandyId = Number(candyCard?.dataset.productId);
 
-      if (target.closest(".increaseBtn")) {
+      if (target.closest(".cartPlusBtn")) {
         increaseAmountOfProductInCart(clickedCandyId);
-      } else if (target.closest(".decreaseBtn")) {
+      } else if (target.closest(".cartMinusBtn")) {
         decreaseAmountOfProductInCart(clickedCandyId);
       } else if (target.closest(".deleteBtn")) {
         deleteProductFromCart(clickedCandyId);

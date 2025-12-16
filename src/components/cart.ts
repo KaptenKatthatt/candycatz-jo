@@ -160,7 +160,7 @@ export const renderCart = function () {
                   ${product.qty >= product.stock_quantity ? "disabled" : ""}
                 >+</button>
                 </span>
-                <button class="deleteBtn btn btn-sm btn-danger">
+                <button class="deleteBtn ms-1 btn btn-sm btn-danger">
                   <i class="bi bi-trash"></i>
                 </button>
               </div>

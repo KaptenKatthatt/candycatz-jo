@@ -21,16 +21,15 @@ export const renderOffCan = function () {
           <!-- Inject cart contents from cart.ts -->
             <div class="cartContainer"></div>
 
-
-           <button class="clearCartBtn btn btn-secondary mt-4"><i class="bi bi-cart-x fs-5"></i>Töm kundvagnen</button>
           </div>
         </div>
     </div>
 
   <!-- Continue Shopping Button -->
-    <button type="button" class="continueShoppingBtn btn btn-primary" data-bs-dismiss="offcanvas" aria-label="Close">
+    <button type="button" class="continueShoppingBtn btn btn-primary w-100" data-bs-dismiss="offcanvas" aria-label="Close">
       <i class="bi bi-arrow-left me-2"></i>Fortsätt Handla
     </button>
+          <button class="checkOutBtn btn btn-primary" data-bs-dismiss="offcanvas" aria-label="Close">Gå till kassan<i class="bi bi-arrow-right me-2"></i></button>
 
       <!-- Order summary -->
       <div class="card cart-summary my-4">
@@ -49,7 +48,6 @@ export const renderOffCan = function () {
             <strong>Total</strong>
             <span class="totalCostContainer"><strong></strong></span>
           </div>
-          <button class="checkOutBtn btn btn-primary" data-bs-dismiss="offcanvas" aria-label="Close">Gå till kassan</button>
         </div>
     </div>
   </div>

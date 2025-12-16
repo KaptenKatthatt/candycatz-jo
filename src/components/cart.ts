@@ -1,3 +1,4 @@
+import { discountAmount } from "../main";
 import { getCandyProductInfo } from "../services/candyAPI";
 import type { CartProduct } from "../services/candyApiTypes";
 import {
@@ -17,13 +18,12 @@ export const mainContainerEl = document.querySelector<HTMLDivElement>("main");
 
 export let clickedCandyId = 0;
 export let cartArray: CartProduct[] = getCartArrayFromLocalStorage() || [];
-export const shipping = 19;
 
 export const addToCart = async function (clickedCandyId: number) {
   let fetchedCandyObject = await getCandyProductInfo(clickedCandyId);
   const maxStock = fetchedCandyObject.data.stock_quantity;
   const candyPrice = fetchedCandyObject.data.on_sale
-    ? Math.round(fetchedCandyObject.data.price * 0.7)
+    ? Math.round(fetchedCandyObject.data.price * discountAmount)
     : fetchedCandyObject.data.price;
   let foundSameCandyInCart = cartArray.some(
     (product) => product.id === clickedCandyId

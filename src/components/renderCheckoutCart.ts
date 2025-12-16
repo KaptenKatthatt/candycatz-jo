@@ -1,3 +1,4 @@
+import { discountAmount, shipping } from "../main";
 import {
   cartArray,
   increaseAmountOfProductInCart,
@@ -5,7 +6,6 @@ import {
   deleteProductFromCart,
   renderCartBadge,
   getTotalCostOfProductsInCart,
-  shipping,
 } from "./cart";
 
 export const renderCheckoutCart = function () {
@@ -23,7 +23,7 @@ export const renderCheckoutCart = function () {
         const productTotalPrice = product.qty * product.price;
 
         totalAmountSaved += product.on_sale
-          ? productTotalPrice - Math.round(productTotalPrice * 0.7)
+          ? productTotalPrice - Math.round(productTotalPrice * discountAmount)
           : 0;
 
         return `

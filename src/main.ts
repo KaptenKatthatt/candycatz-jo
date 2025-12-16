@@ -10,6 +10,10 @@ import { renderOffCan } from "./components/offcan";
 //SCSS imports
 import "./assets/scss/app.scss";
 
+//Global vars
+export const discountAmount = 0.7;
+export const shipping = 19;
+
 //Scroll to top to combat anchor links left in url
 window.scrollTo(0, 0);
 

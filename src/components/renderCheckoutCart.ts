@@ -1,4 +1,4 @@
-import { discountAmount, shipping } from "../main";
+import { discountMultiplier, shipping } from "../main";
 import {
   cartArray,
   increaseAmountOfProductInCart,
@@ -23,7 +23,8 @@ export const renderCheckoutCart = function () {
         const productTotalPrice = product.qty * product.price;
 
         totalAmountSaved += product.on_sale
-          ? productTotalPrice - Math.round(productTotalPrice * discountAmount)
+          ? productTotalPrice -
+            Math.round(productTotalPrice * discountMultiplier)
           : 0;
 
         return `

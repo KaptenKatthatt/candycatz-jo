@@ -1,4 +1,4 @@
-import { discountAmount } from "../main";
+import { discountMultiplier } from "../main";
 import { getCandyProductInfo } from "../services/candyAPI";
 import type { CartProduct } from "../services/candyApiTypes";
 import {
@@ -23,7 +23,7 @@ export const addToCart = async function (clickedCandyId: number) {
   let fetchedCandyObject = await getCandyProductInfo(clickedCandyId);
   const maxStock = fetchedCandyObject.data.stock_quantity;
   const candyPrice = fetchedCandyObject.data.on_sale
-    ? Math.round(fetchedCandyObject.data.price * discountAmount)
+    ? Math.round(fetchedCandyObject.data.price * discountMultiplier)
     : fetchedCandyObject.data.price;
   let foundSameCandyInCart = cartArray.some(
     (product) => product.id === clickedCandyId

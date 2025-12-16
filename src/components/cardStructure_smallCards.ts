@@ -1,5 +1,5 @@
 // import { html } from "lit-html";
-import { discountAmount } from "../main";
+import { discountMultiplier } from "../main";
 import type { CandyData } from "../services/candyApiTypes";
 
 export const cardStructure = function (
@@ -55,7 +55,9 @@ export const cardStructure = function (
             <span class="fw-bold ${
               product.on_sale ? "text-danger" : "text-dark"
             }">${
-    product.on_sale ? Math.round(product.price * discountAmount) : product.price
+    product.on_sale
+      ? Math.round(product.price * discountMultiplier)
+      : product.price
   }:-</span>
           </p>
 

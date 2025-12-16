@@ -175,7 +175,7 @@ export const renderCart = function () {
       .classList.remove("d-none");
     document.querySelector<HTMLDivElement>(
       ".heartCatContainer"
-    )!.innerHTML = `<img class="rounded-4 w-100 mt-3" src="/img/heartCat.gif" alt="Happy cat with hearts">`;
+    )!.innerHTML = `<img class="rounded-4 w-100 my-3" src="/img/heartCat.gif" alt="Happy cat with hearts">`;
 
     cartContainerEl.onclick = (e) => {
       const target = e.target as HTMLElement;

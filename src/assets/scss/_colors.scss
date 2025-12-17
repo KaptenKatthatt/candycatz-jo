@@ -27,7 +27,7 @@ $offcanRenderAllCardsBg: #bde0fe;
 $sideScrollerArrow: rgb(244, 150, 166);
 
 //Cards
-$card-title: rgb(255, 83, 140);
+$card-title: var(--bs-gray-800);
 $allCardsContainerBG: #79b0df;
 
 //More to munch button

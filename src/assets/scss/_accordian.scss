@@ -72,10 +72,12 @@
   box-shadow: 0 8px 20px $primary;
 }
 
+.glowForm {
+  box-shadow: 0 8px 20px $primary;
+  margin: auto;
+}
 .checkoutCartContainer {
   box-shadow: 0 8px 20px $primary;
-  border-top-left-radius: 50px;
-  border-top-right-radius: 50px;
 }
 .checkoutOrderSummary {
   box-shadow: 0 8px 20px $primary;
@@ -85,9 +87,21 @@
   .accordion {
     width: 85%;
   }
+  .glowForm {
+    width: 85%;
+  }
+  .glowForm {
+    width: 85%;
+  }
 }
 @media screen and (min-width: 768px) {
   .accordion {
+    width: 65%;
+  }
+  .glowForm {
+    width: 65%;
+  }
+  .glowForm {
     width: 65%;
   }
 }

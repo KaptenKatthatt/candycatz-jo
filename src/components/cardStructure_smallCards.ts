@@ -1,4 +1,3 @@
-// import { html } from "lit-html";
 import { discountMultiplier } from "../main";
 import type { CandyData } from "../services/candyApiTypes";
 

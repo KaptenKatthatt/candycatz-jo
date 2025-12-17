@@ -1,10 +1,9 @@
-
-.accordion{
+.accordion {
   margin: auto;
 }
 
 .accordion-button[aria-expanded="false"] {
-  background-color: $nav-color;
+  background-color: $accordianbg;
   color: $accent;
 }
 
@@ -13,9 +12,8 @@
   color: black;
 }
 
-.accordion-button{
-font-size: 2rem;
-
+.accordion-button {
+  font-size: 2rem;
 }
 .checkoutLogo {
   margin: 0 auto;
@@ -42,7 +40,6 @@ font-size: 2rem;
 }
 .proceedBtn {
   font-size: 1.2rem;
-  // box-shadow: 0 4px 20px $primary;
 }
 
 .formTitle {
@@ -67,7 +64,7 @@ font-size: 2rem;
   padding: 10px;
   border: var(--s) solid #0000;
   box-sizing: border-box;
-  background: $bg;
+  background: $backgroundColor;
   border-radius: 50px;
 
   color: black;
@@ -87,7 +84,7 @@ font-size: 2rem;
 }
 
 @media screen and (min-width: 576px) {
-  .accordion{
+  .accordion {
     width: 85%;
   }
   .glowForm {
@@ -95,10 +92,10 @@ font-size: 2rem;
   }
 }
 @media screen and (min-width: 768px) {
-  .accordion{
+  .accordion {
     width: 65%;
   }
-  .glowForm{
+  .glowForm {
     width: 65%;
   }
 }

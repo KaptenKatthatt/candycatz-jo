@@ -3,9 +3,8 @@ h2 {
 }
 h2,
 h4,
-h5{
+h5 {
   font-family: "Super Chiby";
-  //   color:$title-text;
 }
 @font-face {
   font-family: "Super Chiby";
@@ -13,13 +12,13 @@ h5{
   font-display: swap;
 }
 
-@font-face{
+@font-face {
   font-family: "Figtree";
   src: url(/src/assets/fonts/Figtree/Figtree-VariableFont_wght.ttf);
-    font-display: swap;
+  font-display: swap;
 }
 
-@font-face{
+@font-face {
   font-family: "Chicle";
   src: url(/src/assets/fonts/Chicle/Chicle-Regular.ttf);
   font-display: swap;

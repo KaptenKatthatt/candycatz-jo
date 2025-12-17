@@ -23,7 +23,7 @@
 body {
   box-sizing: border-box;
   font-family: "Figtree", sans-serif;
-  background-color: $bg;
+  background-color: $backgroundColor;
   margin: 0px;
   padding: 0px;
   padding-top: 80px;
@@ -46,7 +46,7 @@ body {
 }
 
 @media screen and (min-width: 576px) {
-.body {
-  padding-top: 0px;
-}
+  .body {
+    padding-top: 0px;
+  }
 }

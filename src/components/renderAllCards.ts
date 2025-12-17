@@ -69,7 +69,6 @@ export const renderAllCards = async function () {
 
   // skapa variabel array som innehåller de som redan har visats
   usedIds = [
-    // ...sliceOutTopTreats.map((candy) => candy.id),
     ...sliceOutSavings.map((candy) => candy.id),
     ...sliceOutTopTreats.map((candy) => candy.id),
   ];
@@ -123,7 +122,6 @@ function moreSweetsButton() {
 
 function showNumberOfCandys() {
   const instockCandys = [...allCandyCards];
-  // ytlig kopia av allCandyCards
   const numberOfInStock = instockCandys.filter((candy) => {
     return candy.stock_status === "instock";
   });
@@ -134,5 +132,3 @@ function showNumberOfCandys() {
   const allTheResponseCandy = allCandyCards.length;
   candyAmountRendered.innerHTML = `Visar ${allTheCandy}/${allTheResponseCandy} (${numberOfInStock.length} i lager)`;
 }
-
-// okej allt stämmer här in med det

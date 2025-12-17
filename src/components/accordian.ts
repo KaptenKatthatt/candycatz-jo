@@ -49,13 +49,12 @@ export const renderCartView = function () {
                 <span class="checkoutTotalCostContainer"><strong></strong></span>
               </div>
             </div>
+            <!--  Continue to checkout button -->
+            <div class="proceedBtnContainer text-center mt-2 mx-auto" aria-label="Go to checkout">
+              <button type="button" class="proceedBtn btn btn-primary mt-5" aria-label="Continue to checkout">😸 <i class="bi bi-chevron-down"></i> Fortsätt till
+                kassan! <i class="bi bi-chevron-down"></i> 😸</button>
+            </div>
           </div>
-        </div>
-
-        <!--  Continue to checkout button -->
-        <div class="proceedBtnContainer text-center mt-2 mb-4 mx-auto" aria-label="Go to checkout">
-          <button type="button" class="proceedBtn btn btn-primary" aria-label="Continue to checkout">😸 <i class="bi bi-chevron-down"></i> Fortsätt till
-            kassan! <i class="bi bi-chevron-down"></i> 😸</button>
         </div>
       </div>
     </div>
@@ -297,10 +296,6 @@ const accordianEl = document.querySelector<HTMLDivElement>(
 )!;
 const allCardsContainerEl =
   document.querySelector<HTMLDivElement>(".allCardsContainer")!;
-const carouselContainerEl =
-  document.querySelector<HTMLDivElement>(".carouselContainer")!;
-const scrollcontainerEl =
-  document.querySelector<HTMLDivElement>(".scroll-container")!;
 
 const openMainPage = function () {
   navBarEl.addEventListener("click", (e) => {
@@ -317,8 +312,8 @@ const openMainPage = function () {
       if (accordianEl) {
         accordianEl.classList.add("d-none");
         allCardsContainerEl.classList.remove("d-none");
-        carouselContainerEl.classList.remove("d-none");
-        scrollcontainerEl.classList.remove("d-none");
+        document.querySelector(".carousel")?.classList.remove("d-none");
+        document.querySelector(".scroll-container")?.classList.remove("d-none");
       }
     }
   });

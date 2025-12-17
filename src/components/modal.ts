@@ -47,7 +47,7 @@ export const renderModal = async function (productId: number) {
           }
         </div>
         </div>
-          <button type="button" class="btn btn-secondary modalBtn mt-2" data-bs-dismiss="modal">Stäng</button>
+          <button type="button" class="btn btn-secondary modalBtn mt-2" data-bs-dismiss="modal" aria-label="Close product info popup">Stäng</button>
        
         </div>
       </div>

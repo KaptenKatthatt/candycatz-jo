@@ -67,7 +67,7 @@ export const cardStructure = function (
 
           <button class="addToCartBtn btn" ${
             product.stock_status !== "instock" ? "disabled" : ""
-          }>
+          } aria-label="Add product to cart">
             +<i class="bi bi-basket ps-2"></i>
           </button>
         </div>

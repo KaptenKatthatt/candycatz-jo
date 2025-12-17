@@ -25,7 +25,7 @@ export function cardStructureSideScroller(product: CandyData): string {
           <button class="addToCartBtn btn" 
           ${
             product.stock_status !== "instock" ? "disabled" : ""
-          }>+<i class="bi bi-basket ps-2"></i></button>
+          } aria-label="Add product to cart">+<i class="bi bi-basket ps-2"></i></button>
         </div>
       </div>
     </div>`;

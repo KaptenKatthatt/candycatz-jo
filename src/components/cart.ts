@@ -153,7 +153,7 @@ export const renderCart = function () {
 
               <div class="buttonContainer d-flex flex-row align-items-center">
               <span class="smallButtonContainer">
-                <button class="cartMinusBtn btn" type="button">
+                <button class="cartMinusBtn btn" type="button" aria-label="Decrease number of product in cart">
                   -
                 </button>
                 <p
@@ -167,7 +167,7 @@ export const renderCart = function () {
                   ${product.qty >= product.stock_quantity ? "disabled" : ""}
                 >+</button>
                 </span>
-                <button class="deleteBtn ms-1 btn btn-sm btn-danger">
+                <button class="deleteBtn ms-1 btn btn-sm btn-danger" aria-label="Delete product from cart">
                   <i class="bi bi-trash"></i>
                 </button>
               </div>

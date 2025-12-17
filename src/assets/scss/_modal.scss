@@ -1,6 +1,7 @@
 .modal-header {
   border: none;
-}.modal-body p:nth-of-type(2) {
+}
+.modal-body p:nth-of-type(2) {
   color: $primary;
   font-size: 1.05rem;
   margin-bottom: 6px;
@@ -9,7 +10,6 @@
   font-weight: 800;
 }
 .modal-content {
-  //border: 4px solid $primary;
   font-size: 0.8rem;
 }
 .card-img {
@@ -17,9 +17,9 @@
   transition: transform 1.5s ease-in-out;
   width: 200px;
 
- &:hover {
-  transform: scale(0.2);
-}
+  &:hover {
+    transform: scale(0.2);
+  }
 }
 .modal-price {
   margin: 0px;
@@ -29,13 +29,13 @@
 }
 
 @media screen and (min-width: 576px) {
-.scrollableModal{
-  max-height: 400px;
-  overflow-y: auto;
-  padding-right:10px;
-}
-.modalBtn {
-  max-width: 50%;
-  margin: auto;
-}
+  .scrollableModal {
+    max-height: 400px;
+    overflow-y: auto;
+    padding-right: 10px;
+  }
+  .modalBtn {
+    max-width: 50%;
+    margin: auto;
+  }
 }

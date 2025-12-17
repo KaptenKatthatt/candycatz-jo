@@ -104,7 +104,6 @@ export const increaseAmountOfProductInCart = function (clickedCandyId: number) {
 };
 
 export const initStore = function () {
-  // document.querySelector(".carousel")?.classList.remove("d-none");
   cartArray = getCartArrayFromLocalStorage() || [];
   renderCart();
   renderCartBadge();
@@ -215,11 +214,6 @@ export const renderCart = function () {
     <p class="py-5">
       Kundvagnen är tom just nu. Iväg o handla med dig!</p>`;
   }
-  // const subtotalContainerEl = document.querySelector(
-  //   ".subtotalContainer"
-  // ) as HTMLSpanElement;
-
-  // subtotalContainerEl.innerText = `${getTotalCostOfProductsInCart()} kr`;
 
   const totalCostContainerEl = document.querySelector(
     ".totalCostContainer"

@@ -1,11 +1,24 @@
+.footer-text,
 .contact-info {
-  padding-top: 50px;
-  margin-bottom: 2rem;
-  color: white;
-  display: inline-block;
-  margin-top: 2rem;
-  vertical-align: top;
+  color: rgb(87, 87, 87);
+}
+
+.contact-info {
+  // padding-top: 50px;
+  // margin-bottom: 2rem;
+  // display: inline-block;
+  // margin-top: 2rem;
   text-align: left;
+  padding-top: 100px;
+  // display: flex;
+  // justify-content: space-between;
+  // align-items: flex-end;
+}
+.footer a {
+  & :hover {
+  }
+  & :active {
+  }
 }
 
 .address-list {
@@ -14,9 +27,9 @@
 
 .address-list a {
   text-decoration: none;
+  color: $logoRedText;
 }
 .footer-text {
-  color: white;
   font-size: 0.7rem;
   text-align: center;
 }
@@ -28,8 +41,9 @@
 
 .footer-icons i {
   display: inline-block;
-  margin: 8px;
+  margin: 0.5rem;
   font-size: 2rem;
+  color: $logoRedText;
 }
 
 .scallop {
@@ -49,14 +63,15 @@
   );
   background-color: $accent;
   background-size: 50px 100px;
-  height: 100px;
+  height: 6rem;
   background-repeat: repeat-x;
 }
 .after-scallop {
   background: $footer;
   padding: 50px;
-  text-align: left;
+  text-align: right;
 }
+
 .gangGang {
   font-size: 1.5rem;
   color: inherit;
@@ -75,4 +90,23 @@
 }
 footer p {
   font-size: 0.9rem;
+}
+.logoContainerFooter {
+  padding-top: 100px;
+  display: flex;
+  margin: 0 auto;
+  justify-content: space-between;
+  align-items: end;
+  max-width: 50vw;
+}
+
+.logoImgFooter {
+  width: 20%;
+  filter: saturate(0.6);
+}
+
+@media screen and (max-width: 576px) {
+  .logoContainerFooter {
+    display: none;
+  }
 }

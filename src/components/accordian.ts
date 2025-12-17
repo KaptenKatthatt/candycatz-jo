@@ -25,12 +25,11 @@ export const renderCartView = function () {
       aria-labelledby="panelsStayOpen-headingOne">
       <div class="accordion-body d-flex flex-column align-items-center">
 
-        <img class="checkoutLogo" src="/img/candyCatz3.png" alt="Logo for Candycatz">
-       
+        <img class="checkoutLogo mb-2" src="/img/candyCatz3.png" alt="Logo for Candycatz">
         <div class="checkoutAndOrderSummaryContainer">
           <div class="checkoutCartContainer card"></div>
           <!-- Order summary -->
-          <div class="card checkoutOrderSummary my-4">
+          <div class="card checkoutOrderSummary mt-4 my-4">
             <div class="card-body">
               <h5 class="orderSummaryHeader text-dark mb-4">Ordersummering</h5>
               <div class="d-flex justify-content-between mb-3">
@@ -102,43 +101,43 @@ export const renderCheckoutForm = function () {
             <!-- Collapse content -->
             <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse  accordionTwo "
               aria-labelledby="panelsStayOpen-headingTwo">
-              <div class="accordion-body">
-              
+              <div class="accordion-body m-auto">
+                <div class="glowForm p-4 card">
                 <h3 class="formTitle"> Fyll i dina uppgifter! </h3>
 
                 <form id="form">
-                  <div class="form-group col-md-6">
+                  <div class="form-group col-6-md">
                     <label for="inputFirstName">Namn:</label>
                     <input type="text" class="form-control" id="inputFirstName" required placeholder="Förnamn"
                       value="Kalle">
                   </div>
-                  <div class="form-group col-md-6">
+                  <div class="form-group col-6-md">
                     <label for="inputLastName">Efternamn:</label>
                     <input type="text" class="form-control" id="inputLastName" required placeholder="Efternamn"
                       value="Anka">
                   </div>
                   <div class="form-row">
-                    <div class="form-group col-md-6">
+                    <div class="form-group col-6-md">
                       <label for="inputEmail">Email:</label>
                       <input type="email" class="form-control" id="inputEmail" required placeholder="Mailadress"
                         value="kalle@ankeborgen.se">
                     </div>
-                    <div class="form-group col-md-6">
+                    <div class="form-group col-6-md">
                       <label for="inputNumber">Telefonnummer:<span class="text-muted">(optional)</span></label>
                       <input type="number" class="form-control" id="inputNumber" placeholder="Telefonnummer"
                         value="0701111111">
                     </div>
-                    <div class="form-group col-md-6">
+                    <div class="form-group col-6-md">
                       <label for="inputAddress">Adress:</label>
                       <input type="text" class="form-control" id="inputAddress" required placeholder="Gatuadress"
                         value="Kvackvägen 13">
                     </div>
                     <div class="form-row">
-                      <div class="form-group col-md-6">
+                      <div class="form-group col-6-md">
                         <label for="inputCity">Ort:</label>
                         <input type="text" class="form-control" required id="inputCity" value="Ankeborg">
                       </div>
-                      <div class="form-group col-md-2">
+                      <div class="form-group col-6-md">
                         <label for="inputZip">Postnummer:</label>
                         <input type="text" class="form-control" required id="inputZip" minlength="5" maxlength="6"
                           value="12345">
@@ -147,6 +146,7 @@ export const renderCheckoutForm = function () {
                   </div>
                   <button type="submit" class="submitBtn btn btn-primary mt-2" aria-label="Submit order">Slutför köp</button>
                 </form>
+                </div>
               </div>
             </div>
           </div>

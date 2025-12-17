@@ -1,18 +1,16 @@
 .card {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
- 
-   
 }
 
 .cardTransform {
   position: relative;
   overflow: visible;
-  background-color: $offcanvas;
+  background-color: $offcanRenderAllCardsBg;
   transition: all 0.2s ease-in-out;
-   z-index: 1;
+  z-index: 1;
 
-    &:hover {
-    z-index: 100; 
+  &:hover {
+    z-index: 100;
   }
 
   &:hover:nth-of-type(odd) {

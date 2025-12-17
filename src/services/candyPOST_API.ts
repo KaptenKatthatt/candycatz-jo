@@ -50,15 +50,17 @@ export const sendOrder = async function (newOrderData: CheckoutData) {
     );
 
     if (!response.ok) {
-      console.log("Order was not sent successful: ", response.status);
-      return;
+      const msg = `Order was not sent successfully: ${response.status}`;
+      console.error(msg);
+      throw new Error(msg);
     }
 
     const responseData: ResponseData = await response.json();
 
     if (responseData.status !== "success") {
-      console.log("Problems with the sent order", responseData.status);
-      return;
+      const msg = `Problems with the sent order: ${responseData.status}`;
+      console.error(msg, responseData);
+      throw new Error(msg);
     }
 
     console.log("API svar:", responseData);
@@ -68,5 +70,6 @@ export const sendOrder = async function (newOrderData: CheckoutData) {
     return responseData;
   } catch (error) {
     console.error("Error sending order:", error);
+    throw error;
   }
 };

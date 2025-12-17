@@ -184,24 +184,32 @@ export const renderCheckoutForm = function () {
       customer_city: inputCity.value,
       customer_postcode: inputZip.value,
     };
-
-    await createOrdertoSend(orderData);
-
+    try {
+      await createOrdertoSend(orderData);
+    } catch (err) {
+      console.error("Error in createOrderToSend", err);
+    }
     // Open step 3
     const collapseThree = document.querySelector<HTMLDivElement>(
       "#panelsStayOpen-collapseThree"
-    )!;
+    );
+
     collapseTwo.classList.remove("show");
-    collapseThree.classList.add("show");
+    if (collapseThree) {
+      collapseThree.classList.add("show");
+    }
 
     const collapseTwoBtn = document.querySelector(
       "#panelsStayOpen-headingTwo .accordion-button"
     )! as HTMLButtonElement;
     collapseTwoBtn.setAttribute("aria-expanded", "false");
+
     const collapseThreeBtn = document.querySelector(
       "#panelsStayOpen-headingThree .accordion-button"
     )! as HTMLButtonElement;
-    collapseThreeBtn.setAttribute("aria-expanded", "true");
+    if (collapseThree) {
+      collapseThreeBtn.setAttribute("aria-expanded", "true");
+    }
 
     window.scrollTo({ top: 100, behavior: "smooth" });
   });

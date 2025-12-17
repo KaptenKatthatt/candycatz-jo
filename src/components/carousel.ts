@@ -13,7 +13,7 @@ export const renderCarousel = function () {
           <img src="/img/suris.png" class="d-block w-100" alt="Picture with sour sweet treats" />
         </div>
         <div class="carousel-item">
-          <img src="/img/godisdag.png" class="d-block w-100" alt="Picture of soft mashmallow" />
+          <img src="/img/godisdag.jpg" class="d-block w-100" alt="Picture of soft mashmallow" />
         </div>
       </div>
       <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying"

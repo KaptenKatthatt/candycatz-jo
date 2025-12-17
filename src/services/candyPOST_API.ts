@@ -29,17 +29,12 @@ export const createOrdertoSend = async function (orderData: AddressData) {
     order_items: orderItems,
   };
 
-  console.log("getlocalstorage", getCartArrayFromLocalStorage());
-  console.log("orderItemFromLocalStorage", orderItemFromLocalStorage);
-  console.log("New order i create", newOrder);
-
   await sendOrder(newOrder);
   return newOrder;
 };
 
 export const sendOrder = async function (newOrderData: CheckoutData) {
   try {
-    console.log("Sending order:", newOrderData);
     const response = await fetch(
       "https://www.bortakvall.se/api/v2/users/81/orders",
       {
@@ -62,9 +57,6 @@ export const sendOrder = async function (newOrderData: CheckoutData) {
       console.error(msg, responseData);
       throw new Error(msg);
     }
-
-    console.log("API svar:", responseData);
-
     postUserAddressForm(responseData);
 
     return responseData;

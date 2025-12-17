@@ -113,7 +113,6 @@ function moreSweetsButton() {
 
     if (addedCandyNr >= showMoreCandy.length) {
       moreSweetsBtnEl.classList.add("d-none");
-      console.log("alla godis renderade", addedCandyNr);
     } else {
       moreSweetsBtnEl.classList.remove("d-none");
     }

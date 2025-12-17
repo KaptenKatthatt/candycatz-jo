@@ -7,13 +7,11 @@ document.querySelector("footer")!.innerHTML = `
     <div class="logoContainerFooter">
       <div class="contact-info">
         <h5>Slå oss en pling eller kom förbi!</h5>
-        <ul class="address-list">
-          <li> CandyCatz HQ</li>
-          <li>Godisgatan 13A</li>
-          <li> Gotteby, 12345</li>
-          <li> Mailadress:<a href="candycatz@sweets.com">info@candycatz.com </a></li>
-          <li> Telefonnummer: <a href="123-456-7890">123-456-7890</a></li>
-        </ul>
+          <p>CandyCatz HQ<br>
+          Godisgatan 13A<br>
+          Gotteby, 12345<br>
+          Mailadress:<a href="candycatz@sweets.com">info@candycatz.com </a><br>
+          Telefonnummer: <a href="123-456-7890">123-456-7890</a></p>
       </div>
       <img class="logoImgFooter img-fluid" src="/img/candyCatz3.png" alt="Candycatz logo">
     </div>

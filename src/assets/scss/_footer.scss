@@ -6,6 +6,10 @@
 .contact-info {
   text-align: left;
   align-self: center;
+  a {
+  text-decoration: none;
+  color: $logoRedText;
+  }
 }
 .footer a {
   & :hover {
@@ -16,14 +20,6 @@
   }
 }
 
-.address-list {
-  list-style: none;
-}
-
-.address-list a {
-  text-decoration: none;
-  color: $logoRedText;
-}
 .footer-text {
   font-size: 0.7rem;
   text-align: center;

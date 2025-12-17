@@ -11,7 +11,7 @@ import { renderOffCan } from "./components/offcan";
 import "./assets/scss/app.scss";
 
 //Global vars
-export const discountMultiplier = 0.7;
+export const discountMultiplier = 1;
 export const shipping = 19;
 
 //Scroll to top to combat anchor links left in url

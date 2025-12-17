@@ -46,7 +46,7 @@ export const renderOffCan = function () {
           data-bs-dismiss="offcanvas"
           aria-label="Close"
         >
-          <i class="bi bi-arrow-left me-2"></i>Fortsätt Handla
+          <i class="bi bi-arrow-left me-2"></i>Fortsätt handla
         </button>
 
         <button

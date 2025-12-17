@@ -27,7 +27,7 @@ export const renderModal = async function (productId: number) {
         <div class="modal-body mt-0">
         <div class="row">    
         <div class="col-sm-6 d-flex align-items-center">
-          <img src="${modalThumbnailURL}" class="modalThumbnail card-img scallopbox" alt="${candyTitle}">
+          <img src="${modalThumbnailURL}" class="modalThumbnail card-img scallopboxThumb" alt="${candyTitle}">
           </div>
           <div class="col-sm-6 mb-2">
           <div class="scrollableModal">

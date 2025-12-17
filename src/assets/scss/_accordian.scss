@@ -1,8 +1,8 @@
 
 .accordion{
-  max-width: 1200px;
   margin: auto;
 }
+
 .accordion-button[aria-expanded="false"] {
   background-color: $nav-color;
   color: $accent;
@@ -47,7 +47,7 @@ font-size: 2rem;
 
 .formTitle {
   font-family: "Super Chiby";
-  font-size: 3rem;
+  font-size: 2rem;
   color: $accent;
 }
 
@@ -75,6 +75,22 @@ font-size: 2rem;
   box-shadow: 0 8px 20px $primary;
 }
 
+.checkoutCartContainer {
+  box-shadow: 0 8px 20px $primary;
+  border-top-left-radius: 50px;
+  border-top-right-radius: 50px;
+}
 .checkoutOrderSummary {
   box-shadow: 0 8px 20px $primary;
+}
+
+@media screen and (min-width: 576px) {
+  .accordion{
+    width: 85%;
+  }
+}
+@media screen and (min-width: 768px) {
+  .accordion{
+    width: 65%;
+  }
 }

@@ -8,6 +8,7 @@ h1 {
   display: flex;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   border-bottom-left-radius: 20px;
+  min-width: 350px;
 }
 
 .navbar-brand {
@@ -35,9 +36,9 @@ h1 {
   margin-right: 15px;
   transition: transform 0.2s, color 0.2;
 
-&:hover{
-  color: $btn-candy-pink;
-}
+  &:hover {
+    color: $btn-candy-pink;
+  }
 }
 .navbar-toggler {
   border: 1px solid $primary;
@@ -51,8 +52,13 @@ h1 {
   }
 }
 
+@media screen and (max-width: 400px) {
+  h1 {
+    font-size: 3rem;
+  }
+}
+
 @media screen and (min-width: 992px) {
-  
   .navbar-nav {
     display: flex;
     flex-direction: row;
@@ -60,16 +66,15 @@ h1 {
     justify-content: flex-start;
     gap: 3rem;
     font-weight: 400;
-  } 
-  
+  }
 }
 
-@media screen and (min-width: 1200px){
+@media screen and (min-width: 1200px) {
   .navbar-nav {
     font-size: 1.5rem;
-  } 
+  }
 
   .nav-link:hover {
-    transform: scale(1.1); 
+    transform: scale(1.1);
   }
 }

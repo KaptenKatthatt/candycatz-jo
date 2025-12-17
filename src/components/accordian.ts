@@ -102,7 +102,7 @@ export const renderCheckoutForm = function () {
             <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse  accordionTwo "
               aria-labelledby="panelsStayOpen-headingTwo">
               <div class="accordion-body m-auto">
-                <div class="glowForm p-4 card">
+                <div class="glowForm p-4 my-4 card">
                 <h3 class="formTitle"> Fyll i dina uppgifter! </h3>
 
                 <form id="form">

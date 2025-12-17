@@ -5,7 +5,6 @@ document.querySelector("footer")!.innerHTML = `
   <div class="after-scallop text-center">
 
     <div class="logoContainerFooter">
-      <img class="logoImgFooter" src="/img/candyCatz3.png" alt="Candycatz logo">
       <div class="contact-info">
         <h5>Slå oss en pling eller kom förbi!</h5>
         <ul class="address-list">
@@ -16,20 +15,15 @@ document.querySelector("footer")!.innerHTML = `
           <li> Telefonnummer: <a href="123-456-7890">123-456-7890</a></li>
         </ul>
       </div>
+      <img class="logoImgFooter img-fluid" src="/img/candyCatz3.png" alt="Candycatz logo">
     </div>
 
 
 
     <div class="footer-icons text-center">
-      <a href="https://www.facebook.com" target="_blank" rel="noopener">
-        <i class="bi bi-facebook"></i>
-      </a>
-      <a href="https://www.instagram.com" target="_blank" rel="noopener">
-        <i class="bi bi-instagram"></i>
-      </a>
-      <a href="https://www.yelp.com" target="_blank" rel="noopener">
-        <i class="bi bi-yelp"></i>
-      </a>
+      <a href="https://www.facebook.com" target="_blank"><i class="bi bi-facebook"></i></a>
+      <a href="https://www.instagram.com" target="_blank"><i class="bi bi-instagram"></i></a>
+      <a href="https://www.yelp.com" target="_blank"><i class="bi bi-yelp"></i></a>
     </div>
 
     <hr>

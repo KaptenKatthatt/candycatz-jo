@@ -16,7 +16,7 @@ export const renderCartView = function () {
     <!-- Header -->
     <h2 class="accordion-header" id="panelsStayOpen-headingOne">
       <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-        data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
+        data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne" >
         🍭CandyCart
       </button>
     </h2>
@@ -53,8 +53,8 @@ export const renderCartView = function () {
         </div>
 
         <!--  Continue to checkout button -->
-        <div class="proceedBtnContainer text-center mt-2 mb-4 mx-auto">
-          <button type="button" class="proceedBtn btn btn-primary">😸 <i class="bi bi-chevron-down"></i> Fortsätt till
+        <div class="proceedBtnContainer text-center mt-2 mb-4 mx-auto" aria-label="Go to checkout">
+          <button type="button" class="proceedBtn btn btn-primary" aria-label="Continue to checkout">😸 <i class="bi bi-chevron-down"></i> Fortsätt till
             kassan! <i class="bi bi-chevron-down"></i> 😸</button>
         </div>
       </div>
@@ -146,7 +146,7 @@ export const renderCheckoutForm = function () {
                       </div>
                     </div>
                   </div>
-                  <button type="submit" class="submitBtn btn btn-primary mt-2">Slutför köp</button>
+                  <button type="submit" class="submitBtn btn btn-primary mt-2" aria-label="Submit order">Slutför köp</button>
                 </form>
               </div>
             </div>
@@ -280,7 +280,7 @@ export const postUserAddressForm = function (responseData: ResponseData) {
                                       </div>
 
                                       <!-- Continue Shopping Button -->
-                                    <button type="button" class="goBackToHomeBtn btn btn-primary mt-5" onclick="location.reload()">
+                                    <button type="button" class="goBackToHomeBtn btn btn-primary mt-5" onclick="location.reload()" aria-label="Go back to main page">
                                      <i class="bi bi-arrow-left me-2"></i>Handla mera!
                                      </button>
                                     </div>

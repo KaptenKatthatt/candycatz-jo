@@ -61,13 +61,13 @@ export const cardStructure = function (
   }:-</span>
           </p>
 
-          <button class="modalInfoBtn btn btn-primary">
+          <button class="modalInfoBtn btn btn-primary" aria-label="Product info popup">
             <i class="bi bi-info-circle"></i>
           </button>
 
           <button class="addToCartBtn btn" ${
             product.stock_status !== "instock" ? "disabled" : ""
-          }>
+          } aria-label="Add product to cart">
             +<i class="bi bi-basket ps-2"></i>
           </button>
         </div>

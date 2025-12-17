@@ -47,7 +47,7 @@ export const renderCheckoutCart = function () {
 
             <div class="buttonContainer d-flex flex-row align-items-center">
             <span class="smallButtonContainer">
-              <button class="cartMinusBtn btn" type="button">
+              <button class="cartMinusBtn btn" type="button" aria-label="Decrease number of product in cart.">
                 -
               </button>
               <p class="cartQty d-flex align-items-center justify-content-center">
@@ -61,7 +61,7 @@ export const renderCheckoutCart = function () {
                 +
               </button>
               </span>
-              <button class="deleteBtn btn btn-sm btn-danger ms-2">
+              <button class="deleteBtn btn btn-sm btn-danger ms-2" aria-label="Delete product from cart.">
                 <i class="bi bi-trash"></i>
               </button>
             </div>

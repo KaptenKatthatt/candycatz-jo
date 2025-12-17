@@ -21,11 +21,11 @@ export function cardStructureSideScroller(product: CandyData): string {
           <p class="card-text priceTag">Pris/skopa: <span class="fw-bold">${
             product.price
           }:-</span></p>
-          <button class="modalInfoBtn btn btn-primary"><i class="bi bi-info-circle"></i></button>
+          <button class="modalInfoBtn btn btn-primary" aria-label="Product info popup"><i class="bi bi-info-circle"></i></button>
           <button class="addToCartBtn btn" 
           ${
             product.stock_status !== "instock" ? "disabled" : ""
-          }>+<i class="bi bi-basket ps-2"></i></button>
+          } aria-label="Add product to cart">+<i class="bi bi-basket ps-2"></i></button>
         </div>
       </div>
     </div>`;

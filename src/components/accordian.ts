@@ -28,7 +28,7 @@ export const renderCartView = function () {
         <img class="checkoutLogo" src="/img/candyCatz3.png" alt="Logo for Candycatz">
        
         <div class="checkoutAndOrderSummaryContainer">
-          <div class="checkoutCartContainer"></div>
+          <div class="checkoutCartContainer card"></div>
           <!-- Order summary -->
           <div class="card checkoutOrderSummary my-4">
             <div class="card-body">

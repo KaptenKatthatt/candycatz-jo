@@ -50,7 +50,7 @@ export const sendOrder = async function (newOrderData: CheckoutData) {
     );
 
     if (!response.ok) {
-      const msg = `Order was not sent successful: ${response.status}`;
+      const msg = `Order was not sent successfully: ${response.status}`;
       console.error(msg);
       throw new Error(msg);
     }

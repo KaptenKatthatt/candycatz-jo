@@ -187,7 +187,7 @@ export const renderCheckoutForm = function () {
     try {
       await createOrdertoSend(orderData);
     } catch (err) {
-      console.error("Fel vid createOrderToSend", err);
+      console.error("Error in createOrderToSend", err);
     }
     // Open step 3
     const collapseThree = document.querySelector<HTMLDivElement>(

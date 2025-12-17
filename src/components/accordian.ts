@@ -16,7 +16,7 @@ export const renderCartView = function () {
     <!-- Header -->
     <h2 class="accordion-header" id="panelsStayOpen-headingOne">
       <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-        data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
+        data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne" >
         🍭CandyCart
       </button>
     </h2>

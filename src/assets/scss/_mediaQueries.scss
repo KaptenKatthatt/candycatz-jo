@@ -5,10 +5,18 @@
 }
 
 @media (min-width: 576px) {
+  .accordion {
+    width: 85%;
+  }
+
   .buttonContainer {
     grid-area: buttonContainer;
     margin-left: 10px;
     padding: 0;
+  }
+
+  .glowForm {
+    width: 85%;
   }
 
   .scallopbox {
@@ -17,8 +25,8 @@
 
   .sweetSavingsCardsContainer {
     display: flex;
-    justify-content: center;
     flex-wrap: wrap;
+    justify-content: center;
   }
 }
 
@@ -29,11 +37,20 @@
 }
 
 @media (min-width: 768px) {
-  .offcanvas-title {
-    font-size: 2.2rem;
+  .accordion {
+    width: 65%;
   }
+
+  .glowForm {
+    width: 65%;
+  }
+
   .offcanvas {
     --bs-offcanvas-width: 52vw;
+  }
+
+  .offcanvas-title {
+    font-size: 2.2rem;
   }
 
   .scallopbox {
@@ -45,11 +62,11 @@
   .navbar-nav {
     display: flex;
     flex-direction: row;
-    margin: auto;
-    justify-content: flex-start;
-    gap: 3rem;
-    font-weight: 400;
     font-size: 1.5rem;
+    font-weight: 400;
+    gap: 3rem;
+    justify-content: flex-start;
+    margin: auto;
   }
 
   .offcanvas {

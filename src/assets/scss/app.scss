@@ -11,7 +11,6 @@
 @import "categories";
 @import "checkoutCart";
 @import "footer";
-@import "mediaQueries";
 @import "modal";
 @import "navbar";
 @import "offcan";
@@ -19,6 +18,7 @@
 @import "scrollbar";
 @import "sideScroller";
 @import "typography";
+@import "mediaQueries"; //Have to be loaded last
 
 body {
   box-sizing: border-box;

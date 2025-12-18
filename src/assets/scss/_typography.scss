@@ -23,3 +23,11 @@ h5 {
   src: url(/src/assets/fonts/Chicle/Chicle-Regular.ttf);
   font-display: swap;
 }
+
+.navbarLogo,
+.checkoutLogo {
+  font-family: "Chicle", serif;
+  font-size: 4rem;
+  color: rgb(203, 0, 0);
+  margin: 0px 10px;
+}

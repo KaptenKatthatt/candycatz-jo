@@ -1,8 +1,5 @@
-h1 {
-  font-family: "Chicle", serif;
-  font-size: 4rem;
-  color: rgb(203, 0, 0);
-  margin: 0px 10px;
+.nav-link:hover {
+  transform: scale(1.1);
 }
 .navbar {
   display: flex;
@@ -29,7 +26,7 @@ h1 {
   }
 }
 
-.navbar-grad {
+.navbar-gradient {
   background: linear-gradient(90deg, #ffb3d9 0%, #ffebb3 30%, #a3dcff 100%);
 }
 .nav-link {
@@ -49,32 +46,5 @@ h1 {
   &:focus {
     border: 1rem;
     color: $btn-candy-pink;
-  }
-}
-
-@media screen and (max-width: 400px) {
-  h1 {
-    font-size: 3rem;
-  }
-}
-
-@media screen and (min-width: 992px) {
-  .navbar-nav {
-    display: flex;
-    flex-direction: row;
-    margin: auto;
-    justify-content: flex-start;
-    gap: 3rem;
-    font-weight: 400;
-  }
-}
-
-@media screen and (min-width: 1200px) {
-  .navbar-nav {
-    font-size: 1.5rem;
-  }
-
-  .nav-link:hover {
-    transform: scale(1.1);
   }
 }

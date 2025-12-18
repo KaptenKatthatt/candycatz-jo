@@ -1,0 +1,22 @@
+@media screen and (max-width: 400px) {
+  .navbarLogo {
+    font-size: 3rem;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .navbar-nav {
+    display: flex;
+    flex-direction: row;
+    margin: auto;
+    justify-content: flex-start;
+    gap: 3rem;
+    font-weight: 400;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .navbar-nav {
+    font-size: 1.5rem;
+  }
+}

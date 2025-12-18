@@ -4,20 +4,21 @@
 @import "bootstrap/scss/bootstrap.scss";
 @import "bootstrap-icons/font/bootstrap-icons.css";
 //Children partials, custom CSS.
-@import "scroll";
+@import "accordian";
 @import "buttons";
 @import "cards";
 @import "carousel";
 @import "categories";
 @import "checkoutCart";
 @import "footer";
+@import "mediaQueries";
 @import "modal";
 @import "navbar";
 @import "offcan";
 @import "renderAllCards";
+@import "scroll";
 @import "sideScroller";
 @import "typography";
-@import "accordian";
 
 body {
   box-sizing: border-box;

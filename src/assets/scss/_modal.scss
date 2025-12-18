@@ -1,41 +1,43 @@
-.modal-header {
-  border: none;
+.card-img {
+  margin: auto;
+  transition: transform 1.5s ease-in-out;
+  width: 200px;
+  &:hover {
+    transform: scale(0.2);
+  }
 }
+
 .modal-body p:nth-of-type(2) {
   color: $primary;
   font-size: 1.05rem;
   margin-bottom: 6px;
 }
+
 .modal-body p:nth-of-type(3)::first-line {
   font-weight: 800;
 }
-.modal-content {
-  font-size: 0.8rem;
-}
-.card-img {
-  margin: auto;
-  transition: transform 1.5s ease-in-out;
-  width: 200px;
 
-  &:hover {
-    transform: scale(0.2);
+.modal {
+  &-content {
+    font-size: 0.8rem;
+  }
+  &-footer,
+  &-header {
+    border: none;
+  }
+  &-price {
+    margin: 0px;
   }
 }
-.modal-price {
-  margin: 0px;
-}
-.modal-footer {
-  border: none;
-}
 
-@media screen and (min-width: 576px) {
+@media (min-width: 576px) {
+  .modalBtn {
+    max-width: 50%;
+    margin: auto;
+  }
   .scrollableModal {
     max-height: 400px;
     overflow-y: auto;
     padding-right: 10px;
-  }
-  .modalBtn {
-    max-width: 50%;
-    margin: auto;
   }
 }

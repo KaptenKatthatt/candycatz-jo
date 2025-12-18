@@ -1,82 +1,60 @@
-.footer-text,
-.contact-info {
-  color: rgb(87, 87, 87);
+footer {
+  color: $footerText;
 }
 
-.contact-info {
-  text-align: left;
-  align-self: center;
-  a {
-  text-decoration: none;
-  color: $logoRedText;
-  }
-}
-.footer a {
-  & :hover {
-    color: $logoRedText;
-  }
-  & :active {
-    color: $btn-candy-pink;
-  }
-}
-
-.footer-text {
-  font-size: 0.7rem;
-  text-align: center;
-}
-
-.footer-icons i {
-  margin: 0.5rem;
-  font-size: 2rem;
-  color: $logoRedText;
-  text-decoration: none;
-}
-
-.scallop {
-  position: relative;
-  background: $backgroundColor;
-}
-
-.scallop::after {
-  position: absolute;
-  width: 100%;
-  content: " ";
-  background: radial-gradient(
-    circle at 50% 0%,
-    #fffcef 25%,
-    $footer 26%,
-    $footer 40%
-  );
-  background-color: $accent;
-  background-size: 50px 100px;
-  height: 6rem;
-  background-repeat: repeat-x;
-}
 .after-scallop {
   background: $footer;
   padding: 50px;
   text-align: right;
 }
 
+.contact-info {
+  text-align: left;
+  align-self: center;
+  a {
+    text-decoration: none;
+    color: $logoRedText;
+  }
+}
+
+.footer {
+  a {
+    &:hover {
+      text-decoration: underline;
+    }
+    &:active {
+      color: $btn-candy-pink;
+    }
+  }
+
+  &-icons {
+    i {
+      margin: 0.5rem;
+      font-size: 2rem;
+      color: $logoRedText;
+      text-decoration: none;
+      &:hover {
+        color: $btn-candy-pink;
+      }
+    }
+  }
+  &-text {
+    font-size: 0.7rem;
+    text-align: center;
+  }
+}
+
 .gangGang {
   font-size: 1.5rem;
-  color: inherit;
+  a {
+    text-decoration: none;
+    &:hover {
+      color: $logoRedText;
+      text-decoration: underline;
+    }
+  }
 }
 
-.gangGang a {
-  color: inherit;
-  text-decoration: none;
-}
-
-.gangGang a:hover,
-.gangGang a:focus,
-.gangGang a:active {
-  color: $logoRedText;
-  text-decoration: underline;
-}
-footer p {
-  font-size: 0.9rem;
-}
 .logoContainerFooter {
   padding-top: 100px;
   display: flex;
@@ -92,7 +70,7 @@ footer p {
   align-self: center;
 }
 
-@media screen and (max-width: 576px) {
+@media (max-width: 576px) {
   .logoImgFooter {
     display: none;
   }

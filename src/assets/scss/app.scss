@@ -4,7 +4,7 @@
 @import "bootstrap/scss/bootstrap.scss";
 @import "bootstrap-icons/font/bootstrap-icons.css";
 //Children partials, custom CSS.
-@import "scroll";
+@import "accordian";
 @import "buttons";
 @import "cards";
 @import "carousel";
@@ -15,9 +15,10 @@
 @import "navbar";
 @import "offcan";
 @import "renderAllCards";
+@import "scrollbar";
 @import "sideScroller";
 @import "typography";
-@import "accordian";
+@import "mediaQueries"; //Have to be loaded last
 
 body {
   box-sizing: border-box;
@@ -38,7 +39,7 @@ body {
   cursor: pointer;
 }
 
-@media screen and (min-width: 576px) {
+@media (min-width: 576px) {
   .body {
     padding-top: 0px;
   }

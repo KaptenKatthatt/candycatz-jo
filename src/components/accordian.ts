@@ -272,9 +272,9 @@ export const postUserAddressForm = function (responseData: ResponseData) {
                                           <div class="d-flex flex-column align-items-start gap-2">
                                             ${generateOrderItemsInConfirmation()}
                                           </div>
-                                          <p> Njut av sötchocken!</p>
-                                          <p> Med vänlig hälsning,</p>
-                                          <h1>CandyCatz</h1>
+                                          <p>Njut av sötchocken!</p>
+                                          <p>Med vänlig hälsning,</p>
+                                          <h5 class="checkoutLogo">CandyCatz</h5>
                                         </div>
                                       </div>
 

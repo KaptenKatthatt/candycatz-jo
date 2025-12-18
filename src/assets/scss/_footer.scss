@@ -7,15 +7,15 @@
   text-align: left;
   align-self: center;
   a {
-  text-decoration: none;
-  color: $logoRedText;
+    text-decoration: none;
+    color: $logoRedText;
   }
 }
 .footer a {
-  & :hover {
-    color: $logoRedText;
+  &:hover {
+    text-decoration: underline;
   }
-  & :active {
+  &:active {
     color: $btn-candy-pink;
   }
 }
@@ -30,6 +30,9 @@
   font-size: 2rem;
   color: $logoRedText;
   text-decoration: none;
+  &:hover {
+    color: $btn-candy-pink;
+  }
 }
 
 .scallop {
@@ -60,20 +63,17 @@
 
 .gangGang {
   font-size: 1.5rem;
-  color: inherit;
 }
 
 .gangGang a {
-  color: inherit;
   text-decoration: none;
+  color: $footerText;
+  &:hover {
+    color: $logoRedText;
+    text-decoration: underline;
+  }
 }
 
-.gangGang a:hover,
-.gangGang a:focus,
-.gangGang a:active {
-  color: $logoRedText;
-  text-decoration: underline;
-}
 footer p {
   font-size: 0.9rem;
 }

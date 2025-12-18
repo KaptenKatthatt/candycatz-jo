@@ -83,7 +83,7 @@
   box-shadow: 0 8px 20px $primary;
 }
 
-@media screen and (min-width: 576px) {
+@media (min-width: 576px) {
   .accordion {
     width: 85%;
   }
@@ -91,7 +91,7 @@
     width: 85%;
   }
 }
-@media screen and (min-width: 768px) {
+@media (min-width: 768px) {
   .accordion {
     width: 65%;
   }

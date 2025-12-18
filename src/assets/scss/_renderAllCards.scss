@@ -131,7 +131,7 @@
   mask: var(--mask);
 }
 
-@media screen and (min-width: 576px) {
+@media (min-width: 576px) {
   .scallopbox {
     --r: 1.3rem;
   }
@@ -142,7 +142,7 @@
     flex-wrap: wrap;
   }
 }
-@media screen and (min-width: 768px) {
+@media (min-width: 768px) {
   .scallopbox {
     --r: 1.8rem;
   }

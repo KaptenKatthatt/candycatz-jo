@@ -1,5 +1,5 @@
 export const renderFooter = function () {
-document.querySelector("footer")!.innerHTML = `
+  document.querySelector("footer")!.innerHTML = `
 <footer class="footer">
   <div class="scallop"></div>
   <div class="after-scallop text-center">
@@ -11,8 +11,8 @@ document.querySelector("footer")!.innerHTML = `
           <p>CandyCatz HQ<br>
             Godisgatan 13A<br>
             Gotteby, 12345<br>
-            Mailadress:<a href="info@candycatz.com">info@candycatz.com</a><br>
-            Telefonnummer: <a href="123-456-7890">123-456-7890</a></p>
+            Mailadress:<a href="mailto:info@candycatz.com">info@candycatz.com</a><br>
+            Telefonnummer: <a href="tel:123-456-7890">123-456-7890</a></p>
         </address>
       </div>
       <img class="logoImgFooter img-fluid" src="/img/candyCatz3.png" alt="Candycatz logo">

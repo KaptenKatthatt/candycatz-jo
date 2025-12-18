@@ -46,11 +46,12 @@
 }
 
 .offcanvas {
+  --bs-offcanvas-width: 65vw;
   background-color: $offcanRenderAllCardsBg;
   overflow-x: hidden;
   overflow-y: auto;
   padding: 0px 20px;
-  &p {
+  & p {
     margin: 0;
     padding: 0;
   }
@@ -68,48 +69,22 @@
   font-size: 2rem;
 }
 
-.cartThumbnail {
-  align-self: center;
-  border-radius: 10px;
-  grid-area: cartThumbnail;
-}
-
-.offCanCartListItem {
-  --bs-card-title-spacer-y: 0.3rem;
-  border-radius: 0px 0px 10px 10px;
-  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.4);
-  column-gap: 6px;
-  display: grid;
-  grid-template-areas:
-    "cartThumbnail offCanCartTitle  offCanCartTitle"
-    "cartThumbnail offCanCartPrice buttonContainer"
-    "cartThumbnail offCanCartTotal buttonContainer";
-  grid-template-columns: 80px auto auto;
-  grid-template-rows: auto auto auto;
-  margin: 0 auto;
-  margin-bottom: 0.5rem;
-  max-width: 500px;
-  overflow: hidden;
-  padding: 8px;
-  row-gap: 6px;
-}
-
-.offCanCartPrice {
-  grid-area: offCanCartPrice;
-}
-
-.offCanCartTitle {
-  grid-area: offCanCartTitle;
-}
-
-.offCanCartTotal {
-  grid-area: offCanCartTotal;
-}
-
-.offcanvas {
-  --bs-offcanvas-width: 65vw;
-}
-
-.offcanvas-title {
-  font-size: 1.8rem;
-}
+// .offCanCartListItem {
+//   --bs-card-title-spacer-y: 0.3rem;
+//   border-radius: 0px 0px 10px 10px;
+//   box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.4);
+//   column-gap: 6px;
+//   display: grid;
+//   grid-template-areas:
+//     "cartThumbnail offCanCartTitle  offCanCartTitle"
+//     "cartThumbnail offCanCartPrice buttonContainer"
+//     "cartThumbnail offCanCartTotal buttonContainer";
+//   grid-template-columns: 80px auto auto;
+//   grid-template-rows: auto auto auto;
+//   margin: 0 auto;
+//   margin-bottom: 0.5rem;
+//   max-width: 500px;
+//   overflow: hidden;
+//   padding: 8px;
+//   row-gap: 6px;
+// }

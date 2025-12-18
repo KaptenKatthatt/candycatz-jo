@@ -6,7 +6,7 @@ export const renderNavbar = function () {
             <h1 class="navbarLogo">CandyCatz</h1>
           </a>
           <!--VARUKORG-->
-          <div id="#cartIcon" class="ms-auto me-lg-4 order-lg-last">
+          <div id="cartIcon" class="ms-auto me-lg-4 order-lg-last">
           <a class="nav-link position-relative" href="#" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
             <i class="navbarCart bi bi-cart4 fs-3"></i>
             <span

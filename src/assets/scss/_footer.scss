@@ -1,7 +1,3 @@
-footer {
-  color: $footerText;
-}
-
 .after-scallop {
   background: $footer;
   padding: 50px;
@@ -17,8 +13,10 @@ footer {
   }
 }
 
-.footer {
+footer {
+  color: $footerText;
   a {
+    color: $footerText;
     &:hover {
       text-decoration: underline;
     }
@@ -27,15 +25,13 @@ footer {
     }
   }
 
-  &-icons {
-    i {
-      margin: 0.5rem;
-      font-size: 2rem;
-      color: $logoRedText;
-      text-decoration: none;
-      &:hover {
-        color: $btn-candy-pink;
-      }
+  i {
+    margin: 0.5rem;
+    font-size: 2rem;
+    color: $logoRedText;
+    text-decoration: none;
+    &:hover {
+      color: $btn-candy-pink;
     }
   }
   &-text {

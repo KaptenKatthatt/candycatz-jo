@@ -74,3 +74,20 @@
     --r: 1.8rem;
   }
 }
+
+@media (min-width: 576px) {
+  .scallopbox {
+    --r: 1.3rem;
+  }
+
+  .sweetSavingsCardsContainer {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+}
+@media (min-width: 768px) {
+  .scallopbox {
+    --r: 1.8rem;
+  }
+}

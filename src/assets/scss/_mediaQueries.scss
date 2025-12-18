@@ -4,27 +4,21 @@
   }
 }
 
-@media (min-width: 992px) {
-  .navbar-nav {
-    display: flex;
-    flex-direction: row;
-    margin: auto;
-    justify-content: flex-start;
-    gap: 3rem;
-    font-weight: 400;
-  }
-}
-
-@media (min-width: 1200px) {
-  .navbar-nav {
-    font-size: 1.5rem;
-  }
-}
 @media (min-width: 576px) {
   .buttonContainer {
     grid-area: buttonContainer;
     margin-left: 10px;
     padding: 0;
+  }
+
+  .scallopbox {
+    --r: 1.3rem;
+  }
+
+  .sweetSavingsCardsContainer {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
   }
 }
 
@@ -41,53 +35,40 @@
   .offcanvas {
     --bs-offcanvas-width: 52vw;
   }
+
+  .scallopbox {
+    --r: 1.8rem;
+  }
 }
+
 @media (min-width: 992px) {
+  .navbar-nav {
+    display: flex;
+    flex-direction: row;
+    margin: auto;
+    justify-content: flex-start;
+    gap: 3rem;
+    font-weight: 400;
+    font-size: 1.5rem;
+  }
+
   .offcanvas {
     --bs-offcanvas-width: 41vw;
   }
 }
+
 @media (min-width: 1200px) {
+  .navbar-nav {
+    font-size: 1.5rem;
+  }
+
   .offcanvas {
     --bs-offcanvas-width: 33vw;
   }
 }
+
 @media (min-width: 1400px) {
   .offcanvas {
     --bs-offcanvas-width: 28vw;
-  }
-}
-
-@media (min-width: 576px) {
-  .scallopbox {
-    --r: 1.3rem;
-  }
-
-  .sweetSavingsCardsContainer {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-  }
-}
-@media (min-width: 768px) {
-  .scallopbox {
-    --r: 1.8rem;
-  }
-}
-
-@media (min-width: 576px) {
-  .scallopbox {
-    --r: 1.3rem;
-  }
-
-  .sweetSavingsCardsContainer {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-  }
-}
-@media (min-width: 768px) {
-  .scallopbox {
-    --r: 1.8rem;
   }
 }

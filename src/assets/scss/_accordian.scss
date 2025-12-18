@@ -1,23 +1,43 @@
 .accordion {
   margin: auto;
+
+  &-button {
+    font-size: 2rem;
+
+    &[aria-expanded="false"] {
+      background-color: $accordianbg;
+      color: $accent;
+    }
+
+    &[aria-expanded="true"] {
+      background-color: $accordion;
+      color: black;
+    }
+  }
 }
 
-.accordion-button[aria-expanded="false"] {
-  background-color: $accordianbg;
-  color: $accent;
+.checkoutCartContainer {
+  box-shadow: 0 8px 20px $primary;
 }
 
-.accordion-button[aria-expanded="true"] {
-  background-color: $accordion;
-  color: black;
-}
-
-.accordion-button {
-  font-size: 2rem;
-}
 .checkoutLogo {
   margin: 0 auto;
   width: 15rem;
+}
+
+.checkoutOrderSummary {
+  box-shadow: 0 8px 20px $primary;
+}
+
+.formTitle {
+  font-family: "Super Chiby";
+  font-size: 2rem;
+  color: $accent;
+}
+
+.glowForm {
+  box-shadow: 0 8px 20px $primary;
+  margin: auto;
 }
 
 .orderTxt {
@@ -29,6 +49,10 @@
   justify-content: center;
 }
 
+.proceedBtn {
+  font-size: 1.2rem;
+}
+
 .proceedBtnContainer {
   width: 100%;
   height: 10rem;
@@ -37,15 +61,6 @@
   background-size: contain;
   display: grid !important;
   place-items: center;
-}
-.proceedBtn {
-  font-size: 1.2rem;
-}
-
-.formTitle {
-  font-family: "Super Chiby";
-  font-size: 2rem;
-  color: $accent;
 }
 
 .smilesTxt {
@@ -70,32 +85,4 @@
   color: black;
   text-align: center;
   box-shadow: 0 8px 20px $primary;
-}
-
-.glowForm {
-  box-shadow: 0 8px 20px $primary;
-  margin: auto;
-}
-.checkoutCartContainer {
-  box-shadow: 0 8px 20px $primary;
-}
-.checkoutOrderSummary {
-  box-shadow: 0 8px 20px $primary;
-}
-
-@media (min-width: 576px) {
-  .accordion {
-    width: 85%;
-  }
-  .glowForm {
-    width: 85%;
-  }
-}
-@media (min-width: 768px) {
-  .accordion {
-    width: 65%;
-  }
-  .glowForm {
-    width: 65%;
-  }
 }

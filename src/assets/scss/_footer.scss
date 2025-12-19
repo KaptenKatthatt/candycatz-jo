@@ -1,5 +1,5 @@
 .after-scallop {
-  background: $footer;
+  background: $footerBG;
   padding: 50px;
   text-align: right;
 }
@@ -21,17 +21,17 @@ footer {
       text-decoration: underline;
     }
     &:active {
-      color: $btn-candy-pink;
+      filter: brightness(1.5);
     }
   }
 
   i {
     margin: 0.5rem;
     font-size: 2rem;
-    color: $logoRedText;
+    color: $footerIconColor;
     text-decoration: none;
     &:hover {
-      color: $btn-candy-pink;
+      filter: brightness(1.5);
     }
   }
   &-text {
@@ -45,7 +45,7 @@ footer {
   a {
     text-decoration: none;
     &:hover {
-      color: $logoRedText;
+      color: $footerIconColor;
       text-decoration: underline;
     }
   }

@@ -22,8 +22,9 @@ $disabled: rgb(79, 79, 79);
 // $disabled: rgb(148, 148, 148);
 
 //Footer
-$footer: #c4dcd1;
+$footerBG: #c4dcd1;
 $footerText: #575757;
+$footerIconColor: rgb(165, 25, 15);
 
 $accordianbg: #fffcef;
 $offcanRenderAllCardsBg: #bde0fe;
@@ -45,3 +46,6 @@ $accordion: #90ab70;
 
 //Sweet savings category
 $discountBadgeBG: rgb(203, 0, 0);
+
+//Cart
+$cartQtyBG: #c4dcd1;

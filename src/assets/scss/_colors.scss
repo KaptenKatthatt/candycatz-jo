@@ -1,20 +1,20 @@
-//Buttons
-$btn-candy-pink: #f472b6;
-$btn-candy-purple: #c084fc;
-$disabled: rgb(79, 79, 79);
-
-//Cart(Offcanvas)
-$cartQtyBG: #c4dcd1;
-$offcanBG: #bde0fe;
-
-//Logo colors
-$logoRedText: rgb(203, 0, 0);
-
 //Main colors
 $primary: #f38cb9;
 $secondary: #bde0fe;
 $backgroundColor: #fffcef;
-$cardBG: #bde0fe;
+
+//Buttons
+$btn-candy-pink: #f472b6;
+$btn-candy-purple: #c084fc;
+$disabled: rgb(79, 79, 79);
+$modalInfoBtnBG: #f472b6;
+
+//Cart(Offcanvas)
+$cartQtyBG: #c4dcd1;
+$offcanBG: $secondary;
+
+//Logo colors
+$logoRedText: rgb(203, 0, 0);
 
 //accordion / hero green
 $accordion: #90ab70;
@@ -23,9 +23,10 @@ $accordianbg: #fffcef;
 //Cards
 $card-title: var(--bs-gray-800);
 $allCardsContainerBG: #79b0df;
+$cardBG: $secondary;
 
 //Checkout
-$orderConfirmationTxt: rgb(203, 0, 0);
+$orderConfirmationTxt: $logoRedText;
 
 //Footer
 $footerBG: #c4dcd1;
@@ -33,9 +34,7 @@ $footerText: #575757;
 $footerIconColor: rgb(165, 25, 15);
 
 //More to munch button
-$blue: #87cefa;
-$pink: #ff69b4;
-$cream-white: #f5f5dc;
+$loadMoreCandyBtnTxtColor: #f5f5dc;
 
 //Shadow color
 $shadowColor: rgba(0, 0, 0, 0.2);
@@ -44,7 +43,7 @@ $shadowColor: rgba(0, 0, 0, 0.2);
 $sideScrollerArrow: rgb(244, 150, 166);
 
 //Sweet savings category
-$discountBadgeBG: rgb(203, 0, 0);
+$discountBadgeBG: $logoRedText;
 
 // 🎀 CandyColors 🍬
 // $accent: #f38cb9;
@@ -53,3 +52,7 @@ $discountBadgeBG: rgb(203, 0, 0);
 // $logoRedText: rgb(165, 25, 15);
 
 // $disabled: rgb(148, 148, 148);
+
+// $pink: #ff69b4;
+// $blue: #87cefa;
+// $cream-white: #f5f5dc;

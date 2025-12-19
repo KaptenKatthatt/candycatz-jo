@@ -15,7 +15,7 @@ export const renderFooter = function () {
             Telefonnummer: <a href="tel:123-456-7890">123-456-7890</a></p>
         </address>
       </div>
-      <img class="logoImgFooter img-fluid" src="/img/candyCatz3.png" alt="Candycatz logo">
+      <img class="logoImgFooter img-fluid" src="/img/candyCatzLogo_pinkBG.webp" alt="Candycatz logo">
     </div>
 
 

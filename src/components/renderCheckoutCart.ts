@@ -17,8 +17,8 @@ export const renderCheckoutCart = function () {
   if (checkoutCartContainerEl) {
     checkoutCartContainerEl.innerHTML = cartArray
       .map((product) => {
-        let thumbnailURL = `https://www.bortakvall.se${product.thumbnail}`;
-        let productOnDiscount = product.on_sale ? "text-danger" : "text-dark";
+        const thumbnailURL = `https://www.bortakvall.se${product.thumbnail}`;
+        const productOnDiscount = product.on_sale ? "text-danger" : "text-dark";
 
         const productTotalPrice = product.qty * product.price;
 

@@ -6,8 +6,8 @@ export const renderCarousel = function () {
   carouselContainerEl.innerHTML = `
 <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
       <div class="carousel-inner">
-        <div class="carousel-item active>
-          <img src="/img/sockerKick.webp" class="w-100" alt="Picture of yummy candy" fetchpriority="high"/>
+        <div class="carousel-item active">
+          <img src="/img/sockerKick.png" class="d-block w-100" alt="Picture of yummy candy" fetchpriority="high" loading="eager"/>
         </div>
         <div class="carousel-item">
           <img src="/img/suris.webp" class=" w-100" alt="Picture with sour sweet treats"/>

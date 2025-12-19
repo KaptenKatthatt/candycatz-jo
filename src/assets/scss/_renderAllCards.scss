@@ -42,7 +42,7 @@
 
 .scallopbox {
   --r: 0.5rem;
-  background: $footer;
+  background: $footerBG;
   margin: auto;
   mask: linear-gradient(#000 0 0) 50% / calc(100% - 2 * var(--r))
       calc(100% - 2 * var(--r)) no-repeat,
@@ -57,7 +57,7 @@
 
 .scallopboxThumb {
   --r: 0.5rem;
-  background: $footer;
+  background: $footerBG;
   margin: auto;
   mask: linear-gradient(#000 0 0) 50% / calc(100% - 2 * var(--r))
       calc(100% - 2 * var(--r)) no-repeat,

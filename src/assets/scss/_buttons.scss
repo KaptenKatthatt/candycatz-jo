@@ -9,7 +9,7 @@
   &:disabled {
     background: $disabled;
     border: none;
-    color: rgb(79, 79, 79);
+    color: $disabled;
     opacity: 0.5;
   }
   margin-top: 1rem;

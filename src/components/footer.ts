@@ -21,9 +21,9 @@ export const renderFooter = function () {
 
 
     <div class="footer-icons text-center">
-      <a href="https://www.facebook.com" target="_blank"><i class="bi bi-facebook"></i></a>
-      <a href="https://www.instagram.com" target="_blank"><i class="bi bi-instagram"></i></a>
-      <a href="https://www.yelp.com" target="_blank"><i class="bi bi-yelp"></i></a>
+      <a href="https://www.facebook.com" target="_blank" aria-label="Besök CandyCatz på Facebook"><i class="bi bi-facebook"></i></a>
+      <a href="https://www.instagram.com" target="_blank" aria-label="Besök CandyCatz på Instagram"><i class="bi bi-instagram"></i></a>
+      <a href="https://www.yelp.com" target="_blank" aria-label="Besök CandyCatz på Yelp"><i class="bi bi-yelp"></i></a>
     </div>
 
     <hr>

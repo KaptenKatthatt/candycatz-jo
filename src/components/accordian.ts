@@ -25,7 +25,7 @@ export const renderCartView = function () {
       aria-labelledby="panelsStayOpen-headingOne">
       <div class="accordion-body d-flex flex-column align-items-center">
 
-        <img class="checkoutLogo mb-2" src="/img/candyCatz3.png" alt="Logo for Candycatz">
+        <img class="checkoutLogo mb-2" src="/img/candyCatzLogo_pinkBG.webp" alt="Logo for Candycatz">
         <div class="checkoutAndOrderSummaryContainer">
           <div class="checkoutCartContainer card"></div>
           <!-- Order summary -->

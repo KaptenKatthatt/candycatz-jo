@@ -40,8 +40,9 @@
   margin: auto;
 }
 
-.orderTxt {
-  color: rgb(203, 0, 0);
+.orderConfirmationTxt,
+.smilesTxt {
+  color: $orderConfirmationTxt;
 }
 
 .placedOrderContainer {
@@ -61,10 +62,6 @@
   background-size: contain;
   display: grid !important;
   place-items: center;
-}
-
-.smilesTxt {
-  color: rgb(203, 0, 0);
 }
 
 .text-sum {

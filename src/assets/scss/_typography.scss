@@ -25,9 +25,10 @@ h5 {
 }
 
 .navbarLogo,
-.checkoutLogo {
+.checkoutLogo,
+.orderConfirmationLogo {
   font-family: "Chicle", serif;
   font-size: 4rem;
-  color: rgb(203, 0, 0);
+  color: $logoRedText;
   margin: 0px 10px;
 }

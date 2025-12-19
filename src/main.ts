@@ -1,7 +1,6 @@
 import { getClickedCandyId } from "./components/getClickedCandyId";
 import { initStore } from "./components/cart";
 import { renderAllCards } from "./components/renderAllCards";
-import { renderCarousel } from "./components/carousel";
 import { renderCartView, renderCheckoutForm } from "./components/accordian";
 import { renderFooter } from "./components/footer";
 import { renderNavbar } from "./components/navbar";
@@ -21,7 +20,6 @@ renderCartView();
 renderCheckoutForm();
 renderAllCards();
 getClickedCandyId();
-renderCarousel();
 renderNavbar();
 renderOffCan();
 renderFooter();

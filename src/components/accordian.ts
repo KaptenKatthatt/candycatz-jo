@@ -268,13 +268,13 @@ export const postUserAddressForm = function (responseData: ResponseData) {
                                           }, ${
     responseData.data.customer_city
   }, ${responseData.data.customer_postcode} </p>
-                                          <h4 class="orderTxt">Här är din order:</h4>
+                                          <h4 class="orderConfirmationTxt">Här är din order:</h4>
                                           <div class="d-flex flex-column align-items-start gap-2">
                                             ${generateOrderItemsInConfirmation()}
                                           </div>
                                           <p>Njut av sötchocken!</p>
-                                          <p>Med vänlig hälsning,</p>
-                                          <h5 class="checkoutLogo">CandyCatz</h5>
+                                          <p class="mt-4">Med vänlig hälsning,</p>
+                                          <h5 class="orderConfirmationLogo">CandyCatz</h5>
                                         </div>
                                       </div>
 

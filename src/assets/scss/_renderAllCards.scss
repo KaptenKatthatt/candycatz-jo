@@ -80,7 +80,7 @@
   --s: 44px;
   --R: calc(var(--s) * sqrt(var(--m) * var(--m) + 1) + var(--b) / 2);
   --_g: #0000 calc(99% - var(--b)), #000 calc(101% - var(--b)) 99%, #0000 101%;
-  background: $accent;
+  background: $primary;
   height: calc(2 * var(--R));
   mask: radial-gradient(
         var(--R) at left 50% bottom calc(-1 * var(--m) * var(--s)),
@@ -124,6 +124,6 @@
     radial-gradient(11.66px at calc(100% + 6px) 50%, #0000 99%, #000 101%)
       calc(100% - 10px) 50% / calc(51% - 10px) 40px repeat-y;
   -webkit-mask: var(--mask);
-  background-color: $accent;
+  background-color: $primary;
   mask: var(--mask);
 }

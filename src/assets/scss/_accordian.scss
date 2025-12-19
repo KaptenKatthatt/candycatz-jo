@@ -6,7 +6,7 @@
 
     &[aria-expanded="false"] {
       background-color: $accordianbg;
-      color: $accent;
+      color: $primary;
     }
 
     &[aria-expanded="true"] {
@@ -32,7 +32,7 @@
 .formTitle {
   font-family: "Super Chiby";
   font-size: 2rem;
-  color: $accent;
+  color: $primary;
 }
 
 .glowForm {

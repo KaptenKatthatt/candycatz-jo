@@ -1,5 +1,5 @@
 .card {
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 8px $shadowColor;
 }
 
 .card-title {
@@ -14,7 +14,7 @@
 }
 
 .cardTransform {
-  background-color: $offcanRenderAllCardsBg;
+  background-color: $cardBG;
   overflow: visible;
   position: relative;
   transition: all 0.2s ease-in-out;

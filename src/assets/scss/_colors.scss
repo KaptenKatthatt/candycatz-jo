@@ -1,4 +1,4 @@
-//Main colors
+// Main colors
 $primary: #f38cb9;
 $secondary: #bde0fe;
 $backgroundColor: #fffcef;
@@ -9,12 +9,12 @@ $btn-candy-purple: #c084fc;
 $disabled: rgb(79, 79, 79);
 $modalInfoBtnBG: #f472b6;
 
-//Cart(Offcanvas)
+// Cart(Offcanvas)
 $cartQtyBG: #c4dcd1;
 $offcanBG: $secondary;
 
 //Logo colors
-$logoRedText: rgb(203, 0, 0);
+$logoRedText: rgb(203 0 0);
 
 //accordion / hero green
 $accordion: #90ab70;
@@ -25,10 +25,10 @@ $card-title: var(--bs-gray-800);
 $allCardsContainerBG: #79b0df;
 $cardBG: $secondary;
 
-//Checkout
+// Checkout
 $orderConfirmationTxt: $logoRedText;
 
-//Footer
+// Footer
 $footerBG: #c4dcd1;
 $footerText: #575757;
 $footerIconColor: rgb(165, 25, 15);

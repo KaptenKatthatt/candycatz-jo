@@ -11,7 +11,7 @@ import {
 export const renderCheckoutCart = function () {
   let totalAmountSaved = 0;
   const checkoutCartContainerEl = document.querySelector<HTMLDivElement>(
-    ".checkoutCartContainer"
+    ".checkout-cart-container"
   );
   // Render a card with added item
   if (checkoutCartContainerEl) {
@@ -47,14 +47,14 @@ export const renderCheckoutCart = function () {
 
             <div class="buttonContainer d-flex flex-row align-items-center">
             <span class="smallButtonContainer">
-              <button class="cartMinusBtn btn" type="button" aria-label="Decrease number of product in cart.">
+              <button class="cart-minus-btn btn" type="button" aria-label="Decrease number of product in cart.">
                 -
               </button>
               <p class="cartQty d-flex align-items-center justify-content-center">
                 ${product.qty}
               </p>
               <button
-                class="cartPlusBtn btn"
+                class="cart-plus-btn btn"
                 type="button"
                 ${product.qty >= product.stock_quantity ? "disabled" : ""}
               >
@@ -75,9 +75,9 @@ export const renderCheckoutCart = function () {
       const candyCard = target.closest<HTMLDivElement>(".cartListItem");
       const productId = Number(candyCard?.dataset.productId);
 
-      if (target.closest(".cartPlusBtn")) {
+      if (target.closest(".cart-plus-btn")) {
         increaseAmountOfProductInCart(productId);
-      } else if (target.closest(".cartMinusBtn")) {
+      } else if (target.closest(".cart-minus-btn")) {
         decreaseAmountOfProductInCart(productId);
       } else if (target.closest(".deleteBtn")) {
         deleteProductFromCart(productId);

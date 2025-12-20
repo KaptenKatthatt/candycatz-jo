@@ -20,12 +20,12 @@ export let clickedCandyId = 0;
 export let cartArray: CartProduct[] = getCartArrayFromLocalStorage() || [];
 
 export const addToCart = async function (clickedCandyId: number) {
-  let fetchedCandyObject = await getCandyProductInfo(clickedCandyId);
+  const fetchedCandyObject = await getCandyProductInfo(clickedCandyId);
   const maxStock = fetchedCandyObject.data.stock_quantity;
   const candyPrice = fetchedCandyObject.data.on_sale
     ? Math.round(fetchedCandyObject.data.price * discountMultiplier)
     : fetchedCandyObject.data.price;
-  let foundSameCandyInCart = cartArray.some(
+  const foundSameCandyInCart = cartArray.some(
     (product) => product.id === clickedCandyId
   );
   if (!foundSameCandyInCart) {
@@ -123,9 +123,9 @@ export const renderCart = function () {
   if (cartContainerEl && cartArray.length > 0) {
     cartContainerEl.innerHTML = cartArray
       .map((product: CartProduct) => {
-        let productOnDiscount = product.on_sale ? "text-danger" : "text-dark";
+        const productOnDiscount = product.on_sale ? "text-danger" : "text-dark";
 
-        let thumbnailURL = `https://www.bortakvall.se${product.thumbnail}`;
+        const thumbnailURL = `https://www.bortakvall.se${product.thumbnail}`;
         return `
          <div
             class="offCanCartListItem cartListItem"
@@ -152,7 +152,7 @@ export const renderCart = function () {
 
               <div class="buttonContainer d-flex flex-row align-items-center">
               <span class="smallButtonContainer">
-                <button class="cartMinusBtn btn" type="button" aria-label="Decrease number of product in cart">
+                <button class="cart-minus-btn btn" type="button" aria-label="Decrease number of product in cart">
                   -
                 </button>
                 <p
@@ -161,7 +161,7 @@ export const renderCart = function () {
                   ${product.qty}
                 </p>
                 <button
-                  class="cartPlusBtn btn"
+                  class="cart-plus-btn btn"
                   type="button"
                   ${product.qty >= product.stock_quantity ? "disabled" : ""}
                 >+</button>
@@ -180,7 +180,7 @@ export const renderCart = function () {
       .querySelector<HTMLDivElement>(".heartCatContainer")!
       .classList.remove("d-none");
     document
-      .querySelector<HTMLDivElement>(".checkOutBtn")!
+      .querySelector<HTMLDivElement>(".check-out-btn")!
       .classList.remove("d-none");
     document.querySelector<HTMLDivElement>(
       ".heartCatContainer"
@@ -191,9 +191,9 @@ export const renderCart = function () {
       const candyCard = target.closest<HTMLDivElement>(".cartListItem");
       clickedCandyId = Number(candyCard?.dataset.productId);
 
-      if (target.closest(".cartPlusBtn")) {
+      if (target.closest(".cart-plus-btn")) {
         increaseAmountOfProductInCart(clickedCandyId);
-      } else if (target.closest(".cartMinusBtn")) {
+      } else if (target.closest(".cart-minus-btn")) {
         decreaseAmountOfProductInCart(clickedCandyId);
       } else if (target.closest(".deleteBtn")) {
         deleteProductFromCart(clickedCandyId);
@@ -206,7 +206,7 @@ export const renderCart = function () {
       .querySelector<HTMLDivElement>(".heartCatContainer")
       ?.classList.add("d-none");
     document
-      .querySelector<HTMLDivElement>(".checkOutBtn")!
+      .querySelector<HTMLDivElement>(".check-out-btn")!
       .classList.add("d-none");
     cartContainerEl!.innerHTML = `
                     <img src="/img/sadcat.gif" alt="">
@@ -248,7 +248,7 @@ const renderClearCart = function () {
 //Adds clicked candy to cart, if exists, increase qty instead.
 allCardsContainerEl?.addEventListener("click", async (e) => {
   const target = e.target as HTMLElement;
-  if (target.closest(".addToCartBtn")) {
+  if (target.closest(".add-to-cart-btn")) {
     const candyCard = target.closest<HTMLDivElement>(".card");
     clickedCandyId = Number(candyCard?.dataset.productId);
     await addToCart(clickedCandyId);

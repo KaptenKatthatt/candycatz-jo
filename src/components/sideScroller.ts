@@ -11,18 +11,18 @@ export function cardStructureSideScroller(product: CandyData): string {
   }">
   <div class="card-body">
   <h5 class="card-title cardTitleSideScroller click mb-5">${product.name}</h5>
-        <div class="infoContainer">
+        <div class="info-container">
           ${
             product.stock_status === "instock"
-              ? `<p class="card-text stockStatus">I lager:
+              ? `<p class="card-text stock-status">I lager:
               <span class="fw-bold">${product.stock_quantity}</span></p>`
-              : `<p class="card-text stockStatus"><em>Ej i lager</em></p>`
+              : `<p class="card-text stock-status"><em>Ej i lager</em></p>`
           }
           <p class="card-text priceTag">Pris/skopa: <span class="fw-bold">${
             product.price
           }:-</span></p>
-          <button class="modalInfoBtn btn btn-primary" aria-label="Product info popup"><i class="bi bi-info-circle"></i></button>
-          <button class="addToCartBtn btn" 
+          <button class="modal-info-btn btn btn-primary" aria-label="Product info popup"><i class="bi bi-info-circle"></i></button>
+          <button class="add-to-cart-btn btn" 
           ${
             product.stock_status !== "instock" ? "disabled" : ""
           } aria-label="Add product to cart">+<i class="bi bi-basket ps-2"></i></button>

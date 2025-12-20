@@ -16,45 +16,45 @@
   }
 }
 
-.checkoutCartContainer {
+.checkout-cart-container {
   box-shadow: 0 8px 20px $primary;
 }
 
-.checkoutLogo {
+.checkout-logo {
   margin: 0 auto;
   width: 15rem;
 }
 
-.checkoutOrderSummary {
+.checkout-order-summary {
   box-shadow: 0 8px 20px $primary;
 }
 
-.formTitle {
-  font-family: "Super Chiby";
+.form-title {
+  font-family: "Super Chiby", cursive;
   font-size: 2rem;
   color: $primary;
 }
 
-.glowForm {
+.glow-form {
   box-shadow: 0 8px 20px $primary;
   margin: auto;
 }
 
-.orderConfirmationTxt,
-.smilesTxt {
+.order-confirmation-txt,
+.smiles-txt {
   color: $orderConfirmationTxt;
 }
 
-.placedOrderContainer {
+.placed-order-container {
   display: flex;
   justify-content: center;
 }
 
-.proceedBtn {
+.proceed-btn {
   font-size: 1.2rem;
 }
 
-.proceedBtnContainer {
+.proceed-btn-container {
   width: 100%;
   height: 10rem;
   background: url("/img/banderoll.webp");
@@ -66,11 +66,11 @@
 
 .text-sum {
   color: #000;
-  font-family: "Figtree", sans-serif;
+  font-family: Figtree, sans-serif;
   font-size: 1rem;
 }
 
-.wavecardAccord {
+.wavecard-accord {
   max-width: 500px;
   width: 100%;
   padding: 10px;
@@ -78,7 +78,6 @@
   box-sizing: border-box;
   background: $backgroundColor;
   border-radius: 50px;
-
   color: black;
   text-align: center;
   box-shadow: 0 8px 20px $primary;

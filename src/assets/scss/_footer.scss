@@ -7,6 +7,7 @@
 .contact-info {
   text-align: left;
   align-self: center;
+
   a {
     text-decoration: none;
     color: $logoRedText;
@@ -15,11 +16,14 @@
 
 footer {
   color: $footerText;
+
   a {
     color: $footerText;
+
     &:hover {
       text-decoration: underline;
     }
+
     &:active {
       filter: brightness(1.5);
     }
@@ -30,10 +34,12 @@ footer {
     font-size: 2rem;
     color: $footerIconColor;
     text-decoration: none;
+
     &:hover {
       filter: brightness(1.5);
     }
   }
+
   &-text {
     font-size: 0.7rem;
     text-align: center;
@@ -42,8 +48,10 @@ footer {
 
 .gangGang {
   font-size: 1.5rem;
+
   a {
     text-decoration: none;
+
     &:hover {
       color: $footerIconColor;
       text-decoration: underline;
@@ -66,7 +74,7 @@ footer {
   align-self: center;
 }
 
-@media (max-width: 576px) {
+@media (width <= 576px) {
   .logoImgFooter {
     display: none;
   }

@@ -2,13 +2,13 @@ import { getCandyProductInfo } from "../services/candyAPI";
 import { Modal } from "bootstrap";
 
 export const renderModal = async function (productId: number) {
-  let candyProduct = await getCandyProductInfo(productId);
-  let candyTitle = candyProduct.data.name;
-  let candyParagraph = candyProduct.data.description;
-  let modalThumbnailURL = `https://www.bortakvall.se${candyProduct.data.images.thumbnail}`;
-  let candyPrice = candyProduct.data.price;
-  let candyStock = candyProduct.data.stock_status;
-  let candyQty = candyProduct.data.stock_quantity;
+  const candyProduct = await getCandyProductInfo(productId);
+  const candyTitle = candyProduct.data.name;
+  const candyParagraph = candyProduct.data.description;
+  const modalThumbnailURL = `https://www.bortakvall.se${candyProduct.data.images.thumbnail}`;
+  const candyPrice = candyProduct.data.price;
+  const candyStock = candyProduct.data.stock_status;
+  const candyQty = candyProduct.data.stock_quantity;
 
   //Modal product info
   const modalContainerEl = document.querySelector(
@@ -36,13 +36,13 @@ export const renderModal = async function (productId: number) {
           ${
             candyStock === "instock"
               ? `
-            <p class="card-text stockStatus">
+            <p class="card-text stock-status">
               I lager:
               <span class="fw-bold">${candyQty}</span>
             </p>
           `
               : `
-            <p class="card-text stockStatus"><em>Ej i lager</em></p>
+            <p class="card-text stock-status"><em>Ej i lager</em></p>
           `
           }
         </div>

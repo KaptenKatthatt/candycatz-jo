@@ -25,11 +25,11 @@ export const renderCartView = function () {
       aria-labelledby="panelsStayOpen-headingOne">
       <div class="accordion-body d-flex flex-column align-items-center">
 
-        <img class="checkoutLogo mb-2" src="/img/candyCatzLogo_pinkBG.webp" alt="Logo for Candycatz">
+        <img class="checkout-logo mb-2" src="/img/candyCatzLogo_pinkBG.webp" alt="Logo for Candycatz">
         <div class="checkoutAndOrderSummaryContainer">
           <div class="checkoutCartContainer card"></div>
           <!-- Order summary -->
-          <div class="card checkoutOrderSummary mt-4 my-4">
+          <div class="card checkout-order-summary mt-4 my-4">
             <div class="card-body">
               <h5 class="orderSummaryHeader text-dark mb-4">Ordersummering</h5>
               <div class="d-flex justify-content-between mb-3">
@@ -49,8 +49,8 @@ export const renderCartView = function () {
               </div>
             </div>
             <!--  Continue to checkout button -->
-            <div class="proceedBtnContainer text-center mt-2 mx-auto" aria-label="Go to checkout">
-              <button type="button" class="proceedBtn btn btn-primary mt-5" aria-label="Continue to checkout">😸 <i class="bi bi-chevron-down"></i> Fortsätt till
+            <div class="proceed-btn-container text-center mt-2 mx-auto" aria-label="Go to checkout">
+              <button type="button" class="proceed-btn btn btn-primary mt-5" aria-label="Continue to checkout">😸 <i class="bi bi-chevron-down"></i> Fortsätt till
                 kassan! <i class="bi bi-chevron-down"></i> 😸</button>
             </div>
           </div>
@@ -61,7 +61,7 @@ export const renderCartView = function () {
   `;
 
   // Click -Continue to checkout
-  const proceedBtn = document.querySelector<HTMLDivElement>(".proceedBtn")!;
+  const proceedBtn = document.querySelector<HTMLDivElement>(".proceed-btn")!;
   proceedBtn.addEventListener("click", () => {
     const collapseOne = document.querySelector<HTMLDivElement>(
       "#panelsStayOpen-collapseOne"
@@ -102,8 +102,8 @@ export const renderCheckoutForm = function () {
             <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse  accordionTwo "
               aria-labelledby="panelsStayOpen-headingTwo">
               <div class="accordion-body m-auto">
-                <div class="glowForm p-4 my-4 card">
-                <h3 class="formTitle"> Fyll i dina uppgifter! </h3>
+                <div class="glow-form p-4 my-4 card">
+                <h3 class="form-title"> Fyll i dina uppgifter! </h3>
 
                 <form id="form">
                   <div class="form-group col-6-md">
@@ -216,11 +216,11 @@ export const renderCheckoutForm = function () {
 
 export const postUserAddressForm = function (responseData: ResponseData) {
   const generateOrderItemsInConfirmation = function () {
-    let orderItemsInConfirmation = getCartArrayFromLocalStorage() || [];
+    const orderItemsInConfirmation = getCartArrayFromLocalStorage() || [];
 
     return orderItemsInConfirmation
       .map((product) => {
-        let thumbnailURL = `https://www.bortakvall.se${product.thumbnail}`;
+        const thumbnailURL = `https://www.bortakvall.se${product.thumbnail}`;
 
         return `<div class="d-flex justify-content-start mb-2 rounded-4 p-1 border-0 mx-auto"
                                 style="background: transparent; box-shadow: none; width: 20rem;">
@@ -249,9 +249,9 @@ export const postUserAddressForm = function (responseData: ResponseData) {
                                     class="accordion-collapse collapse accordionThree"
                                     aria-labelledby="panelsStayOpen-headingThree">
                                     <div class="accordion-body">
-                                      <div class="placedOrderContainer">
-                                        <div class="wavecardAccord mt-3">
-                                          <h2 class="smilesTxt">Smiles, ${
+                                      <div class="placed-order-container">
+                                        <div class="wavecard-accord mt-3">
+                                          <h2 class="smiles-txt">Smiles, ${
                                             responseData.data
                                               .customer_first_name
                                           }!</h2>
@@ -304,6 +304,7 @@ const openMainPage = function () {
     if (clickedNavLink) {
       const innerBtnText = clickedNavLink.textContent.trim();
       if (!clickedNavLink.hasAttribute("data-bs-toggle")) {
+        // Do nothing
       }
       if (innerBtnText === "Candy Hotline") {
         return;

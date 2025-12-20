@@ -8,8 +8,9 @@ import {
 import { openOffCanvas } from "./offcan";
 import { renderCheckoutCart } from "./renderCheckoutCart";
 
-const allCardsContainerEl =
-  document.querySelector<HTMLDivElement>(".allCardsContainer");
+const allCardsContainerEl = document.querySelector<HTMLDivElement>(
+  ".all-cards-container"
+);
 const cartAmountEl =
   document.querySelector<HTMLParagraphElement>(".cartAmount");
 const cartTotalPriceEl =
@@ -118,7 +119,7 @@ export const getTotalCostOfProductsInCart = function () {
 
 export const renderCart = function () {
   const cartContainerEl =
-    document.querySelector<HTMLDivElement>(".cartContainer");
+    document.querySelector<HTMLDivElement>(".cart-container");
   // Render a card with added item
   if (cartContainerEl && cartArray.length > 0) {
     cartContainerEl.innerHTML = cartArray
@@ -128,23 +129,23 @@ export const renderCart = function () {
         const thumbnailURL = `https://www.bortakvall.se${product.thumbnail}`;
         return `
          <div
-            class="off-can-cart-list-item cartListItem"
+            class="off-can-cart-list-item cart-list-item"
             data-product-id="${product.id}"
           >
             
             <img
               src="${thumbnailURL}"
-              class="cartThumbnail"
+              class="cart-thumbnail"
               alt="Image of ${product.name}"
             />
-            <h3 class="offCanCartTitle fs-5">${product.name}</h3>
+            <h3 class="off-can-cart-title fs-5">${product.name}</h3>
 
-            <div class="offCanCartPrice">
+            <div class="off-can-cart-price">
               <p class="me-2"><strong class=" ${productOnDiscount}">${
           product.price
         }:-</strong>/skopa</p>
             </div>
-            <div class="offCanCartTotal">
+            <div class="off-can-cart-total">
               <p>
                 Totalt: <strong>${product.qty * product.price}:-</strong>
               </p>
@@ -177,18 +178,18 @@ export const renderCart = function () {
       })
       .join("");
     document
-      .querySelector<HTMLDivElement>(".heartCatContainer")!
+      .querySelector<HTMLDivElement>(".heart-cat-container")!
       .classList.remove("d-none");
     document
       .querySelector<HTMLDivElement>(".check-out-btn")!
       .classList.remove("d-none");
     document.querySelector<HTMLDivElement>(
-      ".heartCatContainer"
+      ".heart-cat-container"
     )!.innerHTML = `<img class="rounded-4 w-100 my-3" src="/img/heartCat.gif" alt="Happy cat with hearts">`;
 
     cartContainerEl.onclick = (e) => {
       const target = e.target as HTMLElement;
-      const candyCard = target.closest<HTMLDivElement>(".cartListItem");
+      const candyCard = target.closest<HTMLDivElement>(".cart-list-item");
       clickedCandyId = Number(candyCard?.dataset.productId);
 
       if (target.closest(".cart-plus-btn")) {
@@ -216,7 +217,7 @@ export const renderCart = function () {
   }
 
   const totalCostContainerEl = document.querySelector(
-    ".totalCostContainer"
+    ".total-cost-container"
   ) as HTMLSpanElement;
 
   totalCostContainerEl.innerHTML = `<strong>${String(
@@ -261,5 +262,5 @@ allCardsContainerEl?.addEventListener("click", async (e) => {
 //Clear cart btn listener
 mainContainerEl!.addEventListener("click", (e) => {
   const target = e.target as HTMLElement;
-  if (target.closest(".clearCartBtn")) clearCart();
+  if (target.closest(".clear-cart-btn")) clearCart();
 });

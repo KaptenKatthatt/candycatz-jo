@@ -1,7 +1,8 @@
 import { renderModal } from "./modal";
 
-const allCardsContainerEl =
-  document.querySelector<HTMLDivElement>(".allCardsContainer")!;
+const allCardsContainerEl = document.querySelector<HTMLDivElement>(
+  ".all-cards-container"
+)!;
 
 export function getClickedCandyId() {
   allCardsContainerEl.addEventListener("click", async (e: MouseEvent) => {

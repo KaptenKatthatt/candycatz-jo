@@ -8,13 +8,14 @@
 .cart-thumbnail {
   align-self: center;
   border-radius: 10px;
-  grid-area: cartThumbnail;
+  grid-area: cart-thumbnail;
   max-width: 70px;
 }
 
 .off-can-cart-list-item {
   --bs-card-title-spacer-y: 0.3rem;
 
+  background-color: white;
   border-radius: 0 0 10px 10px;
   box-shadow: 0 1px 3px $shadow-color;
   gap: 6px;
@@ -38,6 +39,33 @@
 
 .off-can-cart-total {
   grid-area: off-can-cart-total;
+}
+
+.product-container {
+  border-radius: 10px;
+  background-color: white;
+}
+
+.check-out-btn {
+  background-color: $accordion;
+  margin: 0 auto;
+  width: 100%;
+  padding: $btn-padding-y $btn-padding-x;
+
+  &:hover {
+    filter: brightness(1.15);
+    transform: scale(1);
+    background-color: $accordion;
+  }
+
+  &:active {
+    transform: scale(0.95);
+  }
+}
+
+.clear-cart-btn {
+  margin: 0 auto;
+  width: 94%;
 }
 
 .offcanvas {

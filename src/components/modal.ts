@@ -12,7 +12,7 @@ export const renderModal = async function (productId: number) {
 
   //Modal product info
   const modalContainerEl = document.querySelector(
-    ".modalContainer"
+    ".modal-container"
   ) as HTMLDivElement;
 
   modalContainerEl.innerHTML = `

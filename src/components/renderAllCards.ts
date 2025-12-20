@@ -36,7 +36,7 @@ export const renderAllCards = async function () {
 
     // Side scroller arrow functionality
     document
-      .querySelector(".topTreatsSideScrollerWrapper")
+      .querySelector(".top-treats-side-scroller-wrapper")
       ?.addEventListener("click", (e) => {
         const target = e.target as HTMLElement;
         const scrollContainer = document.querySelector(
@@ -62,10 +62,10 @@ export const renderAllCards = async function () {
     const sliceOutSavings = filterSweetSaving.slice(0, 12);
     // slicea sedan ut de första 12
 
-    const sweetSavingsCardsContainterEl = document.querySelector(
+    const sweetSavingsCardsContainerEl = document.querySelector(
       ".sweet-savings-cards-container"
     ) as HTMLDivElement;
-    sweetSavingsCardsContainterEl.innerHTML = sliceOutSavings
+    sweetSavingsCardsContainerEl.innerHTML = sliceOutSavings
       .map((product) => cardStructure(product, "sale"))
       .join("");
 

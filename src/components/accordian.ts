@@ -26,7 +26,7 @@ export const renderCartView = function () {
       <div class="accordion-body d-flex flex-column align-items-center">
 
         <img class="checkout-logo mb-2" src="/img/candyCatzLogo_pinkBG.webp" alt="Logo for Candycatz">
-        <div class="checkoutAndOrderSummaryContainer">
+        <div class="checkout-and-order-summary-container">
           <div class="checkoutCartContainer card"></div>
           <!-- Order summary -->
           <div class="card checkout-order-summary mt-4 my-4">
@@ -34,9 +34,9 @@ export const renderCartView = function () {
               <h5 class="order-summary-header text-dark mb-4">Ordersummering</h5>
               <div class="d-flex justify-content-between mb-3">
                 <span>Summa</span>
-                <span class="checkoutSubtotalContainer"></span>
+                <span class="checkout-subtotal-container"></span>
               </div>
-              <div class="haveDiscountContainer d-flex justify-content-between mb-3">
+              <div class="have-discount-container d-flex justify-content-between mb-3">
               </div>
               <div class="d-flex justify-content-between mb-4">
                 <span>Frakt</span>
@@ -45,7 +45,7 @@ export const renderCartView = function () {
               <hr>
               <div class="d-flex justify-content-between mb-4">
                 <strong>Totalt</strong>
-                <span class="checkoutTotalCostContainer"><strong></strong></span>
+                <span class="checkout-total-cost-container"><strong></strong></span>
               </div>
             </div>
             <!--  Continue to checkout button -->
@@ -268,7 +268,7 @@ export const postUserAddressForm = function (responseData: ResponseData) {
                                           }, ${
     responseData.data.customer_city
   }, ${responseData.data.customer_postcode} </p>
-                                          <h4 class="orderConfirmationTxt">Här är din order:</h4>
+                                          <h4 class="order-confirmation-txt">Här är din order:</h4>
                                           <div class="d-flex flex-column align-items-start gap-2">
                                             ${generateOrderItemsInConfirmation()}
                                           </div>
@@ -294,8 +294,9 @@ const navBarEl = document.querySelector<HTMLLinkElement>(".navbar")!;
 const accordianEl = document.querySelector<HTMLDivElement>(
   "#cartCheckoutContainer"
 )!;
-const allCardsContainerEl =
-  document.querySelector<HTMLDivElement>(".allCardsContainer")!;
+const allCardsContainerEl = document.querySelector<HTMLDivElement>(
+  ".all-cards-container"
+)!;
 
 const openMainPage = function () {
   navBarEl.addEventListener("click", (e) => {

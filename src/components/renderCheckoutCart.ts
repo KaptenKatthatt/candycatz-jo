@@ -29,7 +29,7 @@ export const renderCheckoutCart = function () {
 
         return `
           <div
-            class="checkout-cart-list-item cartListItem rounded-4"
+            class="checkout-cart-list-item cart-list-item rounded-4"
             data-product-id="${product.id}"
           >
             <img
@@ -72,7 +72,7 @@ export const renderCheckoutCart = function () {
 
     checkoutCartContainerEl.onclick = (e) => {
       const target = e.target as HTMLElement;
-      const candyCard = target.closest<HTMLDivElement>(".cartListItem");
+      const candyCard = target.closest<HTMLDivElement>(".cart-list-item");
       const productId = Number(candyCard?.dataset.productId);
 
       if (target.closest(".cart-plus-btn")) {
@@ -87,16 +87,16 @@ export const renderCheckoutCart = function () {
     };
   }
   const checkoutSubtotalContainerEl = document.querySelector(
-    ".checkoutSubtotalContainer"
+    ".checkout-subtotal-container"
   ) as HTMLSpanElement;
 
   checkoutSubtotalContainerEl.innerText = `${getTotalCostOfProductsInCart()} kr`;
 
   const totalCostContainerEl = document.querySelector(
-    ".totalCostContainer"
+    ".total-cost-container"
   ) as HTMLSpanElement;
   const checkoutTotalCostContainerEl = document.querySelector(
-    ".checkoutTotalCostContainer"
+    ".checkout-total-cost-container"
   ) as HTMLSpanElement;
 
   totalCostContainerEl.innerHTML = `<strong>${String(
@@ -107,12 +107,12 @@ export const renderCheckoutCart = function () {
   )} kr</strong>`;
 
   const haveDiscountContainerEl = document.querySelector<HTMLDivElement>(
-    ".haveDiscountContainer"
+    ".have-discount-container"
   );
   if (haveDiscountContainerEl && totalAmountSaved > 0) {
     haveDiscountContainerEl.innerHTML = `
       <span class="text-danger">Rabatt avdragen</span>
-      <span class="amountSavedContainer text-danger">${totalAmountSaved} kr</span>`;
+      <span class="amount-saved-container text-danger">${totalAmountSaved} kr</span>`;
   } else {
     haveDiscountContainerEl!.innerHTML = "";
   }

@@ -1,5 +1,5 @@
 export const carouselContainerEl = document.querySelector(
-  ".carouselContainer"
+  ".carousel-container"
 ) as HTMLElement;
 
 export const renderCarousel = function () {

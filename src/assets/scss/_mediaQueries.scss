@@ -1,5 +1,5 @@
 @media (width <= 400px) {
-  .navbarLogo {
+  .navbar-logo {
     font-size: 3rem;
   }
 }
@@ -9,21 +9,32 @@
     width: 85%;
   }
 
-  .buttonContainer {
-    grid-area: buttonContainer;
+  .button-container {
+    grid-area: button-container;
     margin-left: 10px;
     padding: 0;
   }
 
-  .glowForm {
+  .glow-form {
     width: 85%;
+  }
+
+  .modal-btn {
+    max-width: 50%;
+    margin: auto;
+  }
+
+  .scrollable-modal {
+    max-height: 400px;
+    overflow-y: auto;
+    padding-right: 10px;
   }
 
   .scallopbox {
     --r: 1.3rem;
   }
 
-  .sweetSavingsCardsContainer {
+  .sweet-savings-cards-container {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -41,7 +52,7 @@
     width: 65%;
   }
 
-  .glowForm {
+  .glow-form {
     width: 65%;
   }
 

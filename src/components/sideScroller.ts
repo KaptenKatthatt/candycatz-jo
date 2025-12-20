@@ -10,7 +10,9 @@ export function cardStructureSideScroller(product: CandyData): string {
     product.name
   }">
   <div class="card-body">
-  <h5 class="card-title cardTitleSideScroller click mb-5">${product.name}</h5>
+  <h5 class="card-title card-title-side-scroller click mb-5">${
+    product.name
+  }</h5>
         <div class="info-container">
           ${
             product.stock_status === "instock"

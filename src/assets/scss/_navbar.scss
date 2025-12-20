@@ -1,42 +1,9 @@
-.nav-link:hover {
-  transform: scale(1.1);
-}
-
-.navbar {
-  display: flex;
-  box-shadow: 0 4px 8px $shadow-color;
-  border-bottom-left-radius: 20px;
-  min-width: 350px;
-}
-
-.navbar-brand {
-  transition: transform 0.5s ease-in-out;
-
-  &:hover {
-    transform: rotate(350deg) scale(1.2) translateX(20px) translateY(15px);
-    text-shadow: 0 0 10px white;
-  }
-}
-
-.navbar-cart {
-  transition: transform 0.2s ease-in-out;
-  display: inline-block;
-
-  &:hover {
-    color: $btn-candy-pink;
-    transform: scale(1.4) rotate(-10deg) translateX(3px);
-  }
-}
-
-.navbar-gradient {
-  background: linear-gradient(90deg, #ffb3d9 0%, #ffebb3 30%, #a3dcff 100%);
-}
-
 .nav-link {
   margin-right: 15px;
   transition: transform 0.2s, color 0.2;
 
   &:hover {
+    transform: scale(1.1);
     color: $btn-candy-pink;
   }
 }

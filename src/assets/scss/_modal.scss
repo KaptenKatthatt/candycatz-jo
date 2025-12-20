@@ -32,16 +32,3 @@
     margin: 0;
   }
 }
-
-@media (width >= 576px) {
-  .modal-btn {
-    max-width: 50%;
-    margin: auto;
-  }
-
-  .scrollable-modal {
-    max-height: 400px;
-    overflow-y: auto;
-    padding-right: 10px;
-  }
-}

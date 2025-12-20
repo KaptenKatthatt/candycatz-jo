@@ -27,7 +27,7 @@ export const renderAllCards = async function () {
     const sliceOutTopTreats = filterTopTreats.slice(0, 12);
     // slicea sedan ut de första 12
     const topTreatsCardsContainerEl = document.querySelector(
-      ".topTreatsSideScrollerContainer"
+      ".top-treats-side-scroller-container"
     ) as HTMLDivElement;
 
     topTreatsCardsContainerEl.innerHTML = sliceOutTopTreats
@@ -40,13 +40,13 @@ export const renderAllCards = async function () {
       ?.addEventListener("click", (e) => {
         const target = e.target as HTMLElement;
         const scrollContainer = document.querySelector(
-          ".topTreatsSideScrollerContainer"
+          ".top-treats-side-scroller-container"
         ) as HTMLDivElement;
 
-        if (target.closest(".scrollArrowLeft")) {
+        if (target.closest(".scroll-arrow-left")) {
           scrollContainer.scrollBy(-800, 0);
         }
-        if (target.closest(".scrollArrowRight")) {
+        if (target.closest(".scroll-arrow-right")) {
           scrollContainer.scrollBy(800, 0);
         }
       });

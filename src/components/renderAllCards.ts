@@ -63,7 +63,7 @@ export const renderAllCards = async function () {
     // slicea sedan ut de första 12
 
     const sweetSavingsCardsContainterEl = document.querySelector(
-      ".sweetSavingsCardsContainer"
+      ".sweet-savings-cards-container"
     ) as HTMLDivElement;
     sweetSavingsCardsContainterEl.innerHTML = sliceOutSavings
       .map((product) => cardStructure(product, "sale"))
@@ -82,7 +82,7 @@ export const renderAllCards = async function () {
     showMoreCandy.sort((a, b) => a.name.localeCompare(b.name, "sv"));
 
     const moreToMunchCardsContainerEl = document.querySelector(
-      ".moreToMunchCardsContainer"
+      ".more-to-munch-cards-container"
     ) as HTMLDivElement;
     showRestCandy = showMoreCandy.slice(0, addedCandyNr);
     moreToMunchCardsContainerEl.innerHTML += showRestCandy
@@ -100,7 +100,7 @@ export const renderAllCards = async function () {
 };
 function loadMoreSweets() {
   const moreToMunchCardsContainerEl = document.querySelector(
-    ".moreToMunchCardsContainer"
+    ".more-to-munch-cards-container"
   ) as HTMLDivElement;
   showRestCandy = showMoreCandy.slice(0, addedCandyNr);
   moreToMunchCardsContainerEl.innerHTML = showRestCandy
@@ -113,7 +113,9 @@ function loadMoreSweets() {
 }
 
 function moreSweetsButton() {
-  const moreSweetsBtnEl = document.querySelector(".munchBtn") as HTMLDivElement;
+  const moreSweetsBtnEl = document.querySelector(
+    ".munch-btn"
+  ) as HTMLDivElement;
 
   moreSweetsBtnEl.addEventListener("click", () => {
     addedCandyNr += 12;

@@ -27,10 +27,10 @@ export const renderModal = async function (productId: number) {
         <div class="modal-body mt-0">
         <div class="row">    
         <div class="col-sm-6 d-flex align-items-center">
-          <img src="${modalThumbnailURL}" class="modalThumbnail card-img scallopboxThumb" alt="${candyTitle}">
+          <img src="${modalThumbnailURL}" class="modalThumbnail card-img scallopbox-thumb" alt="${candyTitle}">
           </div>
           <div class="col-sm-6 mb-2">
-          <div class="scrollableModal">
+          <div class="scrollable-modal">
           <p class="modalParagraph card-text pt-2">${candyParagraph}</p>
           <p class="modal-price">Pris:<strong> ${candyPrice}:- </strong></p>
           ${
@@ -47,7 +47,7 @@ export const renderModal = async function (productId: number) {
           }
         </div>
         </div>
-          <button type="button" class="btn btn-secondary modalBtn mt-2" data-bs-dismiss="modal" aria-label="Close product info popup">Stäng</button>
+          <button type="button" class="btn btn-secondary modal-btn mt-2" data-bs-dismiss="modal" aria-label="Close product info popup">Stäng</button>
        
         </div>
       </div>

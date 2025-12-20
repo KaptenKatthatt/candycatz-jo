@@ -1,10 +1,10 @@
-@media (max-width: 400px) {
+@media (width <= 400px) {
   .navbarLogo {
     font-size: 3rem;
   }
 }
 
-@media (min-width: 576px) {
+@media (width >= 576px) {
   .accordion {
     width: 85%;
   }
@@ -30,13 +30,13 @@
   }
 }
 
-@media (min-width: 600px) {
+@media (width >= 600px) {
   .offcanvas {
     --bs-offcanvas-width: 64vw;
   }
 }
 
-@media (min-width: 768px) {
+@media (width >= 768px) {
   .accordion {
     width: 65%;
   }
@@ -58,7 +58,7 @@
   }
 }
 
-@media (min-width: 992px) {
+@media (width >= 992px) {
   .navbar-nav {
     display: flex;
     flex-direction: row;
@@ -74,7 +74,7 @@
   }
 }
 
-@media (min-width: 1200px) {
+@media (width >= 1200px) {
   .navbar-nav {
     font-size: 1.5rem;
   }
@@ -84,7 +84,7 @@
   }
 }
 
-@media (min-width: 1400px) {
+@media (width >= 1400px) {
   .offcanvas {
     --bs-offcanvas-width: 28vw;
   }

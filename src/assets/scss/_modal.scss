@@ -2,6 +2,7 @@
   margin: auto;
   transition: transform 1.5s ease-in-out;
   width: 200px;
+
   &:hover {
     transform: scale(0.2);
   }
@@ -21,21 +22,24 @@
   &-content {
     font-size: 0.8rem;
   }
+
   &-footer,
   &-header {
     border: none;
   }
+
   &-price {
-    margin: 0px;
+    margin: 0;
   }
 }
 
-@media (min-width: 576px) {
-  .modalBtn {
+@media (width >= 576px) {
+  .modal-btn {
     max-width: 50%;
     margin: auto;
   }
-  .scrollableModal {
+
+  .scrollable-modal {
     max-height: 400px;
     overflow-y: auto;
     padding-right: 10px;

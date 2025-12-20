@@ -3,7 +3,7 @@
   width: 100%;
   overflow: hidden;
   white-space: nowrap;
-  padding: 10px 0px;
+  padding: 10px 0;
 }
 
 .scroll-content {
@@ -23,6 +23,7 @@
   0% {
     transform: translateX(0);
   }
+
   100% {
     transform: translateX(-50%);
   }

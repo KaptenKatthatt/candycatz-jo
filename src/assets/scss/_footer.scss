@@ -1,38 +1,20 @@
 .after-scallop {
-  background: $footerBG;
+  background: $footer-bg;
   padding: 50px;
   text-align: right;
 }
 
-.contact-info {
-  text-align: left;
-  align-self: center;
-
-  a {
-    text-decoration: none;
-    color: $logoRedText;
-  }
-}
-
 footer {
-  color: $footerText;
+  color: $footer-text;
 
   a {
-    color: $footerText;
-
-    &:hover {
-      text-decoration: underline;
-    }
-
-    &:active {
-      filter: brightness(1.5);
-    }
+    color: $footer-text;
   }
 
   i {
     margin: 0.5rem;
     font-size: 2rem;
-    color: $footerIconColor;
+    color: $footer-icon-color;
     text-decoration: none;
 
     &:hover {
@@ -46,20 +28,38 @@ footer {
   }
 }
 
-.gangGang {
+.contact-info {
+  text-align: left;
+  align-self: center;
+
+  a {
+    text-decoration: none;
+    color: $logo-red-text;
+  }
+}
+
+.gang-gang {
   font-size: 1.5rem;
 
   a {
     text-decoration: none;
-
-    &:hover {
-      color: $footerIconColor;
-      text-decoration: underline;
-    }
   }
 }
 
-.logoContainerFooter {
+footer a:hover {
+  text-decoration: underline;
+}
+
+footer a:active {
+  filter: brightness(1.5);
+}
+
+.gang-gang a:hover {
+  color: $footer-icon-color;
+  text-decoration: underline;
+}
+
+.logo-container-footer {
   padding-top: 100px;
   display: flex;
   justify-content: space-between;
@@ -67,7 +67,7 @@ footer {
   max-width: 50vw;
 }
 
-.logoImgFooter {
+.logo-img-footer {
   width: 15rem;
   height: 10rem;
   filter: saturate(0.6);
@@ -75,7 +75,7 @@ footer {
 }
 
 @media (width <= 576px) {
-  .logoImgFooter {
+  .logo-img-footer {
     display: none;
   }
 }

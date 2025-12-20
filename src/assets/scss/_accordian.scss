@@ -5,7 +5,7 @@
     font-size: 2rem;
 
     &[aria-expanded="false"] {
-      background-color: $accordianbg;
+      background-color: $accordian-bg;
       color: $primary;
     }
 
@@ -42,7 +42,7 @@
 
 .order-confirmation-txt,
 .smiles-txt {
-  color: $orderConfirmationTxt;
+  color: $order-confirmation-txt;
 }
 
 .placed-order-container {
@@ -76,7 +76,7 @@
   padding: 10px;
   border: var(--s) solid #0000;
   box-sizing: border-box;
-  background: $backgroundColor;
+  background: $background-color;
   border-radius: 50px;
   color: black;
   text-align: center;

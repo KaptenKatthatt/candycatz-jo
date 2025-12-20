@@ -1,61 +1,57 @@
-.checkoutCartListItem p {
-  padding: 0px;
-  margin: 0px;
+.checkout-cart-list-item p {
+  padding: 0;
+  margin: 0;
 }
 
-.checkoutCartListItem {
+.checkout-cart-list-item {
   width: 100%;
-
-  border-radius: 0px 0px 10px 10px;
+  border-radius: 0 0 10px 10px;
   margin: 0 auto;
-
   margin-bottom: 0.5rem;
   padding: 8px;
-  --bs-checkOutCartTitle-spacer-y: 0.3rem;
+
+  --bs-checkout-cart-title-spacer-y: 0.3rem;
+
   overflow: hidden;
-
-  row-gap: 6px;
-  column-gap: 6px;
-
+  gap: 6px;
   display: grid;
-  grid-template-rows: auto auto auto;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-areas:
-    "checkOutThumbnail checkOutCartTitle checkOutCartTitle"
-    "checkOutThumbnail checkOutCartPrice checkOutCartTotal"
-    "checkOutThumbnail buttonContainer buttonContainer";
+  grid-template: "checkout-thumbnail checkout-cart-title checkout-cart-title" auto "checkout-thumbnail checkout-cart-price checkout-cart-total" auto "checkout-thumbnail button-container button-container" auto / 1fr 1fr 1fr;
 }
 
-.checkOutThumbnail {
+.checkout-thumbnail {
   max-width: 70px;
-  grid-area: checkOutThumbnail;
+  grid-area: checkout-thumbnail;
   align-self: center;
   border-radius: 10px;
 }
-.checkOutCartTitle {
-  grid-area: checkOutCartTitle;
+
+.checkout-cart-title {
+  grid-area: checkout-cart-title;
   font-weight: 700;
 }
-.checkOutCartPrice {
-  grid-area: checkOutCartPrice;
-}
-.checkOutCartTotal {
-  grid-area: checkOutCartTotal;
-}
-.buttonContainer {
-  grid-area: buttonContainer;
+
+.checkout-cart-price {
+  grid-area: checkout-cart-price;
 }
 
-.smallButtonContainer {
+.checkout-cart-total {
+  grid-area: checkout-cart-total;
+}
+
+.button-container {
+  grid-area: button-container;
+}
+
+.small-button-container {
   display: flex;
   justify-content: center;
   align-items: center;
   margin: auto;
-  border: solid 1px rgb(187, 187, 187);
+  border: solid 1px rgb(187 187 187);
   border-radius: 10px;
 }
 
-.cartQty {
+.cart-qty {
   display: inline-block;
   text-align: center;
   margin: auto;
@@ -63,54 +59,52 @@
   line-height: 40px;
   border: none;
   color: black;
-  background-color: $cartQtyBG;
+  background-color: $cart-qty-bg;
 }
 
-.deleteBtn {
+.delete-btn {
   border: none;
+
   &:hover {
     border: none;
   }
 }
 
-@media (min-width: 886px) {
-  .checkoutCartListItem {
-    border-radius: 0px 0px 10px 10px;
+@media (width >= 886px) {
+  .checkout-cart-list-item {
+    border-radius: 0 0 10px 10px;
     margin-bottom: 0.5rem;
     padding: 8px;
-    --bs-checkOutCartTitle-spacer-y: 0.3rem;
+
+    --bs-checkout-cart-title-spacer-y: 0.3rem;
+
     overflow: hidden;
-
-    row-gap: 6px;
-    column-gap: 6px;
-
+    gap: 6px;
     display: grid;
-    grid-template-rows: auto auto auto;
-    grid-template-columns: 120px 10rem auto;
-    grid-template-areas:
-      "checkOutThumbnail checkOutCartTitle  checkOutCartTitle"
-      "checkOutThumbnail checkOutCartPrice buttonContainer"
-      "checkOutThumbnail checkOutCartTotal buttonContainer";
+    grid-template: "checkout-thumbnail checkout-cart-title checkout-cart-title" auto "checkout-thumbnail checkout-cart-price button-container" auto "checkout-thumbnail checkout-cart-total button-container" auto / 120px 10rem auto;
   }
 
-  .checkOutThumbnail {
-    grid-area: checkOutThumbnail;
+  .checkout-thumbnail {
+    grid-area: checkout-thumbnail;
     align-self: center;
     border-radius: 10px;
     max-width: 110px;
   }
 
-  .checkOutCartTitle {
-    grid-area: checkOutCartTitle;
+  .checkout-cart-title {
+    grid-area: checkout-cart-title;
   }
-  .checkOutCartPrice {
-    grid-area: checkOutCartPrice;
+
+  .checkout-cart-price {
+    grid-area: checkout-cart-price;
   }
-  .checkOutCartTotal {
-    grid-area: checkOutCartTotal;
+
+  .checkout-cart-total {
+    grid-area: checkout-cart-total;
   }
-  .buttonContainer {
-    grid-area: buttonContainer;
+
+  .button-container {
+    grid-area: button-container;
     margin-right: 10px;
   }
 }

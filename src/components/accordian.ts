@@ -31,7 +31,7 @@ export const renderCartView = function () {
           <!-- Order summary -->
           <div class="card checkout-order-summary mt-4 my-4">
             <div class="card-body">
-              <h5 class="orderSummaryHeader text-dark mb-4">Ordersummering</h5>
+              <h5 class="order-summary-header text-dark mb-4">Ordersummering</h5>
               <div class="d-flex justify-content-between mb-3">
                 <span>Summa</span>
                 <span class="checkoutSubtotalContainer"></span>
@@ -274,7 +274,7 @@ export const postUserAddressForm = function (responseData: ResponseData) {
                                           </div>
                                           <p>Njut av sötchocken!</p>
                                           <p class="mt-4">Med vänlig hälsning,</p>
-                                          <h5 class="orderConfirmationLogo">CandyCatz</h5>
+                                          <h5 class="order-confirmation-logo">CandyCatz</h5>
                                         </div>
                                       </div>
 

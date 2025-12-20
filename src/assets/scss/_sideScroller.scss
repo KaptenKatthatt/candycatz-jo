@@ -7,7 +7,6 @@
   margin: 30px 45px;
   gap: 30px;
   overflow-x: auto;
-
   display: flex;
   flex-direction: row;
   scrollbar-width: none;
@@ -20,7 +19,7 @@
 }
 
 .scrollArrow {
-  margin: 0px 30px;
+  margin: 0 30px;
   color: $primary;
   font-size: 50px;
   position: absolute;
@@ -33,9 +32,11 @@
   &:first-of-type {
     left: -20px;
   }
+
   &:first-of-type:hover {
     transform: scale(1.05) translateY(-50%);
   }
+
   &:first-of-type:active {
     transform: scale(0.95) translateY(-50%);
   }
@@ -43,13 +44,16 @@
   &:last-of-type {
     right: -20px;
   }
+
   &:last-of-type:hover {
     transform: scale(1.05) translateY(-50%);
   }
+
   &:last-of-type:active {
     transform: scale(0.95) translateY(-50%);
   }
 }
+
 .cardTitleSideScroller {
   font-size: 2rem;
   overflow: hidden;

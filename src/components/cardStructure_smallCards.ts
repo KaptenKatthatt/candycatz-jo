@@ -10,7 +10,9 @@ export const cardStructure = function (
   return `
     <div
       class="trig-target card smallCards rounded-4 p-1 ${
-        product.stock_status === "outofstock" ? "cardDisabled" : "cardTransform"
+        product.stock_status === "outofstock"
+          ? "card-disabled"
+          : "card-transform"
       }"
       data-product-id="${product.id}"
       style="width: 11rem;"

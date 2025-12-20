@@ -29,28 +29,28 @@ export const renderCheckoutCart = function () {
 
         return `
           <div
-            class="checkoutCartListItem cartListItem rounded-4"
+            class="checkout-cart-list-item cartListItem rounded-4"
             data-product-id="${product.id}"
           >
             <img
               src="${thumbnailURL}"
-              class="checkOutThumbnail rounded-4"
+              class="checkout-thumbnail rounded-4"
               alt="Image of ${product.name}"
             />
-            <h3 class="checkOutCartTitle fs-5">${product.name}</h3>
-            <p class="checkOutCartPrice"><strong class="${productOnDiscount}">${
+            <h3 class="checkout-cart-title fs-5">${product.name}</h3>
+            <p class="checkout-cart-price"><strong class="${productOnDiscount}">${
           product.price
         }:-</strong>/skopa</p>
-            <p class="checkOutCartTotal">Totalt: <strong>${
+            <p class="checkout-cart-total">Totalt: <strong>${
               product.qty * product.price
             }:-</strong></p>
 
-            <div class="buttonContainer d-flex flex-row align-items-center">
-            <span class="smallButtonContainer">
+            <div class="button-container d-flex flex-row align-items-center">
+            <span class="small-button-container">
               <button class="cart-minus-btn btn" type="button" aria-label="Decrease number of product in cart.">
                 -
               </button>
-              <p class="cartQty d-flex align-items-center justify-content-center">
+              <p class="cart-qty d-flex align-items-center justify-content-center">
                 ${product.qty}
               </p>
               <button
@@ -61,7 +61,7 @@ export const renderCheckoutCart = function () {
                 +
               </button>
               </span>
-              <button class="deleteBtn btn btn-sm btn-danger ms-2" aria-label="Delete product from cart.">
+              <button class="delete-btn btn btn-sm btn-danger ms-2" aria-label="Delete product from cart.">
                 <i class="bi bi-trash"></i>
               </button>
             </div>
@@ -79,7 +79,7 @@ export const renderCheckoutCart = function () {
         increaseAmountOfProductInCart(productId);
       } else if (target.closest(".cart-minus-btn")) {
         decreaseAmountOfProductInCart(productId);
-      } else if (target.closest(".deleteBtn")) {
+      } else if (target.closest(".delete-btn")) {
         deleteProductFromCart(productId);
       }
       renderCheckoutCart();

@@ -128,7 +128,7 @@ export const renderCart = function () {
         const thumbnailURL = `https://www.bortakvall.se${product.thumbnail}`;
         return `
          <div
-            class="offCanCartListItem cartListItem"
+            class="off-can-cart-list-item cartListItem"
             data-product-id="${product.id}"
           >
             
@@ -150,13 +150,13 @@ export const renderCart = function () {
               </p>
             </div>
 
-              <div class="buttonContainer d-flex flex-row align-items-center">
-              <span class="smallButtonContainer">
+              <div class="button-container d-flex flex-row align-items-center">
+              <span class="small-button-container">
                 <button class="cart-minus-btn btn" type="button" aria-label="Decrease number of product in cart">
                   -
                 </button>
                 <p
-                  class="cartQty"
+                  class="cart-qty"
                 >
                   ${product.qty}
                 </p>
@@ -166,7 +166,7 @@ export const renderCart = function () {
                   ${product.qty >= product.stock_quantity ? "disabled" : ""}
                 >+</button>
                 </span>
-                <button class="deleteBtn ms-1 btn btn-sm btn-danger" aria-label="Delete product from cart">
+                <button class="delete-btn ms-1 btn btn-sm btn-danger" aria-label="Delete product from cart">
                   <i class="bi bi-trash"></i>
                 </button>
               </div>
@@ -195,7 +195,7 @@ export const renderCart = function () {
         increaseAmountOfProductInCart(clickedCandyId);
       } else if (target.closest(".cart-minus-btn")) {
         decreaseAmountOfProductInCart(clickedCandyId);
-      } else if (target.closest(".deleteBtn")) {
+      } else if (target.closest(".delete-btn")) {
         deleteProductFromCart(clickedCandyId);
       }
       renderCart();

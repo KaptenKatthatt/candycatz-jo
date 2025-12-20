@@ -24,7 +24,7 @@ export const renderOffCan = function () {
       </div>
 
       <!-- Cart products container -->
-      <div class="offcanvas-body offcanvasBody">
+      <div class="offcanvas-body offcanvas-body-custom">
         <div class="productContainer card">
           <div class="card-body">
             <div class="row align-items-center cart-item">

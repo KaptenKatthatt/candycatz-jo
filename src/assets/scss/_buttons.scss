@@ -18,21 +18,10 @@
   margin-top: 1rem;
 }
 
-.btn {
-  transition: transform 0.1s ease-in-out;
-
-  &:hover {
-    transform: scale(1.05);
-  }
-
-  &:active {
-    transform: scale(0.95);
-  }
-}
-
 .btn,
 .checkout-btn,
 #continue-shopping-btn {
+  transition: transform 0.1s ease-in-out;
   border: 3px double black;
   border-bottom: 5px solid black;
   border-right: 5px solid black;
@@ -43,6 +32,14 @@
     border-bottom: 5px solid black;
     border-right: 5px solid black;
     filter: brightness(1.2);
+  }
+
+  &:hover {
+    transform: scale(1.05);
+  }
+
+  &:active {
+    transform: scale(0.95);
   }
 }
 
@@ -136,5 +133,17 @@
 
   &:active {
     background-color: $primary;
+  }
+}
+
+.modal-btn {
+  background-color: $secondary;
+
+  &:hover {
+    background-color: $secondary;
+  }
+
+  &:active {
+    background-color: $secondary;
   }
 }

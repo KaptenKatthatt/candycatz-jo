@@ -17,7 +17,8 @@
 }
 
 .checkout-cart-container {
-  box-shadow: 0 8px 20px $primary;
+  border-radius: $border-radius-medium;
+  padding: 1rem 0;
 }
 
 .checkout-logo {
@@ -26,7 +27,7 @@
 }
 
 .checkout-order-summary {
-  box-shadow: 0 8px 20px $primary;
+  border-radius: $border-radius-medium;
   padding: 1rem;
 }
 
@@ -87,4 +88,8 @@
   color: black;
   text-align: center;
   box-shadow: 0 8px 20px $primary;
+}
+
+.pink-shadow {
+  box-shadow: 0 8px 20px $primary !important;
 }

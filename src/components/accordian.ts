@@ -27,9 +27,9 @@ export const renderCartView = function () {
 
         <img class="checkout-logo mb-2" src="/img/candyCatzLogo_pinkBG.webp" alt="Logo for Candycatz">
         <div class="checkout-and-order-summary-container">
-          <div class="checkout-cart-container card"></div>
+          <div class="checkout-cart-container pink-shadow"></div>
           <!-- Order summary -->
-          <div class="card checkout-order-summary mt-4 my-4">
+          <div class="checkout-order-summary pink-shadow mt-4 my-4">
             <div class="card-body">
               <h5 class="order-summary-header mb-4">Ordersummering</h5>
               <div class="d-flex justify-content-between mb-3">
@@ -223,7 +223,7 @@ export const postUserAddressForm = function (responseData: ResponseData) {
         const thumbnailURL = `https://www.bortakvall.se${product.thumbnail}`;
 
         return `<div class="d-flex justify-content-start mb-2 rounded-4 p-1 border-0 mx-auto"
-                                style="background: transparent; box-shadow: none; width: 20rem;">
+                                style="background: transparent; width: 20rem;">
                                 <img src="${thumbnailURL}" class="rounded-4 me-3"
                                   style="width: 50px; height: 50px; object-fit: cover;" alt="Image of ${product.name}">
                                 <div class="d-flex align-items-center m-0">

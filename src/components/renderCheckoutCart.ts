@@ -29,7 +29,7 @@ export const renderCheckoutCart = function () {
 
         return `
           <div
-            class="checkout-cart-list-item cart-list-item rounded-4"
+            class="checkout-cart-list-item rounded-4"
             data-product-id="${product.id}"
           >
             <img
@@ -72,7 +72,9 @@ export const renderCheckoutCart = function () {
 
     checkoutCartContainerEl.onclick = (e) => {
       const target = e.target as HTMLElement;
-      const candyCard = target.closest<HTMLDivElement>(".cart-list-item");
+      const candyCard = target.closest<HTMLDivElement>(
+        ".checkout-cart-list-item"
+      );
       const productId = Number(candyCard?.dataset.productId);
 
       if (target.closest(".cart-plus-btn")) {

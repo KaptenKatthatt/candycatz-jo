@@ -129,7 +129,7 @@ export const renderCart = function () {
         const thumbnailURL = `https://www.bortakvall.se${product.thumbnail}`;
         return `
          <div
-            class="off-can-cart-list-item cart-list-item"
+            class="off-can-cart-list-item"
             data-product-id="${product.id}"
           >
             
@@ -189,7 +189,9 @@ export const renderCart = function () {
 
     cartContainerEl.onclick = (e) => {
       const target = e.target as HTMLElement;
-      const candyCard = target.closest<HTMLDivElement>(".cart-list-item");
+      const candyCard = target.closest<HTMLDivElement>(
+        ".off-can-cart-list-item"
+      );
       clickedCandyId = Number(candyCard?.dataset.productId);
 
       if (target.closest(".cart-plus-btn")) {

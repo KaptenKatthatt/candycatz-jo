@@ -227,12 +227,12 @@ export const renderCart = function () {
 };
 
 export const renderCartBadge = function () {
-  const navCartBadgeEl =
-    document.querySelector<HTMLSpanElement>(".navCartBadge");
-  if (navCartBadgeEl) {
-    navCartBadgeEl.innerText = String(getTotalAmountOfProductsInCart());
+  const navbarCartBadgeEl =
+    document.querySelector<HTMLSpanElement>(".navbar-cart-badge");
+  if (navbarCartBadgeEl) {
+    navbarCartBadgeEl.innerText = String(getTotalAmountOfProductsInCart());
   } else {
-    console.log("navCartBadgeEl does not exist yet.");
+    console.log("navbarCartBadgeEl does not exist yet.");
   }
 };
 

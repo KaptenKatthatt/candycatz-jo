@@ -1,9 +1,9 @@
-// Variable and config files
-@import "colors";
-
 // Bootstrap
 @import "bootstrap/scss/bootstrap";
 @import "bootstrap-icons/font/bootstrap-icons.css";
+
+// Custom colors
+@import "colors";
 
 // Children partials, custom CSS.
 @import "accordian";
@@ -39,10 +39,4 @@ body {
 .click,
 .btn {
   cursor: pointer;
-}
-
-@media (width >= 576px) {
-  .body {
-    padding-top: 0;
-  }
 }

@@ -1,7 +1,17 @@
-// Main colors
+@import "bootstrap/scss/functions";
+@import "bootstrap/scss/variables";
+
+:root {
+  --bs-primary: #{$primary};
+}
+
+// 🎀 Main colors 🍬
 $primary: #f38cb9;
 $secondary: #bde0fe;
 $background-color: #fffcef;
+$light-bg: #fff;
+$light-text: #fff;
+$dark-text: $gray-800;
 
 // Buttons
 $btn-candy-pink: #f472b6;
@@ -21,7 +31,7 @@ $accordion: #90ab70;
 $accordion-bg: #fffcef;
 
 // Cards
-$card-title: var(--bs-gray-800);
+$card-title: $dark-text;
 $all-cards-container-bg: #79b0df;
 $card-bg: $secondary;
 
@@ -44,15 +54,3 @@ $side-scroller-arrow: rgb(244 150 166);
 
 // Sweet savings category
 $discount-badge-bg: $logo-red-text;
-
-// 🎀 CandyColors 🍬
-// $accent: #f38cb9;
-// $accent-light: #ffa1ec;
-// $logoPinkBg: #ffdcdeff;
-// $logoRedText: rgb(165, 25, 15);
-
-// $disabled: rgb(148, 148, 148);
-
-// $pink: #ff69b4;
-// $blue: #87cefa;
-// $cream-white: #f5f5dc;

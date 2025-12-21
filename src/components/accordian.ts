@@ -49,8 +49,8 @@ export const renderCartView = function () {
               </div>
             </div>
             <!--  Continue to checkout button -->
-            <div class="proceed-btn-container text-center mt-2 mx-auto" aria-label="Go to checkout">
-              <button type="button" class="proceed-btn btn mt-5" aria-label="Continue to checkout">😸 <i class="bi bi-chevron-down"></i> Fortsätt till
+            <div class="proceed-to-checkout-btn-container text-center mt-2 mx-auto" aria-label="Go to checkout">
+              <button type="button" class="proceed-to-checkout-btn btn mt-5" aria-label="Continue to checkout">😸 <i class="bi bi-chevron-down"></i> Fortsätt till
                 kassan! <i class="bi bi-chevron-down"></i> 😸</button>
             </div>
           </div>
@@ -61,7 +61,9 @@ export const renderCartView = function () {
   `;
 
   // Click -Continue to checkout
-  const proceedBtn = document.querySelector<HTMLButtonElement>(".proceed-btn")!;
+  const proceedBtn = document.querySelector<HTMLButtonElement>(
+    ".proceed-to-checkout-btn"
+  )!;
   proceedBtn.addEventListener("click", () => {
     const collapseOne = document.querySelector<HTMLDivElement>(
       "#panelsStayOpen-collapseOne"

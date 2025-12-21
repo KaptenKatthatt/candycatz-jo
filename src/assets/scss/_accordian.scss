@@ -52,16 +52,20 @@
   justify-content: center;
 }
 
-.proceed-btn {
+.proceed-to-checkout-btn {
   font-size: 1.2rem;
   background-color: $primary;
 
-  &:active {
+  &:hover {
     background-color: $primary;
+  }
+
+  &:active {
+    background-color: $primary !important;
   }
 }
 
-.proceed-btn-container {
+.proceed-to-checkout-btn-container {
   width: 100%;
   height: 10rem;
   background: url("/img/banderoll.webp");

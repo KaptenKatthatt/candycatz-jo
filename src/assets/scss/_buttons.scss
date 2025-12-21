@@ -99,7 +99,7 @@
     filter: brightness(1.15);
   }
 
-  & :active {
+  &:active {
     background-color: $primary;
     transform: scale(0.95);
   }

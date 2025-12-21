@@ -90,7 +90,9 @@ export const renderCheckoutCart = function () {
     ".checkout-subtotal-container"
   ) as HTMLSpanElement;
 
-  checkoutSubtotalContainerEl.innerText = `${getTotalCostOfProductsInCart()} kr`;
+  if (checkoutSubtotalContainerEl) {
+    checkoutSubtotalContainerEl.innerText = `${getTotalCostOfProductsInCart()} kr`;
+  }
 
   const totalCostContainerEl = document.querySelector(
     ".total-cost-container"
@@ -109,11 +111,13 @@ export const renderCheckoutCart = function () {
   const haveDiscountContainerEl = document.querySelector<HTMLDivElement>(
     ".have-discount-container"
   );
-  if (haveDiscountContainerEl && totalAmountSaved > 0) {
-    haveDiscountContainerEl.innerHTML = `
+  if (haveDiscountContainerEl) {
+    if (totalAmountSaved > 0) {
+      haveDiscountContainerEl.innerHTML = `
       <span class="text-danger">Rabatt avdragen</span>
       <span class="amount-saved-container text-danger">${totalAmountSaved} kr</span>`;
-  } else {
-    haveDiscountContainerEl!.innerHTML = "";
+    } else {
+      haveDiscountContainerEl.innerHTML = "";
+    }
   }
 };

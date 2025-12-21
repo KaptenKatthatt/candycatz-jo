@@ -204,7 +204,7 @@ export const renderCart = function () {
     };
   } else {
     document
-      .querySelector<HTMLDivElement>(".heartCatContainer")
+      .querySelector<HTMLDivElement>(".heart-cat-container")
       ?.classList.add("d-none");
     document
       .querySelector<HTMLDivElement>(".check-out-btn")!

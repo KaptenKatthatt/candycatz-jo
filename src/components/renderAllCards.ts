@@ -34,23 +34,6 @@ export const renderAllCards = async function () {
       .map((product) => cardStructureSideScroller(product))
       .join("");
 
-    // Side scroller arrow functionality
-    document
-      .querySelector(".top-treats-side-scroller-wrapper")
-      ?.addEventListener("click", (e) => {
-        const target = e.target as HTMLElement;
-        const scrollContainer = document.querySelector(
-          ".top-treats-side-scroller-container"
-        ) as HTMLDivElement;
-
-        if (target.closest(".scroll-arrow-left")) {
-          scrollContainer.scrollBy(-800, 0);
-        }
-        if (target.closest(".scroll-arrow-right")) {
-          scrollContainer.scrollBy(800, 0);
-        }
-      });
-
     // SWEETSAVINGS Kategorien
     const sweetSavingsCategories = [...allCandyCards];
     // ytlig kopia av allCandyCards
@@ -141,3 +124,20 @@ function showNumberOfCandys() {
   const allTheResponseCandy = allCandyCards.length;
   candyAmountRendered.innerHTML = `Visar ${allTheCandy}/${allTheResponseCandy} (${numberOfInStock.length} i lager)`;
 }
+
+// Side scroller arrow functionality
+document
+  .querySelector(".top-treats-side-scroller-wrapper")
+  ?.addEventListener("click", (e) => {
+    const target = e.target as HTMLElement;
+    const scrollContainer = document.querySelector(
+      ".top-treats-side-scroller-container"
+    ) as HTMLDivElement;
+
+    if (target.closest(".scroll-arrow-left")) {
+      scrollContainer.scrollBy(-800, 0);
+    }
+    if (target.closest(".scroll-arrow-right")) {
+      scrollContainer.scrollBy(800, 0);
+    }
+  });

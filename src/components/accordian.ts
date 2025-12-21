@@ -61,7 +61,7 @@ export const renderCartView = function () {
   `;
 
   // Click -Continue to checkout
-  const proceedBtn = document.querySelector<HTMLDivElement>(".proceed-btn")!;
+  const proceedBtn = document.querySelector<HTMLButtonElement>(".proceed-btn")!;
   proceedBtn.addEventListener("click", () => {
     const collapseOne = document.querySelector<HTMLDivElement>(
       "#panelsStayOpen-collapseOne"

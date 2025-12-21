@@ -2,7 +2,11 @@ import type { AddressData, ResponseData } from "../services/candyApiTypes";
 import { createOrdertoSend } from "../services/candyPOST_API";
 import { clearCart } from "./cart";
 import { getCartArrayFromLocalStorage } from "./localStorage";
-import { cartViewTemplate, checkoutFormTemplate } from "./templates";
+import {
+  cartViewTemplate,
+  checkoutFormTemplate,
+  orderConfirmationItemTemplate,
+} from "./templates";
 
 const cartView = document.querySelector("#cartView") as HTMLDivElement;
 const checkoutForm = document.querySelector("#checkoutForm") as HTMLFormElement;
@@ -47,8 +51,6 @@ export const renderCheckoutForm = function () {
   const collapseTwo = document.querySelector<HTMLDivElement>(
     "#panelsStayOpen-collapseTwo"
   )!;
-
-  // get form and inputs after innerHTML
 
   const form = checkoutForm.querySelector<HTMLFormElement>("#form")!;
   const inputFirstName =
@@ -110,20 +112,7 @@ export const postUserAddressForm = function (responseData: ResponseData) {
   const generateOrderItemsInConfirmation = function () {
     const orderItemsInConfirmation = getCartArrayFromLocalStorage() || [];
 
-    return orderItemsInConfirmation
-      .map((product) => {
-        const thumbnailURL = `https://www.bortakvall.se${product.thumbnail}`;
-
-        return `<div class="d-flex justify-content-start mb-2 rounded-4 p-1 border-0 mx-auto"
-                                style="background: transparent; width: 20rem;">
-                                <img src="${thumbnailURL}" class="rounded-4 me-3"
-                                  style="width: 50px; height: 50px; object-fit: cover;" alt="Image of ${product.name}">
-                                <div class="d-flex align-items-center m-0">
-                                  <h5 class="card-title text-sum text-center">${product.qty} x ${product.name}</h5>
-                                </div>
-                              </div>`;
-      })
-      .join("");
+    return orderItemsInConfirmation.map(orderConfirmationItemTemplate).join("");
   };
 
   placedOrderView.innerHTML = `

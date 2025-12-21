@@ -1,3 +1,5 @@
+import type { CartProduct } from "../services/candyApiTypes";
+
 export const cartViewTemplate = function () {
   return `
 <div class="accordion mt-5" id="accordionCandyCart">
@@ -141,4 +143,77 @@ export const carouselTemplate = function () {
         <span class="visually-hidden">Next</span>
       </button>
     </div>`;
+};
+
+export const offCanvasTemplate = function () {
+  return `<div
+          class="offcanvas offcanvas-end rounded-top-4"
+          tabindex="-1"
+          id="offcanvasRight"
+          aria-labelledby="offcanvasRightLabel"
+          data-bs-scroll="false"
+        >
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="offcanvasRightLabel">Your Candy Cart</h5>
+            <i class="bi bi-cart4 fs-3 ps-2"></i>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="offcanvas"
+              aria-label="Close"
+            ></button>
+          </div>
+    
+          <!-- Cart products container -->
+          <div class="offcanvas-body">
+            <div class="cart-product-container card">
+              <div class="card-body">
+                <div class="row align-items-center">
+                  <!-- Inject cart contents from cart.ts -->
+                  <div class="cart-container"></div>
+                </div>
+                <hr />
+                <div class="d-flex justify-content-between mb-4">
+                  <strong>Totalt</strong>
+                  <span class="total-cost-container"><strong></strong></span>
+                </div>
+              </div>
+            </div>
+    
+            <!-- Continue Shopping Button -->
+            <button
+              type="button"
+              id="continue-shopping-btn"
+              class="btn"
+              data-bs-dismiss="offcanvas"
+              aria-label="Close"
+            >
+              <i class="bi bi-arrow-left me-2"></i>Fortsätt handla
+            </button>
+    
+            <button
+              class="checkout-btn"
+              data-bs-dismiss="offcanvas"
+              aria-label="Close"
+            >
+              Gå till kassan
+              <i class="bi bi-arrow-right ms-2"></i>
+            </button>
+    
+            <div class="heart-cat-container"></div>
+          </div>
+        </div>
+      `;
+};
+
+export const orderConfirmationItemTemplate = function (product: CartProduct) {
+  const thumbnailURL = `https://www.bortakvall.se${product.thumbnail}`;
+  return `<div class="d-flex justify-content-start mb-2 rounded-4 p-1 border-0 mx-auto"
+                                style="background: transparent; width: 20rem;">
+                                <img src="${thumbnailURL}" class="rounded-4 me-3"
+                                  style="width: 50px; height: 50px; object-fit: cover;" alt="Image of ${product.name}">
+                                <div class="d-flex align-items-center m-0">
+                                  <h5 class="card-title text-sum text-center">${product.qty} x ${product.name}</h5>
+                                </div>
+                              </div>`;
 };

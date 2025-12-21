@@ -25,7 +25,7 @@ export const renderOffCan = function () {
 
       <!-- Cart products container -->
       <div class="offcanvas-body">
-        <div class="product-container card">
+        <div class="cart-product-container card">
           <div class="card-body">
             <div class="row align-items-center">
               <!-- Inject cart contents from cart.ts -->

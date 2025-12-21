@@ -15,7 +15,7 @@ export const cardStructure = function (
           : "card-transform"
       }"
       data-product-id="${product.id}"
-      style="width: 10rem;"
+      style="width: 10.5rem;"
     >
       <img
         src="${thumbnailURL}"

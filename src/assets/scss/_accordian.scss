@@ -17,7 +17,8 @@
 }
 
 .checkout-cart-container {
-  box-shadow: 0 8px 20px $primary;
+  border-radius: $border-radius-medium;
+  padding: 1rem 0;
 }
 
 .checkout-logo {
@@ -26,7 +27,7 @@
 }
 
 .checkout-order-summary {
-  box-shadow: 0 8px 20px $primary;
+  border-radius: $border-radius-medium;
   padding: 1rem;
 }
 
@@ -51,16 +52,20 @@
   justify-content: center;
 }
 
-.proceed-btn {
+.proceed-to-checkout-btn {
   font-size: 1.2rem;
   background-color: $primary;
 
-  &:active {
+  &:hover {
     background-color: $primary;
+  }
+
+  &:active {
+    background-color: $primary !important;
   }
 }
 
-.proceed-btn-container {
+.proceed-to-checkout-btn-container {
   width: 100%;
   height: 10rem;
   background: url("/img/banderoll.webp");
@@ -87,4 +92,8 @@
   color: black;
   text-align: center;
   box-shadow: 0 8px 20px $primary;
+}
+
+.pink-shadow {
+  box-shadow: 0 8px 20px $primary !important;
 }

@@ -27,9 +27,9 @@ export const renderCartView = function () {
 
         <img class="checkout-logo mb-2" src="/img/candyCatzLogo_pinkBG.webp" alt="Logo for Candycatz">
         <div class="checkout-and-order-summary-container">
-          <div class="checkout-cart-container card"></div>
+          <div class="checkout-cart-container pink-shadow"></div>
           <!-- Order summary -->
-          <div class="card checkout-order-summary mt-4 my-4">
+          <div class="checkout-order-summary pink-shadow mt-4 my-4">
             <div class="card-body">
               <h5 class="order-summary-header mb-4">Ordersummering</h5>
               <div class="d-flex justify-content-between mb-3">
@@ -49,8 +49,8 @@ export const renderCartView = function () {
               </div>
             </div>
             <!--  Continue to checkout button -->
-            <div class="proceed-btn-container text-center mt-2 mx-auto" aria-label="Go to checkout">
-              <button type="button" class="proceed-btn btn mt-5" aria-label="Continue to checkout">😸 <i class="bi bi-chevron-down"></i> Fortsätt till
+            <div class="proceed-to-checkout-btn-container text-center mt-2 mx-auto" aria-label="Go to checkout">
+              <button type="button" class="proceed-to-checkout-btn btn mt-5" aria-label="Continue to checkout">😸 <i class="bi bi-chevron-down"></i> Fortsätt till
                 kassan! <i class="bi bi-chevron-down"></i> 😸</button>
             </div>
           </div>
@@ -61,7 +61,9 @@ export const renderCartView = function () {
   `;
 
   // Click -Continue to checkout
-  const proceedBtn = document.querySelector<HTMLButtonElement>(".proceed-btn")!;
+  const proceedBtn = document.querySelector<HTMLButtonElement>(
+    ".proceed-to-checkout-btn"
+  )!;
   proceedBtn.addEventListener("click", () => {
     const collapseOne = document.querySelector<HTMLDivElement>(
       "#panelsStayOpen-collapseOne"
@@ -223,7 +225,7 @@ export const postUserAddressForm = function (responseData: ResponseData) {
         const thumbnailURL = `https://www.bortakvall.se${product.thumbnail}`;
 
         return `<div class="d-flex justify-content-start mb-2 rounded-4 p-1 border-0 mx-auto"
-                                style="background: transparent; box-shadow: none; width: 20rem;">
+                                style="background: transparent; width: 20rem;">
                                 <img src="${thumbnailURL}" class="rounded-4 me-3"
                                   style="width: 50px; height: 50px; object-fit: cover;" alt="Image of ${product.name}">
                                 <div class="d-flex align-items-center m-0">

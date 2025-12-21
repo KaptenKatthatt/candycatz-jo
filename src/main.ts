@@ -22,6 +22,10 @@ renderAllCards();
 getClickedCandyId();
 renderNavbar();
 renderOffCan();
-renderFooter();
 
 initStore();
+
+// Lazy load footer
+import("./components/footer").then(({ renderFooter }) => {
+  renderFooter();
+});

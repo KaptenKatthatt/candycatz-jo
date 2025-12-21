@@ -24,5 +24,3 @@ dist-ssr
 *.sw?
 misc
 eslint.config.ts
-stylelint.config.mjs
-stylelint.config.mjs

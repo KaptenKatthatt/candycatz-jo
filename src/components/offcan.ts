@@ -106,7 +106,7 @@ export const renderOffCan = function () {
 
   offCan.addEventListener("click", (e) => {
     const target = e.target as HTMLElement;
-    if (target.id === "continue-shopping-btn") {
+    if (target.closest("#continue-shopping-btn")) {
       closeOffCanvas();
     }
   });

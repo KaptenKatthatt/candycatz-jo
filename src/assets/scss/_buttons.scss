@@ -4,7 +4,7 @@
 
   &:hover {
     background-color: #77b260;
-    color: white;
+    color: $light-text;
     transform: scale(1.05);
   }
 
@@ -112,8 +112,8 @@
 
   &:hover {
     background: $modal-info-btn-bg;
-    box-shadow: 0 4px 8px $btn-candy-purple;
-    color: white;
+    box-shadow: 0 8px 20px $btn-candy-purple;
+    color: $light-text;
     transform: scale(1.05);
   }
 

@@ -62,7 +62,7 @@ export const cardStructure = function (
   }:-</span>
           </p>
 
-          <button class="modal-info-btn btn btn-primary" aria-label="Product info popup">
+          <button class="modal-info-btn btn" aria-label="Product info popup">
             <i class="bi bi-info-circle"></i>
           </button>
 

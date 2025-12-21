@@ -181,7 +181,7 @@ export const renderCart = function () {
       .querySelector<HTMLDivElement>(".heart-cat-container")!
       .classList.remove("d-none");
     document
-      .querySelector<HTMLDivElement>(".check-out-btn")!
+      .querySelector<HTMLDivElement>(".checkout-btn")!
       .classList.remove("d-none");
     document.querySelector<HTMLDivElement>(
       ".heart-cat-container"
@@ -207,7 +207,7 @@ export const renderCart = function () {
       .querySelector<HTMLDivElement>(".heart-cat-container")
       ?.classList.add("d-none");
     document
-      .querySelector<HTMLDivElement>(".check-out-btn")!
+      .querySelector<HTMLDivElement>(".checkout-btn")!
       .classList.add("d-none");
     cartContainerEl!.innerHTML = `
                     <img src="/img/sadcat.gif" alt="">

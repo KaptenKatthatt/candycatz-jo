@@ -12,7 +12,7 @@ export function getClickedCandyId() {
   allCardsContainerEl.addEventListener("click", async (e: MouseEvent) => {
     const target = e.target as HTMLElement;
     const clicksnbtn = target.closest<HTMLElement>(
-      ".card-img-top, .card-title, .btn-primary"
+      ".card-img-top, .card-title, .modal-info-btn"
     );
 
     if (!clicksnbtn) {

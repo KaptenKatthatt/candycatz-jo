@@ -27,11 +27,11 @@ export const renderCartView = function () {
 
         <img class="checkout-logo mb-2" src="/img/candyCatzLogo_pinkBG.webp" alt="Logo for Candycatz">
         <div class="checkout-and-order-summary-container">
-          <div class="checkoutCartContainer card"></div>
+          <div class="checkout-cart-container card"></div>
           <!-- Order summary -->
           <div class="card checkout-order-summary mt-4 my-4">
             <div class="card-body">
-              <h5 class="order-summary-header text-dark mb-4">Ordersummering</h5>
+              <h5 class="order-summary-header mb-4">Ordersummering</h5>
               <div class="d-flex justify-content-between mb-3">
                 <span>Summa</span>
                 <span class="checkout-subtotal-container"></span>
@@ -50,7 +50,7 @@ export const renderCartView = function () {
             </div>
             <!--  Continue to checkout button -->
             <div class="proceed-btn-container text-center mt-2 mx-auto" aria-label="Go to checkout">
-              <button type="button" class="proceed-btn btn btn-primary mt-5" aria-label="Continue to checkout">😸 <i class="bi bi-chevron-down"></i> Fortsätt till
+              <button type="button" class="proceed-btn btn mt-5" aria-label="Continue to checkout">😸 <i class="bi bi-chevron-down"></i> Fortsätt till
                 kassan! <i class="bi bi-chevron-down"></i> 😸</button>
             </div>
           </div>
@@ -144,7 +144,7 @@ export const renderCheckoutForm = function () {
                       </div>
                     </div>
                   </div>
-                  <button type="submit" class="submitBtn btn btn-primary mt-2" aria-label="Submit order">Slutför köp</button>
+                  <button type="submit" id="submit-order-btn" class="btn mt-2" aria-label="Submit order">Slutför köp</button>
                 </form>
                 </div>
               </div>
@@ -278,8 +278,8 @@ export const postUserAddressForm = function (responseData: ResponseData) {
                                         </div>
                                       </div>
 
-                                      <!-- Continue Shopping Button -->
-                                    <button type="button" class="goBackToHomeBtn btn btn-primary mt-5" onclick="location.reload()" aria-label="Go back to main page">
+                                      <!-- Shop again Button -->
+                                    <button type="button" id="shop-again-btn" class="btn mt-5" onclick="location.reload()" aria-label="Go back to main page">
                                      <i class="bi bi-arrow-left me-2"></i>Handla mera!
                                      </button>
                                     </div>

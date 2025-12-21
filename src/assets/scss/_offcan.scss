@@ -12,14 +12,36 @@
   max-width: 70px;
 }
 
+.check-out-btn {
+  background-color: $accordion;
+  margin: 0 auto;
+  padding: $btn-padding-y $btn-padding-x;
+  width: 100%;
+
+  &:active {
+    transform: scale(0.95);
+  }
+
+  &:hover {
+    background-color: $accordion;
+    filter: brightness(1.15);
+    transform: scale(1.05);
+  }
+}
+
+.clear-cart-btn {
+  margin: 0 auto;
+  width: 94%;
+}
+
 .off-can-cart-list-item {
   --bs-card-title-spacer-y: 0.3rem;
 
   background-color: white;
   border-radius: 0 0 10px 10px;
   box-shadow: 0 1px 3px $shadow-color;
-  gap: 6px;
   display: grid;
+  gap: 6px;
   grid-template: "cart-thumbnail off-can-cart-title off-can-cart-title" auto "cart-thumbnail off-can-cart-price off-can-cart-total" auto "cart-thumbnail button-container button-container" auto / 80px auto auto;
   margin: 0 auto;
   margin-bottom: 0.5rem;
@@ -41,36 +63,7 @@
   grid-area: off-can-cart-total;
 }
 
-.product-container {
-  border-radius: 10px;
-  background-color: white;
-}
-
-.check-out-btn {
-  background-color: $accordion;
-  margin: 0 auto;
-  width: 100%;
-  padding: $btn-padding-y $btn-padding-x;
-
-  &:hover {
-    filter: brightness(1.15);
-    transform: scale(1.05);
-    background-color: $accordion;
-  }
-
-  &:active {
-    transform: scale(0.95);
-  }
-}
-
-.clear-cart-btn {
-  margin: 0 auto;
-  width: 94%;
-}
-
 .offcanvas {
-  --bs-offcanvas-width: 65vw;
-
   background-color: $offcan-bg;
   overflow: hidden auto;
   padding: 0 20px;
@@ -81,14 +74,19 @@
   }
 }
 
-.offcanvas-title {
-  font-size: 1.8rem;
-}
-
 .offcanvas-body-custom {
   margin: 0 auto;
 }
 
+.offcanvas-title {
+  font-size: 1.8rem;
+}
+
 .order-summary-header {
   font-size: 2rem;
+}
+
+.product-container {
+  background-color: white;
+  border-radius: 10px;
 }

@@ -27,29 +27,12 @@ export const renderAllCards = async function () {
     const sliceOutTopTreats = filterTopTreats.slice(0, 12);
     // slicea sedan ut de första 12
     const topTreatsCardsContainerEl = document.querySelector(
-      ".topTreatsSideScrollerContainer"
+      ".top-treats-side-scroller-container"
     ) as HTMLDivElement;
 
     topTreatsCardsContainerEl.innerHTML = sliceOutTopTreats
       .map((product) => cardStructureSideScroller(product))
       .join("");
-
-    // Side scroller arrow functionality
-    document
-      .querySelector(".topTreatsSideScrollerWrapper")
-      ?.addEventListener("click", (e) => {
-        const target = e.target as HTMLElement;
-        const scrollContainer = document.querySelector(
-          ".topTreatsSideScrollerContainer"
-        ) as HTMLDivElement;
-
-        if (target.closest(".scrollArrowLeft")) {
-          scrollContainer.scrollBy(-800, 0);
-        }
-        if (target.closest(".scrollArrowRight")) {
-          scrollContainer.scrollBy(800, 0);
-        }
-      });
 
     // SWEETSAVINGS Kategorien
     const sweetSavingsCategories = [...allCandyCards];
@@ -62,10 +45,10 @@ export const renderAllCards = async function () {
     const sliceOutSavings = filterSweetSaving.slice(0, 12);
     // slicea sedan ut de första 12
 
-    const sweetSavingsCardsContainterEl = document.querySelector(
-      ".sweetSavingsCardsContainer"
+    const sweetSavingsCardsContainerEl = document.querySelector(
+      ".sweet-savings-cards-container"
     ) as HTMLDivElement;
-    sweetSavingsCardsContainterEl.innerHTML = sliceOutSavings
+    sweetSavingsCardsContainerEl.innerHTML = sliceOutSavings
       .map((product) => cardStructure(product, "sale"))
       .join("");
 
@@ -82,7 +65,7 @@ export const renderAllCards = async function () {
     showMoreCandy.sort((a, b) => a.name.localeCompare(b.name, "sv"));
 
     const moreToMunchCardsContainerEl = document.querySelector(
-      ".moreToMunchCardsContainer"
+      ".more-to-munch-cards-container"
     ) as HTMLDivElement;
     showRestCandy = showMoreCandy.slice(0, addedCandyNr);
     moreToMunchCardsContainerEl.innerHTML += showRestCandy
@@ -100,7 +83,7 @@ export const renderAllCards = async function () {
 };
 function loadMoreSweets() {
   const moreToMunchCardsContainerEl = document.querySelector(
-    ".moreToMunchCardsContainer"
+    ".more-to-munch-cards-container"
   ) as HTMLDivElement;
   showRestCandy = showMoreCandy.slice(0, addedCandyNr);
   moreToMunchCardsContainerEl.innerHTML = showRestCandy
@@ -113,7 +96,9 @@ function loadMoreSweets() {
 }
 
 function moreSweetsButton() {
-  const moreSweetsBtnEl = document.querySelector(".munchBtn") as HTMLDivElement;
+  const moreSweetsBtnEl = document.querySelector(
+    ".munch-btn"
+  ) as HTMLDivElement;
 
   moreSweetsBtnEl.addEventListener("click", () => {
     addedCandyNr += 12;
@@ -139,3 +124,20 @@ function showNumberOfCandys() {
   const allTheResponseCandy = allCandyCards.length;
   candyAmountRendered.innerHTML = `Visar ${allTheCandy}/${allTheResponseCandy} (${numberOfInStock.length} i lager)`;
 }
+
+// Side scroller arrow functionality
+document
+  .querySelector(".top-treats-side-scroller-wrapper")
+  ?.addEventListener("click", (e) => {
+    const target = e.target as HTMLElement;
+    const scrollContainer = document.querySelector(
+      ".top-treats-side-scroller-container"
+    ) as HTMLDivElement;
+
+    if (target.closest(".scroll-arrow-left")) {
+      scrollContainer.scrollBy(-800, 0);
+    }
+    if (target.closest(".scroll-arrow-right")) {
+      scrollContainer.scrollBy(800, 0);
+    }
+  });

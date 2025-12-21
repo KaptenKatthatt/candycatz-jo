@@ -25,18 +25,18 @@ export const renderCartView = function () {
       aria-labelledby="panelsStayOpen-headingOne">
       <div class="accordion-body d-flex flex-column align-items-center">
 
-        <img class="checkoutLogo mb-2" src="/img/candyCatzLogo_pinkBG.webp" alt="Logo for Candycatz">
-        <div class="checkoutAndOrderSummaryContainer">
+        <img class="checkout-logo mb-2" src="/img/candyCatzLogo_pinkBG.webp" alt="Logo for Candycatz">
+        <div class="checkout-and-order-summary-container">
           <div class="checkoutCartContainer card"></div>
           <!-- Order summary -->
-          <div class="card checkoutOrderSummary mt-4 my-4">
+          <div class="card checkout-order-summary mt-4 my-4">
             <div class="card-body">
-              <h5 class="orderSummaryHeader text-dark mb-4">Ordersummering</h5>
+              <h5 class="order-summary-header text-dark mb-4">Ordersummering</h5>
               <div class="d-flex justify-content-between mb-3">
                 <span>Summa</span>
-                <span class="checkoutSubtotalContainer"></span>
+                <span class="checkout-subtotal-container"></span>
               </div>
-              <div class="haveDiscountContainer d-flex justify-content-between mb-3">
+              <div class="have-discount-container d-flex justify-content-between mb-3">
               </div>
               <div class="d-flex justify-content-between mb-4">
                 <span>Frakt</span>
@@ -45,12 +45,12 @@ export const renderCartView = function () {
               <hr>
               <div class="d-flex justify-content-between mb-4">
                 <strong>Totalt</strong>
-                <span class="checkoutTotalCostContainer"><strong></strong></span>
+                <span class="checkout-total-cost-container"><strong></strong></span>
               </div>
             </div>
             <!--  Continue to checkout button -->
-            <div class="proceedBtnContainer text-center mt-2 mx-auto" aria-label="Go to checkout">
-              <button type="button" class="proceedBtn btn btn-primary mt-5" aria-label="Continue to checkout">😸 <i class="bi bi-chevron-down"></i> Fortsätt till
+            <div class="proceed-btn-container text-center mt-2 mx-auto" aria-label="Go to checkout">
+              <button type="button" class="proceed-btn btn btn-primary mt-5" aria-label="Continue to checkout">😸 <i class="bi bi-chevron-down"></i> Fortsätt till
                 kassan! <i class="bi bi-chevron-down"></i> 😸</button>
             </div>
           </div>
@@ -61,7 +61,7 @@ export const renderCartView = function () {
   `;
 
   // Click -Continue to checkout
-  const proceedBtn = document.querySelector<HTMLDivElement>(".proceedBtn")!;
+  const proceedBtn = document.querySelector<HTMLButtonElement>(".proceed-btn")!;
   proceedBtn.addEventListener("click", () => {
     const collapseOne = document.querySelector<HTMLDivElement>(
       "#panelsStayOpen-collapseOne"
@@ -102,8 +102,8 @@ export const renderCheckoutForm = function () {
             <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse  accordionTwo "
               aria-labelledby="panelsStayOpen-headingTwo">
               <div class="accordion-body m-auto">
-                <div class="glowForm p-4 my-4 card">
-                <h3 class="formTitle"> Fyll i dina uppgifter! </h3>
+                <div class="glow-form p-4 my-4 card">
+                <h3 class="form-title"> Fyll i dina uppgifter! </h3>
 
                 <form id="form">
                   <div class="form-group col-6-md">
@@ -216,11 +216,11 @@ export const renderCheckoutForm = function () {
 
 export const postUserAddressForm = function (responseData: ResponseData) {
   const generateOrderItemsInConfirmation = function () {
-    let orderItemsInConfirmation = getCartArrayFromLocalStorage() || [];
+    const orderItemsInConfirmation = getCartArrayFromLocalStorage() || [];
 
     return orderItemsInConfirmation
       .map((product) => {
-        let thumbnailURL = `https://www.bortakvall.se${product.thumbnail}`;
+        const thumbnailURL = `https://www.bortakvall.se${product.thumbnail}`;
 
         return `<div class="d-flex justify-content-start mb-2 rounded-4 p-1 border-0 mx-auto"
                                 style="background: transparent; box-shadow: none; width: 20rem;">
@@ -249,9 +249,9 @@ export const postUserAddressForm = function (responseData: ResponseData) {
                                     class="accordion-collapse collapse accordionThree"
                                     aria-labelledby="panelsStayOpen-headingThree">
                                     <div class="accordion-body">
-                                      <div class="placedOrderContainer">
-                                        <div class="wavecardAccord mt-3">
-                                          <h2 class="smilesTxt">Smiles, ${
+                                      <div class="placed-order-container">
+                                        <div class="wavecard-accord mt-3">
+                                          <h2 class="smiles-txt">Smiles, ${
                                             responseData.data
                                               .customer_first_name
                                           }!</h2>
@@ -268,13 +268,13 @@ export const postUserAddressForm = function (responseData: ResponseData) {
                                           }, ${
     responseData.data.customer_city
   }, ${responseData.data.customer_postcode} </p>
-                                          <h4 class="orderConfirmationTxt">Här är din order:</h4>
+                                          <h4 class="order-confirmation-txt">Här är din order:</h4>
                                           <div class="d-flex flex-column align-items-start gap-2">
                                             ${generateOrderItemsInConfirmation()}
                                           </div>
                                           <p>Njut av sötchocken!</p>
                                           <p class="mt-4">Med vänlig hälsning,</p>
-                                          <h5 class="orderConfirmationLogo">CandyCatz</h5>
+                                          <h5 class="order-confirmation-logo">CandyCatz</h5>
                                         </div>
                                       </div>
 
@@ -294,8 +294,9 @@ const navBarEl = document.querySelector<HTMLLinkElement>(".navbar")!;
 const accordianEl = document.querySelector<HTMLDivElement>(
   "#cartCheckoutContainer"
 )!;
-const allCardsContainerEl =
-  document.querySelector<HTMLDivElement>(".allCardsContainer")!;
+const allCardsContainerEl = document.querySelector<HTMLDivElement>(
+  ".all-cards-container"
+)!;
 
 const openMainPage = function () {
   navBarEl.addEventListener("click", (e) => {
@@ -304,6 +305,7 @@ const openMainPage = function () {
     if (clickedNavLink) {
       const innerBtnText = clickedNavLink.textContent.trim();
       if (!clickedNavLink.hasAttribute("data-bs-toggle")) {
+        // Do nothing
       }
       if (innerBtnText === "Candy Hotline") {
         return;

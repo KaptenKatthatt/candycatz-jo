@@ -8,8 +8,9 @@ import {
 import { openOffCanvas } from "./offcan";
 import { renderCheckoutCart } from "./renderCheckoutCart";
 
-const allCardsContainerEl =
-  document.querySelector<HTMLDivElement>(".allCardsContainer");
+const allCardsContainerEl = document.querySelector<HTMLDivElement>(
+  ".all-cards-container"
+);
 const cartAmountEl =
   document.querySelector<HTMLParagraphElement>(".cartAmount");
 const cartTotalPriceEl =
@@ -20,12 +21,12 @@ export let clickedCandyId = 0;
 export let cartArray: CartProduct[] = getCartArrayFromLocalStorage() || [];
 
 export const addToCart = async function (clickedCandyId: number) {
-  let fetchedCandyObject = await getCandyProductInfo(clickedCandyId);
+  const fetchedCandyObject = await getCandyProductInfo(clickedCandyId);
   const maxStock = fetchedCandyObject.data.stock_quantity;
   const candyPrice = fetchedCandyObject.data.on_sale
     ? Math.round(fetchedCandyObject.data.price * discountMultiplier)
     : fetchedCandyObject.data.price;
-  let foundSameCandyInCart = cartArray.some(
+  const foundSameCandyInCart = cartArray.some(
     (product) => product.id === clickedCandyId
   );
   if (!foundSameCandyInCart) {
@@ -118,55 +119,55 @@ export const getTotalCostOfProductsInCart = function () {
 
 export const renderCart = function () {
   const cartContainerEl =
-    document.querySelector<HTMLDivElement>(".cartContainer");
+    document.querySelector<HTMLDivElement>(".cart-container");
   // Render a card with added item
   if (cartContainerEl && cartArray.length > 0) {
     cartContainerEl.innerHTML = cartArray
       .map((product: CartProduct) => {
-        let productOnDiscount = product.on_sale ? "text-danger" : "text-dark";
+        const productOnDiscount = product.on_sale ? "text-danger" : "text-dark";
 
-        let thumbnailURL = `https://www.bortakvall.se${product.thumbnail}`;
+        const thumbnailURL = `https://www.bortakvall.se${product.thumbnail}`;
         return `
          <div
-            class="offCanCartListItem cartListItem"
+            class="off-can-cart-list-item cart-list-item"
             data-product-id="${product.id}"
           >
             
             <img
               src="${thumbnailURL}"
-              class="cartThumbnail"
+              class="cart-thumbnail"
               alt="Image of ${product.name}"
             />
-            <h3 class="offCanCartTitle fs-5">${product.name}</h3>
+            <h3 class="off-can-cart-title fs-5">${product.name}</h3>
 
-            <div class="offCanCartPrice">
+            <div class="off-can-cart-price">
               <p class="me-2"><strong class=" ${productOnDiscount}">${
           product.price
         }:-</strong>/skopa</p>
             </div>
-            <div class="offCanCartTotal">
+            <div class="off-can-cart-total">
               <p>
                 Totalt: <strong>${product.qty * product.price}:-</strong>
               </p>
             </div>
 
-              <div class="buttonContainer d-flex flex-row align-items-center">
-              <span class="smallButtonContainer">
-                <button class="cartMinusBtn btn" type="button" aria-label="Decrease number of product in cart">
+              <div class="button-container d-flex flex-row align-items-center">
+              <span class="small-button-container">
+                <button class="cart-minus-btn btn" type="button" aria-label="Decrease number of product in cart">
                   -
                 </button>
                 <p
-                  class="cartQty"
+                  class="cart-qty"
                 >
                   ${product.qty}
                 </p>
                 <button
-                  class="cartPlusBtn btn"
+                  class="cart-plus-btn btn"
                   type="button"
                   ${product.qty >= product.stock_quantity ? "disabled" : ""}
                 >+</button>
                 </span>
-                <button class="deleteBtn ms-1 btn btn-sm btn-danger" aria-label="Delete product from cart">
+                <button class="delete-btn ms-1 btn btn-sm btn-danger" aria-label="Delete product from cart">
                   <i class="bi bi-trash"></i>
                 </button>
               </div>
@@ -177,25 +178,25 @@ export const renderCart = function () {
       })
       .join("");
     document
-      .querySelector<HTMLDivElement>(".heartCatContainer")!
+      .querySelector<HTMLDivElement>(".heart-cat-container")!
       .classList.remove("d-none");
     document
-      .querySelector<HTMLDivElement>(".checkOutBtn")!
+      .querySelector<HTMLDivElement>(".check-out-btn")!
       .classList.remove("d-none");
     document.querySelector<HTMLDivElement>(
-      ".heartCatContainer"
+      ".heart-cat-container"
     )!.innerHTML = `<img class="rounded-4 w-100 my-3" src="/img/heartCat.gif" alt="Happy cat with hearts">`;
 
     cartContainerEl.onclick = (e) => {
       const target = e.target as HTMLElement;
-      const candyCard = target.closest<HTMLDivElement>(".cartListItem");
+      const candyCard = target.closest<HTMLDivElement>(".cart-list-item");
       clickedCandyId = Number(candyCard?.dataset.productId);
 
-      if (target.closest(".cartPlusBtn")) {
+      if (target.closest(".cart-plus-btn")) {
         increaseAmountOfProductInCart(clickedCandyId);
-      } else if (target.closest(".cartMinusBtn")) {
+      } else if (target.closest(".cart-minus-btn")) {
         decreaseAmountOfProductInCart(clickedCandyId);
-      } else if (target.closest(".deleteBtn")) {
+      } else if (target.closest(".delete-btn")) {
         deleteProductFromCart(clickedCandyId);
       }
       renderCart();
@@ -203,10 +204,10 @@ export const renderCart = function () {
     };
   } else {
     document
-      .querySelector<HTMLDivElement>(".heartCatContainer")
+      .querySelector<HTMLDivElement>(".heart-cat-container")
       ?.classList.add("d-none");
     document
-      .querySelector<HTMLDivElement>(".checkOutBtn")!
+      .querySelector<HTMLDivElement>(".check-out-btn")!
       .classList.add("d-none");
     cartContainerEl!.innerHTML = `
                     <img src="/img/sadcat.gif" alt="">
@@ -216,7 +217,7 @@ export const renderCart = function () {
   }
 
   const totalCostContainerEl = document.querySelector(
-    ".totalCostContainer"
+    ".total-cost-container"
   ) as HTMLSpanElement;
 
   totalCostContainerEl.innerHTML = `<strong>${String(
@@ -248,7 +249,7 @@ const renderClearCart = function () {
 //Adds clicked candy to cart, if exists, increase qty instead.
 allCardsContainerEl?.addEventListener("click", async (e) => {
   const target = e.target as HTMLElement;
-  if (target.closest(".addToCartBtn")) {
+  if (target.closest(".add-to-cart-btn")) {
     const candyCard = target.closest<HTMLDivElement>(".card");
     clickedCandyId = Number(candyCard?.dataset.productId);
     await addToCart(clickedCandyId);
@@ -261,5 +262,5 @@ allCardsContainerEl?.addEventListener("click", async (e) => {
 //Clear cart btn listener
 mainContainerEl!.addEventListener("click", (e) => {
   const target = e.target as HTMLElement;
-  if (target.closest(".clearCartBtn")) clearCart();
+  if (target.closest(".clear-cart-btn")) clearCart();
 });

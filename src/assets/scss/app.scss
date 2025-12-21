@@ -1,9 +1,11 @@
-//Variable and config files
+// Variable and config files
 @import "colors";
-//Bootstrap
-@import "bootstrap/scss/bootstrap.scss";
+
+// Bootstrap
+@import "bootstrap/scss/bootstrap";
 @import "bootstrap-icons/font/bootstrap-icons.css";
-//Children partials, custom CSS.
+
+// Children partials, custom CSS.
 @import "accordian";
 @import "buttons";
 @import "cards";
@@ -18,14 +20,14 @@
 @import "scrollbar";
 @import "sideScroller";
 @import "typography";
-@import "mediaQueries"; //Has to be loaded last
+@import "mediaQueries"; // Has to be loaded last
 
 body {
   box-sizing: border-box;
-  font-family: "Figtree", sans-serif;
-  background-color: $backgroundColor;
-  margin: 0px;
-  padding: 0px;
+  font-family: Figtree, sans-serif;
+  background-color: $background-color;
+  margin: 0;
+  padding: 0;
   padding-top: 80px;
 }
 
@@ -39,8 +41,8 @@ body {
   cursor: pointer;
 }
 
-@media (min-width: 576px) {
+@media (width >= 576px) {
   .body {
-    padding-top: 0px;
+    padding-top: 0;
   }
 }

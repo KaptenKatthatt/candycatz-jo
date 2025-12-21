@@ -1,23 +1,24 @@
 .card-text {
   text-align: left;
   font-size: smaller;
-  padding: 0px;
+  padding: 0;
 }
 
-.stockStatus {
+.stock-status {
   height: 40px;
   margin-bottom: -1rem;
 }
 
-.infoContainer {
+.info-container {
   position: relative;
   bottom: 10px;
 }
-.infoContainer h5 {
+
+.info-container h5 {
   height: 70px;
 }
 
-.smallCardsTitle {
+.small-cards-title {
   color: $card-title;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -25,7 +26,7 @@
   font-size: 1.5rem;
 }
 
-.discountBadge {
+.discount-badge {
   width: 3.5rem;
   aspect-ratio: 1;
   position: absolute;
@@ -35,8 +36,7 @@
   color: whitesmoke;
   display: grid;
   place-content: center;
-
-  background-color: $discountBadgeBG;
+  background-color: $discount-badge-bg;
   clip-path: polygon(
     100% 50%,
     78.19% 60.26%,
@@ -58,5 +58,5 @@
     78.19% 39.74%
   );
   z-index: 1000;
-  padding: 0px;
+  padding: 0;
 }

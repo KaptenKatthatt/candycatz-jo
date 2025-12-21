@@ -24,17 +24,17 @@ export const renderOffCan = function () {
       </div>
 
       <!-- Cart products container -->
-      <div class="offcanvas-body offcanvasBody">
-        <div class="productContainer card">
+      <div class="offcanvas-body">
+        <div class="product-container card">
           <div class="card-body">
-            <div class="row align-items-center cart-item">
+            <div class="row align-items-center">
               <!-- Inject cart contents from cart.ts -->
-              <div class="cartContainer"></div>
+              <div class="cart-container"></div>
             </div>
             <hr />
             <div class="d-flex justify-content-between mb-4">
               <strong>Totalt</strong>
-              <span class="totalCostContainer"><strong></strong></span>
+              <span class="total-cost-container"><strong></strong></span>
             </div>
           </div>
         </div>
@@ -42,7 +42,7 @@ export const renderOffCan = function () {
         <!-- Continue Shopping Button -->
         <button
           type="button"
-          class="continueShoppingBtn"
+          class="continue-shopping-btn"
           data-bs-dismiss="offcanvas"
           aria-label="Close"
         >
@@ -50,7 +50,7 @@ export const renderOffCan = function () {
         </button>
 
         <button
-          class="checkOutBtn"
+          class="check-out-btn"
           data-bs-dismiss="offcanvas"
           aria-label="Close"
         >
@@ -58,7 +58,7 @@ export const renderOffCan = function () {
           <i class="bi bi-arrow-right ms-2"></i>
         </button>
 
-        <div class="heartCatContainer"></div>
+        <div class="heart-cat-container"></div>
       </div>
     </div>
   `;
@@ -67,7 +67,7 @@ export const renderOffCan = function () {
     "#cartCheckoutContainer"
   );
   const checkOutBtn =
-    document.querySelector<HTMLButtonElement>(".checkOutBtn")!;
+    document.querySelector<HTMLButtonElement>(".check-out-btn")!;
 
   checkOutBtn.addEventListener("click", () => {
     document.querySelector(".carousel")?.classList.add("d-none");
@@ -85,8 +85,9 @@ export const renderOffCan = function () {
     }
 
     // hide homepage
-    const allCardsContainerEl =
-      document.querySelector<HTMLDivElement>(".allCardsContainer")!;
+    const allCardsContainerEl = document.querySelector<HTMLDivElement>(
+      ".all-cards-container"
+    )!;
     allCardsContainerEl.classList.add("d-none");
 
     // show accordion
@@ -104,7 +105,7 @@ export const renderOffCan = function () {
 
   offCan.addEventListener("click", (e) => {
     const target = e.target as HTMLElement;
-    if (target.classList.contains("continueShoppingBtn")) {
+    if (target.classList.contains("continue-shopping-btn")) {
       closeOffCanvas();
     }
   });

@@ -5,12 +5,14 @@ export const cardStructure = function (
   product: CandyData,
   option: string = ""
 ): string {
-  let thumbnailURL = `https://www.bortakvall.se${product.images.thumbnail}`;
+  const thumbnailURL = `https://www.bortakvall.se${product.images.thumbnail}`;
 
   return `
     <div
       class="trig-target card smallCards rounded-4 p-1 ${
-        product.stock_status === "outofstock" ? "cardDisabled" : "cardTransform"
+        product.stock_status === "outofstock"
+          ? "card-disabled"
+          : "card-transform"
       }"
       data-product-id="${product.id}"
       style="width: 11rem;"
@@ -24,7 +26,7 @@ export const cardStructure = function (
       ${
         option === "sale"
           ? `
-        <span class="discountBadge">
+        <span class="discount-badge">
           30%
           <span class="visually-hidden">Sale badge</span>
         </span>
@@ -33,19 +35,19 @@ export const cardStructure = function (
       }
 
       <div class="card-body">
-        <div class="infoContainer">
-          <h3 class="card-title click smallCardsTitle">${product.name}</h3>
+        <div class="info-container">
+          <h3 class="card-title click small-cards-title">${product.name}</h3>
 
           ${
             product.stock_status === "instock"
               ? `
-            <p class="card-text stockStatus">
+            <p class="card-text stock-status">
               I lager:
               <span class="fw-bold">${product.stock_quantity}</span>
             </p>
           `
               : `
-            <p class="card-text stockStatus"><em>Ej i lager</em></p>
+            <p class="card-text stock-status"><em>Ej i lager</em></p>
           `
           }
 
@@ -60,11 +62,11 @@ export const cardStructure = function (
   }:-</span>
           </p>
 
-          <button class="modalInfoBtn btn btn-primary" aria-label="Product info popup">
+          <button class="modal-info-btn btn btn-primary" aria-label="Product info popup">
             <i class="bi bi-info-circle"></i>
           </button>
 
-          <button class="addToCartBtn btn" ${
+          <button class="add-to-cart-btn btn" ${
             product.stock_status !== "instock" ? "disabled" : ""
           } aria-label="Add product to cart">
             +<i class="bi bi-basket ps-2"></i>

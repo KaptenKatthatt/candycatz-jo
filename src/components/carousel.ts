@@ -1,6 +1,10 @@
 export const carouselContainerEl = document.querySelector(
-  ".carouselContainer"
-) as HTMLElement;
+  ".carousel-container"
+);
+
+if (!carouselContainerEl) {
+  throw new Error("Carousel container element not found");
+}
 
 export const renderCarousel = function () {
   carouselContainerEl.innerHTML = `

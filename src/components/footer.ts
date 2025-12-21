@@ -4,7 +4,7 @@ export const renderFooter = function () {
   <div class="scallop"></div>
   <div class="after-scallop text-center">
 
-    <div class="logoContainerFooter">
+    <div class="logo-container-footer">
       <div class="contact-info">
         <h5>Slå oss en pling eller kom förbi!</h5>
         <address>
@@ -15,7 +15,7 @@ export const renderFooter = function () {
             Telefonnummer: <a href="tel:123-456-7890">123-456-7890</a></p>
         </address>
       </div>
-      <img class="logoImgFooter img-fluid" src="/img/candyCatzLogo_pinkBG.webp" alt="Candycatz logo">
+      <img class="logo-img-footer img-fluid" src="/img/candyCatzLogo_pinkBG.webp" alt="Candycatz logo">
     </div>
 
 
@@ -31,7 +31,7 @@ export const renderFooter = function () {
       <p>
         &copy; 2025 CandyCatz - "🍬 Pop and chew - all dreams come true! 🍭"
       </p>
-      <p class="gangGang">Created by <br>
+      <p class="gang-gang">Created by <br>
         <a href="https://www.linkedin.com/in/jonas-olson-79858a63/" target="_blank">Jonas</a>,
         <a href="https://www.linkedin.com/in/sophia-englund" target="_blank">Sophia</a>
         &amp;

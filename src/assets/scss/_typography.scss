@@ -1,33 +1,35 @@
 h2 {
   font-size: 3rem;
 }
+
 h2,
 h4,
 h5 {
+  font-family: "Super Chiby", cursive;
+}
+
+@font-face {
   font-family: "Super Chiby";
-}
-@font-face {
-  font-family: "Super Chiby";
-  src: url(/src/assets/fonts/super_chiby/Super\ Chiby.ttf);
+  src: url("/src/assets/fonts/super_chiby/Super\ Chiby.ttf");
   font-display: swap;
 }
 
 @font-face {
-  font-family: "Figtree";
-  src: url(/src/assets/fonts/Figtree/Figtree-VariableFont_wght.ttf);
+  font-family: Figtree;
+  src: url("/src/assets/fonts/Figtree/Figtree-VariableFont_wght.ttf");
   font-display: swap;
 }
 
 @font-face {
-  font-family: "Chicle";
-  src: url(/src/assets/fonts/Chicle/Chicle-Regular.ttf);
+  font-family: Chicle;
+  src: url("/src/assets/fonts/Chicle/Chicle-Regular.ttf");
   font-display: swap;
 }
 
-.navbarLogo,
-.checkoutLogo,
-.orderConfirmationLogo {
-  font-family: "Chicle", serif;
+.navbar-logo,
+.checkout-logo,
+.order-confirmation-logo {
+  font-family: Chicle, serif;
   font-size: 4rem;
-  color: $logoRedText;
+  color: $logo-red-text;
 }

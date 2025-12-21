@@ -11,6 +11,14 @@ footer {
     color: $footer-text;
   }
 
+  a:hover {
+    text-decoration: underline;
+  }
+
+  a:active {
+    filter: brightness(1.5);
+  }
+
   i {
     margin: 0.5rem;
     font-size: 2rem;
@@ -44,19 +52,11 @@ footer {
   a {
     text-decoration: none;
   }
-}
 
-footer a:hover {
-  text-decoration: underline;
-}
-
-footer a:active {
-  filter: brightness(1.5);
-}
-
-.gang-gang a:hover {
-  color: $footer-icon-color;
-  text-decoration: underline;
+  a:hover {
+    color: $footer-icon-color;
+    text-decoration: underline;
+  }
 }
 
 .logo-container-footer {
@@ -72,10 +72,4 @@ footer a:active {
   height: 10rem;
   filter: saturate(0.6);
   align-self: center;
-}
-
-@media (width <= 576px) {
-  .logo-img-footer {
-    display: none;
-  }
 }

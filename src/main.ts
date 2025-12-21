@@ -2,7 +2,7 @@ import { getClickedCandyId } from "./components/getClickedCandyId";
 import { initStore } from "./components/cart";
 import { renderAllCards } from "./components/renderAllCards";
 import { renderCartView, renderCheckoutForm } from "./components/accordian";
-import { renderFooter } from "./components/footer";
+// import { renderFooter } from "./components/footer";
 import { renderNavbar } from "./components/navbar";
 import { renderOffCan } from "./components/offcan";
 
@@ -22,6 +22,14 @@ renderAllCards();
 getClickedCandyId();
 renderNavbar();
 renderOffCan();
-renderFooter();
 
 initStore();
+
+// Lazy load footer
+import("./components/footer")
+  .then(({ renderFooter }) => {
+    renderFooter();
+  })
+  .catch((error) => {
+    console.error("Failed to load footer:", error);
+  });

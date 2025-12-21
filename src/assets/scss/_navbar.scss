@@ -1,9 +1,16 @@
-.nav-link:hover {
-  transform: scale(1.1);
+.nav-link {
+  margin-right: 15px;
+  transition: all 0.2s;
+
+  &:hover {
+    transform: scale(1.1);
+    color: $btn-candy-pink;
+  }
 }
+
 .navbar {
   display: flex;
-  box-shadow: 0 4px 8px $shadowColor;
+  box-shadow: 0 4px 8px rgb(0 0 0 / 20%);
   border-bottom-left-radius: 20px;
   min-width: 350px;
 }
@@ -13,10 +20,18 @@
 
   &:hover {
     transform: rotate(350deg) scale(1.2) translateX(20px) translateY(15px);
-    text-shadow: 0px 0px 10px white;
+    text-shadow: 0 0 10px white;
   }
 }
-.navbarCart {
+
+.navbar-logo {
+  font-family: Chicle, serif;
+  font-size: 4rem;
+  color: rgb(203 0 0);
+  margin: 0 10px;
+}
+
+.navbar-cart {
   transition: transform 0.2s ease-in-out;
   display: inline-block;
 
@@ -28,18 +43,6 @@
 
 .navbar-gradient {
   background: linear-gradient(90deg, #ffb3d9 0%, #ffebb3 30%, #a3dcff 100%);
-}
-.nav-link {
-  margin-right: 15px;
-  transition: transform 0.2s, color 0.2;
-
-  &:hover {
-    color: $btn-candy-pink;
-  }
-}
-
-.navbarLogo {
-  margin: 0px 10px;
 }
 
 .navbar-toggler {

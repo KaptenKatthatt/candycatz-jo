@@ -1,26 +1,25 @@
-.topTreatsSideScrollerContainerOuter {
+.top-treats-side-scroller-container-outer {
   position: relative;
 }
 
-.topTreatsSideScrollerContainer {
+.top-treats-side-scroller-container {
   height: 555px;
   margin: 30px 45px;
   gap: 30px;
   overflow-x: auto;
-
   display: flex;
   flex-direction: row;
   scrollbar-width: none;
   scroll-behavior: smooth;
 }
 
-.topTreatsSideScrollerContainer .card {
+.top-treats-side-scroller-container .card {
   flex-shrink: 0;
   margin-bottom: 20px;
 }
 
-.scrollArrow {
-  margin: 0px 30px;
+.scroll-arrow {
+  margin: 0 30px;
   color: $primary;
   font-size: 50px;
   position: absolute;
@@ -33,30 +32,35 @@
   &:first-of-type {
     left: -20px;
   }
-  &:first-of-type:hover {
-    transform: scale(1.05) translateY(-50%);
-  }
-  &:first-of-type:active {
-    transform: scale(0.95) translateY(-50%);
-  }
 
   &:last-of-type {
     right: -20px;
   }
+
   &:last-of-type:hover {
     transform: scale(1.05) translateY(-50%);
   }
+
   &:last-of-type:active {
     transform: scale(0.95) translateY(-50%);
   }
+
+  &:first-of-type:hover {
+    transform: scale(1.05) translateY(-50%);
+  }
+
+  &:first-of-type:active {
+    transform: scale(0.95) translateY(-50%);
+  }
 }
-.cardTitleSideScroller {
+
+.card-title-side-scroller {
   font-size: 2rem;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
 
-.cardTitleSideScroller::after {
+.card-title-side-scroller::after {
   content: "!";
 }

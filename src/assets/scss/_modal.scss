@@ -1,9 +1,15 @@
-.card-img {
-  margin: auto;
-  transition: transform 1.5s ease-in-out;
-  width: 200px;
-  &:hover {
-    transform: scale(0.2);
+.modal {
+  &-content {
+    font-size: 0.8rem;
+  }
+
+  &-footer,
+  &-header {
+    border: none;
+  }
+
+  &-price {
+    margin: 0;
   }
 }
 
@@ -17,27 +23,12 @@
   font-weight: 800;
 }
 
-.modal {
-  &-content {
-    font-size: 0.8rem;
-  }
-  &-footer,
-  &-header {
-    border: none;
-  }
-  &-price {
-    margin: 0px;
-  }
-}
+.modal-card-img {
+  margin: auto;
+  transition: transform 1.5s ease-in-out;
+  width: 200px;
 
-@media (min-width: 576px) {
-  .modalBtn {
-    max-width: 50%;
-    margin: auto;
-  }
-  .scrollableModal {
-    max-height: 400px;
-    overflow-y: auto;
-    padding-right: 10px;
+  &:hover {
+    transform: scale(0.2);
   }
 }

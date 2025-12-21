@@ -1,4 +1,4 @@
-import { postUserAddressForm } from "../components/accordian";
+import { postUserAddressForm } from "../components/accordion";
 import { type AddressData } from "./candyApiTypes";
 import { getCartArrayFromLocalStorage } from "../components/localStorage";
 import type { CheckoutData, ResponseData } from "./candyApiTypes";

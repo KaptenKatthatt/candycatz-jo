@@ -1,7 +1,7 @@
 import { getClickedCandyId } from "./components/getClickedCandyId";
 import { initStore } from "./components/cart";
 import { renderAllCards } from "./components/renderAllCards";
-import { renderCartView, renderCheckoutForm } from "./components/accordian";
+import { renderCartView, renderCheckoutForm } from "./components/accordion";
 // import { renderFooter } from "./components/footer";
 import { renderNavbar } from "./components/navbar";
 import { renderOffCan } from "./components/offcan";

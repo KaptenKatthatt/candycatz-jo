@@ -23,7 +23,7 @@ export function cardStructureSideScroller(product: CandyData): string {
           <p class="card-text priceTag">Pris/skopa: <span class="fw-bold">${
             product.price
           }:-</span></p>
-          <button class="modal-info-btn btn btn-primary" aria-label="Product info popup"><i class="bi bi-info-circle"></i></button>
+          <button class="modal-info-btn btn" aria-label="Product info popup"><i class="bi bi-info-circle"></i></button>
           <button class="add-to-cart-btn btn" 
           ${
             product.stock_status !== "instock" ? "disabled" : ""

@@ -31,7 +31,7 @@ export const renderCartView = function () {
           <!-- Order summary -->
           <div class="card checkout-order-summary mt-4 my-4">
             <div class="card-body">
-              <h5 class="order-summary-header text-dark mb-4">Ordersummering</h5>
+              <h5 class="order-summary-header mb-4">Ordersummering</h5>
               <div class="d-flex justify-content-between mb-3">
                 <span>Summa</span>
                 <span class="checkout-subtotal-container"></span>
@@ -50,7 +50,7 @@ export const renderCartView = function () {
             </div>
             <!--  Continue to checkout button -->
             <div class="proceed-btn-container text-center mt-2 mx-auto" aria-label="Go to checkout">
-              <button type="button" class="proceed-btn btn btn-primary mt-5" aria-label="Continue to checkout">😸 <i class="bi bi-chevron-down"></i> Fortsätt till
+              <button type="button" class="proceed-btn btn mt-5" aria-label="Continue to checkout">😸 <i class="bi bi-chevron-down"></i> Fortsätt till
                 kassan! <i class="bi bi-chevron-down"></i> 😸</button>
             </div>
           </div>

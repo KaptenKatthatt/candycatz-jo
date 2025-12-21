@@ -27,6 +27,7 @@
 
 .checkout-order-summary {
   box-shadow: 0 8px 20px $primary;
+  padding: 1rem;
 }
 
 .form-title {
@@ -52,6 +53,11 @@
 
 .proceed-btn {
   font-size: 1.2rem;
+  background-color: $primary;
+
+  &:active {
+    background-color: $primary;
+  }
 }
 
 .proceed-btn-container {

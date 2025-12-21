@@ -42,7 +42,7 @@ export const renderOffCan = function () {
         <!-- Continue Shopping Button -->
         <button
           type="button"
-          class="continue-shopping-btn"
+          class="continue-shopping-btn btn"
           data-bs-dismiss="offcanvas"
           aria-label="Close"
         >
@@ -50,7 +50,7 @@ export const renderOffCan = function () {
         </button>
 
         <button
-          class="check-out-btn"
+          class="checkout-btn btn"
           data-bs-dismiss="offcanvas"
           aria-label="Close"
         >
@@ -67,7 +67,7 @@ export const renderOffCan = function () {
     "#cartCheckoutContainer"
   );
   const checkOutBtn =
-    document.querySelector<HTMLButtonElement>(".check-out-btn")!;
+    document.querySelector<HTMLButtonElement>(".checkout-btn")!;
 
   checkOutBtn.addEventListener("click", () => {
     document.querySelector(".carousel")?.classList.add("d-none");

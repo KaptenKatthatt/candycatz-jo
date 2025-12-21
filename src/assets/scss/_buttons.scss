@@ -31,7 +31,7 @@
 }
 
 .btn,
-.check-out-btn,
+.checkout-btn,
 .continue-shopping-btn {
   border: 3px double black;
   border-bottom: 5px solid black;
@@ -42,6 +42,7 @@
     border: 3px double black;
     border-bottom: 5px solid black;
     border-right: 5px solid black;
+    filter: brightness(1.2);
   }
 }
 
@@ -70,16 +71,15 @@
   }
 }
 
-.check-out-btn {
-  background-color: $accordion;
+.checkout-btn {
+  background-color: $green;
   margin: 0 auto;
   padding: $btn-padding-y $btn-padding-x;
   width: 100%;
 
   &:hover {
-    background-color: $accordion;
-    filter: brightness(1.15);
-    transform: scale(1);
+    background-color: $green;
+    transform: scale(1); // Override, can't scale
   }
 
   &:active {
@@ -96,7 +96,7 @@
 
   &:hover {
     background-color: $primary;
-    filter: brightness(1.15);
+    transform: scale(1); // Override, no scaling on this one.
   }
 
   &:active {
@@ -114,12 +114,14 @@
   transition: transform 0.1s ease-in-out;
 
   &:hover {
+    background: $modal-info-btn-bg;
     box-shadow: 0 4px 8px $btn-candy-purple;
     color: white;
     transform: scale(1.05);
   }
 
   &:active {
+    background: $modal-info-btn-bg;
     transform: scale(0.95);
   }
 }

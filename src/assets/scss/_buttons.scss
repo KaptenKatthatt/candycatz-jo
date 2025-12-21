@@ -18,21 +18,10 @@
   margin-top: 1rem;
 }
 
-.btn {
-  transition: transform 0.1s ease-in-out;
-
-  &:hover {
-    transform: scale(1.05);
-  }
-
-  &:active {
-    transform: scale(0.95);
-  }
-}
-
 .btn,
-.check-out-btn,
-.continue-shopping-btn {
+.checkout-btn,
+#continue-shopping-btn {
+  transition: transform 0.1s ease-in-out;
   border: 3px double black;
   border-bottom: 5px solid black;
   border-right: 5px solid black;
@@ -42,6 +31,15 @@
     border: 3px double black;
     border-bottom: 5px solid black;
     border-right: 5px solid black;
+    filter: brightness(1.2);
+  }
+
+  &:hover {
+    transform: scale(1.05);
+  }
+
+  &:active {
+    transform: scale(0.95);
   }
 }
 
@@ -70,16 +68,15 @@
   }
 }
 
-.check-out-btn {
-  background-color: $accordion;
+.checkout-btn {
+  background-color: $green;
   margin: 0 auto;
   padding: $btn-padding-y $btn-padding-x;
   width: 100%;
 
   &:hover {
-    background-color: $accordion;
-    filter: brightness(1.15);
-    transform: scale(1);
+    background-color: $green;
+    transform: scale(1); // Override, can't scale
   }
 
   &:active {
@@ -87,7 +84,7 @@
   }
 }
 
-.continue-shopping-btn {
+#continue-shopping-btn {
   background-color: $primary;
   margin-bottom: 0.5rem;
   margin-top: 1rem;
@@ -96,7 +93,7 @@
 
   &:hover {
     background-color: $primary;
-    filter: brightness(1.15);
+    transform: scale(1); // Override, no scaling on this one.
   }
 
   &:active {
@@ -114,12 +111,39 @@
   transition: transform 0.1s ease-in-out;
 
   &:hover {
+    background: $modal-info-btn-bg;
     box-shadow: 0 4px 8px $btn-candy-purple;
     color: white;
     transform: scale(1.05);
   }
 
   &:active {
+    background: $modal-info-btn-bg;
     transform: scale(0.95);
+  }
+}
+
+#shop-again-btn,
+#submit-order-btn {
+  background-color: $primary;
+
+  &:hover {
+    background-color: $primary;
+  }
+
+  &:active {
+    background-color: $primary;
+  }
+}
+
+.modal-btn {
+  background-color: $secondary;
+
+  &:hover {
+    background-color: $secondary;
+  }
+
+  &:active {
+    background-color: $secondary;
   }
 }

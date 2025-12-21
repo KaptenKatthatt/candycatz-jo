@@ -21,7 +21,7 @@ export const renderModal = async function (productId: number) {
       <div class="modal-content">
       <div class="modal-header">
       <h3 class="modal-title">${candyTitle}</h3>
-        <button type="button" class="btn btn-secondary ms-auto" data-bs-dismiss="modal" aria-label="Close">X
+        <button type="button" class="btn modal-btn me-0" data-bs-dismiss="modal" aria-label="Close">X
         </button>
         </div>
         <div class="modal-body mt-0">
@@ -47,7 +47,7 @@ export const renderModal = async function (productId: number) {
           }
         </div>
         </div>
-          <button type="button" class="btn btn-secondary modal-btn mt-2" data-bs-dismiss="modal" aria-label="Close product info popup">Stäng</button>
+          <button type="button" class="btn modal-btn modal-btn mt-2" data-bs-dismiss="modal" aria-label="Close product info popup">Stäng</button>
        
         </div>
       </div>

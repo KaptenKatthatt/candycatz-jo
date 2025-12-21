@@ -32,7 +32,7 @@
 
 .btn,
 .checkout-btn,
-.continue-shopping-btn {
+#continue-shopping-btn {
   border: 3px double black;
   border-bottom: 5px solid black;
   border-right: 5px solid black;
@@ -87,7 +87,7 @@
   }
 }
 
-.continue-shopping-btn {
+#continue-shopping-btn {
   background-color: $primary;
   margin-bottom: 0.5rem;
   margin-top: 1rem;
@@ -123,5 +123,18 @@
   &:active {
     background: $modal-info-btn-bg;
     transform: scale(0.95);
+  }
+}
+
+#shop-again-btn,
+#submit-order-btn {
+  background-color: $primary;
+
+  &:hover {
+    background-color: $primary;
+  }
+
+  &:active {
+    background-color: $primary;
   }
 }

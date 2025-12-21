@@ -27,7 +27,7 @@ export const renderCartView = function () {
 
         <img class="checkout-logo mb-2" src="/img/candyCatzLogo_pinkBG.webp" alt="Logo for Candycatz">
         <div class="checkout-and-order-summary-container">
-          <div class="checkoutCartContainer card"></div>
+          <div class="checkout-cart-container card"></div>
           <!-- Order summary -->
           <div class="card checkout-order-summary mt-4 my-4">
             <div class="card-body">
@@ -144,7 +144,7 @@ export const renderCheckoutForm = function () {
                       </div>
                     </div>
                   </div>
-                  <button type="submit" class="submitBtn btn btn-primary mt-2" aria-label="Submit order">Slutför köp</button>
+                  <button type="submit" id="submit-order-btn" class="btn mt-2" aria-label="Submit order">Slutför köp</button>
                 </form>
                 </div>
               </div>
@@ -278,8 +278,8 @@ export const postUserAddressForm = function (responseData: ResponseData) {
                                         </div>
                                       </div>
 
-                                      <!-- Continue Shopping Button -->
-                                    <button type="button" class="goBackToHomeBtn btn btn-primary mt-5" onclick="location.reload()" aria-label="Go back to main page">
+                                      <!-- Shop again Button -->
+                                    <button type="button" id="shop-again-btn" class="btn mt-5" onclick="location.reload()" aria-label="Go back to main page">
                                      <i class="bi bi-arrow-left me-2"></i>Handla mera!
                                      </button>
                                     </div>

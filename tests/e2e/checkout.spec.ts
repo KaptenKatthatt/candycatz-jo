@@ -1,6 +1,6 @@
 import { test, expect } from "@playwright/test";
 
-test("legg til i kundvagn, gå till kassan och slutför köp", async ({
+test("lägg till i kundvagn, gå till kassan och slutför köp", async ({
   page,
 }) => {
   // Intercept order POST and return a successful response

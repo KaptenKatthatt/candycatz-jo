@@ -45,6 +45,6 @@ export const startApp = function () {
 };
 
 // Only automatically start the app when not running unit tests
-if (process.env.NODE_ENV !== "test") {
+if (import.meta.env.MODE !== "test") {
   startApp();
 }

@@ -1,6 +1,6 @@
 import { vi } from "vitest";
 
-// Mock bootstrap to avoid executing DOM dependent code during module prebundling
+// Mock bootstrap to avoid executing DOM dependent code during module pre-bundling
 vi.mock("bootstrap", () => {
   return {};
 });

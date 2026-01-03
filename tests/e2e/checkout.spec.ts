@@ -7,8 +7,17 @@ test("add to cart, go to checkout and complete purchase", async ({ page }) => {
     "https://www.bortakvall.se/api/v2/users/81/orders",
     async (route, request) => {
       try {
-        if (request.postData())
-          requestBody = JSON.parse(request.postData() || "{}");
+        const postData = request.postData();
+        if (postData) {
+          requestBody = JSON.parse(postData);
+        console.error(
+          "Failed to parse intercepted order request body:",
+          e,
+          "Raw body:",
+          request.postData()
+        );
+        // It is safe to continue with a null requestBody here because the test
+        // assertions later will fail explicitly if the body was not parsed.
       } catch (e) {
         // ignore
       }

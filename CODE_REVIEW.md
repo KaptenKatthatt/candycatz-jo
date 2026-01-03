@@ -1,6 +1,6 @@
 # Code Review — CandyCatz
 
-## Sammanfattning ✅
+## Summary ✅
 
 Projektet är välstrukturerat med separata komponenter för UI, tjänster och templates. Koden är läsbar och TypeScript används för typer — bra!
 

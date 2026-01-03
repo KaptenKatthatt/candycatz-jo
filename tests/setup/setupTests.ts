@@ -24,5 +24,5 @@ if (typeof document !== "undefined") {
 
 // Mock window.scrollTo (not implemented in jsdom env)
 if (typeof window !== "undefined") {
-  window.scrollTo = () => {};
+  window.scrollTo = vi.fn();
 }

@@ -44,7 +44,7 @@ export const startApp = function () {
     });
 };
 
-// Only automatically start the app when not running unit tests
+// Prevent auto-execution during unit tests (MODE === "test") while allowing normal browser startup
 if (import.meta.env.MODE !== "test") {
   startApp();
 }

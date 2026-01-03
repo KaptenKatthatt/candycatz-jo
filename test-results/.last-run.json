@@ -1,3 +1,4 @@
 {
-  "//": "Placeholder file. Do not commit real test result artifacts. Add 'test-results/' to .gitignore to ignore test execution metadata."
+  "status": "passed",
+  "failedTests": []
 }

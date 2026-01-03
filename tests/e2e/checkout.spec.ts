@@ -10,16 +10,15 @@ test("add to cart, go to checkout and complete purchase", async ({ page }) => {
         const postData = request.postData();
         if (postData) {
           requestBody = JSON.parse(postData);
-        console.error(
-          "Failed to parse intercepted order request body:",
-          e,
-          "Raw body:",
-          request.postData()
-        );
-        // It is safe to continue with a null requestBody here because the test
-        // assertions later will fail explicitly if the body was not parsed.
+        }
       } catch (e) {
-        // ignore
+        const rawBody = request.postData();
+        // Fail fast with a helpful message so parsing problems are obvious
+        throw new Error(
+          `Failed to parse intercepted order request body: ${String(
+            e
+          )}\nRaw body: ${rawBody}`
+        );
       }
 
       const response = {

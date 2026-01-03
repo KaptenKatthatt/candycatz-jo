@@ -6,9 +6,9 @@ import type { CheckoutData, ResponseData, CartProduct } from "./candyApiTypes";
 /**
  * Build a CheckoutData object from a cart array and address data.
  * Exported for easier unit testing without needing to mock fetch or localStorage.
- * @param {CartProduct[]} cartArray - Array of cart items to include in the order.
- * @param {AddressData} orderData - Customer address and contact information for the order.
- * @returns {CheckoutData}
+ * @param cartArray - Array of cart items to include in the order.
+ * @param orderData - Customer address and contact information for the order.
+ * @returns A CheckoutData object containing the assembled order details.
  */
 export const buildOrderFromCart = function (
   cartArray: CartProduct[],

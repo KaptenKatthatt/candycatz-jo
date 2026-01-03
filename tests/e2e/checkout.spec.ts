@@ -13,11 +13,17 @@ test("add to cart, go to checkout and complete purchase", async ({ page }) => {
         }
       } catch (e) {
         const rawBody = request.postData();
-        // Fail fast with a helpful message so parsing problems are obvious
+        const contentType =
+          request.headers()["content-type"] ||
+          request.headers()["Content-Type"] ||
+          "unknown";
+        // Fail fast with an actionable message: include raw body, content-type and expected shape
         throw new Error(
-          `Failed to parse intercepted order request body: ${String(
-            e
-          )}\nRaw body: ${rawBody}`
+          `Failed to parse intercepted order request body: ${String(e)}\n` +
+            `Content-Type: ${contentType}\n` +
+            `Raw body: ${rawBody}\n` +
+            `Expected JSON with fields: customer_first_name, customer_last_name, customer_address, customer_postcode, customer_city, customer_email, order_total (number), order_items (array of {product_id, qty, item_price, item_total}).` +
+            `\nQuick checks: is the request JSON-encoded? is the Content-Type header set to application/json?`
         );
       }
 

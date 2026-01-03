@@ -32,5 +32,5 @@ E2E-tester finns i `tests/e2e/` (t.ex. `checkout.spec.ts`) och täcker flödet: 
 
 ### Tips
 
-- Playwright konfigurerar `webServer` så att `npm run dev` startas automatiskt innan testers körs.
+- Playwright konfigurerar `webServer` så att `npm run dev` startas automatiskt innan tester körs.
 - Om du kör tester i CI, se till att installation av browsers och systemberoenden läggs till i workflow (`npx playwright install --with-deps` och `sudo apt-get install ...` eller `npx playwright install-deps`).

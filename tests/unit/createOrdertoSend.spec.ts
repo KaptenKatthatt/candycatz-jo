@@ -21,11 +21,12 @@ test("createOrderToSend builds order and calls fetch with correct body", async (
     },
   ] as any);
 
-  // Mock global fetch to capture request
-  // Prevent DOM side-effects executed by postUserAddressForm
-  vi.spyOn(accordion, "postUserAddressForm").mockImplementation(() => {
-    /* noop */
-  });
+  // Spy postUserAddressForm to assert it is called with the response
+  const postSpy = vi
+    .spyOn(accordion, "postUserAddressForm")
+    .mockImplementation(() => {
+      /* noop */
+    });
 
   const fetchMock = vi.fn().mockResolvedValue({
     ok: true,
@@ -55,6 +56,14 @@ test("createOrderToSend builds order and calls fetch with correct body", async (
   expect(body.customer_first_name).toBe("Test");
   expect(body.order_items[0].product_id).toBe(42);
   expect(body.order_total).toBe(3 * 15);
+
+  // Validate postUserAddressForm was called with the parsed response
+  expect(postSpy).toHaveBeenCalled();
+  expect(postSpy).toHaveBeenCalledWith(
+    expect.objectContaining({ status: "success" })
+  );
+  const postArg = postSpy.mock.calls[0][0];
+  expect(postArg.data.id).toBe(999);
 });
 
 test("createOrderToSend propagates fetch errors", async () => {
@@ -70,6 +79,13 @@ test("createOrderToSend propagates fetch errors", async () => {
     },
   ] as any);
 
+  // Spy postUserAddressForm to ensure it is not called on fetch error
+  const postSpy = vi
+    .spyOn(accordion, "postUserAddressForm")
+    .mockImplementation(() => {
+      /* noop */
+    });
+
   const fetchMock = vi.fn().mockRejectedValue(new Error("network"));
   vi.stubGlobal("fetch", fetchMock as any);
 
@@ -83,13 +99,16 @@ test("createOrderToSend propagates fetch errors", async () => {
   };
 
   await expect(createOrderToSend(address as any)).rejects.toThrow("network");
+  expect(postSpy).not.toHaveBeenCalled();
 });
 
 test("createOrderToSend sends empty order when cart is empty", async () => {
   vi.spyOn(storage, "getCartArrayFromLocalStorage").mockReturnValue([] as any);
-  vi.spyOn(accordion, "postUserAddressForm").mockImplementation(() => {
-    /* noop */
-  });
+  const postSpy = vi
+    .spyOn(accordion, "postUserAddressForm")
+    .mockImplementation(() => {
+      /* noop */
+    });
 
   const fetchMock = vi.fn().mockResolvedValue({
     ok: true,
@@ -116,4 +135,12 @@ test("createOrderToSend sends empty order when cart is empty", async () => {
   const body = JSON.parse(callArgs[1].body);
   expect(body.order_items).toHaveLength(0);
   expect(body.order_total).toBe(0);
+
+  // Validate postUserAddressForm called with success response
+  expect(postSpy).toHaveBeenCalled();
+  expect(postSpy).toHaveBeenCalledWith(
+    expect.objectContaining({ status: "success" })
+  );
+  const postArg = postSpy.mock.calls[0][0];
+  expect(postArg.data.id).toBe(100);
 });

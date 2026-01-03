@@ -1,8 +1,6 @@
 import { test, expect } from "@playwright/test";
 
-test("lägg till i kundvagn, gå till kassan och slutför köp", async ({
-  page,
-}) => {
+test("add to cart, go to checkout and complete purchase", async ({ page }) => {
   // Intercept order POST and return a successful response
   let requestBody: any = null;
   await page.route(

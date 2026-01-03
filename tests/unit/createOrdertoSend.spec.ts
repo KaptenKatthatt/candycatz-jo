@@ -1,5 +1,5 @@
 import { vi, test, expect, afterEach } from "vitest";
-import { createOrderToSend as createOrderToSend } from "../../src/services/candyPOST_API";
+import { createOrderToSend } from "../../src/services/candyPOST_API";
 import * as storage from "../../src/components/localStorage";
 import * as accordion from "../../src/components/accordion";
 

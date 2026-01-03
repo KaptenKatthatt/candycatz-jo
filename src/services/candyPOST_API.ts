@@ -1,16 +1,25 @@
 import { postUserAddressForm } from "../components/accordion";
 import { type AddressData } from "./candyApiTypes";
 import { getCartArrayFromLocalStorage } from "../components/localStorage";
-import type { CheckoutData, ResponseData } from "./candyApiTypes";
+import type { CheckoutData, ResponseData, CartProduct } from "./candyApiTypes";
 
-export const createOrdertoSend = async function (orderData: AddressData) {
-  const orderItemFromLocalStorage = getCartArrayFromLocalStorage();
+/**
+ * Build a CheckoutData object from a cart array and address data.
+ * Exported for easier unit testing without needing to mock fetch or localStorage.
+ * @param cartArray - Array of cart items to include in the order.
+ * @param orderData - Customer address and contact information for the order.
+ * @returns A CheckoutData object containing the assembled order details.
+ */
+export const buildOrderFromCart = function (
+  cartArray: CartProduct[],
+  orderData: AddressData
+): CheckoutData {
+  const orderTotal = cartArray.reduce(
+    (acc, curr) => acc + curr.qty * curr.price,
+    0
+  );
 
-  const orderTotal = orderItemFromLocalStorage.reduce((acc, curr) => {
-    return acc + curr.qty * curr.price;
-  }, 0);
-
-  const orderItems = orderItemFromLocalStorage.map((product) => ({
+  const orderItems = cartArray.map((product) => ({
     product_id: product.id,
     qty: product.qty,
     item_price: product.price,
@@ -28,6 +37,13 @@ export const createOrdertoSend = async function (orderData: AddressData) {
     order_total: orderTotal,
     order_items: orderItems,
   };
+
+  return newOrder;
+};
+
+export const createOrderToSend = async function (orderData: AddressData) {
+  const orderItemFromLocalStorage = getCartArrayFromLocalStorage();
+  const newOrder = buildOrderFromCart(orderItemFromLocalStorage, orderData);
 
   await sendOrder(newOrder);
   return newOrder;

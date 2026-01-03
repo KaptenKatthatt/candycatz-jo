@@ -47,6 +47,10 @@
   color: $order-confirmation-txt;
 }
 
+.pink-shadow {
+  box-shadow: 0 8px 20px $primary !important;
+}
+
 .placed-order-container {
   display: flex;
   justify-content: center;
@@ -92,8 +96,4 @@
   color: black;
   text-align: center;
   box-shadow: 0 8px 20px $primary;
-}
-
-.pink-shadow {
-  box-shadow: 0 8px 20px $primary !important;
 }

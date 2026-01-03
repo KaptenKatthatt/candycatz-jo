@@ -1,7 +1,7 @@
 import { getClickedCandyId } from "./components/getClickedCandyId";
 import { initStore } from "./components/cart";
 import { renderAllCards } from "./components/renderAllCards";
-import { renderCartView, renderCheckoutForm } from "./components/accordion";
+// import { renderCartView, renderCheckoutForm } from "./components/accordion";
 // import { renderFooter } from "./components/footer";
 import { renderNavbar } from "./components/navbar";
 import { renderOffCan } from "./components/offcan";
@@ -13,23 +13,38 @@ import "./assets/scss/app.scss";
 export const discountMultiplier = 1;
 export const shipping = 19;
 
-//Scroll to top to combat anchor links left in url
-window.scrollTo(0, 0);
+export const startApp = function () {
+  //Scroll to top to combat anchor links left in url
+  window.scrollTo(0, 0);
 
-renderCartView();
-renderCheckoutForm();
-renderAllCards();
-getClickedCandyId();
-renderNavbar();
-renderOffCan();
+  // renderCartView();
+  // renderCheckoutForm();
+  renderAllCards();
+  getClickedCandyId();
+  renderNavbar();
+  renderOffCan();
 
-initStore();
+  initStore();
 
-// Lazy load footer
-import("./components/footer")
-  .then(({ renderFooter }) => {
-    renderFooter();
-  })
-  .catch((error) => {
-    console.error("Failed to load footer:", error);
-  });
+  // Lazy loading
+  import("./components/footer")
+    .then(({ renderFooter }) => {
+      renderFooter();
+    })
+    .catch((error) => {
+      console.error("Failed to load footer:", error);
+    });
+  import("./components/accordion")
+    .then(({ renderCartView, renderCheckoutForm }) => {
+      renderCartView();
+      renderCheckoutForm();
+    })
+    .catch((error) => {
+      console.error("Failed to load accordion:", error);
+    });
+};
+
+// Auto-start the app in all modes except "test" (prevents auto-execution during unit tests)
+if (import.meta.env.MODE !== "test") {
+  startApp();
+}

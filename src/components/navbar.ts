@@ -54,14 +54,16 @@ const closeMenu = function () {
   navBarCollapse?.classList.remove("show");
 };
 
-const navBar = document.querySelector<HTMLDivElement>(".navbar")!;
-navBar.addEventListener("click", (e) => {
-  const target = e.target as HTMLDivElement;
-  const clickedNavLink = target.classList.contains("nav-link");
+const navBar = document.querySelector<HTMLDivElement>(".navbar");
+if (navBar) {
+  navBar.addEventListener("click", (e) => {
+    const target = e.target as HTMLDivElement;
+    const clickedNavLink = target.classList.contains("nav-link");
 
-  if (!clickedNavLink) {
-    return;
-  } else {
-    closeMenu();
-  }
-});
+    if (!clickedNavLink) {
+      return;
+    } else {
+      closeMenu();
+    }
+  });
+}

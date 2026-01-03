@@ -1,5 +1,5 @@
 import type { AddressData, ResponseData } from "../services/candyApiTypes";
-import { createOrdertoSend } from "../services/candyPOST_API";
+import { createOrderToSend } from "../services/candyPOST_API";
 import { clearCart } from "./cart";
 import { getCartArrayFromLocalStorage } from "./localStorage";
 import {
@@ -78,7 +78,7 @@ export const renderCheckoutForm = function () {
       customer_postcode: inputZip.value,
     };
     try {
-      await createOrdertoSend(orderData);
+      await createOrderToSend(orderData);
     } catch (err) {
       console.error("Error in createOrderToSend", err);
     }

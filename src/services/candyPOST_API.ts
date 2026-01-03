@@ -38,7 +38,7 @@ export const buildOrderFromCart = function (
   return newOrder;
 };
 
-export const createOrdertoSend = async function (orderData: AddressData) {
+export const createOrderToSend = async function (orderData: AddressData) {
   const orderItemFromLocalStorage = getCartArrayFromLocalStorage();
   const newOrder = buildOrderFromCart(orderItemFromLocalStorage, orderData);
 

@@ -1,5 +1,5 @@
 import { vi, test, expect, afterEach } from "vitest";
-import { createOrdertoSend } from "../../src/services/candyPOST_API";
+import { createOrderToSend as createOrderToSend } from "../../src/services/candyPOST_API";
 import * as storage from "../../src/components/localStorage";
 import * as accordion from "../../src/components/accordion";
 
@@ -7,7 +7,7 @@ afterEach(() => {
   vi.restoreAllMocks();
 });
 
-test("createOrdertoSend builds order and calls fetch with correct body", async () => {
+test("createOrderToSend builds order and calls fetch with correct body", async () => {
   // Mock cart in storage
   vi.spyOn(storage, "getCartArrayFromLocalStorage").mockReturnValue([
     {
@@ -42,7 +42,7 @@ test("createOrdertoSend builds order and calls fetch with correct body", async (
     customer_email: "test@example.com",
   };
 
-  const order = await createOrdertoSend(address as any);
+  const order = await createOrderToSend(address as any);
 
   // Validate returned order
   expect(order.order_items.length).toBe(1);
@@ -57,7 +57,7 @@ test("createOrdertoSend builds order and calls fetch with correct body", async (
   expect(body.order_total).toBe(3 * 15);
 });
 
-test("createOrdertoSend propagates fetch errors", async () => {
+test("createOrderToSend propagates fetch errors", async () => {
   vi.spyOn(storage, "getCartArrayFromLocalStorage").mockReturnValue([
     {
       id: 1,
@@ -82,10 +82,10 @@ test("createOrdertoSend propagates fetch errors", async () => {
     customer_email: "err@test",
   };
 
-  await expect(createOrdertoSend(address as any)).rejects.toThrow("network");
+  await expect(createOrderToSend(address as any)).rejects.toThrow("network");
 });
 
-test("createOrdertoSend sends empty order when cart is empty", async () => {
+test("createOrderToSend sends empty order when cart is empty", async () => {
   vi.spyOn(storage, "getCartArrayFromLocalStorage").mockReturnValue([] as any);
   vi.spyOn(accordion, "postUserAddressForm").mockImplementation(() => {
     /* noop */
@@ -106,7 +106,7 @@ test("createOrdertoSend sends empty order when cart is empty", async () => {
     customer_email: "empty@test",
   };
 
-  const order = await createOrdertoSend(address as any);
+  const order = await createOrderToSend(address as any);
 
   expect(order.order_items).toHaveLength(0);
   expect(order.order_total).toBe(0);

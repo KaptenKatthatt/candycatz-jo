@@ -28,6 +28,7 @@ test("does not auto-start app during tests", async () => {
   expect(renderAllCardsMock).not.toHaveBeenCalled();
   expect(renderNavbarMock).not.toHaveBeenCalled();
   expect(initStoreMock).not.toHaveBeenCalled();
+  expect(renderOffCanMock).not.toHaveBeenCalled();
 });
 
 test("startApp triggers initialization functions", async () => {
@@ -36,4 +37,5 @@ test("startApp triggers initialization functions", async () => {
   expect(renderAllCardsMock).toHaveBeenCalled();
   expect(renderNavbarMock).toHaveBeenCalled();
   expect(initStoreMock).toHaveBeenCalled();
+  expect(renderOffCanMock).toHaveBeenCalled();
 });

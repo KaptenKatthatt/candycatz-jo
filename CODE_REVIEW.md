@@ -37,7 +37,7 @@ Projektet är välstrukturerat med separata komponenter för UI, tjänster och t
   - Vissa funktioner gör upprepade `document.querySelector` anrop i renderloopar. Cache:a element eller använd komponentbaserad rendering.
 
 - Funktionens ansvar
-  - `createOrdertoSend` räknar totalsumma, bygger order och skickar den — överväg att separera beräkningslogik (ren funktion) från nätverksanrop så att båda blir lättare att testa.
+  - `createOrderToSend` räknar totalsumma, bygger order och skickar den — överväg att separera beräkningslogik (ren funktion) från nätverksanrop så att båda blir lättare att testa.
 
 ## Tillgänglighet (a11y) 💡
 
@@ -50,7 +50,7 @@ Projektet är välstrukturerat med separata komponenter för UI, tjänster och t
 - Rekommendation: Kör Playwright i CI (GitHub Actions) och installera browsers i workflow (`npx playwright install --with-deps` / `npx playwright install-deps` om nödvändigt).
 - Lägg till unit-tester för t.ex.:
   - order-beräkning (totalsumma, item totals)
-  - `createOrdertoSend` med fetch-mock för att validera request-body och felhantering
+  - `createOrderToSend` med fetch-mock för att validera request-body och felhantering
 
 ## Småförbättringar / kodrensning 🧹
 
@@ -62,7 +62,7 @@ Projektet är välstrukturerat med separata komponenter för UI, tjänster och t
 
 1. Lägg till en `StorageService` och använd dependency injection för att underlätta testbarhet.
 2. Introducera CI-jobb för Playwright (GitHub Actions) och lint-/type-check steg.
-3. Lägg till unit-tester för beräkningslogik och `createOrdertoSend`.
+3. Lägg till unit-tester för beräkningslogik och `createOrderToSend`.
 4. Minska användningen av non-null assertions och hårdkodade API-URL:er.
 
 ---

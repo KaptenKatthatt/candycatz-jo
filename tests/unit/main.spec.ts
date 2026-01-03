@@ -1,7 +1,5 @@
 import { vi, test, expect, beforeEach } from "vitest";
 
-vi.resetModules();
-
 const renderAllCardsMock = vi.fn();
 const renderNavbarMock = vi.fn();
 const initStoreMock = vi.fn();
@@ -19,6 +17,7 @@ vi.mock("../../src/components/offcan", () => ({
 }));
 
 beforeEach(() => {
+  vi.resetModules();
   vi.resetAllMocks();
 });
 

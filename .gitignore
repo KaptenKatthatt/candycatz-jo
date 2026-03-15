@@ -24,3 +24,4 @@ dist-ssr
 *.sw?
 misc
 eslint.config.ts
+docs

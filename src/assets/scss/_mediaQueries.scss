@@ -89,6 +89,20 @@
   }
 }
 
+@media (width > 1000px) {
+  .carousel-item img {
+    width: 100%;
+    max-height: min(60vh, 520px);
+    object-fit: cover;
+    object-position: center;
+  }
+
+  .top-treats-side-scroller-container-outer {
+    max-width: min(100%, calc((6.5 * 17rem) + (5.5 * 30px) + 90px));
+    margin-inline: auto;
+  }
+}
+
 @media (width >= 1200px) {
   .navbar-nav {
     font-size: 1.5rem;

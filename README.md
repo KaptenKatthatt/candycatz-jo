@@ -124,13 +124,6 @@ Built with sugar, teamwork, and lots of candy energy by:
 - Sophia — GitHub: [@Hajfia](https://github.com/Hajfia) 🍓
 - Klara — GitHub: [@KlaraTL](https://github.com/KlaraTL) 🍇
 
-Want to contribute?
-
-- Fork the repo
-- Create a feature branch
-- Commit your changes
-- Open a pull request
-
 ## 📜 License
 
 This project is for educational purposes.

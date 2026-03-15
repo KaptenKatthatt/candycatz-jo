@@ -22,18 +22,37 @@
 @import "typography";
 @import "mediaQueries"; // Has to be loaded last
 
+html {
+  background-color: $background-color;
+  background-image:
+    radial-gradient(circle, rgba($primary, 0.75) 13px, transparent 13px),
+    radial-gradient(circle, rgba($secondary, 0.75) 13px, transparent 13px),
+    radial-gradient(circle, rgba($footer-bg, 0.65) 9px, transparent 9px);
+  background-size: 80px 80px;
+  background-position:
+    0 0,
+    40px 40px,
+    20px 60px;
+}
+
 body {
   box-sizing: border-box;
   font-family: Figtree, sans-serif;
-  background-color: $background-color;
+  background: transparent;
   margin: 0;
   padding: 0;
   padding-top: 80px;
+  overflow-x: hidden;
 }
 
-html,
-body {
-  overflow-x: hidden;
+main,
+.navbar.fixed-top {
+  width: min(100%, 2600px);
+  margin-inline: auto;
+}
+
+main {
+  background-color: $background-color;
 }
 
 .click,

@@ -103,6 +103,19 @@
   }
 }
 
+@media (width > 2500px) {
+  .top-treats-side-scroller-container {
+    mask-image: linear-gradient(
+      to right,
+      transparent 0,
+      #000 80px,
+      #000 calc(100% - 80px),
+      transparent 100%
+    );
+    mask-repeat: no-repeat;
+  }
+}
+
 @media (width >= 1200px) {
   .navbar-nav {
     font-size: 1.5rem;
